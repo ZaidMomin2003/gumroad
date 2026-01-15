@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleanmails — Self-hosted email list cleaning & validation</title>
+    <meta name="description"
+        content="A simple, private, and self-hosted email validation script. No subscriptions, no limits, full data ownership.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="hero">
+            <h1 class="product-name">Cleanmails</h1>
+            <p class="descriptor">Self-hosted email list cleaning & validation script</p>
+            <div class="cta-wrapper">
+                <a href="#pricing" class="cta-button">Get lifetime access — $39</a>
+                <p class="cta-subtext">One-time purchase. Self-hosted. Unlimited usage.</p>
+            </div>
+        </header>
+
+        <section class="product-preview">
+            <div class="video-wrapper">
+                <iframe
+                    src="https://player.vimeo.com/video/76979871?h=8272103f6e&badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                    title="Cleanmails Demo"></iframe>
+            </div>
+        </section>
+
+        <main>
+            <section class="description">
+                <p>Email marketing is only effective if your messages actually reach the inbox. High bounce rates and
+                    spam reports don't just waste your time—they destroy your sender reputation and get your account
+                    banned.</p>
+                <p>Most validation services charge per email or require monthly subscriptions. This means you’re either
+                    overpaying for infrequent cleanings or hesitating to validate your list as often as you should.</p>
+                <p>Cleanmails is a lightweight, self-hosted script designed to give you full control. It validates your
+                    email lists locally, checking syntax and verifying mail servers without sending a single email.</p>
+            </section>
+
+            <section class="features-detailed">
+                <div class="feature-section">
+                    <h2>🛡️ The 8-Step Validation Process</h2>
+                    <p>When you run an email through Cleanmails, it undergoes a deep "Multi-Layered Scan" to ensure it
+                        is safe for your sender reputation:</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h3>1. Strict Syntax Check</h3>
+                            <p>Verifies the email structure against RFC standards (proper @ placement, valid characters,
+                                and length limits for both local and domain parts).</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>2. Real-time DNS Lookup</h3>
+                            <p>Uses Cloudflare’s DNS-over-HTTPS to verify if the domain actually exists and is active.
+                            </p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>3. MX Record Verification</h3>
+                            <p>Specifically checks if the domain has "Mail Exchange" records configured to receive
+                                emails. An email with no MX records is 100% undeliverable.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>4. Social Identity Match (Gravatar)</h3>
+                            <p>Performs a cryptographic hash check against Gravatar. If a profile exists, the email is
+                                marked as "High Confidence" because a real human has linked it to a social account.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>5. Disposable/Burner Detection</h3>
+                            <p>Cross-references the domain against a database of 500+ temporary email providers (like
+                                Mailinator or 10MinuteMail) that are often used for fraud.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>6. Role-Based Account Filtering</h3>
+                            <p>Identifies generic addresses like admin@, support@, or info@. These are "Risky" for
+                                outreach because they usually reach a group, not a decision-maker, and have higher
+                                complaint rates.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>7. Bot & Entropy Analysis</h3>
+                            <p>Uses a custom algorithm to calculate the "randomness" of the local part. If an email
+                                looks like xjh23_9sb@, it is flagged as a likely robotic or machine-generated address.
+                            </p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>8. Typo & Domain Reputation Check</h3>
+                            <ul>
+                                <li><strong>Typo Detection:</strong> Checks for common mistakes (e.g., user@gmal.com)
+                                    using Levenshtein distance.</li>
+                                <li><strong>Blacklist Check:</strong> Scans domain TXT records for security blocklists.
+                                </li>
+                                <li><strong>High-Risk TLDs:</strong> Flags domains using "cheap" extensions (like .top,
+                                    .xyz, or .click) which are statistically more likely to be used for spam.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-section">
+                    <h2>🚀 Other Powerful Features</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">�</span>
+                            <h3>Spam Trigger Analysis</h3>
+                            <p><strong>Weighted Scoring:</strong> Scans your email body for 150+ "spammy" keywords and
+                                assigns a risk score.</p>
+                            <p><strong>Formatting Guard:</strong> Flags excessive ALL CAPS, too many emojis, or
+                                suspicious link-shorteners.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">�</span>
+                            <h3>Intelligent List Management</h3>
+                            <p><strong>Column Preservation:</strong> When you upload a CSV or Excel, we keep all your
+                                original data and simply append the validation result.</p>
+                            <p><strong>Bulk Processing:</strong> Optimized to handle thousands of emails in small
+                                batches for speed and accuracy.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">📑</span>
+                            <h3>Email Extractor</h3>
+                            <p>Instantly "scrapes" and cleans email addresses from unstructured text, messy documents,
+                                or raw code.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🧹</span>
+                            <h3>CSV/Excel List Cleaner</h3>
+                            <p>Normalizes messy contact lists, removes duplicates, and prepares data for bulk
+                                verification.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">✨</span>
+                            <h3>Interactive Dashboard</h3>
+                            <p><strong>Visual Reports:</strong> Pie charts and breakdown tables show you exactly how
+                                many "Good," "Risky," and "Bad" emails are in your list.</p>
+                            <p><strong>Persistence:</strong> Your results and input are automatically saved in your
+                                browser, so you can pick up exactly where you left off.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="why-cleanmails">
+                <h2>Why Cleanmails</h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <h3>No subscriptions</h3>
+                        <p>Stop paying every month. Buy once, use forever. No recurring fees or hidden costs.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>No usage limits</h3>
+                        <p>Validate 100 or 1,000,000 emails. The only limit is your hardware, not your wallet.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>No third-party APIs</h3>
+                        <p>Process your data locally. No need to share your sensitive subscriber lists with external
+                            services.</p>
+                    </div>
+                    <div class="comparison-item">
+                        <h3>Full data ownership</h3>
+                        <p>Since it's self-hosted, your data never leaves your server. Ideal for privacy-conscious
+                            founders.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="who-it-is-for">
+                <h2>Who It’s For</h2>
+                <p>Cleanmails is built for founders, marketers, agencies, and small teams who want a reliable, private
+                    tool for maintaining list hygiene without the SaaS overhead.</p>
+            </section>
+
+            <section id="pricing" class="pricing">
+                <div class="pricing-card">
+                    <span class="pricing-title">Lifetime Access</span>
+                    <div class="price-wrapper">
+                        <span class="original-price">$79</span>
+                        <span class="current-price">$39</span>
+                    </div>
+                    <p class="pricing-detail">One-time payment. Instant download.</p>
+                    <a class="gumroad-button" href="https://zaidbuilds.gumroad.com/l/Cleanmails"
+                        data-gumroad-overlay-checkout="true">Get Cleanmails Now </a>
+                </div>
+            </section>
+
+            <section class="faq">
+                <h2>FAQ</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Is this really lifetime?</h3>
+                        <p>Yes. Once you purchase Cleanmails, you own the script. There are no monthly fees or
+                            expiration dates.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Is it self-hosted?</h3>
+                        <p>Yes. You run the script on your own machine or server. It’s designed to be lightweight and
+                            easy to set up.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Are there any limits?</h3>
+                        <p>No. You can process as many emails as you want. There are no artificial caps on usage.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Do I need technical knowledge?</h3>
+                        <p>Basic knowledge of running a script is helpful, but we provide clear instructions to get you
+                            started in minutes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="subscribe">
+                <h2>Stay Updated</h2>
+                <form action="https://gumroad.com/follow_from_embed_form" method="post" id="gumroad-follow-form-embed">
+                    <input type="hidden" name="seller_id" value="7562310148310" />
+                    <input id="gumroad-follow-form-embed-input" type="email" placeholder="Your email address"
+                        name="email" value="" />
+                    <button class="cta-button" type="submit" id="gumroad-follow-form-embed-button">Follow</button>
+                </form>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="footer-brand">Cleanmails</p>
+            <p class="footer-tagline">Built for simple, private email validation</p>
+            <nav class="footer-nav">
+                <a href="./support.html">Support</a>
+                <a href="./terms.html">Terms</a>
+                <a href="./privacy.html">Privacy</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>
