@@ -178,16 +178,16 @@ main section {
     border: 3px solid var(--border-color);
     padding: 40px 32px;
     border-radius: 24px;
-    box-shadow: var(--shadow-soft);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
 .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.05);
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.08);
 }
 
 .feature-card h3 {
@@ -242,13 +242,14 @@ main section {
     width: 100%;
     max-width: 580px;
     text-align: center;
-    box-shadow: 20px 20px 0 rgba(255, 144, 232, 0.15);
+    box-shadow: 15px 15px 0 rgba(255, 144, 232, 0.2);
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .pricing-card:hover {
-    transform: scale(1.03);
+    transform: translate(-8px, -8px);
+    box-shadow: 25px 25px 0 rgba(255, 144, 232, 0.25);
 }
 
 .pricing-card::before {
@@ -309,7 +310,13 @@ main section {
     background: #fff;
     border: 3px solid #000;
     border-radius: 24px;
-    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.02);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.02);
+    transition: all 0.2s ease;
+}
+
+.faq-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.05);
 }
 
 .faq-item h3 {
