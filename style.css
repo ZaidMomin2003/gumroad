@@ -545,3 +545,113 @@ main section {
     padding: 2px 8px;
     border-radius: 4px;
 }
+
+/* Host On Section */
+.host-on {
+    margin-bottom: 80px;
+}
+
+.host-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.host-card {
+    background: #fff;
+    border: 3px solid #000;
+    padding: 32px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    box-shadow: 6px 6px 0 #000;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.host-card.preferred {
+    border-color: var(--accent-color);
+    box-shadow: 6px 6px 0 var(--accent-color);
+}
+
+.host-card.preferred::after {
+    content: "Recommended";
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background: var(--accent-color);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 4px 40px;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.host-logo {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.host-card h3 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.host-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.host-instructions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 2;
+}
+
+.host-card:hover .host-instructions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.host-instructions h4 {
+    color: var(--accent-color);
+    margin-bottom: 12px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.host-instructions ol {
+    padding-left: 20px;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.host-instructions li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .host-grid {
+        grid-template-columns: 1fr;
+    }
+}
