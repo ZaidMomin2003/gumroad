@@ -578,16 +578,22 @@ main section {
 .host-card.preferred::after {
     content: "Recommended";
     position: absolute;
-    top: 15px;
-    right: -35px;
+    top: 18px;
+    right: -42px;
     background: var(--accent-color);
     color: #000;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 900;
-    padding: 4px 40px;
+    width: 160px;
+    padding: 6px 0;
+    text-align: center;
     transform: rotate(45deg);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    z-index: 5;
+    /* Keep it above the instructions overlay */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
 }
 
 .host-logo {
