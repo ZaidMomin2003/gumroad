@@ -141,7 +141,7 @@ p {
 
 .video-wrapper {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
     background: #000;
     border: 3px solid #000;
     border-radius: 20px;
