@@ -576,7 +576,7 @@ main section {
 }
 
 .host-card.preferred::after {
-    content: "Recommended";
+    content: "Suggested";
     position: absolute;
     top: 18px;
     right: -42px;
