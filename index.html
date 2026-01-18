@@ -142,7 +142,7 @@
                     <h2>🚀 Other Powerful Features</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <span class="feature-icon">�</span>
+                            <span class="feature-icon">🔍</span>
                             <h3>Spam Trigger Analysis</h3>
                             <p><strong>Weighted Scoring:</strong> Scans your email body for 150+ "spammy" keywords and
                                 assigns a risk score.</p>
@@ -150,7 +150,7 @@
                                 suspicious link-shorteners.</p>
                         </div>
                         <div class="feature-card">
-                            <span class="feature-icon">�</span>
+                            <span class="feature-icon">📊</span>
                             <h3>Intelligent List Management</h3>
                             <p><strong>Column Preservation:</strong> When you upload a CSV or Excel, we keep all your
                                 original data and simply append the validation result.</p>
@@ -321,6 +321,43 @@
             </nav>
         </footer>
     </div>
+    <script>
+        // Button Click Tracking
+        document.addEventListener('DOMContentLoaded', function () {
+            // Hero CTA
+            const heroCta = document.querySelector('.hero .cta-button');
+            if (heroCta) {
+                heroCta.addEventListener('click', function () {
+                    gtag('event', 'click_hero_cta', {
+                        'event_category': 'engagement',
+                        'event_label': 'Get Lifetime Access'
+                    });
+                });
+            }
+
+            // Pricing Button
+            const pricingBtn = document.querySelector('.gumroad-button');
+            if (pricingBtn) {
+                pricingBtn.addEventListener('click', function () {
+                    gtag('event', 'click_pricing_cta', {
+                        'event_category': 'conversion',
+                        'event_label': 'Get Cleanmails Now'
+                    });
+                });
+            }
+
+            // Follow Button
+            const followBtn = document.getElementById('gumroad-follow-form-embed-button');
+            if (followBtn) {
+                followBtn.addEventListener('click', function () {
+                    gtag('event', 'click_follow_cta', {
+                        'event_category': 'subscription',
+                        'event_label': 'Follow Button'
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
