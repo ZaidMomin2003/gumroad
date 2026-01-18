@@ -9,6 +9,7 @@ export default defineConfig({
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
         support: resolve(__dirname, 'support.html'),
+        developer: resolve(__dirname, 'developer.html'),
       },
     },
   },
