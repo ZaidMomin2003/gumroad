@@ -48,6 +48,16 @@
 </head>
 
 <body>
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="sticky-container">
+            <div class="sticky-left">
+                <a href="#" class="sticky-logo"
+                    onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Cleanmails</a>
+                <a href="#pricing" class="sticky-cta">Get lifetime access — $39</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <header class="hero">
             <h1 class="product-name">Cleanmails</h1>
@@ -371,6 +381,18 @@
                     });
                 });
             }
+
+            // Sticky Nav Scroll Logic
+            const stickyNav = document.getElementById('stickyNav');
+            const heroSection = document.querySelector('.hero');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > heroSection.offsetHeight + 100) {
+                    stickyNav.classList.add('visible');
+                } else {
+                    stickyNav.classList.remove('visible');
+                }
+            });
         });
     </script>
 </body>
