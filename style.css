@@ -166,7 +166,19 @@ p {
     padding: 12px 24px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.sticky-logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.sticky-logo-img {
+    height: 32px;
+    width: 32px;
+    border-radius: 6px;
+    border: 2px solid #000;
 }
 
 .sticky-cta {
