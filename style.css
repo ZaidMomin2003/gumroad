@@ -21,13 +21,13 @@
 }
 
 ::selection {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: #000;
 }
 
 ::-moz-selection {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: #000;
 }
 
 html {
