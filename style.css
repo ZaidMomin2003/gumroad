@@ -166,21 +166,7 @@ p {
     padding: 12px 24px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.sticky-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.sticky-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-decoration: none;
-    color: #000;
-    letter-spacing: -1px;
+    justify-content: flex-end;
 }
 
 .sticky-cta {
@@ -201,12 +187,6 @@ p {
     transform: translate(-2px, -2px);
     box-shadow: 5px 5px 0 #000;
     background-color: var(--accent-hover);
-}
-
-@media (max-width: 480px) {
-    .sticky-logo {
-        display: none;
-    }
 }
 
 /* Product Preview / Video Wrapper */
