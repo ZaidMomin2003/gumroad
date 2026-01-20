@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QWXBBLS661');
+    </script>
+    <title>Documentation — Cleanmails</title>
+    <meta name="description" content="Master deployment. Comprehensive guides for Local, Vercel, Netlify, and Coolify.">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="sticky-nav" id="stickyNav">
+        <div class="sticky-container">
+            <a href="/" class="sticky-logo-link">
+                <img src="./favicon.png" alt="Cleanmails" class="sticky-logo-img">
+            </a>
+            <a href="https://zaidbuilds.gumroad.com/l/Cleanmails" class="sticky-cta">Get lifetime access — $39</a>
+        </div>
+    </nav>
+
+    <div class="docs-wrapper">
+        <header class="page-header" style="margin-bottom: 64px;">
+            <a href="/" class="back-link">Back to Home</a>
+            <h1 style="font-size: 4rem; margin-top: 16px;">Docs</h1>
+            <p>Everything you need to deploy and manage Cleanmails.</p>
+        </header>
+
+        <div class="docs-layout">
+            <aside class="docs-sidebar">
+                <h4>Deployment</h4>
+                <ul class="docs-nav">
+                    <li><a href="#local" class="active">Local Machine</a></li>
+                    <li><a href="#vercel">Vercel (Suggested)</a></li>
+                    <li><a href="#netlify">Netlify</a></li>
+                    <li><a href="#coolify">Coolify / VPS</a></li>
+                </ul>
+
+                <h4 style="margin-top: 32px;">Configuration</h4>
+                <ul class="docs-nav">
+                    <li><a href="#env">Environment Variables</a></li>
+                    <li><a href="#batch">Batch Processing</a></li>
+                </ul>
+            </aside>
+
+            <main class="docs-content">
+                <!-- Local -->
+                <section id="local">
+                    <h2>Local Machine Setup</h2>
+                    <p>Cleanmails is optimized for local environments. This ensures your data never leaves your
+                        computer, providing 100% privacy for your email lists.</p>
+
+                    <h3><span class="step-number">1</span>Install Node.js</h3>
+                    <p>Before you begin, ensure you have Node.js installed on your system. We recommend version 18.0 or
+                        higher.</p>
+                    <div class="code-block">
+                        <pre>node --version</pre>
+                    </div>
+
+                    <h3><span class="step-number">2</span>Extract & Install</h3>
+                    <p>Unzip the Cleanmails package and navigate to the directory in your terminal.</p>
+                    <div class="code-block">
+                        <pre>npm install</pre>
+                    </div>
+
+                    <h3><span class="step-number">3</span>Run Development Server</h3>
+                    <p>Launch the dashboard locally to start cleaning lists.</p>
+                    <div class="code-block">
+                        <pre>npm run dev</pre>
+                    </div>
+                </section>
+
+                <!-- Vercel -->
+                <section id="vercel">
+                    <h2>Deploying to Vercel</h2>
+                    <p>Vercel is our suggested platform for production. It's fast, secure, and handles the build process
+                        automatically from your GitHub repository.</p>
+
+                    <div class="info-note">
+                        <strong>Why Vercel?</strong> Vercel's Edge Network ensures that your validator dashboard is
+                        responsive globally, and its free tier is more than enough for individual founders.
+                    </div>
+
+                    <h3><span class="step-number">1</span>GitHub Setup</h3>
+                    <p>Push your Cleanmails source code to a <strong>Private</strong> GitHub repository. Never make your
+                        validator public.</p>
+
+                    <h3><span class="step-number">2</span>Connect to Vercel</h3>
+                    <p>Visit <strong>vercel.com/new</strong> and select your private repository. Vercel will
+                        automatically detect the Vite configuration.</p>
+
+                    <h3><span class="step-number">3</span>Build Settings</h3>
+                    <p>Confirm the following settings:</p>
+                    <ul>
+                        <li>Build Command: <code>npm run build</code></li>
+                        <li>Output Directory: <code>dist</code></li>
+                    </ul>
+
+                    <h3><span class="step-number">4</span>Deploy</h3>
+                    <p>Click "Deploy". In less than 60 seconds, your validator will be live on a secure
+                        <code>.vercel.app</code> subdomain.</p>
+                </section>
+
+                <!-- Netlify -->
+                <section id="netlify">
+                    <h2>Deploying to Netlify</h2>
+                    <p>Netlify provides a robust platform with excellent build pipelines. It's an ideal alternative if
+                        you prefer their ecosystem over Vercel.</p>
+
+                    <h3>Steps to Deploy:</h3>
+                    <ol>
+                        <li>Log in to Netlify and click <strong>Add new site</strong>.</li>
+                        <li>Connect your GitHub account and select your validator repository.</li>
+                        <li>Set the Build Command to <code>npm run build</code> and the Publish Directory to
+                            <code>dist</code>.</li>
+                        <li>Netlify will automatically trigger a build every time you push to your main branch.</li>
+                    </ol>
+                </section>
+
+                <!-- Coolify -->
+                <section id="coolify">
+                    <h2>Coolify & VPS Hosting</h2>
+                    <p>For users who want full control over their infrastructure, Coolify is a self-hosted PaaS that
+                        makes managing your own VPS as easy as managed services.</p>
+
+                    <div class="code-block">
+                        <pre># Typical Coolify environment detection
+Detected: Node.js / Vite
+Nixpacks: Active</pre>
+                    </div>
+
+                    <h3>Process:</h3>
+                    <p>1. Connect your server to Coolify.<br>
+                        2. Create a new Resource and select "Public/Private Repository".<br>
+                        3. Coolify will use Nixpacks to build the project. No extra configuration is needed.<br>
+                        4. Ensure you set the base directory to <code>./</code> if your files are in the root.</p>
+                </section>
+
+                <section id="env">
+                    <h2>Environment Variables</h2>
+                    <p>Cleanmails works out of the box without complex environment variables. However, if you're
+                        integrating with third-party tools, you can configure them here.</p>
+                </section>
+
+                <section id="batch">
+                    <h2>Batch Processing Tips</h2>
+                    <p>To ensure maximum accuracy without overwhelming your system:</p>
+                    <ul>
+                        <li>Keep lists under 50,000 emails per batch.</li>
+                        <li>Use a stable internet connection for DNS resolution.</li>
+                        <li>Export results as CSV regularly to keep local state clean.</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer">
+            <p class="footer-brand">Cleanmails</p>
+            <nav class="footer-nav">
+                <a href="./docs">Docs</a>
+                <a href="./support">Support</a>
+                <a href="./developer">Developer</a>
+                <a href="./terms">Terms</a>
+                <a href="./privacy">Privacy</a>
+            </nav>
+        </footer>
+    </div>
+
+    <script>
+        // Simple active link tracker
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.docs-nav a').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href').slice(1) === entry.target.id);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section[id]').forEach(section => observer.observe(section));
+
+        // Sticky Nav Scroll Logic
+        const stickyNav = document.getElementById('stickyNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 150) {
+                stickyNav.classList.add('visible');
+            } else {
+                stickyNav.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+
+</html>
