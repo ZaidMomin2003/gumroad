@@ -44,7 +44,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://gumroad.com/js/gumroad.js"></script>
 </head>
 
 <body>
@@ -53,7 +52,8 @@
             <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="sticky-logo-link">
                 <img src="./favicon.png" alt="Cleanmails" class="sticky-logo-img">
             </a>
-            <a href="#pricing" class="sticky-cta">Get lifetime access — $39</a>
+            <a href="https://www.paypal.com/ncp/payment/TBVE34XVSBLYQ" target="_blank" class="sticky-cta">Get lifetime
+                access — $39</a>
         </div>
     </nav>
 
@@ -292,8 +292,10 @@
                         $79 soon.</p>
                     <p class="pricing-detail">Instant download + <strong>get free updates forever via email.</strong>
                     </p>
-                    <a class="gumroad-button" href="https://zaidbuilds.gumroad.com/l/Cleanmails"
-                        data-gumroad-overlay-checkout="true">Get Cleanmails Now </a>
+                    <a class="paypal-button" href="https://www.paypal.com/ncp/payment/TBVE34XVSBLYQ" target="_blank">Get
+                        Cleanmails Now </a>
+                    <p class="pricing-detail" style="font-size: 0.85rem; margin-top: 16px; opacity: 0.7;">🛡️ Guaranteed
+                        safe checkout with PayPal</p>
                 </div>
             </section>
 
@@ -360,13 +362,13 @@
                 });
             }
 
-            // Pricing Button
-            const pricingBtn = document.querySelector('.gumroad-button');
+            // Pricing Button (PayPal)
+            const pricingBtn = document.querySelector('.paypal-button');
             if (pricingBtn) {
                 pricingBtn.addEventListener('click', function () {
                     gtag('event', 'click_pricing_cta', {
                         'event_category': 'conversion',
-                        'event_label': 'Get Cleanmails Now'
+                        'event_label': 'PayPal Checkout'
                     });
                 });
             }

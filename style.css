@@ -436,17 +436,31 @@ main section {
     transform: translate(-3px, -3px);
 }
 
-/* Gumroad Button Override */
-.gumroad-button {
-    display: inline-block !important;
-    text-align: center !important;
-    font-family: var(--font-family) !important;
-    padding: 20px 48px !important;
-    border-radius: 16px !important;
-    font-weight: 800 !important;
-    font-size: 1.4rem !important;
-    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-    margin: 16px auto 0 !important;
+/* PayPal Button */
+.paypal-button {
+    display: inline-block;
+    background-color: #FFC439;
+    color: #000;
+    padding: 20px 56px;
+    border-radius: 14px;
+    font-weight: 800;
+    font-size: 1.35rem;
+    text-decoration: none;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 16px;
+}
+
+.paypal-button:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 #000000;
+    background-color: #F2B522;
+}
+
+.paypal-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #000;
 }
 
 /* Footer & Nav */
