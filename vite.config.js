@@ -11,6 +11,7 @@ export default defineConfig({
         support: resolve(__dirname, 'support.html'),
         developer: resolve(__dirname, 'developer.html'),
         docs: resolve(__dirname, 'docs.html'),
+        success: resolve(__dirname, 'success-v1-x8fk2m9s7q5p4r3w.html'),
       },
     },
   },
