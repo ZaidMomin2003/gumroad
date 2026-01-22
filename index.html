@@ -52,8 +52,7 @@
             <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="sticky-logo-link">
                 <img src="./favicon.png" alt="Cleanmails" class="sticky-logo-img">
             </a>
-            <a href="https://www.paypal.com/ncp/payment/TBVE34XVSBLYQ" target="_blank" class="sticky-cta">Get lifetime
-                access — $39</a>
+            <a href="#pricing" class="sticky-cta">Get lifetime access — $39</a>
         </div>
     </nav>
 
@@ -292,19 +291,32 @@
                         $79 soon.</p>
                     <p class="pricing-detail">Instant download + <strong>get free updates forever via email.</strong>
                     </p>
-                    <form action="https://www.paypal.com/ncp/payment/TBVE34XVSBLYQ" method="post" target="_blank"
-                        class="paypal-form-container">
-                        <input class="paypal-button" type="submit" value="Buy Now" />
-                        <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="Accepted Cards"
-                            class="paypal-cards-img" />
-                        <section class="paypal-powered">
-                            Powered by <img
-                                src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
-                                alt="PayPal logo" />
-                        </section>
-                    </form>
+                    <div class="payment-container">
+                        <a href="https://pages.razorpay.com/selfhost-cleanmails" target="_blank"
+                            class="checkout-button">
+                            Get Cleanmails Now
+                        </a>
+
+                        <div class="payment-icons">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                                alt="Visa">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                alt="Mastercard">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                        </div>
+
+                        <div class="payment-tagline">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            Secured Payment using Razorpay
+                        </div>
+                    </div>
                     <p class="pricing-detail" style="font-size: 0.85rem; margin-top: 16px; opacity: 0.7;">🛡️ Guaranteed
-                        safe checkout with PayPal</p>
+                        safe checkout & instant delivery</p>
                 </div>
             </section>
 
@@ -371,13 +383,13 @@
                 });
             }
 
-            // Pricing Button (PayPal)
-            const pricingBtn = document.querySelector('.paypal-button');
+            // Pricing Button (Checkout)
+            const pricingBtn = document.querySelector('.checkout-button');
             if (pricingBtn) {
                 pricingBtn.addEventListener('click', function () {
                     gtag('event', 'click_pricing_cta', {
                         'event_category': 'conversion',
-                        'event_label': 'PayPal Checkout'
+                        'event_label': 'Razorpay Checkout'
                     });
                 });
             }
