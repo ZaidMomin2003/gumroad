@@ -47,13 +47,14 @@ export default async function handler(req, res) {
         const signedUrl = await getSignedUrl(s3Client, command, { expiresIn: 900 });
 
         // 4. TRIGGER SENDER.NET EMAIL
-        // Using Sender's transactional email API
-        await axios.post('https://api.sender.net/v2/emails/transactional', {
+        console.log("Triggering Sender.net...");
+        // After verifying with Sender's API structure, sending a template usually requires this path
+        const senderResp = await axios.post('https://api.sender.net/v2/emails/transactional', {
             email: customerEmail,
             template_id: process.env.SENDER_TEMPLATE_ID,
-            data: {
-                download_url: signedUrl,
-                firstname: customerName
+            substitutions: {
+                "{{download_url}}": signedUrl,
+                "{{firstname}}": customerName
             }
         }, {
             headers: {
