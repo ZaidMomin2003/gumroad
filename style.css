@@ -181,6 +181,14 @@ p {
     border: 2px solid #000;
 }
 
+.sticky-logo-text {
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-left: 12px;
+    letter-spacing: -0.02em;
+    color: #000;
+}
+
 .sticky-cta {
     background-color: var(--accent-color);
     color: #000;
@@ -953,5 +961,9 @@ main section {
     .docs-nav {
         flex-direction: row;
         flex-wrap: wrap;
+    }
+
+    .sticky-logo-text {
+        display: none;
     }
 }
