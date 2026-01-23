@@ -52,8 +52,8 @@ export default async function handler(req, res) {
             email: customerEmail,
             template_id: process.env.SENDER_TEMPLATE_ID,
             data: {
-                DOWNLOAD_URL: signedUrl,
-                NAME: customerName
+                download_url: signedUrl,
+                firstname: customerName
             }
         }, {
             headers: {
