@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Million Mails Resource — Cleanmails</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            align-items: stretch;
+        }
+
+        .split-card {
+            background: #fff;
+            border: 4px solid #000;
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 8px 8px 0 #000;
+            transition: all 0.2s ease;
+        }
+
+        .split-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 #000;
+        }
+
+        .product-side {
+            background-color: #fff;
+        }
+
+        .resource-side {
+            background-color: var(--accent-color);
+            /* Gumroad Pink background for distinction */
+            border-color: #000;
+        }
+
+        .resource-side h2 {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+
+        .resource-side p {
+            font-weight: 500;
+            color: #000;
+            opacity: 0.9;
+        }
+
+        .btn-download {
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 32px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-align: center;
+            display: inline-block;
+            margin-top: 24px;
+            border: 2px solid #000;
+            transition: transform 0.2s;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.02);
+            background: #222;
+        }
+
+        .btn-product {
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            padding: 18px 32px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-align: center;
+            display: inline-block;
+            margin-top: 24px;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0 #000;
+            transition: all 0.2s;
+        }
+
+        .btn-product:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 #000;
+        }
+
+        @media (max-width: 768px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="page-header">
+            <a href="/" class="back-link">Back to Home</a>
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Exclusive Resources</h1>
+            <p style="font-size: 1.25rem; color: var(--text-muted);">Tools and guides to help you scale.</p>
+        </header>
+
+        <section class="split-layout">
+            <!-- Left Side: Product Promotion -->
+            <div class="split-card product-side">
+                <div>
+                    <h2 style="font-size: 2rem; margin-bottom: 16px;">Cleanmails Software</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 24px;">
+                        Stop paying per email. Get the <strong>unlimited, self-hosted</strong> validation tool that
+                        keeps your data private.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-weight: 500;">
+                        <li style="margin-bottom: 10px;">✅ One-time purchase ($39)</li>
+                        <li style="margin-bottom: 10px;">✅ Unlimited usage forever</li>
+                        <li style="margin-bottom: 10px;">✅ 100% Data Privacy</li>
+                    </ul>
+                </div>
+                <a href="/#pricing" class="btn-product">Get Lifetime Access</a>
+            </div>
+
+            <!-- Right Side: Free Resource -->
+            <div class="split-card resource-side">
+                <div>
+                    <h2 style="margin-bottom: 16px;">Seding a Million Users</h2>
+                    <p style="font-size: 1.15rem; margin-bottom: 24px;">
+                        Gain experience of sending a million mails. Master the infrastructure required for high-volume
+                        delivery.
+                    </p>
+                </div>
+                <!-- Direct Google Drive Link -->
+                <a href="https://drive.google.com/file/d/1kZ2vMC-horRtMoIxO11MtEmXNnVI-ExT/view?usp=sharing"
+                    target="_blank" class="btn-download">
+                    Download Resource ⬇️
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p class="footer-brand">Cleanmails</p>
+            <p class="footer-tagline">Self-hosted email validation at its finest.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
