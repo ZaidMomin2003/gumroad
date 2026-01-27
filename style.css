@@ -79,6 +79,17 @@ p {
     margin-bottom: 40px;
 }
 
+.ph-badge-container {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.ph-badge-container:hover {
+    transform: translateY(-2px);
+}
+
 .product-name {
     font-size: 5rem;
     margin-bottom: 16px;
@@ -285,6 +296,16 @@ main section {
     margin-bottom: 4px;
 }
 
+.feature-card.golden-feature {
+    border-color: #FFD700;
+    background: linear-gradient(135deg, #FFF 60%, rgba(255, 215, 0, 0.1));
+    box-shadow: 6px 6px 0 #FFD700;
+}
+
+.feature-card.golden-feature:hover {
+    box-shadow: 10px 10px 0 #FFD700;
+}
+
 /* Comparison Grid (Refined) */
 .comparison-grid {
     display: grid;
@@ -331,7 +352,7 @@ main section {
     box-shadow: 25px 25px 0 rgba(255, 144, 232, 0.25);
 }
 
-.pricing-card::before {
+/* .pricing-card::before {
     content: "Limited Time Offer";
     position: absolute;
     top: -24px;
@@ -345,7 +366,7 @@ main section {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-}
+} */
 
 .pricing-title {
     display: block;
