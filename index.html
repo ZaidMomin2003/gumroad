@@ -323,35 +323,60 @@
 
             <section id="pricing" class="pricing">
                 <div class="pricing-card">
+                    <div class="pricing-toggle">
+                        <span class="toggle-label active" data-currency="intl">International</span>
+                        <label class="switch">
+                            <input type="checkbox" id="currency-switch">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="toggle-label" data-currency="ind">India</span>
+                    </div>
+
                     <span class="pricing-title">Lifetime Access</span>
-                    <div class="price-wrapper">
+                    <div class="price-wrapper" id="price-intl">
                         <span class="current-price">$99</span>
                     </div>
+                    <div class="price-wrapper" id="price-ind" style="display: none;">
+                        <span class="current-price">₹7999</span>
+                    </div>
+
                     <p class="pricing-detail"><strong>Instant access via private GitHub repo.</strong></p>
                     <p class="pricing-detail">Get <strong>free updates forever</strong> directly on GitHub.</p>
-                    <div class="payment-container">
+
+                    <div class="payment-container" id="pay-intl">
                         <a href="https://pages.razorpay.com/selfhost-cleanmails" target="_blank"
                             class="checkout-button">
                             Get Cleanmails Now
                         </a>
-
                         <div class="payment-icons">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
                                 alt="Visa">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
                                 alt="Mastercard">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
                         </div>
+                    </div>
 
-                        <div class="payment-tagline">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                            </svg>
-                            Secured Payment using Razorpay
+                    <div class="payment-container" id="pay-ind" style="display: none;">
+                        <a href="https://rzp.io/rzp/qrPOqPN" target="_blank" class="checkout-button">
+                            Get Cleanmails Now (INR)
+                        </a>
+                        <div class="payment-icons">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+                                alt="Visa">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
+                                alt="Mastercard">
                         </div>
+                    </div>
+
+                    <div class="payment-tagline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Secured Payment via Razorpay
                     </div>
                     <p class="pricing-detail" style="font-size: 0.85rem; margin-top: 16px; opacity: 0.7;">🛡️ Guaranteed
                         safe checkout & instant delivery</p>
@@ -479,6 +504,36 @@
                     stickyNav.classList.remove('visible');
                 }
             });
+
+            // Pricing Toggle Logic
+            const currencySwitch = document.getElementById('currency-switch');
+            const priceIntl = document.getElementById('price-intl');
+            const priceInd = document.getElementById('price-ind');
+            const payIntl = document.getElementById('pay-intl');
+            const payInd = document.getElementById('pay-ind');
+            const toggleLabels = document.querySelectorAll('.toggle-label');
+
+            if (currencySwitch) {
+                currencySwitch.addEventListener('change', function () {
+                    if (this.checked) {
+                        // India Selected
+                        priceIntl.style.display = 'none';
+                        priceInd.style.display = 'block';
+                        payIntl.style.display = 'none';
+                        payInd.style.display = 'flex';
+                        toggleLabels[0].classList.remove('active');
+                        toggleLabels[1].classList.add('active');
+                    } else {
+                        // Intl Selected
+                        priceIntl.style.display = 'block';
+                        priceInd.style.display = 'none';
+                        payIntl.style.display = 'flex';
+                        payInd.style.display = 'none';
+                        toggleLabels[0].classList.add('active');
+                        toggleLabels[1].classList.remove('active');
+                    }
+                });
+            }
         });
     </script>
 </body>
