@@ -23,47 +23,50 @@
 </head>
 
 <body
-    style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color);">
-    <div class="container" style="text-align: center; max-width: 600px;">
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); padding: 40px 20px;">
+    <div class="success-wrapper" style="text-align: center; max-width: 550px; width: 100%;">
         <div
-            style="background: var(--card-bg); border: 4px solid #000; padding: 60px 40px; border-radius: 32px; box-shadow: 12px 12px 0 #000;">
-            <div style="font-size: 5rem; margin-bottom: 24px;">🎉</div>
-            <h1 style="font-size: 3rem; margin-bottom: 16px;">Thank You!</h1>
-            <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px;">
+            style="background: var(--card-bg); border: 4px solid #000; padding: 40px 30px; border-radius: 32px; box-shadow: 12px 12px 0 #000; margin-bottom: 40px;">
+            <div style="font-size: 4rem; margin-bottom: 16px;">🎉</div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 12px; font-weight: 900;">Thank You!</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; font-weight: 500;">
                 Your payment was successful. You now have lifetime access to Cleanmails.
             </p>
 
             <div
-                style="margin-bottom: 40px; padding: 32px; border: 3px solid #000; border-radius: 20px; background-color: var(--accent-color); box-shadow: 8px 8px 0 #000;">
-                <h3 style="margin-bottom: 12px; font-size: 1.5rem; font-weight: 800;">Download Ready! 🚀</h3>
-                <p style="margin: 0 0 24px 0; font-size: 1.1rem; font-weight: 500; color: #000;">
-                    Click the button below to download your copy of Cleanmails.
+                style="margin-bottom: 0; padding: 28px; border: 3px solid #000; border-radius: 20px; background-color: var(--accent-color); box-shadow: 8px 8px 0 #000;">
+                <h3 style="margin-bottom: 8px; font-size: 1.3rem; font-weight: 800;">Download Ready! 🚀</h3>
+                <p style="margin: 0 0 24px 0; font-size: 1rem; font-weight: 600; color: #000; opacity: 0.9;">
+                    Click below to download your copy or view the setup guide.
                 </p>
-                <a href="#" id="download-trigger" class="cta-button" style="width: 100%; display: block;">
-                    Download Cleanmails (.zip)
-                </a>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <a href="/Email-validation-selfhost-main.zip" download id="download-trigger" class="cta-button"
+                        style="width: 100%; display: block; text-align: center; text-decoration: none; font-size: 1.1rem; padding: 16px;">
+                        Download Cleanmails (.zip)
+                    </a>
+                    <a href="/docs" class="cta-button"
+                        style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1rem; padding: 14px;">
+                        📖 View Installation Guide
+                    </a>
+                </div>
             </div>
-
-            <div
-                style="background: #fff; border: 3px solid #000; padding: 24px; border-radius: 16px; text-align: left; box-shadow: 4px 4px 0 #000;">
-                <h3 style="margin-bottom: 12px; font-size: 1.15rem; font-weight: 800;">What's Inside?</h3>
-                <ul style="padding-left: 20px; font-size: 1rem; color: #444; font-weight: 500;">
-                    <li style="margin-bottom: 8px;">Full Source Code & Files</li>
-                    <li style="margin-bottom: 8px;">Setup Guide for Local & Vercel</li>
-                    <li style="margin-bottom: 8px;">Lifetime Usage Rights</li>
-                </ul>
-            </div>
-
-            <p style="margin-top: 32px; font-size: 0.9rem; opacity: 0.6;">
-                Need help? <a href="/support" style="color: inherit;">Visit Support</a>
-            </p>
         </div>
 
-        <p style="margin-top: 24px; font-weight: 700; letter-spacing: 1px;">CLEANMAILS.ONLINE</p>
+        <div
+            style="background: #fff; border: 3px solid #000; padding: 24px; border-radius: 16px; text-align: left; box-shadow: 6px 6px 0 #000; margin-bottom: 32px;">
+            <h3 style="margin-bottom: 12px; font-size: 1.15rem; font-weight: 800;">What's Inside?</h3>
+            <ul style="padding-left: 20px; font-size: 0.95rem; color: #444; font-weight: 600; line-height: 1.6;">
+                <li style="margin-bottom: 8px;">Full Source Code & Production Files</li>
+                <li style="margin-bottom: 8px;">Local & Vercel Deployment Guides</li>
+                <li>Lifetime Usage Rights & Support</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: #000; opacity: 0.5;">
+            CLEANMAILS.ONLINE</p>
     </div>
 
     <script>
-        // Track the download event
         const dlBtn = document.getElementById('download-trigger');
         if (dlBtn) {
             dlBtn.addEventListener('click', () => {
