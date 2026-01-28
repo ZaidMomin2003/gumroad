@@ -14,6 +14,23 @@
     --shadow-bold-hover: 6px 6px 0 #000000;
 }
 
+.announcement-bar {
+    background-color: #FFD700;
+    color: #000;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    border-bottom: 3px solid #000;
+    position: relative;
+    z-index: 1100;
+}
+
+.announcement-bar strong {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 * {
     margin: 0;
     padding: 0;
