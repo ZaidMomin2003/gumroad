@@ -436,7 +436,7 @@ input:checked+.slider:before {
     box-shadow: 25px 25px 0 rgba(255, 144, 232, 0.25);
 }
 
-.pricing-card::before {
+/* .pricing-card::before {
     content: "Launch Special - 50% OFF";
     position: absolute;
     top: -24px;
@@ -451,7 +451,7 @@ input:checked+.slider:before {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     z-index: 10;
-}
+} */
 
 .pricing-title {
     display: block;
