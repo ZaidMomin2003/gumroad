@@ -414,7 +414,8 @@ input:checked+.slider:before {
 /* Pricing Section */
 .pricing {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 80px 0;
 }
 
@@ -434,6 +435,51 @@ input:checked+.slider:before {
 .pricing-card:hover {
     transform: translate(-8px, -8px);
     box-shadow: 25px 25px 0 rgba(255, 144, 232, 0.25);
+}
+
+.setup-assist {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.setup-assist-pill {
+    background: #FFD700;
+    border: 2px solid #000;
+    padding: 10px 24px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 4px 4px 0 #000;
+    transition: all 0.2s ease;
+}
+
+.setup-assist-pill:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #000;
+}
+
+.setup-assist-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.setup-assist-link {
+    background: #000;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.setup-assist-link:hover {
+    background: #333;
 }
 
 /* .pricing-card::before {
