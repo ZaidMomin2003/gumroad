@@ -14,6 +14,8 @@ export default defineConfig({
         success: resolve(__dirname, 'success-v1-x8fk2m9s7q5p4r3w.html'),
         cancel: resolve(__dirname, 'cancel.html'),
         notfound: resolve(__dirname, '404.html'),
+        affiliate: resolve(__dirname, 'affiliate.html'),
+        millionmails: resolve(__dirname, 'millionmails.html'),
       },
     },
   },
