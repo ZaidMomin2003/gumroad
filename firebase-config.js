@@ -1,13 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+// Vite uses import.meta.env to access .env variables starting with VITE_
 const firebaseConfig = {
-    apiKey: "AIzaSyBR8Y1Q_8dD1Spfscii0EN_N5xcmRzmtn4",
-    authDomain: "cleanmails-8efa5.firebaseapp.com",
-    projectId: "cleanmails-8efa5",
-    storageBucket: "cleanmails-8efa5.firebasestorage.app",
-    messagingSenderId: "203900319955",
-    appId: "1:203900319955:web:ae966f7899dc83dcc03c26"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
