@@ -110,6 +110,155 @@
             box-shadow: 12px 12px 0 #000;
         }
 
+        .affiliate-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 16px;
+            border: 3px solid #000;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: #FFD70010;
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0 #000;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: #FFD700;
+            border: 4px solid #000;
+            border-radius: 16px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 6px 6px 0 #000;
+            transition: all 0.2s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 #000;
+        }
+
+        .submit-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #000;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #000;
+        }
+
+        .dynamic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .dynamic-item {
+            display: flex;
+            gap: 10px;
+        }
+
+        .remove-btn {
+            background: #ff4d4d;
+            color: white;
+            border: 3px solid #000;
+            border-radius: 8px;
+            padding: 0 12px;
+            cursor: pointer;
+            font-weight: 900;
+        }
+
+        .add-more-btn {
+            background: #fff;
+            border: 2px dashed #000;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+
+        .add-more-btn:hover {
+            background: #f0f0f0;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #000;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-weight: 800;
+            box-shadow: 8px 8px 0 #FF90E8;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 3px solid #000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            font-size: 1.5rem;
+        }
+
         .mobile-only {
             display: none;
         }
@@ -187,19 +336,64 @@
             </div>
         </section>
 
-        <section id="join" class="form-container" style="text-align: center;">
-            <h2 style="margin-bottom: 24px;">Partner Application</h2>
-            <p style="margin-bottom: 32px; font-size: 1.1rem; font-weight: 600; color: #444;">
-                Click below to open the official registration form and start your application.
-            </p>
-            <p style="margin-bottom: 32px; font-size: 0.95rem; font-weight: 700; color: #FF90E8;">We will get back to
-                you within a day. ⚡</p>
-            <a href="https://hustlerscult.notion.site/2fa41e46f2f980eaa802fc22d44d88f3?pvs=105" target="_blank"
-                class="cta-button"
-                style="display: inline-block; text-decoration: none; background: #FFD700; padding: 20px 48px; font-size: 1.25rem;">
-                Open Registration Form →
-            </a>
-            <p style="margin-top: 24px; font-size: 0.9rem; opacity: 0.7;">Form opens in a new tab via Notion</p>
+        <section id="join" class="form-container">
+            <h2 style="text-align: center; margin-bottom: 12px;">Partner Application</h2>
+            <p style="text-align: center; margin-bottom: 32px; font-size: 0.95rem; font-weight: 700; color: #FF90E8;">We
+                will get back to you within a day. ⚡</p>
+
+            <form id="affiliateForm" class="affiliate-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Work Email</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact Number / WhatsApp</label>
+                    <input type="tel" id="contact" name="contact" placeholder="+91 00000 00000" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Best Social Platforms (Select multiple)</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="Twitter"> 𝕏 /
+                            Twitter</label>
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="LinkedIn">
+                            LinkedIn</label>
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="Instagram">
+                            Instagram</label>
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="YouTube">
+                            YouTube</label>
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="Newsletter">
+                            Newsletter</label>
+                        <label class="checkbox-item"><input type="checkbox" name="platforms" value="Blog">
+                            Website/Blog</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Social Media Links</label>
+                    <div id="socialLinksList" class="dynamic-list">
+                        <div class="dynamic-item">
+                            <input type="url" name="socialLinks[]" placeholder="https://social.com/username" required>
+                        </div>
+                    </div>
+                    <button type="button" class="add-more-btn" id="addLinkBtn">+ Add New Link</button>
+                </div>
+
+                <div class="form-group"
+                    style="margin-top: 32px; padding: 20px; background: #f9f9f9; border: 2px dashed #000; border-radius: 16px; text-align: center;">
+                    <p style="margin: 0; font-weight: 700; color: #666; font-size: 0.9rem;">
+                        💰 Payout details will be collected once your application is verified.
+                    </p>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+            </form>
         </section>
 
         <footer class="footer">
@@ -216,6 +410,113 @@
             </nav>
         </footer>
     </div>
+    <div id="toast" class="toast">
+        <span class="toast-icon"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+        // Handle adding more social links
+        const addLinkBtn = document.getElementById('addLinkBtn');
+        const socialLinksList = document.getElementById('socialLinksList');
+
+        addLinkBtn.addEventListener('click', () => {
+            const newItem = document.createElement('div');
+            newItem.className = 'dynamic-item';
+            newItem.innerHTML = `
+                <input type="url" name="socialLinks[]" placeholder="https://social.com/username">
+                <button type="button" class="remove-btn">×</button>
+            `;
+            socialLinksList.appendChild(newItem);
+
+            newItem.querySelector('.remove-btn').addEventListener('click', () => {
+                newItem.remove();
+            });
+        });
+
+        // Form Submission Logic
+        document.getElementById('affiliateForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+
+            // Collect platforms
+            const platformCheckboxes = document.querySelectorAll('input[name="platforms"]:checked');
+            if (platformCheckboxes.length === 0) {
+                alert('Please select at least one platform you use.');
+                return;
+            }
+            const platforms = Array.from(platformCheckboxes).map(cb => cb.value);
+
+            // Collect social links
+            const socialLinksInputs = document.querySelectorAll('input[name="socialLinks[]"]');
+            const socialLinks = Array.from(socialLinksInputs).map(input => input.value).filter(val => val !== "");
+
+            // Collect basic info
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                contact: document.getElementById('contact').value,
+                platforms: platforms,
+                socialLinks: socialLinks,
+                status: 'pending', // Initial status
+                createdAt: serverTimestamp()
+            };
+
+            // UI Feedback
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+            btn.style.opacity = '0.7';
+            btn.style.cursor = 'not-allowed';
+
+            try {
+                // Send to Firestore
+                console.log("Attempting to write to Firestore...", formData);
+                const docRef = await addDoc(collection(db, "affiliates"), formData);
+                console.log("Document written with ID: ", docRef.id);
+
+                showToast('Application sent successfully! 🚀', '🎉');
+
+                // Reset form
+                e.target.reset();
+                while (socialLinksList.children.length > 1) {
+                    socialLinksList.lastChild.remove();
+                }
+            } catch (error) {
+                console.error("Firestore Error Detailed:", error);
+
+                let errorMsg = 'Error submitting application.';
+                if (error.code === 'permission-denied') {
+                    errorMsg = 'Security Rules Permission Denied 🔒';
+                }
+
+                showToast(errorMsg, '⚠️');
+            } finally {
+                // Restore Button
+                btn.disabled = false;
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+            }
+        });
+
+        function showToast(message, icon = '🎉') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            const toastIcon = toast.querySelector('.toast-icon');
+
+            toastMsg.innerText = message;
+            toastIcon.innerText = icon;
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+    </script>
 </body>
 
 </html>

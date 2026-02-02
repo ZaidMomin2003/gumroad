@@ -571,29 +571,40 @@ input:checked+.slider:before {
     margin-bottom: 40px;
 }
 
-#gumroad-follow-form-embed {
+#newsletter-form {
     display: flex;
-    gap: 12px;
-    max-width: 500px;
+    gap: 16px;
+    max-width: 600px;
     margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
-#gumroad-follow-form-embed-input {
+#newsletter-email {
     background: #fff;
-    border: 3px solid #000;
-    padding: 16px 24px;
-    border-radius: 16px;
+    border: 2.5px solid #000;
+    padding: 18px 28px;
+    border-radius: 20px;
     font-family: inherit;
-    font-size: 1.125rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
     outline: none;
     transition: all 0.2s;
     flex: 1;
+    min-width: 280px;
 }
 
-#gumroad-follow-form-embed-input:focus {
-    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
-    transform: translate(-3px, -3px);
+#newsletter-email:focus {
+    border-color: var(--accent-color);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+#newsletter-btn {
+    padding: 18px 40px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    margin-top: 0;
+    /* Override any inherited top margin */
 }
 
 /* Payment Button (Custom) */

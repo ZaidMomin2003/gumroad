@@ -44,6 +44,37 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <style>
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #000;
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-weight: 800;
+            box-shadow: 8px 8px 0 var(--accent-color);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 3px solid #000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast-icon {
+            font-size: 1.5rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -429,11 +460,9 @@
 
             <section class="subscribe">
                 <h2>Stay Updated</h2>
-                <form action="https://gumroad.com/follow_from_embed_form" method="post" id="gumroad-follow-form-embed">
-                    <input type="hidden" name="seller_id" value="7562310148310" />
-                    <input id="gumroad-follow-form-embed-input" type="email" placeholder="Your email address"
-                        name="email" value="" />
-                    <button class="cta-button" type="submit" id="gumroad-follow-form-embed-button">Follow</button>
+                <form id="newsletter-form">
+                    <input id="newsletter-email" type="email" placeholder="Your email address" required />
+                    <button class="cta-button" type="submit" id="newsletter-btn">Follow</button>
                 </form>
             </section>
         </main>
@@ -474,8 +503,64 @@
             </nav>
         </footer>
     </div>
-    <script>
-        // Button Click Tracking
+
+    <div id="toast" class="toast">
+        <span class="toast-icon"></span>
+        <span id="toast-message"></span>
+    </div>
+
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+        // Newsletter Form Logic
+        const newsletterForm = document.getElementById('newsletter-form');
+        const newsletterEmail = document.getElementById('newsletter-email');
+        const newsletterBtn = document.getElementById('newsletter-btn');
+
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = newsletterEmail.value;
+
+                // UI Feedback
+                newsletterBtn.disabled = true;
+                const originalText = newsletterBtn.innerText;
+                newsletterBtn.innerText = 'Joining...';
+
+                try {
+                    await addDoc(collection(db, "newsletter"), {
+                        email: email,
+                        createdAt: serverTimestamp()
+                    });
+
+                    showToast('Welcome to the inner circle! 🚀', '🎉');
+                    newsletterForm.reset();
+                } catch (error) {
+                    console.error("Newsletter Error:", error);
+                    showToast('Submission failed. Try again!', '⚠️');
+                } finally {
+                    newsletterBtn.disabled = false;
+                    newsletterBtn.innerText = originalText;
+                }
+            });
+        }
+
+        function showToast(message, icon = '🎉') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            const toastIcon = toast.querySelector('.toast-icon');
+
+            toastMsg.innerText = message;
+            toastIcon.innerText = icon;
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Pricing Toggle Logic & Tracking (Standard Script)
         document.addEventListener('DOMContentLoaded', function () {
             // Hero CTA
             const heroCta = document.querySelector('.hero .cta-button');
@@ -500,9 +585,8 @@
             }
 
             // Follow Button
-            const followBtn = document.getElementById('gumroad-follow-form-embed-button');
-            if (followBtn) {
-                followBtn.addEventListener('click', function () {
+            if (newsletterBtn) {
+                newsletterBtn.addEventListener('click', function () {
                     gtag('event', 'click_follow_cta', {
                         'event_category': 'subscription',
                         'event_label': 'Follow Button'
