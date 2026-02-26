@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://cleanmails.online/sitemap.xml

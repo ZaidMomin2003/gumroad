@@ -1206,3 +1206,509 @@ input:checked+.slider:before {
         display: none;
     }
 }
+
+/* Intelligence & Infrastructure Stats */
+.stats-section {
+    margin-top: 100px !important;
+    margin-bottom: 100px !important;
+}
+
+.stats-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.stats-intro h2 {
+    font-size: 3rem;
+    margin-bottom: 24px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+}
+
+.stats-category {
+    background: #fff;
+    border: 4px solid #000;
+    border-radius: 32px;
+    padding: 48px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-category::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.stats-category h3 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.stats-item-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #000;
+    background: var(--accent-color);
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 2px solid #000;
+    box-shadow: 2px 2px 0 #000;
+    white-space: nowrap;
+}
+
+.stat-label {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: #000;
+    line-height: 1.2;
+}
+
+.stat-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .stats-item-list {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-category {
+        padding: 32px 24px;
+    }
+
+    .stats-intro h2 {
+        font-size: 2.25rem;
+    }
+}
+
+/* 2-Phase Validation Section */
+.phase-container {
+    margin-bottom: 40px;
+    border: 3px solid #000;
+    border-radius: 24px;
+    padding: 32px;
+    background: #fff;
+    transition: transform 0.2s ease;
+}
+
+.phase-container:hover {
+    transform: translateY(-4px);
+}
+
+.phase-container.premium {
+    border: 4px solid var(--accent-color);
+    background: #000;
+    color: #fff;
+    box-shadow: 8px 8px 0 var(--accent-color);
+}
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.phase-badge {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-weight: 900;
+    border: 2px solid #000;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.phase-container:not(.premium) .phase-badge {
+    background: var(--accent-color);
+    color: #000;
+}
+
+.phase-container.premium .phase-badge {
+    background: #fff;
+    color: #000;
+}
+
+.phase-title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.phase-container.premium .phase-title {
+    color: #fff;
+}
+
+.phase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.phase-item-title {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.phase-container.premium .phase-item-title {
+    color: var(--accent-color);
+}
+
+.phase-item-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.phase-container.premium .phase-item-desc {
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .phase-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* Use Cases Section */
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.use-case-card {
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.use-case-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 var(--accent-color);
+}
+
+.use-case-icon {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    display: block;
+}
+
+/* Tiered Pricing Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    margin-top: 48px;
+}
+
+.price-card {
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 32px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.05);
+}
+
+.price-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 14px 14px 0 rgba(0, 0, 0, 0.1);
+}
+
+.price-card.featured {
+    border-color: var(--accent-color);
+    box-shadow: 8px 8px 0 var(--accent-color);
+}
+
+.price-card.featured:hover {
+    box-shadow: 14px 14px 0 var(--accent-color);
+}
+
+.price-card.enterprise {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+.price-card.enterprise .price-tier-name,
+.price-card.enterprise p,
+.price-card.enterprise h3 {
+    color: #fff;
+}
+
+.price-tier-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+}
+
+.price-card.featured .price-tier-name {
+    color: #000;
+}
+
+.price-tag {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 24px;
+    line-height: 1;
+}
+
+.price-features {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 40px;
+    text-align: left;
+    width: 100%;
+}
+
+.price-features li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #444;
+}
+
+.price-card.enterprise .price-features li {
+    color: #ccc;
+}
+
+.price-features li::before {
+    content: "✓";
+    font-weight: 900;
+    color: var(--accent-color);
+}
+
+.price-card.enterprise .price-features li::before {
+    color: #fff;
+}
+
+.price-cta {
+    width: 100%;
+    margin-top: auto;
+}
+
+.setup-addon {
+    background: #FFD700;
+    color: #000;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: inline-block;
+    margin-top: 12px;
+    border: 2px solid #000;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Savings Calculator Section */
+.savings-calc {
+    margin-top: 100px;
+    padding: 80px 0;
+    background: #fdfdfd;
+    border-top: 4px solid #000;
+    border-bottom: 4px solid #000;
+}
+
+.calc-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.calc-card {
+    background: #fff;
+    border: 4px solid #000;
+    border-radius: 32px;
+    padding: 60px 40px;
+    box-shadow: 12px 12px 0 #000;
+    text-align: center;
+}
+
+.calc-title-group h2 {
+    font-size: 2.75rem;
+    margin-bottom: 12px;
+}
+
+.calc-title-group p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+}
+
+.slider-container {
+    margin: 80px 0;
+}
+
+.email-count-display {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 24px;
+}
+
+.range-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 16px;
+    border-radius: 100px;
+    background: #eee;
+    outline: none;
+    border: 3px solid #000;
+    margin-bottom: 12px;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    color: var(--text-muted);
+    padding: 0 10px;
+}
+
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    cursor: pointer;
+    border: 4px solid #000;
+    box-shadow: 6px 6px 0 #000;
+    transition: transform 0.1s ease;
+}
+
+.range-slider::-webkit-slider-thumb:active {
+    transform: scale(0.9);
+}
+
+.comp-box-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.comp-box {
+    padding: 32px 20px;
+    border: 3px solid #000;
+    border-radius: 20px;
+    background: #f8f9fa;
+    transition: all 0.2s ease;
+}
+
+.comp-box.champion {
+    background: #000;
+    color: #fff;
+    border-color: var(--accent-color);
+    box-shadow: 8px 8px 0 var(--accent-color);
+    transform: translateY(-8px);
+}
+
+.comp-box h4 {
+    margin-top: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+}
+
+.comp-box.champion h4 {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+.comp-val {
+    font-size: 2.25rem;
+    font-weight: 900;
+    margin: 16px 0;
+}
+
+.savings-highlight {
+    background: var(--accent-color);
+    color: #000;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.vps-info {
+    margin-top: 50px;
+    padding: 24px;
+    background: #fff3cd;
+    border: 2px solid #856404;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+@media (max-width: 900px) {
+    .comp-box-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comp-box.champion {
+        transform: none;
+    }
+}

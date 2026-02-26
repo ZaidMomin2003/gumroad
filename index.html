@@ -131,117 +131,313 @@
                     Invalid addresses cause bounces that damage your sender reputation and land your emails in the spam
                     folder.</p>
                 <p>Cleanmails is a lightweight, self-hosted script designed to give you <strong>full control</strong>.
-                    We eliminate risky and undeliverable emails so you send only to real, reachable inboxes—improving
+                    We eliminate risky and undeliverable emails in two powerful phases—improving
                     your deliverability and protecting your inbox placement.</p>
-                <p>Stop overpaying for infrequent cleanings. Cleanmails validates your email lists locally, checking
-                    syntax and performing deep domain verification without sending a single test email. 100% Private.
-                    100% Unlimited.
+                <p><strong>Phase 1: Basic Cleaning</strong> works entirely on your local environment to filter out
+                    obvious junk. For <strong>100% assured results</strong>, Phase 2 (SMTP Validation) performs a
+                    deep-level handshake to confirm the inbox truly exists.
                 </p>
             </section>
 
             <section class="features-detailed">
                 <div class="feature-section">
-                    <h2>🛡️ The 8-Step Validation Process</h2>
-                    <p>When you run an email through Cleanmails, it undergoes a deep "Multi-Layered Scan" to ensure it
-                        is safe for your sender reputation:</p>
+                    <h2>🛡️ The 2-Phase Validation Process</h2>
+                    <p>Cleanmails verifies every email through a rigorous multi-layered scan split into two distinct
+                        operational phases:</p>
 
-                    <div class="feature-list">
-                        <div class="feature-item">
-                            <h3>1. Mistake & Typo Filter</h3>
-                            <p>Instantly catches typos like "gmal.com" or "yhaoo.com". We ensure every email structure
-                                is perfect before you waste a credit sending to it.</p>
+                    <div class="phase-container">
+                        <div class="phase-header">
+                            <span class="phase-badge">PHASE 1</span>
+                            <h3 class="phase-title">Basic Cleaning (Works Offline)</h3>
                         </div>
-                        <div class="feature-item">
-                            <h3>2. Real-time Domain Check</h3>
-                            <p>Verifies if the domain actually exists and is active using secure DNS lookups. If the
-                                website is dead, the email is too.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>3. Mail Server (MX) Verification</h3>
-                            <p>Ensures the domain is actually configured to receive emails. If there is no active mail
-                                server behind the address, we catch it before you hit "Send."</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>4. Human Verification (Social Match)</h3>
-                            <p>Cross-references with social profiles like Gravatar. If a profile exists, it’s a
-                                high-confidence "Real Human" address.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>5. "Burner" Email Detection</h3>
-                            <p>Identifies temporary/disposable providers used for fraud or "one-time" signups. Keeps
-                                your list high-quality and long-term.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>6. Risky Role Filtering</h3>
-                            <p>Flags support@, info@, or admin@. These aren't personal accounts and often lead to high
-                                complaint rates or spam traps.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>7. Bot & Robot Analyzer</h3>
-                            <p>Our algorithm identifies machine-generated addresses (like xjh23_9sb@) that look
-                                suspicious or robotic.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>8. Reputation & Security Guard</h3>
-                            <ul>
-                                <li><strong>Typos:</strong> Auto-detects common keyboard slips.</li>
-                                <li><strong>Blacklists:</strong> Checks if the domain is flagged for spam history.</li>
-                                <li><strong>High-Risk TLDs:</strong> Flags "cheap" domains (.xyz, .top) statistically
-                                    linked to spam.</li>
-                            </ul>
+                        <div class="phase-grid">
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">1. Mistake & Typo Filter</h3>
+                                <p class="phase-item-desc">Instantly catches typos like "gmal.com" or "yhaoo.com". We
+                                    ensure every email structure is perfect.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">2. Static Domain Check</h3>
+                                <p class="phase-item-desc">Cross-references against our internal database of 123k+
+                                    disposable domains and 4k+ free providers.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">3. "Burner" Email Detection</h3>
+                                <p class="phase-item-desc">Identifies temporary/disposable providers used for fraud or
+                                    "one-time" signups.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">4. Risky Role Filtering</h3>
+                                <p class="phase-item-desc">Flags support@, info@, or admin@ to help you target actual
+                                    decision-makers.</p>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="phase-container premium">
+                        <div class="phase-header">
+                            <span class="phase-badge">PHASE 2</span>
+                            <h3 class="phase-title">SMTP Validation (100% Assured)</h3>
+                        </div>
+                        <div class="phase-grid">
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">5. MX & DNS Intelligence</h3>
+                                <p class="phase-item-desc">Real-time lookup of mail exchange records to verify if a
+                                    domain can actually receive mail.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">6. Real-time Handshake</h3>
+                                <p class="phase-item-desc">Connects directly to the recipient's mail server to verify
+                                    the inbox exists without sending an email.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">7. Bot & Robot Analyzer</h3>
+                                <p class="phase-item-desc">Advanced signal verification to distinguish machine-generated
+                                    addresses from real humans.</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3 class="phase-item-title">8. RFC Compliance</h3>
+                                <p class="phase-item-desc">100% compliance with RFC 5322 standards for industry-standard
+                                    validation accuracy.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="feature-section">
-                    <h2>🚀 Other Powerful Features</h2>
+                    <h2>🚀 Core Features</h2>
                     <div class="feature-grid">
                         <div class="feature-card">
-                            <span class="feature-icon">🔍</span>
-                            <h3>Spam Trigger Analysis</h3>
-                            <p><strong>Weighted Scoring:</strong> Scans your email body for 150+ "spammy" keywords and
-                                assigns a risk score.</p>
-                            <p><strong>Formatting Guard:</strong> Flags excessive ALL CAPS, too many emojis, or
-                                suspicious link-shorteners.</p>
+                            <span class="feature-icon">🛡️</span>
+                            <h3>Email Validation</h3>
+                            <p>Deep 2-phase verification including SMTP handshakes to ensure every email in your list is
+                                active and deliverable.</p>
                         </div>
                         <div class="feature-card">
-                            <span class="feature-icon">📊</span>
-                            <h3>Intelligent List Management</h3>
-                            <p><strong>Column Preservation:</strong> When you upload a CSV or Excel, we keep all your
-                                original data and simply append the validation result.</p>
-                            <p><strong>Bulk Processing:</strong> Optimized to handle thousands of emails in small
-                                batches for speed and accuracy.</p>
+                            <span class="feature-icon">🧹</span>
+                            <h3>List Cleaner</h3>
+                            <p>Normalizes messy contact lists from CSV or Excel, removes duplicates, and prepares data
+                                for bulk verification.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🔍</span>
+                            <h3>Spam Analysis</h3>
+                            <p>Scans your email body for 150+ spammy keywords and formatting triggers to ensure your
+                                content lands in the inbox.</p>
                         </div>
                         <div class="feature-card">
                             <span class="feature-icon">📑</span>
                             <h3>Email Extractor</h3>
-                            <p>Instantly "scrapes" and cleans email addresses from unstructured text, messy documents,
-                                or raw code.</p>
+                            <p>Instantly extracts and cleans email addresses from unstructured text, messy documents, or
+                                raw code blocks.</p>
                         </div>
-                        <div class="feature-card">
-                            <span class="feature-icon">🧹</span>
-                            <h3>CSV/Excel List Cleaner</h3>
-                            <p>Normalizes messy contact lists, removes duplicates, and prepares data for bulk
-                                verification.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="stats-section">
+                <div class="stats-intro">
+                    <h2>The Data Behind the Magic</h2>
+                    <p>Cleanmails is powered by a massive proprietary intelligence database, ensuring your leads are
+                        verified against the most comprehensive datasets available.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <!-- Cleanmails Intelligence Stats -->
+                    <div class="stats-category">
+                        <h3>📊 Cleanmails Intelligence</h3>
+                        <div class="stats-item-list">
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">123,320+</span>
+                                    <span class="stat-label">Disposable Domains</span>
+                                </div>
+                                <p class="stat-desc">The system identifies and blocks over 123,320+ validated disposable
+                                    domains, protecting you from "burner" emails.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">4,480+</span>
+                                    <span class="stat-label">Free Providers</span>
+                                </div>
+                                <p class="stat-desc">Deep integration with a database of 4,480+ service providers
+                                    (Gmail, Outlook, etc.) to distinguish B2B leads.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">890+</span>
+                                    <span class="stat-label">Role Prefixes</span>
+                                </div>
+                                <p class="stat-desc">Advanced filtering for 890+ administrative prefixes (admin@,
+                                    support@) to target actual decision-makers.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Domain Typos</span>
+                                </div>
+                                <p class="stat-desc">A smart correction layer covering 50+ common domain typos, ensuring
+                                    you don't lose leads to keyboard slips.</p>
+                            </div>
                         </div>
-                        <div class="feature-card">
-                            <span class="feature-icon">✨</span>
-                            <h3>Interactive Dashboard</h3>
-                            <p><strong>Visual Reports:</strong> Pie charts and breakdown tables show you exactly how
-                                many "Good," "Risky," and "Bad" emails are in your list.</p>
-                            <p><strong>Persistence:</strong> Your results and input are automatically saved in your
-                                browser, so you can pick up exactly where you left off.</p>
+                    </div>
+
+                    <!-- Technical Infrastructure Stats -->
+                    <div class="stats-category">
+                        <h3>🛡️ Technical Infrastructure</h3>
+                        <div class="stats-item-list">
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">100,000</span>
+                                    <span class="stat-label">Batch Capacity</span>
+                                </div>
+                                <p class="stat-desc">Optimized for massive parallel processing of up to 100,000 records
+                                    in a single session.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Syntax Accuracy</span>
+                                </div>
+                                <p class="stat-desc">Full compliance with RFC 5322 standards for industry-leading email
+                                    structure validation.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">&lt;1s</span>
+                                    <span class="stat-label">Latency</span>
+                                </div>
+                                <p class="stat-desc">Sub-second real-time verification for single lookups and
+                                    hyper-threaded bulk processing.</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-header">
+                                    <span class="stat-number">Live</span>
+                                    <span class="stat-label">MX & DNS Intel</span>
+                                </div>
+                                <p class="stat-desc">Real-time lookup of mail exchange records to verify delivery
+                                    capability before handshake begins.</p>
+                            </div>
                         </div>
-                        <div class="feature-card golden-feature">
-                            <span class="feature-icon">✨</span>
-                            <h3>SMTP Handshake (Golden Standard)</h3>
-                            <p><strong>Deep-Level Verification:</strong> Connects directly to the recipient's mail
-                                server to verify the inbox exists without sending an email.</p>
-                            <p
-                                style="font-size: 0.85rem; background: #000; color: #fff; padding: 8px; border-radius: 8px; margin-top: 8px;">
-                                ⚠️ <strong>Note:</strong> Requires hosting on a VPS or Server with <strong>Port 25
-                                    opened</strong> to perform handshakes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="savings-calc">
+                <div class="calc-container">
+                    <div class="calc-card">
+                        <div class="calc-title-group">
+                            <h2>💰 Stop Burning Money</h2>
+                            <p>See how much you save by switching from credit-based APIs to your own self-hosted server.
+                            </p>
                         </div>
+
+                        <div class="slider-container">
+                            <div class="email-count-display" id="email-count">100,000</div>
+                            <input type="range" min="10000" max="1000000" step="10000" value="100000"
+                                class="range-slider" id="calc-slider">
+                            <div class="slider-labels">
+                                <span>10k</span>
+                                <span>500k</span>
+                                <span>1M</span>
+                            </div>
+                        </div>
+
+                        <div class="comp-box-grid">
+                            <div class="comp-box">
+                                <h4>ZeroBounce</h4>
+                                <div class="comp-val" id="zb-cost">$190</div>
+                                <p style="font-size: 0.85rem; opacity: 0.7;">$1,910 / million</p>
+                            </div>
+                            <div class="comp-box">
+                                <h4>Reoon</h4>
+                                <div class="comp-val" id="reoon-cost">$70</div>
+                                <p style="font-size: 0.85rem; opacity: 0.7;">$700 / million</p>
+                            </div>
+                            <div class="comp-box champion">
+                                <h4>Cleanmails</h4>
+                                <div class="comp-val" id="clean-cost">$5</div>
+                                <div class="savings-highlight" id="savings-amt">Save $185</div>
+                                <p style="font-size: 0.85rem; opacity: 1; color: var(--accent-color);">Monthly VPS Cost
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="vps-info">
+                            <strong>Technical Fact:</strong> One Contabo VPS ($5/mo) with port 25 can validate
+                            <strong>lakhs of emails per day</strong>. Scale to millions by simply spinning up
+                            more $5 nodes.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pricing" class="pricing">
+                <div class="stats-intro">
+                    <h2>Simple, Transparent Pricing</h2>
+                    <p>Choose the license that fits your scale. One-time payment, unlimited value.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Personal -->
+                    <div class="price-card">
+                        <span class="price-tier-name">Personal Use</span>
+                        <div class="price-tag">$149</div>
+                        <p>Perfect for solo founders & marketers cleaning their own lists.</p>
+                        <ul class="price-features">
+                            <li>Self-hosted Dashboard</li>
+                            <li>Phase 1 & 2 Validation</li>
+                            <li>Unlimited Basic Lists</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <a href="https://wa.me/918431326909?text=Hello,%20i%20want%20to%20buy%20Personal%20license"
+                            target="_blank" class="checkout-button">Get Personal</a>
+                        <span class="setup-addon">+$50 Managed Setup</span>
+                    </div>
+
+                    <!-- Commercial -->
+                    <div class="price-card featured">
+                        <span class="price-tier-name">Commercial License</span>
+                        <div class="price-tag">$499</div>
+                        <p>For agencies and businesses cleaning client lists or using the API.</p>
+                        <ul class="price-features">
+                            <li><strong>Everything in Personal</strong></li>
+                            <li>Full API Access</li>
+                            <li>Commercial Rights</li>
+                            <li>Priority Support</li>
+                            <li>Free Managed Setup</li>
+                        </ul>
+                        <a href="https://wa.me/918431326909?text=Hello,%20i%20want%20to%20buy%20Commercial%20license"
+                            target="_blank" class="checkout-button">Get Commercial</a>
+                    </div>
+
+                    <!-- SaaS / Hire -->
+                    <div class="price-card enterprise">
+                        <span class="price-tier-name">SaaS Starter</span>
+                        <div class="price-tag">$4,999</div>
+                        <p>Want to build your own Zerobounce? We build and maintain it for you.</p>
+                        <ul class="price-features">
+                            <li>White-label SaaS Code Base</li>
+                            <li>Full Dev Team Hire</li>
+                            <li>Custom Cloud Infrastructure</li>
+                            <li>Payment Gateway Integration</li>
+                            <li>Ongoing Technical Support</li>
+                        </ul>
+                        <a href="https://wa.me/918431326909?text=Hello,%20i%20want%20to%20build%20a%20SaaS%20with%20Cleanmails"
+                            target="_blank" class="checkout-button" style="background:#fff; border-color:#fff;">Hire Us
+                            to Build</a>
+                    </div>
+                </div>
+
+                <div class="setup-assist" style="margin-top: 60px;">
+                    <div class="payment-tagline">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        Secured Payment via Razorpay & Stripe
                     </div>
                 </div>
             </section>
@@ -277,89 +473,29 @@
                 </div>
             </section>
 
-            <section id="pricing" class="pricing">
-                <div class="pricing-card">
-                    <div class="pricing-toggle">
-                        <span class="toggle-label active" data-currency="intl">International</span>
-                        <label class="switch">
-                            <input type="checkbox" id="currency-switch">
-                            <span class="slider"></span>
-                        </label>
-                        <span class="toggle-label" data-currency="ind">India</span>
-                    </div>
-
-                    <span class="pricing-title">Lifetime Access</span>
-                    <div class="price-wrapper" id="price-intl">
-                        <span class="original-price">$199</span>
-                        <span class="current-price">$99</span>
-                    </div>
-                    <div class="price-wrapper" id="price-ind" style="display: none;">
-                        <span class="original-price">₹15,999</span>
-                        <span class="current-price">₹7,999</span>
-                    </div>
-
-                    <p class="pricing-detail">Get <strong>free lifetime updates</strong> delivered to your inbox.</p>
-
-                    <div class="payment-container" id="pay-intl">
-                        <a href="https://pages.razorpay.com/selfhost-cleanmails" target="_blank"
-                            class="checkout-button">
-                            Get Cleanmails Now
-                        </a>
-                        <div class="payment-icons">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
-                                alt="Visa">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-                                alt="Mastercard">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
-                        </div>
-                    </div>
-
-                    <div class="payment-container" id="pay-ind" style="display: none;">
-                        <a href="https://rzp.io/rzp/qrPOqPN" target="_blank" class="checkout-button">
-                            Get Cleanmails Now (INR)
-                        </a>
-                        <div class="payment-icons">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
-                                alt="Visa">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg"
-                                alt="Mastercard">
-                        </div>
-                    </div>
-
-                    <div class="payment-tagline">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Secured Payment via Razorpay
-                    </div>
-                    <p class="pricing-detail" style="font-size: 0.85rem; margin-top: 16px; opacity: 0.7;">🛡️ Guaranteed
-                        safe checkout & instant delivery</p>
+            <section class="use-cases">
+                <div class="stats-intro">
+                    <h2>Advanced Use Cases</h2>
+                    <p>Cleanmails isn't just a script; it's a foundation for your entire email infrastructure.</p>
                 </div>
-
-                <div class="setup-assist">
-                    <div class="setup-assist-pill">
-                        <span class="setup-assist-text">Need a technical expert to install it for you? ($50)</span>
-                        <a href="https://wa.me/918431326909?text=hello,%20i%20want%20full%20setup" target="_blank"
-                            class="setup-assist-link">Request Setup</a>
+                <div class="use-cases-grid">
+                    <div class="use-case-card">
+                        <span class="use-case-icon">⚡</span>
+                        <h3>Bulk Validation API</h3>
+                        <p>Leverage our high-performance API to validate thousands of emails through your own backend.
+                            Perfect for CRM integrations and large-scale lead processing.</p>
                     </div>
-                </div>
-
-                <!-- Premium Enterprise Section -->
-                <div class="enterprise-section" style="margin-top: 60px;">
-                    <div class="enterprise-card">
-                        <div class="enterprise-content">
-                            <span class="premium-tag">PREMIUM</span>
-                            <h3>Custom Integration</h3>
-                            <p>Want to integrate Cleanmails directly into your own SaaS, CRM, or App? We offer custom
-                                API development and white-label integration services.</p>
-                        </div>
-                        <a href="https://wa.me/918431326909?text=Hello,%20i%20want%20to%20integrate%20Cleanmails%20in%20my%20app"
-                            target="_blank" class="enterprise-btn">
-                            Let's Talk
-                        </a>
+                    <div class="use-case-card">
+                        <span class="use-case-icon">🖥️</span>
+                        <h3>Interactive Dashboard</h3>
+                        <p>A full-featured UI for managers and marketers. Upload CSVs, monitor progress, and download
+                            cleaned lists without touching a single line of code.</p>
+                    </div>
+                    <div class="use-case-card">
+                        <span class="use-case-icon">🛑</span>
+                        <h3>Stop Spam Sign-ins</h3>
+                        <p>Protect your apps from fake accounts. Use our real-time API check to block disposable domains
+                            and bot-generated addresses at the moment of signup.</p>
                     </div>
                 </div>
             </section>
@@ -385,66 +521,6 @@
                 </div>
             </section>
 
-            <section class="host-on">
-                <h2>Setup in Under 5 Minutes</h2>
-                <div class="host-grid">
-                    <div class="host-card">
-                        <span class="host-logo">💻</span>
-                        <h3>Run Locally</h3>
-                        <p>Total offline privacy. Run it on your laptop whenever you need to clean a list.</p>
-                        <div class="host-instructions">
-                            <h4>Simple Steps:</h4>
-                            <ol>
-                                <li>Download the code folder.</li>
-                                <li>Open your terminal and type <code>npm install</code>.</li>
-                                <li>Start validating with <code>npm run dev</code>.</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="host-card preferred">
-                        <span class="host-logo">▲</span>
-                        <h3>One-Click Cloud (Vercel)</h3>
-                        <p>Our recommended choice. Host your private dashboard in the cloud for free.</p>
-                        <div class="host-instructions">
-                            <h4>Simple Steps:</h4>
-                            <ol>
-                                <li>Get the full source code folder instantly.</li>
-                                <li>Click "Import" on the Vercel Dashboard.</li>
-                                <li>Your cleaner is live and ready!</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="host-card">
-                        <span class="host-logo">◈</span>
-                        <h3>Netlify</h3>
-                        <p>Fast and reliable cloud hosting with zero maintenance.</p>
-                        <div class="host-instructions">
-                            <h4>Simple Steps:</h4>
-                            <ol>
-                                <li>Get the source code folder.</li>
-                                <li>Select the Cleanmails folder.</li>
-                                <li>Hit Deploy—your site is ready.</li>
-                            </ol>
-                        </div>
-                    </div>
-
-                    <div class="host-card">
-                        <span class="host-logo">⛵</span>
-                        <h3>Custom Server (VPS)</h3>
-                        <p>For high-volume power users who want maximum performance.</p>
-                        <div class="host-instructions">
-                            <h4>Simple Steps:</h4>
-                            <ol>
-                                <li>Connect your server.</li>
-                                <li>Create a new Node.js project.</li>
-                                <li>Upload the code folder and launch.</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             <section class="faq">
                 <h2>FAQ</h2>
@@ -462,9 +538,9 @@
                     </div>
                     <div class="faq-item">
                         <h3>I'm not "technical"—can I use this?</h3>
-                        <p>Yes! If you can copy-paste a command or click "Import" in Vercel, you can set this up in 5
-                            minutes. We provide a step-by-step guide for non-tech users that makes it as easy as
-                            installing an app.</p>
+                        <p>Yes! We provide single-click deployment options and if you prefer a hands-off approach, we
+                            offer a <strong>Managed Setup service</strong> where our experts handle everything for you.
+                            You don't need to write a single line of code to get a powerful email cleaner live.</p>
                     </div>
                     <div class="faq-item">
                         <h3>What do I get after purchasing?</h3>
@@ -564,7 +640,9 @@
         function showToast(message, icon = '🎉') {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-message');
-            const toastIcon = toast.querySelector('.toast-icon');
+            const toastIcon = toast ? toast.querySelector('.toast-icon') : null;
+
+            if (!toast || !toastMsg || !toastIcon) return;
 
             toastMsg.innerText = message;
             toastIcon.innerText = icon;
@@ -575,6 +653,47 @@
                 toast.classList.remove('show');
             }, 4000);
         }
+
+        // Savings Calculator Logic
+        const slider = document.getElementById('calc-slider');
+        const emailCounter = document.getElementById('email-count');
+        const zbCostEl = document.getElementById('zb-cost');
+        const reoonCostEl = document.getElementById('reoon-cost');
+        const cleanCostEl = document.getElementById('clean-cost');
+        const savingsBadge = id => document.getElementById(id);
+
+        function updateSavings() {
+            if (!slider) return;
+            const count = parseInt(slider.value);
+            emailCounter.textContent = count.toLocaleString();
+
+            // ZeroBounce: $0.0019 per email
+            const zb = Math.round(count * 0.0019);
+            // Reoon: $0.0007 per email
+            const reoon = Math.round(count * 0.0007);
+
+            // Cleanmails: VPS Cost only ($5 per ~300k emails capacity)
+            const vpsCount = Math.ceil(count / 300000);
+            const clean = vpsCount * 5;
+
+            zbCostEl.textContent = `$${zb.toLocaleString()}`;
+            reoonCostEl.textContent = `$${reoon.toLocaleString()}`;
+            cleanCostEl.textContent = `$${clean.toLocaleString()}`;
+
+            const savings = zb - clean;
+            const badge = document.getElementById('savings-amt');
+            if (badge) {
+                badge.textContent = `Save $${savings.toLocaleString()}`;
+                badge.style.display = 'inline-block';
+            }
+        }
+
+        if (slider) {
+            slider.addEventListener('input', updateSavings);
+            // Initial call
+            updateSavings();
+        }
+
 
         // Pricing Toggle Logic & Tracking (Standard Script)
         document.addEventListener('DOMContentLoaded', function () {
@@ -622,35 +741,7 @@
                 }
             });
 
-            // Pricing Toggle Logic
-            const currencySwitch = document.getElementById('currency-switch');
-            const priceIntl = document.getElementById('price-intl');
-            const priceInd = document.getElementById('price-ind');
-            const payIntl = document.getElementById('pay-intl');
-            const payInd = document.getElementById('pay-ind');
-            const toggleLabels = document.querySelectorAll('.toggle-label');
 
-            if (currencySwitch) {
-                currencySwitch.addEventListener('change', function () {
-                    if (this.checked) {
-                        // India Selected
-                        priceIntl.style.display = 'none';
-                        priceInd.style.display = 'block';
-                        payIntl.style.display = 'none';
-                        payInd.style.display = 'flex';
-                        toggleLabels[0].classList.remove('active');
-                        toggleLabels[1].classList.add('active');
-                    } else {
-                        // Intl Selected
-                        priceIntl.style.display = 'block';
-                        priceInd.style.display = 'none';
-                        payIntl.style.display = 'flex';
-                        payInd.style.display = 'none';
-                        toggleLabels[0].classList.add('active');
-                        toggleLabels[1].classList.remove('active');
-                    }
-                });
-            }
         });
     </script>
 </body>
