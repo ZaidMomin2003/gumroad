@@ -15,7 +15,7 @@
     </script>
     <title>Purchase Successful — Cleanmails</title>
     <meta name="robots" content="noindex, nofollow">
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
@@ -24,7 +24,7 @@
 
 <body
     style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); padding: 40px 20px;">
-    <div class="success-wrapper" style="text-align: center; max-width: 550px; width: 100%;">
+    <div class="success-wrapper" style="text-align: center; max-width: 900px; width: 100%;">
         <div
             style="background: var(--card-bg); border: 4px solid #000; padding: 40px 30px; border-radius: 32px; box-shadow: 12px 12px 0 #000; margin-bottom: 40px;">
             <div style="font-size: 4rem; margin-bottom: 16px;">🎉</div>
@@ -33,18 +33,43 @@
                 Your payment was successful. You now have lifetime access to Cleanmails.
             </p>
 
-            <div
-                style="margin-bottom: 0; padding: 28px; border: 3px solid #000; border-radius: 20px; background-color: var(--accent-color); box-shadow: 8px 8px 0 #000;">
-                <h3 style="margin-bottom: 12px; font-size: 1.3rem; font-weight: 800;">Get Started 🚀</h3>
-                <p style="margin: 0 0 24px 0; font-size: 1rem; font-weight: 600; color: #000; line-height: 1.5;">
-                    Your purchase is complete. Please refer to our documentation to set up your self-hosted email
-                    validation dashboard.
-                </p>
-                <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div class="success-actions-grid"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; text-align: left;">
+                <!-- Get Started Card -->
+                <div
+                    style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: var(--accent-color); box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="margin-bottom: 16px; font-size: 1.5rem; font-weight: 900;">1. Get Started 🚀</h3>
+                        <p
+                            style="margin: 0 0 24px 0; font-size: 1rem; font-weight: 600; color: #000; line-height: 1.5;">
+                            Your purchase is complete! Please <strong>check your inbox for an email from Dodo
+                                Payments</strong>
+                            to download your product files.
+                        </p>
+                    </div>
                     <a href="https://hustlerscult.notion.site/Cleanmails-VPS-Deployment-Guide-31341e46f2f980a38bc3ced1e008f321"
                         target="_blank" class="cta-button"
-                        style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1.1rem; padding: 16px;">
-                        📖 View Documentation & Setup Guide
+                        style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1.1rem; padding: 16px; border-radius: 12px; font-weight: 800;">
+                        📖 View Setup Guide
+                    </a>
+                </div>
+
+                <!-- Managed Setup Card -->
+                <div
+                    style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: #fff; box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <h3 style="margin-bottom: 16px; font-size: 1.5rem; font-weight: 900;">2. Done For You 🛠️</h3>
+                        <p
+                            style="font-size: 1rem; font-weight: 600; color: #444; margin-bottom: 24px; line-height: 1.5;">
+                            Don't want to handle the technical bits? We'll set everything up for you for just
+                            <strong>$50</strong>.
+                            <br><strong style="color: #000;">Pay only after the setup is done!</strong>
+                        </p>
+                    </div>
+                    <a href="https://cal.com/zaid-momin-st0o8z/cleanmails-setup?overlayCalendar=true" target="_blank"
+                        class="cta-button"
+                        style="display: block; text-align: center; text-decoration: none; background: #FF90E8; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1.1rem; padding: 16px; border-radius: 12px; font-weight: 800;">
+                        📅 Book Setup Call
                     </a>
                 </div>
             </div>
@@ -52,11 +77,12 @@
 
         <div
             style="background: #fff; border: 3px solid #000; padding: 24px; border-radius: 16px; text-align: left; box-shadow: 6px 6px 0 #000; margin-bottom: 32px;">
-            <h3 style="margin-bottom: 12px; font-size: 1.15rem; font-weight: 800;">Important Information</h3>
+            <h3 style="margin-bottom: 12px; font-size: 1.15rem; font-weight: 800;">Next Steps</h3>
             <ul style="padding-left: 20px; font-size: 0.95rem; color: #444; font-weight: 600; line-height: 1.6;">
-                <li style="margin-bottom: 8px;">Check your email for the receipt and product keys.</li>
-                <li style="margin-bottom: 8px;">Access to the full source code is now active.</li>
-                <li>Lifetime updates and support are included.</li>
+                <li style="margin-bottom: 8px;">Check your email (from <strong>Dodo Payments</strong>) for the receipt
+                    and download link.</li>
+                <li style="margin-bottom: 8px;">Download the Cleanmails package and follow the Notion guide above.</li>
+                <li>Lifetime updates and 24/7 technical support are included.</li>
             </ul>
         </div>
 
