@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Cleanmails</title>
+    <meta name="description" content="Oops! The page you're looking for doesn't exist. Let's get you back on track.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); padding: 40px 20px; text-align: center;">
+
+    <div style="max-width: 600px; width: 100%;">
+        <!-- Large 404 Visual -->
+        <div
+            style="font-size: clamp(8rem, 20vw, 12rem); font-weight: 900; line-height: 0.8; margin-bottom: 24px; position: relative; display: inline-block;">
+            404
+            <div
+                style="position: absolute; top: 10px; left: 10px; z-index: -1; color: var(--accent-color); opacity: 0.5;">
+                404</div>
+        </div>
+
+        <h1 style="font-size: 2.5rem; margin-bottom: 16px; font-weight: 900; letter-spacing: -0.02em;">Lost in the
+            Inbox?</h1>
+        <p
+            style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; font-weight: 600; line-height: 1.5;">
+            The page you're looking for has been "cleaned out" or never existed. Don't worry, your leads are still safe.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <a href="/" class="cta-button"
+                style="text-decoration: none; background: #000; color: #fff; border: 3px solid #000; box-shadow: 6px 6px 0 var(--accent-color); font-size: 1.1rem; padding: 18px 40px; border-radius: 12px; font-weight: 800; transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                ← Back to Home
+            </a>
+            <a href="/support"
+                style="text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 6px 6px 0 #000; font-size: 1.1rem; padding: 18px 40px; border-radius: 12px; font-weight: 800; transition: all 0.2s;">
+                Contact Support
+            </a>
+        </div>
+
+        <!-- Decorative Element -->
+        <div
+            style="margin-top: 60px; font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; color: #000; opacity: 0.3; text-transform: uppercase;">
+            Cleanmails Infrastructure
+        </div>
+    </div>
+
+    <!-- Mouse Trail or subtle floaters could be added here if we had custom JS, 
+         but we'll keep it clean and robust with CSS -->
+    <style>
+        .cta-button:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--accent-color) !important;
+        }
+
+        .cta-button:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--accent-color) !important;
+        }
+    </style>
+</body>
+
+</html>
