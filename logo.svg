@@ -1,0 +1,14 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Offset Shadow -->
+    <rect x="8" y="8" width="48" height="38" rx="8" fill="black" />
+    
+    <!-- Main Envelope Body -->
+    <rect x="4" y="4" width="48" height="38" rx="8" fill="white" stroke="black" stroke-width="4"/>
+    
+    <!-- Envelope Flap -->
+    <path d="M4 12L28 26L52 12" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Checkmark Circle (Stamp style) -->
+    <circle cx="44" cy="38" r="14" fill="#FF90E8" stroke="black" stroke-width="4"/>
+    <path d="M38 38L42 42L50 34" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

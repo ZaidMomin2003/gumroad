@@ -8,7 +8,7 @@
     <meta name="description" content="Join the Cleanmails affiliate program and earn $20 for every sale you refer.">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="icon" type="image/svg+xml" href="./logo.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,6 +276,12 @@
                 padding: 40px 20px;
             }
         }
+
+        /* Force Visibility of Sticky Nav on this page */
+        .sticky-nav.visible {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+        }
     </style>
 </head>
 
@@ -284,7 +290,7 @@
     <nav class="sticky-nav visible">
         <div class="sticky-container">
             <a href="/" class="sticky-logo-link">
-                <img src="./favicon.png" alt="Cleanmails" class="sticky-logo-img">
+                <img src="/logo.svg" alt="Cleanmails" class="sticky-logo-img" style="display: block; opacity: 1;">
                 <span class="sticky-logo-text">Cleanmails</span>
             </a>
             <a href="#join" class="sticky-cta">Join Program</a>
@@ -327,11 +333,11 @@
             <div class="payout-dates">
                 <div class="date-card">
                     <span>Mid-Month</span>
-                    5th
+                    10th
                 </div>
                 <div class="date-card">
                     <span>Month-End</span>
-                    19th
+                    20th
                 </div>
             </div>
         </section>
@@ -402,7 +408,8 @@
             <p class="footer-contact">Contact: hello@cleanmails.online</p>
             <nav class="footer-nav">
                 <a href="/">Home</a>
-                <a href="./docs">Docs</a>
+                <a href="https://hustlerscult.notion.site/Cleanmails-VPS-Deployment-Guide-31341e46f2f980a38bc3ced1e008f321"
+                    target="_blank">Docs</a>
                 <a href="./support">Support</a>
                 <a href="./affiliate">Affiliate</a>
                 <a href="./terms">Terms</a>
