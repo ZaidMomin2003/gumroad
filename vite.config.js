@@ -24,6 +24,8 @@ export default defineConfig(({ mode }) => {
           millionmails: resolve(__dirname, 'millionmails.html'),
           error: resolve(__dirname, '404.html'),
           cleanie: resolve(__dirname, 'CleanieAI.html'),
+          infrastructure: resolve(__dirname, 'infrastructure.html'),
+          saasstarter: resolve(__dirname, 'saas-starter.html'),
         },
       },
     },
@@ -99,11 +101,27 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
               return;
             }
 
-            // 2. Handle 404 Fallback logic
+            // 2. Handle MPA Route Mapping
             const url = req.url.split('?')[0];
             if (url !== '/' && !url.includes('.') && !url.startsWith('/@') && !url.startsWith('/node_modules') && !url.startsWith('/api')) {
-              const knownRoutes = ['/terms', '/privacy', '/support', '/developer', '/docs', '/success', '/cancel', '/affiliate', '/millionmails', '/CleanieAI'];
-              if (!knownRoutes.includes(url)) {
+              const routeMap = {
+                '/terms': '/terms.html',
+                '/privacy': '/privacy.html',
+                '/support': '/support.html',
+                '/developer': '/developer.html',
+                '/docs': '/docs.html',
+                '/success': '/success-v1-x8fk2m9s7q5p4r3w.html',
+                '/cancel': '/cancel.html',
+                '/affiliate': '/affiliate.html',
+                '/millionmails': '/millionmails.html',
+                '/CleanieAI': '/CleanieAI.html',
+                '/infrastructure': '/infrastructure.html',
+                '/saas-starter': '/saas-starter.html'
+              };
+
+              if (routeMap[url]) {
+                req.url = routeMap[url];
+              } else {
                 req.url = '/404.html';
               }
             }

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own the Email Infrastructure — Cleanmails</title>
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        :root {
+            --docs-accent: #FFD700;
+        }
+
+        .infra-hero {
+            background: #000;
+            color: #fff;
+            padding: 100px 24px;
+            text-align: center;
+            border-bottom: 4px solid #000;
+        }
+
+        .infra-badge {
+            background: var(--docs-accent);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .infra-title {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .infra-subtitle {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+        }
+
+        .payment-terms {
+            background: #fff;
+            color: #000;
+            padding: 24px 40px;
+            border: 4px solid #000;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 8px 8px 0 var(--docs-accent);
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 24px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-item {
+            padding: 40px;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 24px;
+            box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .faq-section {
+            background: #fdfdfd;
+            padding: 80px 24px;
+            border-top: 4px solid #000;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 32px;
+            padding-bottom: 32px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .faq-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+
+        .cta-bottom {
+            text-align: center;
+            padding: 100px 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="infra-hero">
+        <a href="/" class="back-link" style="color: #fff; border-color: #fff; margin-bottom: 40px;">← Back to Home</a>
+        <br>
+        <span class="infra-badge">Ultimate Tier</span>
+        <h1 class="infra-title">Own the Entire Email Infrastructure</h1>
+        <p class="infra-subtitle">Stop relying on expensive third-party providers. We build your private,
+            high-deliverability email fortress.</p>
+        <div class="payment-terms">
+            🚀 Pay only 10% upfront — 90% AFTER Delivery
+        </div>
+    </div>
+
+    <div class="section-container">
+        <h2 style="text-align: center;">What You Get</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>🌍 5 Verified Domains</h3>
+                <p>Fully configured with DKIM, SPF, and DMARC. We handle the complex DNS technicalities so your emails
+                    never see the spam folder.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🔥 50 Warmed Senders</h3>
+                <p>Ready-to-use mailboxes with established reputations. Start sending high-volume cold emails right out
+                    of the box.</p>
+            </div>
+            <div class="feature-item">
+                <h3>📬 50 Mailboxes</h3>
+                <p>Dedicated professional inboxes for your team or agency. Managed on your own private cloud
+                    infrastructure.</p>
+            </div>
+            <div class="feature-item">
+                <h3>⚡ Unlimited SMTP</h3>
+                <p>Forget "per-email" costs. Send as much as your server can handle without paying a single cent extra
+                    in API fees.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🛠️ Automation & Spintax</h3>
+                <p>Built-in Cadence builder, Spintax for variation, and full automation dashboard to manage your cold
+                    outreach at scale.</p>
+            </div>
+            <div class="feature-item">
+                <h3>☁️ 1 Year Infra Included</h3>
+                <p>We pay for the underlying high-performance cloud servers for the first 12 months. Truly a $0
+                    maintenance start.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-grid">
+            <h2 style="text-align: center; margin-bottom: 60px;">Infrastructure FAQ</h2>
+            <div class="faq-item">
+                <h4>Why should I own my infrastructure?</h4>
+                <p>Shared providers (like Gmail or Outlook) can ban you instantly for cold outreach. When you own the
+                    infra, you control the IP reputation, the rules, and you pay $0 in recurring license fees.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What does "Warmed Senders" mean?</h4>
+                <p>New domains are often blocked by spam filters. We "warm" them up by sending human-like traffic for
+                    weeks before delivery, so your reputation is already solid on Day 1.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is the 90% payment truly after delivery?</h4>
+                <p>Yes. We are so confident in our setup that we only take a 10% commitment fee to cover initial
+                    domain/server costs. You pay the rest once the dashboard and 50 mailboxes are live and working.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What happens after 1 year?</h4>
+                <p>You can either take over the server billing directly (~$10-20/mo) or we can continue managing it for
+                    a small monthly maintenance fee. No lock-ins.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-bottom">
+        <h2>Ready to own your delivery?</h2>
+        <p style="margin-bottom: 40px;">Book a call or message us on WhatsApp to discuss your 5-domain setup.</p>
+        <a href="https://wa.me/918431326909?text=I%20want%20to%20discuss%20the%20$7999%20Infrastructure%20plan"
+            class="checkout-button" style="background: var(--docs-accent); width: auto; padding: 24px 60px;">Message on
+            WhatsApp</a>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-brand">Cleanmails</p>
+        <nav class="footer-nav">
+            <a href="/">Home</a>
+            <a href="/docs">Docs</a>
+            <a href="/support">Support</a>
+        </nav>
+    </footer>
+</body>
+
+</html>

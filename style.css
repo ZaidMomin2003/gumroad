@@ -1481,6 +1481,15 @@ input:checked+.slider:before {
     border-color: #000;
 }
 
+.price-card.ultimate {
+    border-color: #FFD700;
+    box-shadow: 8px 8px 0 #FFD700;
+}
+
+.price-card.ultimate:hover {
+    box-shadow: 14px 14px 0 #FFD700;
+}
+
 .price-card.enterprise .price-tier-name,
 .price-card.enterprise p,
 .price-card.enterprise h3 {
