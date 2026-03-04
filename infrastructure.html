@@ -112,6 +112,94 @@
             text-align: center;
             padding: 100px 24px;
         }
+
+        /* Advantage Section */
+        .advantage-section {
+            background: #fafafa;
+            padding: 100px 24px;
+            border-top: 4px solid #000;
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 48px auto 0;
+        }
+
+        .advantage-card {
+            background: #fff;
+            border: 4px solid #000;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 8px 8px 0 #000;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .advantage-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Comparison Table Styles */
+        .comparison-section {
+            background: #fff;
+            padding: 100px 24px;
+            border-top: 4px solid #000;
+        }
+
+        .comparison-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            border: 4px solid #000;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 24px;
+            text-align: left;
+            border-bottom: 2px solid #000;
+        }
+
+        .comparison-table th {
+            background: #f8f8f8;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .market-cost {
+            color: #ff4d4d;
+            font-weight: 800;
+        }
+
+        .clean-cost {
+            color: #2ecc71;
+            font-weight: 900;
+        }
+
+        .saving-row {
+            background: #000;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -122,47 +210,143 @@
         <span class="infra-badge">Ultimate Tier</span>
         <h1 class="infra-title">Own the Entire Email Infrastructure</h1>
         <p class="infra-subtitle">Stop relying on expensive third-party providers. We build your private,
-            high-deliverability email fortress.</p>
+            high-deliverability email fortress in <strong>just 2 days.</strong></p>
+        <div style="font-size: 3.5rem; font-weight: 900; margin-bottom: 30px; color: var(--docs-accent);">$2,999</div>
         <div class="payment-terms">
             🚀 Pay only 10% upfront — 90% AFTER Delivery
         </div>
     </div>
 
     <div class="section-container">
-        <h2 style="text-align: center;">What You Get</h2>
+        <h2 style="text-align: center;">What's in the Box?</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-weight: 600;">You are getting a
+            complete, enterprise-grade technology stack that you own forever.</p>
         <div class="features-grid">
             <div class="feature-item">
                 <h3>🌍 5 Verified Domains</h3>
-                <p>Fully configured with DKIM, SPF, and DMARC. We handle the complex DNS technicalities so your emails
-                    never see the spam folder.</p>
+                <p>Fully configured with DKIM, SPF, and DMARC. We handle the complex DNS technicalities so your
+                    <strong>emails
+                        never see the spam folder.</strong>
+                </p>
             </div>
             <div class="feature-item">
-                <h3>🔥 50 Warmed Senders</h3>
-                <p>Ready-to-use mailboxes with established reputations. Start sending high-volume cold emails right out
-                    of the box.</p>
+                <h3>⚡ Own SMTP Infrastructure</h3>
+                <p>Don't rent. <strong>Own your mail server.</strong> High-reputation IPs configured for maximum reach
+                    without per-email fees.</p>
             </div>
             <div class="feature-item">
-                <h3>📬 50 Mailboxes</h3>
-                <p>Dedicated professional inboxes for your team or agency. Managed on your own private cloud
-                    infrastructure.</p>
+                <h3>📬 50 Dedicated Mailboxes</h3>
+                <p>Private professional inboxes for your outreach. <strong>Your own infrastructure, your own
+                        rules,</strong>
+                    zero monthly seat costs.</p>
             </div>
             <div class="feature-item">
-                <h3>⚡ Unlimited SMTP</h3>
-                <p>Forget "per-email" costs. Send as much as your server can handle without paying a single cent extra
-                    in API fees.</p>
+                <h3>🎯 Catch-All & Scripts</h3>
+                <p>Advanced <strong>Catch-all verification</strong> and a custom <strong>Cold Email Sender
+                        Script</strong>
+                    built to bypass spam filters automatically.</p>
             </div>
             <div class="feature-item">
-                <h3>🛠️ Automation & Spintax</h3>
-                <p>Built-in Cadence builder, Spintax for variation, and full automation dashboard to manage your cold
-                    outreach at scale.</p>
+                <h3>🕒 2-Day Rapid Delivery</h3>
+                <p>We pride ourselves on speed. Your entire infrastructure will be <strong>live and ready in under 48
+                        hours.</strong></p>
             </div>
             <div class="feature-item">
                 <h3>☁️ 1 Year Infra Included</h3>
-                <p>We pay for the underlying high-performance cloud servers for the first 12 months. Truly a $0
+                <p>We pay for the high-performance cloud servers for the <strong>first 12 months.</strong> Truly a $0
                     maintenance start.</p>
+            </div>
+            <div class="feature-item">
+                <h3>✅ Unlimited Validations</h3>
+                <p>Verify millions of emails without paying for credits. <strong>Stop spending $1,000s on
+                        ZeroBounce</strong>—clean your lists locally and for free.</p>
             </div>
         </div>
     </div>
+
+    <!-- Advantage Section -->
+    <section class="advantage-section">
+        <div class="section-container" style="margin-top: 0; margin-bottom: 0;">
+            <h2 style="text-align: center;">The Private Advantage</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 40px; font-weight: 600; opacity: 0.7;">Why
+                elite
+                agencies are moving away from shared tools like Gmail and Instantly.</p>
+            <div class="advantage-grid">
+                <div class="advantage-card">
+                    <h3>🛡️ Dedicated vs. Shared IP</h3>
+                    <p>In shared pools (Google/Sendgrid), one spammer on your IP ruins your delivery. With us, you get a
+                        <strong>clean, dedicated IP</strong> assigned only to you. You are the master of your own
+                        reputation.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <h3>🕹️ 100% System Control</h3>
+                    <p>No "AUP" bans. Shared platforms hate cold outreach and will ban you for high bounce rates. Since
+                        <strong>you own this server</strong>, you set the rules, the limits, and the policy. No more
+                        waking up to a locked account.
+                    </p>
+                </div>
+                <div class="advantage-card">
+                    <h3>🚫 Proactive Anti-Ban</h3>
+                    <p>Google has "fingerprints" for emails sent via big platforms. Our setups use <strong>Private SMTP
+                            headers</strong> that look like organic, standard business mail, making your outreach
+                        invisible to automated bulk-mail filters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="section-container" style="margin-top: 0;">
+            <h2 style="text-align: center; margin-bottom: 60px;">Market Comparison (Yearly)</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Service Type</th>
+                        <th>Traditional Market Cost</th>
+                        <th>Cleanmails Deal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>5 Domains & Technical Setup</strong></td>
+                        <td class="market-cost">$500 (Setup Fee)</td>
+                        <td class="clean-cost">Included</td>
+                    </tr>
+                    <tr>
+                        <td><strong>50 Business Mailboxes</strong></td>
+                        <td class="market-cost">$3,600/year (Google Workspace)</td>
+                        <td class="clean-cost">Included</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SMTP High-Volume Relay</strong></td>
+                        <td class="market-cost">$1,200/year (Sendgrid/Mailgun)</td>
+                        <td class="clean-cost">Included</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cold Email Automation</strong></td>
+                        <td class="market-cost">$1,164/year (Instantly/Smartlead)</td>
+                        <td class="clean-cost">Included</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unlimited Email Validations</strong></td>
+                        <td class="market-cost">$3,000/year (ZeroBounce/NeverBounce)</td>
+                        <td class="clean-cost">Included</td>
+                    </tr>
+                    <tr class="saving-row">
+                        <td><strong>TOTAL COST</strong></td>
+                        <td style="color: #ff4d4d;"><strong>$9,464+ / Year</strong></td>
+                        <td style="color: var(--docs-accent);"><strong>$2,999 (One-Time)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; margin-top: 40px; font-weight: 800; font-size: 1.2rem;">✨ Total Yearly
+                Savings:
+                <span style="color: #2ecc71;">$6,465+</span>
+            </p>
+        </div>
+    </section>
 
     <section class="faq-section">
         <div class="faq-grid">
@@ -180,7 +364,8 @@
             <div class="faq-item">
                 <h4>Is the 90% payment truly after delivery?</h4>
                 <p>Yes. We are so confident in our setup that we only take a 10% commitment fee to cover initial
-                    domain/server costs. You pay the rest once the dashboard and 50 mailboxes are live and working.</p>
+                    domain/server costs. You pay the rest once the dashboard and 50 mailboxes are live and
+                    working—usually <strong>within 48 hours.</strong></p>
             </div>
             <div class="faq-item">
                 <h4>What happens after 1 year?</h4>
@@ -193,7 +378,7 @@
     <div class="cta-bottom">
         <h2>Ready to own your delivery?</h2>
         <p style="margin-bottom: 40px;">Book a call or message us on WhatsApp to discuss your 5-domain setup.</p>
-        <a href="https://wa.me/918431326909?text=I%20want%20to%20discuss%20the%20$7999%20Infrastructure%20plan"
+        <a href="https://wa.me/918431326909?text=I%20want%20to%20discuss%20the%20$2999%20Infrastructure%20plan%20with%202-day%20delivery"
             class="checkout-button" style="background: var(--docs-accent); width: auto; padding: 24px 60px;">Message on
             WhatsApp</a>
     </div>
