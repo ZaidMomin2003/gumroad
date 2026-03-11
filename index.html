@@ -4,782 +4,1085 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
+
+    <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-QWXBBLS661');
     </script>
-    <title>Cleanmails — Self-hosted Email List Cleaning & Validation</title>
-    <meta name="description"
-        content="Stop paying for monthly subscriptions. Clean your email lists locally with Cleanmails, the most private self-hosted validation tool for founders and marketers.">
-    <meta name="keywords"
-        content="email validation, email cleaning, self-hosted script, email extractor, list hygiene, bypass spam filters, email verification">
+
+    <!-- SEO -->
+    <title>Best Self-Hosted Cold Email Tool — SMTP Rotation, Validation & Cadences | Cleanmails</title>
+    <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. Inbuilt SMTP, unlimited sender rotation, email validation, spintax, cadences & automation. One-time payment, no monthly fees, no caps.">
+    <meta name="keywords" content="self hosted cold email tool, cold email software, SMTP rotation, email validation, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, email list cleaning, catch-all detection, bulk email sender">
     <link rel="canonical" href="https://cleanmails.online" />
+    <!-- Schema.org Product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Cleanmails",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Linux",
+      "url": "https://cleanmails.online",
+      "description": "Self-hosted cold email platform with SMTP rotation, email validation, spintax, cadences, and automation. One-time payment.",
+      "offers": [
+        { "@type": "Offer", "name": "Solo", "price": "197", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Agency", "price": "497", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "White Label", "price": "997", "priceCurrency": "USD" }
+      ],
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
+    }
+    </script>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free installation is included with every license. We handle the setup on your server end-to-end." } },
+        { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Any Linux VPS works. A $6/month Hetzner or DigitalOcean server handles thousands of emails per day comfortably." } },
+        { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with an inbuilt SMTP engine. You can use it directly or plug in AWS SES, SendGrid, Gmail, or any external relay for higher deliverability." } },
+        { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits." } }
+      ]
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://cleanmails.online">
-    <meta property="og:title" content="Cleanmails — Self-hosted Email List Cleaning & Validation">
-    <meta property="og:description"
-        content="The most private way to clean your email lists. No subscriptions, no limits, 100% data ownership.">
+    <meta property="og:title" content="Best Self-Hosted Cold Email Tool — SMTP, Validation & Cadences | Cleanmails">
+    <meta property="og:description" content="Self-hosted cold email with inbuilt SMTP, unlimited sender rotation, email validation, spintax & cadences. One-time payment, no monthly fees.">
     <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://cleanmails.online">
-    <meta property="twitter:title" content="Cleanmails — Self-hosted Email List Cleaning & Validation">
-    <meta property="twitter:description" content="Stop paying per email. Validate your lists locally with Cleanmails.">
+    <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
+    <meta property="twitter:description" content="Inbuilt SMTP. Unlimited everything. Spintax, cadences, email validation. One-time payment.">
     <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+
     <style>
-        /* Toast Notification */
+        /* =============================================
+           PAGE-LEVEL STYLES — NEW LANDING PAGE
+        =============================================*/
+
+        :root {
+            --gold: #FFD700;
+            --gold-dark: #d4a017;
+            --black: #000;
+            --white: #fff;
+            --off-white: #fafafa;
+            --muted: #555;
+            --red: #e63946;
+            --green: #2ecc71;
+            --border: 3px solid #000;
+            --radius: 24px;
+            --shadow: 6px 6px 0 #000;
+            --shadow-lg: 10px 10px 0 #000;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
+
+        /* NAV */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
+            border-bottom: 3px solid var(--black);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
+            display: flex; align-items: center; justify-content: space-between; gap: 24px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
+            text-decoration: none; color: var(--black);
+        }
+        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; }
+        .nav-links {
+            display: flex; align-items: center; gap: 28px; list-style: none;
+        }
+        .nav-links a {
+            font-weight: 700; font-size: 0.9rem; text-decoration: none; color: var(--muted);
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--black); }
+        .nav-cta {
+            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.9rem;
+            padding: 10px 20px; border-radius: 10px; border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black); text-decoration: none;
+            transition: all 0.2s;
+        }
+        .nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+        /* SECTIONS WRAPPER */
+        .section { padding: 100px 24px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            display: inline-block; font-size: 0.8rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 0.12em; padding: 6px 16px; border-radius: 100px;
+            border: 2px solid var(--black); background: var(--gold); color: var(--black);
+            margin-bottom: 20px;
+        }
+        .section-headline {
+            font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
+            line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+        }
+        .section-sub {
+            font-size: 1.15rem; color: var(--muted); font-weight: 500; max-width: 600px;
+        }
+
+        /* =============================================
+           HERO SECTION
+        =============================================*/
+        .hero-section {
+            padding: 160px 24px 100px;
+            text-align: center;
+            border-bottom: 3px solid var(--black);
+            background: var(--off-white);
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: #000; color: #fff; font-size: 0.82rem; font-weight: 800;
+            padding: 8px 20px; border-radius: 100px; border: 2px solid #000;
+            margin-bottom: 32px; letter-spacing: 0.05em;
+        }
+        .hero-badge .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+
+        .hero-headline {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 900; line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 24px;
+        }
+        .hero-headline span {
+            background: var(--gold);
+            padding: 0 8px;
+            border-radius: 6px;
+            display: inline;
+        }
+        .hero-sub {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--muted); font-weight: 500;
+            max-width: 680px; margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .hero-ctas {
+            display: flex; align-items: center; justify-content: center; gap: 16px;
+            flex-wrap: wrap; margin-bottom: 60px;
+        }
+        .btn-primary {
+            background: var(--gold); color: var(--black); font-weight: 900; font-size: 1.05rem;
+            padding: 16px 32px; border-radius: 14px; border: 3px solid var(--black);
+            box-shadow: var(--shadow); text-decoration: none; display: inline-flex;
+            align-items: center; gap: 8px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        .btn-primary:hover { transform: translate(-3px,-3px); box-shadow: var(--shadow-lg); }
+        .btn-secondary {
+            background: var(--black); color: var(--white); font-weight: 800; font-size: 1.05rem;
+            padding: 16px 32px; border-radius: 14px; border: 3px solid var(--black);
+            box-shadow: 6px 6px 0 var(--gold); text-decoration: none; display: inline-flex;
+            align-items: center; gap: 8px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        .btn-secondary:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 var(--gold); }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
+            max-width: 900px; margin: 0 auto;
+        }
+        .stat-pill {
+            background: var(--black); color: var(--white); font-weight: 900; font-size: 0.95rem;
+            padding: 12px 24px; border-radius: 100px; display: flex; align-items: center; gap: 8px;
+        }
+        .stat-pill .stat-val { color: var(--gold); }
+
+        /* =============================================
+           VIDEO EMBED
+        =============================================*/
+        .video-section {
+            padding: 80px 24px; background: var(--off-white); border-bottom: 3px solid var(--black);
+        }
+        .video-wrapper-outer {
+            max-width: 860px; margin: 0 auto;
+        }
+        .video-wrapper-outer h2 { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 32px; }
+        .video-embed {
+            border: 4px solid var(--black); border-radius: var(--radius);
+            overflow: hidden; box-shadow: var(--shadow-lg);
+            position: relative; padding-bottom: 58.5%;
+        }
+        .video-embed iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        /* =============================================
+           PAIN SECTION
+        =============================================*/
+        .pain-section { background: var(--black); color: var(--white); }
+        .pain-section .section-headline { color: var(--white); }
+        .pain-section .section-sub { color: #999; }
+
+        .pain-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px; margin-top: 60px;
+        }
+        .pain-card {
+            background: #111; border: 2px solid #333; border-radius: var(--radius); padding: 36px;
+            transition: all 0.2s;
+        }
+        .pain-card:hover { border-color: var(--red); transform: translateY(-4px); }
+        .pain-card-name {
+            font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
+            color: var(--red); margin-bottom: 16px;
+        }
+        .pain-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; color: #eee; }
+        .pain-card p { color: #777; line-height: 1.6; margin-bottom: 16px; }
+        .pain-cost {
+            font-weight: 900; color: var(--red); font-size: 0.95rem;
+            background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.3);
+            padding: 8px 16px; border-radius: 8px; display: inline-block;
+        }
+        .pain-banner {
+            background: #111; border: 2px solid #e63946; border-radius: var(--radius);
+            padding: 40px; margin-top: 40px; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 24px;
+        }
+        .pain-banner p { font-size: 1.15rem; font-weight: 700; color: #ccc; max-width: 500px; }
+        .pain-banner-cost {
+            font-size: 2rem; font-weight: 900; color: var(--red);
+            white-space: nowrap;
+        }
+        .pain-banner-cost span { font-size: 1rem; display: block; color: #777; font-weight: 600; }
+
+        /* =============================================
+           FEATURES SECTION
+        =============================================*/
+        .features-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px; margin-top: 60px;
+        }
+        .feature-card {
+            background: var(--white); border: 3px solid var(--black); border-radius: var(--radius);
+            padding: 36px; box-shadow: 6px 6px 0 rgba(0,0,0,0.06);
+            transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        .feature-card:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 var(--black); }
+        .feature-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+        .feature-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; }
+        .feature-card p { color: var(--muted); line-height: 1.6; }
+
+        /* =============================================
+           COMPARISON SECTION
+        =============================================*/
+        .compare-section { background: var(--white); border-bottom: 3px solid var(--black); }
+        .compare-table-wrap { overflow-x: auto; margin-top: 60px; }
+        .compare-table {
+            width: 100%; border-collapse: collapse;
+            border: 3px solid var(--black); border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .compare-table thead { background: var(--black); color: var(--white); }
+        .compare-table thead th {
+            padding: 20px 24px; text-align: left; font-size: 0.85rem;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;
+        }
+        .compare-table thead th:first-child { font-size: 1rem; text-transform: none; letter-spacing: 0; }
+        .compare-table tbody tr { border-bottom: 2px solid #eee; }
+        .compare-table tbody tr:last-child { border-bottom: none; }
+        .compare-table td {
+            padding: 18px 24px; font-weight: 600; font-size: 0.95rem;
+            vertical-align: middle; color: var(--muted);
+        }
+        .compare-table td:first-child { color: var(--black); font-weight: 800; font-size: 1rem; }
+        .compare-table td.yes { color: var(--green); font-size: 1.3rem; font-weight: 900; }
+        .compare-table td.no { color: #ccc; font-size: 1.3rem; }
+        .compare-table tbody tr:hover { background: #f8f8f8; }
+        .compare-table .highlight-col { background: rgba(255,215,0,0.06); }
+
+        /* =============================================
+           ROI SECTION
+        =============================================*/
+        .roi-section {
+            background: var(--black); color: var(--white);
+        }
+        .roi-section .section-headline { color: var(--white); }
+        .roi-section .section-sub { color: #999; }
+        .roi-box {
+            background: #111; border: 2px solid #333; border-radius: var(--radius);
+            padding: 48px; max-width: 680px; margin: 60px auto 0;
+        }
+        .roi-box h3 { font-size: 1.2rem; font-weight: 800; color: #888; margin-bottom: 32px; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; }
+        .roi-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 16px 0; border-bottom: 1px solid #222;
+        }
+        .roi-row:last-child { border-bottom: none; }
+        .roi-row-label { font-weight: 700; color: #aaa; }
+        .roi-row-val { font-size: 1.15rem; font-weight: 900; }
+        .roi-row-val.neg { color: var(--red); }
+        .roi-row-val.pos { color: var(--green); font-size: 1.5rem; }
+
+        /* =============================================
+           PRICING SECTION
+        =============================================*/
+        .pricing-section { background: var(--off-white); border-top: 3px solid var(--black); }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px; margin-top: 60px;
+        }
+        .plan-card {
+            background: var(--white); border: 3px solid var(--black); border-radius: var(--radius);
+            padding: 40px; box-shadow: 6px 6px 0 rgba(0,0,0,0.06);
+            display: flex; flex-direction: column;
+        }
+        .plan-card.popular {
+            border-width: 4px; box-shadow: 8px 8px 0 var(--black);
+            position: relative; transform: scale(1.02);
+        }
+        .popular-badge {
+            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.78rem;
+            text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 20px;
+            border-radius: 100px; border: 2px solid var(--black); white-space: nowrap;
+        }
+        .plan-name { font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px; }
+        .plan-price { font-size: 3rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; }
+        .plan-period { font-size: 0.9rem; color: var(--muted); font-weight: 600; margin-bottom: 24px; }
+        .plan-desc { font-size: 1rem; color: var(--muted); margin-bottom: 32px; line-height: 1.5; }
+        .plan-features { list-style: none; margin-bottom: 36px; flex: 1; }
+        .plan-features li {
+            padding: 10px 0; border-bottom: 1px solid #eee;
+            font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;
+        }
+        .plan-features li:last-child { border-bottom: none; }
+        .plan-features li::before { content: '✓'; font-weight: 900; color: var(--green); font-size: 1rem; }
+        .plan-btn {
+            background: var(--gold); color: var(--black); font-weight: 900; font-size: 1rem;
+            padding: 16px; border-radius: 14px; border: 3px solid var(--black);
+            box-shadow: var(--shadow); text-decoration: none; display: block;
+            text-align: center; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        .plan-btn:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+        .plan-btn.dark {
+            background: var(--black); color: var(--white);
+            box-shadow: 6px 6px 0 var(--gold);
+        }
+        .plan-btn.dark:hover { box-shadow: 10px 10px 0 var(--gold); }
+        .pricing-badges {
+            text-align: center; margin-top: 40px; display: flex;
+            justify-content: center; gap: 24px; flex-wrap: wrap;
+        }
+        .pricing-badge {
+            font-size: 0.9rem; font-weight: 700; color: var(--muted);
+            display: flex; align-items: center; gap: 6px;
+        }
+
+        /* =============================================
+           FAQ SECTION
+        =============================================*/
+        .faq-section { background: var(--white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+        .faq-list { max-width: 780px; margin: 60px auto 0; }
+        .faq-item {
+            border: 2px solid #eee; border-radius: 16px; margin-bottom: 16px; overflow: hidden;
+            transition: all 0.2s;
+        }
+        .faq-item:hover { border-color: var(--black); }
+        .faq-question {
+            width: 100%; background: var(--white); border: none; cursor: pointer;
+            padding: 24px 28px; text-align: left; display: flex; justify-content: space-between;
+            align-items: center; gap: 16px;
+        }
+        .faq-question-text { font-size: 1.05rem; font-weight: 800; color: var(--black); }
+        .faq-icon { font-size: 1.5rem; font-weight: 300; color: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
+        .faq-answer { padding: 0 28px 24px; color: var(--muted); line-height: 1.7; font-weight: 500; display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        /* =============================================
+           FINAL CTA SECTION
+        =============================================*/
+        .final-cta-section {
+            background: var(--black); color: var(--white); text-align: center;
+            padding: 120px 24px;
+        }
+        .final-cta-section .section-headline { color: var(--white); text-align: center; }
+        .final-cta-section .section-sub { color: #888; margin: 0 auto 48px; max-width: 560px; text-align: center; }
+        .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* =============================================
+           FOOTER
+        =============================================*/
+        .footer {
+            background: var(--off-white); border-top: 3px solid var(--black);
+            padding: 40px 24px; text-align: center;
+        }
+        .footer-inner { max-width: 800px; margin: 0 auto; }
+        .footer-brand { font-weight: 900; font-size: 1.15rem; margin-bottom: 16px; }
+        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+        .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--black); }
+        .footer-copy { font-size: 0.85rem; color: var(--muted); }
+
+        /* =============================================
+           TOAST
+        =============================================*/
         .toast {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #000;
-            color: #fff;
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-weight: 800;
-            box-shadow: 8px 8px 0 var(--accent-color);
-            transform: translateY(100px);
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border: 3px solid #000;
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--black); color: var(--white);
+            padding: 16px 32px; border-radius: 16px; font-weight: 800;
+            box-shadow: 8px 8px 0 var(--gold);
+            transform: translateY(100px); opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+            z-index: 2000; display: flex; align-items: center; gap: 12px;
+            border: 3px solid var(--black);
         }
+        .toast.show { transform: translateY(0); opacity: 1; }
 
-        .toast.show {
-            transform: translateY(0);
-            opacity: 1;
+        /* Social Proof Ticker */
+        .proof-bar {
+            background: var(--black); color: var(--white);
+            padding: 14px 24px; border-bottom: 3px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            gap: 32px; flex-wrap: wrap; font-size: 0.88rem; font-weight: 700;
         }
+        .proof-item { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+        .proof-item span { color: var(--gold); }
 
-        .toast-icon {
-            font-size: 1.5rem;
+        /* Urgency badge */
+        .urgency-chip {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(230,57,70,0.1); border: 2px solid var(--red);
+            color: var(--red); font-size: 0.82rem; font-weight: 900;
+            padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+            animation: urgencyPulse 2s infinite;
+        }
+        @keyframes urgencyPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.3);} 50%{box-shadow:0 0 0 8px rgba(230,57,70,0);} }
+
+        /* Sticky Bottom Bar */
+        .sticky-bar {
+            position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;
+            background: var(--black); border-top: 3px solid var(--gold);
+            padding: 14px 24px;
+            display: none; align-items: center; justify-content: space-between;
+            gap: 16px; flex-wrap: wrap;
+        }
+        .sticky-bar.show { display: flex; }
+        .sticky-bar-text { color: var(--white); font-weight: 800; font-size: 0.95rem; }
+        .sticky-bar-text span { color: var(--gold); }
+        .sticky-bar .btn-primary { font-size: 0.9rem; padding: 12px 24px; }
+
+        /* How It Works Timeline */
+        .how-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+        .timeline {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0; margin-top: 60px;
+        }
+        .timeline-step {
+            padding: 40px 32px; border-right: 3px solid var(--black);
+            position: relative;
+        }
+        .timeline-step:last-child { border-right: none; }
+        .step-num {
+            font-size: 3rem; font-weight: 900; color: var(--gold);
+            line-height: 1; margin-bottom: 16px; display: block;
+        }
+        .timeline-step h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+        .timeline-step p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+
+        /* SMTP Highlight Card */
+        .smtp-highlight {
+            background: #000; color: #fff;
+            border: 3px solid var(--gold); border-radius: var(--radius);
+            padding: 36px; box-shadow: 8px 8px 0 var(--gold);
+            grid-column: span 2;
+        }
+        @media (max-width: 900px) { .smtp-highlight { grid-column: span 1; } }
+        .smtp-highlight h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--gold); }
+        .smtp-highlight p { color: #aaa; line-height: 1.6; }
+        .smtp-tags {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+        }
+        .smtp-tag {
+            background: #1a1a1a; border: 1px solid #333; color: #ccc;
+            font-size: 0.8rem; font-weight: 800; padding: 6px 14px;
+            border-radius: 8px; letter-spacing: 0.04em;
+        }
+        .smtp-tag.active { background: var(--gold); color: #000; border-color: var(--gold); }
+
+        /* =============================================
+           RESPONSIVE
+        =============================================*/
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .plan-card.popular { transform: none; }
+            .pain-banner { flex-direction: column; }
+            .roi-box { padding: 32px 24px; }
+            .smtp-highlight { grid-column: span 1; }
+            .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
+            .timeline-step:last-child { border-bottom: none; }
         }
     </style>
 </head>
 
 <body>
-    <div class="announcement-bar">
-        We're thrilled to be backed by <strong>AWS Startups</strong>! 🚀
+
+    <!-- SOCIAL PROOF BAR -->
+    <div class="proof-bar">
+        <div class="proof-item">⭐⭐⭐⭐⭐ <span>4.9/5</span> from 87 users</div>
+        <div class="proof-item">🚀 <span>2,400+</span> agencies onboarded</div>
+        <div class="proof-item">📬 <span>Instantly alternative</span> — self-hosted</div>
+        <div class="proof-item">🔒 <span>100%</span> data ownership</div>
     </div>
-    <nav class="sticky-nav" id="stickyNav">
-        <div class="sticky-container">
-            <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="sticky-logo-link">
-                <img src="/logo.svg" alt="Cleanmails" class="sticky-logo-img">
-                <span class="sticky-logo-text">Cleanmails</span>
+
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <img src="/logo.svg" alt="Cleanmails — Self-Hosted Cold Email Tool">
+                Cleanmails
             </a>
-            <a href="#pricing" class="sticky-cta">Get Lifetime Access — $99 <span
-                    style="font-size: 0.8rem; opacity: 0.7; text-decoration: line-through;">$249</span></a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#compare">Compare</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#pricing" class="nav-cta" id="navCta">Get Lifetime Access →</a>
         </div>
     </nav>
 
-    <div class="container">
-        <header class="hero">
-            <h1 class="product-name">Cleanmails</h1>
-            <p class="descriptor">The self-hosted email cleaner that saves you thousands and keeps your data 100%
-                private, One-Time price.</p>
-            <div class="cta-wrapper">
-                <div class="ph-badge-container" style="margin-bottom: 24px;">
-                    <a href="https://www.producthunt.com/products/cleanmails?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-cleanmails"
-                        target="_blank" rel="noopener noreferrer"><img
-                            alt="Cleanmails  - Self-host bulk email validation | Product Hunt" width="250" height="54"
-                            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&amp;theme=light&amp;t=1769534073976"></a>
-                </div>
-                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                    <a href="#pricing" class="cta-button" style="margin: 0;">Get Lifetime Access — $99 <span
-                            style="font-size: 0.8rem; opacity: 0.7; text-decoration: line-through;">$249</span></a>
-                    <a href="/infrastructure" class="cta-button"
-                        style="margin: 0; background: #000; color: #fff; border-color: #000; box-shadow: 4px 4px 0 var(--accent-color);">Own
-                        the System</a>
-                </div>
-                <p class="cta-subtext" style="margin-top: 24px;">Instant Download. Lifetime updates via mail. Unlimited
-                    usage.</p>
-                <p style="font-size: 0.9rem; margin-top: 12px; opacity: 0.8; font-weight: 500;">🔒 Your data stays on
-                    your machine. No third-party sharing.</p>
+    <!-- HERO -->
+    <section class="hero-section" id="hero">
+        <div class="urgency-chip">🔥 Limited Early Access Pricing — Prices increase soon</div>
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Self-Hosted &nbsp;·&nbsp; One-Time Payment &nbsp;·&nbsp; Unlimited Everything
+        </div>
+        <h1 class="hero-headline">
+            Stop Paying Monthly<br>
+            For <span>Cold Email</span>
+        </h1>
+        <p class="hero-sub">
+            The complete cold email infrastructure — SMTP rotation, email validation, spintax,
+            cadences, and automation — running on your own server. Pay once, own it forever.
+        </p>
+        <div class="hero-ctas">
+            <a href="#pricing" class="btn-primary" id="heroCta">Get Lifetime Access →</a>
+            <a href="#features" class="btn-secondary">▶ See All Features</a>
+        </div>
+        <div class="stats-bar">
+            <div class="stat-pill"><span class="stat-val">∞</span> Emails/Month</div>
+            <div class="stat-pill"><span class="stat-val">∞</span> Contacts</div>
+            <div class="stat-pill"><span class="stat-val">∞</span> Senders</div>
+            <div class="stat-pill"><span class="stat-val">∞</span> Domains</div>
+            <div class="stat-pill"><span class="stat-val">$0</span>/month forever</div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section">
+        <div class="video-wrapper-outer">
+            <h2>How it looks.</h2>
+            <div class="video-embed">
+                <iframe
+                    src="https://player.vimeo.com/video/1169465351?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    title="Cleanmails Dashboard Demo">
+                </iframe>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <section class="product-preview" style="display: flex; flex-direction: column; align-items: center;">
-            <h2 style="text-align: center; margin-bottom: 32px; width: 100%;">How it looks.</h2>
-            <div class="video-wrapper">
-                <div style="padding:58.19% 0 0 0;position:relative;"><iframe
-                        src="https://player.vimeo.com/video/1169465351?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1"
-                        frameborder="0"
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                        title="Comprehensive_Email_Validation_and_List_Management_Guide"></iframe></div>
-            </div>
-        </section>
-        <script src="https://player.vimeo.com/api/player.js"></script>
+    <!-- PAIN SECTION -->
+    <section class="pain-section section" id="pain">
+        <div class="section-inner">
+            <span class="section-label" style="background:#e63946; border-color:#e63946; color:#fff;">The Problem</span>
+            <h2 class="section-headline">You're renting software<br>that should be yours.</h2>
+            <p class="section-sub">Every month you hit send, a SaaS company takes a cut. Here's what you're actually paying.</p>
 
-        <main>
-            <section class="description">
-                <p>Every email list decays. But paying "API Taxes" of $0.008 per email to clean them is a rip-off.
-                    Invalid addresses cause bounces that damage your sender reputation and land your emails in the spam
-                    folder.</p>
-                <p>Cleanmails is a lightweight, self-hosted script designed to give you <strong>full control</strong>.
-                    We eliminate risky and undeliverable emails in two powerful phases—improving
-                    your deliverability and protecting your inbox placement.</p>
-                <p><strong>Phase 1: Basic Cleaning</strong> works entirely on your local environment to filter out
-                    obvious junk. For <strong>100% assured results</strong>, Phase 2 (SMTP Validation) performs a
-                    deep-level handshake to confirm the inbox truly exists.
-                </p>
-            </section>
-
-            <section class="features-detailed">
-                <div class="feature-section">
-                    <h2>🛡️ The 2-Phase Validation Process</h2>
-                    <p>Cleanmails verifies every email through a rigorous multi-layered scan split into two distinct
-                        operational phases:</p>
-
-                    <div class="phase-container">
-                        <div class="phase-header">
-                            <span class="phase-badge">PHASE 1</span>
-                            <h3 class="phase-title">Basic Cleaning (Works Offline)</h3>
-                        </div>
-                        <div class="phase-grid">
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">1. Mistake & Typo Filter</h3>
-                                <p class="phase-item-desc">Instantly catches typos like "gmal.com" or "yhaoo.com". We
-                                    ensure every email structure is perfect.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">2. Static Domain Check</h3>
-                                <p class="phase-item-desc">Cross-references against our internal database of 123k+
-                                    disposable domains and 4k+ free providers.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">3. "Burner" Email Detection</h3>
-                                <p class="phase-item-desc">Identifies temporary/disposable providers used for fraud or
-                                    "one-time" signups.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">4. Risky Role Filtering</h3>
-                                <p class="phase-item-desc">Flags support@, info@, or admin@ to help you target actual
-                                    decision-makers.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="phase-container premium">
-                        <div class="phase-header">
-                            <span class="phase-badge">PHASE 2</span>
-                            <h3 class="phase-title">SMTP Validation (100% Assured)</h3>
-                        </div>
-                        <div class="phase-grid">
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">5. MX & DNS Intelligence</h3>
-                                <p class="phase-item-desc">Real-time lookup of mail exchange records to verify if a
-                                    domain can actually receive mail.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">6. Real-time Handshake</h3>
-                                <p class="phase-item-desc">Connects directly to the recipient's mail server to verify
-                                    the inbox exists without sending an email.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">7. Bot & Robot Analyzer</h3>
-                                <p class="phase-item-desc">Advanced signal verification to distinguish machine-generated
-                                    addresses from real humans.</p>
-                            </div>
-                            <div class="stat-item">
-                                <h3 class="phase-item-title">8. RFC Compliance</h3>
-                                <p class="phase-item-desc">100% compliance with RFC 5322 standards for industry-standard
-                                    validation accuracy.</p>
-                            </div>
-                        </div>
-                    </div>
-
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="pain-card-name">Instantly</div>
+                    <h3>Active lead limits. Per-email fees.</h3>
+                    <p>Costs scale as you scale. The moment you start winning, your bill goes up.</p>
+                    <div class="pain-cost">$37–$97/mo &nbsp;→&nbsp; <strong>$444–$1,164/yr</strong></div>
                 </div>
-
-                <div class="feature-section">
-                    <h2>🚀 Core Features</h2>
-                    <div class="feature-grid">
-                        <div class="feature-card">
-                            <span class="feature-icon">🛡️</span>
-                            <h3>Email Validation</h3>
-                            <p>Deep 2-phase verification including SMTP handshakes to ensure every email in your list is
-                                active and deliverable.</p>
-                        </div>
-                        <div class="feature-card">
-                            <span class="feature-icon">🧹</span>
-                            <h3>List Cleaner</h3>
-                            <p>Normalizes messy contact lists from CSV or Excel, removes duplicates, and prepares data
-                                for bulk verification.</p>
-                        </div>
-                        <div class="feature-card">
-                            <span class="feature-icon">🔍</span>
-                            <h3>Spam Analysis</h3>
-                            <p>Scans your email body for 150+ spammy keywords and formatting triggers to ensure your
-                                content lands in the inbox.</p>
-                        </div>
-                        <div class="feature-card">
-                            <span class="feature-icon">📑</span>
-                            <h3>Email Extractor</h3>
-                            <p>Instantly extracts and cleans email addresses from unstructured text, messy documents, or
-                                raw code blocks.</p>
-                        </div>
-                    </div>
+                <div class="pain-card">
+                    <div class="pain-card-name">Smartlead</div>
+                    <h3>2,000 active leads on basic.</h3>
+                    <p>6,000 emails/month cap. Pay more to do more. Growth is punished, not rewarded.</p>
+                    <div class="pain-cost">$39–$94/mo &nbsp;→&nbsp; <strong>$468–$1,128/yr</strong></div>
                 </div>
-            </section>
-
-            <section class="stats-section">
-                <div class="stats-intro">
-                    <h2>The Data Behind the Magic</h2>
-                    <p>Cleanmails is powered by a massive proprietary intelligence database, ensuring your leads are
-                        verified against the most comprehensive datasets available.</p>
-                </div>
-
-                <div class="stats-grid">
-                    <!-- Cleanmails Intelligence Stats -->
-                    <div class="stats-category">
-                        <h3>📊 Cleanmails Intelligence</h3>
-                        <div class="stats-item-list">
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">123,320+</span>
-                                    <span class="stat-label">Disposable Domains</span>
-                                </div>
-                                <p class="stat-desc">The system identifies and blocks over 123,320+ validated disposable
-                                    domains, protecting you from "burner" emails.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">4,480+</span>
-                                    <span class="stat-label">Free Providers</span>
-                                </div>
-                                <p class="stat-desc">Deep integration with a database of 4,480+ service providers
-                                    (Gmail, Outlook, etc.) to distinguish B2B leads.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">890+</span>
-                                    <span class="stat-label">Role Prefixes</span>
-                                </div>
-                                <p class="stat-desc">Advanced filtering for 890+ administrative prefixes (admin@,
-                                    support@) to target actual decision-makers.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">50+</span>
-                                    <span class="stat-label">Domain Typos</span>
-                                </div>
-                                <p class="stat-desc">A smart correction layer covering 50+ common domain typos, ensuring
-                                    you don't lose leads to keyboard slips.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Technical Infrastructure Stats -->
-                    <div class="stats-category">
-                        <h3>🛡️ Technical Infrastructure</h3>
-                        <div class="stats-item-list">
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">100,000</span>
-                                    <span class="stat-label">Batch Capacity</span>
-                                </div>
-                                <p class="stat-desc">Optimized for massive parallel processing of up to 100,000 records
-                                    in a single session.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">100%</span>
-                                    <span class="stat-label">Syntax Accuracy</span>
-                                </div>
-                                <p class="stat-desc">Full compliance with RFC 5322 standards for industry-leading email
-                                    structure validation.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">&lt;1s</span>
-                                    <span class="stat-label">Latency</span>
-                                </div>
-                                <p class="stat-desc">Sub-second real-time verification for single lookups and
-                                    hyper-threaded bulk processing.</p>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-header">
-                                    <span class="stat-number">Live</span>
-                                    <span class="stat-label">MX & DNS Intel</span>
-                                </div>
-                                <p class="stat-desc">Real-time lookup of mail exchange records to verify delivery
-                                    capability before handshake begins.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="savings-calc">
-                <div class="calc-container">
-                    <div class="calc-card">
-                        <div class="calc-title-group">
-                            <h2>💰 Stop Burning Money</h2>
-                            <p>See how much you save by switching from credit-based APIs to your own self-hosted server.
-                            </p>
-                        </div>
-
-                        <div class="slider-container">
-                            <div class="email-count-display" id="email-count">100,000</div>
-                            <input type="range" min="10000" max="1000000" step="10000" value="100000"
-                                class="range-slider" id="calc-slider">
-                            <div class="slider-labels">
-                                <span>10k</span>
-                                <span>500k</span>
-                                <span>1M</span>
-                            </div>
-                        </div>
-
-                        <div class="comp-box-grid">
-                            <div class="comp-box">
-                                <h4>ZeroBounce</h4>
-                                <div class="comp-val" id="zb-cost">$190</div>
-                                <p style="font-size: 0.85rem; opacity: 0.7;">$1,910 / million</p>
-                            </div>
-                            <div class="comp-box">
-                                <h4>Reoon</h4>
-                                <div class="comp-val" id="reoon-cost">$70</div>
-                                <p style="font-size: 0.85rem; opacity: 0.7;">$700 / million</p>
-                            </div>
-                            <div class="comp-box champion">
-                                <h4>Cleanmails</h4>
-                                <div class="comp-val" id="clean-cost">$5</div>
-                                <div class="savings-highlight" id="savings-amt">Save $185</div>
-                                <p style="font-size: 0.85rem; opacity: 1; color: var(--accent-color);">Monthly VPS Cost
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="vps-info">
-                            <strong>Technical Fact:</strong> One Contabo VPS ($5/mo) with port 25 can validate
-                            <strong>lakhs of emails per day</strong>. Scale to millions by simply spinning up
-                            more $5 nodes.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="pricing" class="pricing">
-                <div class="stats-intro">
-                    <h2>Simple, Transparent Pricing</h2>
-                    <p>Choose the license that fits your scale. One-time payment, unlimited value.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <!-- Personal -->
-                    <div class="price-card">
-                        <span class="price-tier-name">Personal Use</span>
-                        <div class="price-tag">$99</div>
-                        <p>Perfect for solo founders & marketers. <strong>Unlimited usage for your own company
-                                forever.</strong></p>
-                        <ul class="price-features">
-                            <li>Self-hosted Dashboard</li>
-                            <li>Phase 1 & 2 Validation</li>
-                            <li>Unlimited Internal Lists</li>
-                            <li>Email Support</li>
-                        </ul>
-                        <a href="https://checkout.dodopayments.com/buy/pdt_0NXbhHbqmADjrqdHjCP2p?session=sess_ovOIqrAyHM"
-                            target="_blank" class="checkout-button">Get Personal</a>
-                        <span class="setup-addon">Optional: +$50 Managed Setup (Pay after setup)</span>
-                    </div>
-
-                    <!-- Commercial -->
-                    <div class="price-card featured">
-                        <span class="price-tier-name">Commercial License</span>
-                        <div class="price-tag">$499</div>
-                        <p>Everything you need to <strong>build your own SaaS</strong> using our script as your backend
-                            engine.</p>
-                        <ul class="price-features">
-                            <li><strong>Everything in Personal</strong></li>
-                            <li>Full API Access</li>
-                            <li>Commercial SaaS Rights</li>
-                            <li>Priority Support</li>
-                            <li>Free Managed Setup</li>
-                        </ul>
-                        <a href="https://checkout.dodopayments.com/buy/pdt_0NZSwM0gJZPOt2HOkoopj?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess-v1-x8fk2m9s7q5p4r3w.html"
-                            target="_blank" class="checkout-button">Get Commercial</a>
-                    </div>
-
-                    <!-- Ultimate Infrastructure -->
-                    <div class="price-card ultimate">
-                        <span class="price-tier-name">Own the Infrastructure</span>
-                        <div class="price-tag">$2,999</div>
-                        <p>Total control of your email delivery. <strong>Includes 1 Year of Infrastructure for
-                                free.</strong></p>
-                        <div
-                            style="font-size: 0.85rem; background: #FFF9E6; border: 2px solid #000; padding: 12px; border-radius: 12px; font-weight: 900; margin-bottom: 24px; text-align: center; box-shadow: 4px 4px 0 #000;">
-                            ⚡ <span style="color: #d4a017;">OFFER:</span> Pay 10% Upfront, 90% AFTER Delivery
-                        </div>
-                        <ul class="price-features" style="margin-bottom: 32px;">
-                            <li><strong>Everything in Commercial</strong></li>
-                            <li><strong>50 Dedicated Mailboxes</strong></li>
-                            <li><strong>Own High-Reputation SMTP</strong></li>
-                            <li><strong>Catch-all Setup Enabled</strong></li>
-                            <li><strong>Cold Email Sender Script</strong></li>
-                            <li><strong>1 Year Server Costs FREE</strong></li>
-                            <li><strong>2-Day Guaranteed Delivery</strong></li>
-                            <li>Self-hosted Validation Dash</li>
-                        </ul>
-                        <a href="/infrastructure" class="checkout-button"
-                            style="background: #FFD700; border-color: #000; box-shadow: 6px 6px 0 #000;">Know More
-                            Details</a>
-                    </div>
-
-                    <!-- SaaS / Hire -->
-                    <div class="price-card enterprise">
-                        <span class="price-tier-name">SaaS Starter</span>
-                        <div class="price-tag">$3,999+</div>
-                        <p><strong>We build your own Zerobounce-like SaaS for you.</strong> Complete end-to-end setup,
-                            customization &
-                            maintenance.</p>
-                        <p
-                            style="font-size: 0.85rem; background: rgba(255,255,255,0.1); border: 2px solid #fff; padding: 10px; border-radius: 12px; font-weight: 800; margin-bottom: 24px;">
-                            💰 Pay 90% AFTER Delivery</p>
-                        <ul class="price-features" style="margin-bottom: 32px;">
-                            <li>White-label Fully Custom SaaS Code Base</li>
-                            <li>Custom Cloud Infrastructure</li>
-                            <li>Payment Gateway Integration</li>
-                            <li>Ongoing Technical Support</li>
-                        </ul>
-                        <a href="/saas-starter" class="checkout-button" style="background:#fff; border-color:#fff;">Know
-                            More Details</a>
-                    </div>
-                </div>
-
-                <div class="setup-assist" style="margin-top: 60px;">
-                    <div class="payment-tagline">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        Secured Payment via Dodo Payments. Instant Delivery via Mail.
-                    </div>
-                </div>
-            </section>
-
-            <section class="why-cleanmails">
-                <h2>The Traditional Trap vs. Cleanmails</h2>
-                <div class="comparison-grid">
-                    <div class="comparison-item">
-                        <h3>Save Thousands on Credits</h3>
-                        <p>Zerobounce charges ~$0.008 per email. Neverbounce is ~$0.007. Cleanmails is <strong>unlimited
-                                for life</strong> for a one-time $99 fee. You save money
-                            from the first list you clean.
-                        </p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>True Data Privacy</h3>
-                        <p>Traditional tools require you to upload your sensitive customer lists to their servers. With
-                            Cleanmails, your data <strong>never leaves your machine</strong>. Total privacy, total
-                            control.</p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>No Monthly "Rent"</h3>
-                        <p>Buy the code, own the code. Get the full source code instantly after purchase. No
-                            subscription
-                            to manage, no "billing cycles" to worry about.</p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>Professional Deliverability</h3>
-                        <p>Our deep 8-step scan matches the quality of paid APIs. Protect your domain reputation and
-                            ensure your outreach actually lands in the inbox, not the junk folder.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="use-cases">
-                <div class="stats-intro">
-                    <h2>Advanced Use Cases</h2>
-                    <p>Cleanmails isn't just a script; it's a foundation for your entire email infrastructure.</p>
-                </div>
-                <div class="use-cases-grid">
-                    <div class="use-case-card">
-                        <span class="use-case-icon">⚡</span>
-                        <h3>Bulk Validation API</h3>
-                        <p>Leverage our high-performance API to validate thousands of emails through your own backend.
-                            Perfect for CRM integrations and large-scale lead processing.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <span class="use-case-icon">🖥️</span>
-                        <h3>Interactive Dashboard</h3>
-                        <p>A full-featured UI for managers and marketers. Upload CSVs, monitor progress, and download
-                            cleaned lists without touching a single line of code.</p>
-                    </div>
-                    <div class="use-case-card">
-                        <span class="use-case-icon">🛑</span>
-                        <h3>Stop Spam Sign-ins</h3>
-                        <p>Protect your apps from fake accounts. Use our real-time API check to block disposable domains
-                            and bot-generated addresses at the moment of signup.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="who-it-is-for">
-                <h2>Built For High-Performance Teams</h2>
-                <div class="comparison-grid">
-                    <div class="comparison-item">
-                        <h3>Founders & Marketers</h3>
-                        <p>Clean your lists before every campaign without worrying about the cost of credits or monthly
-                            limits.</p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>Agencies</h3>
-                        <p>Provide validation services to your clients as a value-add without increasing your overhead.
-                        </p>
-                    </div>
-                    <div class="comparison-item">
-                        <h3>Privacy-First Teams</h3>
-                        <p>Keep your customer data 100% private. No third-party APIs ever touch your sensitive contact
-                            lists.</p>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="faq">
-                <h2>FAQ</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3>Is this as accurate as paid APIs?</h3>
-                        <p>Yes. We use the same industry-standard signal checks (Syntax, DNS, MX Record deep-scans) that
-                            high-priced services use. The only difference is that you run the script yourself instead of
-                            paying them a markup.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Can I use this on lists of 100k+?</h3>
-                        <p>Absolutely. There are no artificial limits. You can process lists of any size. For extremely
-                            large lists, running locally on a powerful machine is recommended for maximum speed.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>I'm not "technical"—can I use this?</h3>
-                        <p>Yes! We provide single-click deployment options and if you prefer a hands-off approach, we
-                            offer a <strong>Managed Setup service</strong> where our experts handle everything for you.
-                            You don't need to write a single line of code to get a powerful email cleaner live.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>What do I get after purchasing?</h3>
-                        <p>You get instant automated access to our private GitHub repository containing the full source
-                            code, lifetime updates, and documentation. Everything you need to start cleaning today.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="subscribe">
-                <h2>Stay Updated</h2>
-                <form id="newsletter-form">
-                    <input id="newsletter-email" type="email" placeholder="Your email address" required />
-                    <button class="cta-button" type="submit" id="newsletter-btn">Follow</button>
-                </form>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <div style="display: flex; justify-content: center; margin-bottom: 40px;">
-                <div
-                    style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif; border: 3px solid #000; border-radius: 12px; padding: 20px; max-width: 500px; background: rgb(255, 255, 255); box-shadow: 6px 6px 0 #000; text-align: left;">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <img alt="Cleanmails "
-                            src="https://ph-files.imgix.net/9b2fa0fc-9416-4118-a960-e9421c4b933b.png?auto=format&amp;fit=crop&amp;w=80&amp;h=80"
-                            style="width: 64px; height: 64px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
-                        <div style="flex: 1 1 0%; min-width: 0px;">
-                            <h3
-                                style="margin: 0px; font-size: 18px; font-weight: 800; color: rgb(26, 26, 26); line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                Cleanmails </h3>
-                            <p
-                                style="margin: 4px 0px 0px; font-size: 14px; color: rgb(102, 102, 102); line-height: 1.4; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical;">
-                                Self-host bulk email validation</p>
-                        </div>
-                    </div>
-                    <a href="https://www.producthunt.com/products/cleanmails?embed=true&amp;utm_source=embed&amp;utm_medium=post_embed"
-                        target="_blank" rel="noopener"
-                        style="display: inline-flex; align-items: center; gap: 4px; margin-top: 12px; padding: 8px 16px; background: #000; color: rgb(255, 255, 255); text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 800; border: 2px solid #000; transition: transform 0.2s;">Check
-                        it out on Product Hunt →</a>
+                <div class="pain-card">
+                    <div class="pain-card-name">Lemlist</div>
+                    <h3>Per-seat pricing. Costs explode.</h3>
+                    <p>Every feature is an upsell. Hire someone? Pay more. Every person who joins hits your credit card.</p>
+                    <div class="pain-cost"><strong>$59–$99/mo per seat</strong></div>
                 </div>
             </div>
-            <p class="footer-brand">Cleanmails</p>
-            <p class="footer-tagline">Self-hosted email validation at its finest.</p>
-            <p class="footer-contact">Contact: hello@cleanmails.online</p>
-            <nav class="footer-nav">
+
+            <div class="pain-banner">
+                <p><strong>Running 10 Client Campaigns?</strong><br>You're looking at $400–$700/month in tool costs alone. Before staff. Before ads.</p>
+                <div class="pain-banner-cost">
+                    $4,800–$8,400
+                    <span>/ year — and rising</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features-section section" id="features">
+        <div class="section-inner">
+            <span class="section-label">The Solution</span>
+            <h2 class="section-headline">Everything you need.<br>Nothing you don't.</h2>
+            <p class="section-sub">One self-hosted install covers your entire cold email stack.</p>
+
+            <div class="features-grid">
+
+                <!-- SMTP Highlight Card (spans 2 cols) -->
+                <div class="smtp-highlight">
+                    <h3>🖥️ Inbuilt SMTP — No Third-Party Required</h3>
+                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending immediately without buying a separate relay. And if you want higher deliverability at scale, simply plug in <strong>AWS SES, SendGrid, Mailgun, Gmail, or any custom SMTP</strong> — it connects in seconds. You are never locked in.</p>
+                    <div class="smtp-tags">
+                        <span class="smtp-tag active">Inbuilt SMTP ✓</span>
+                        <span class="smtp-tag">AWS SES</span>
+                        <span class="smtp-tag">SendGrid</span>
+                        <span class="smtp-tag">Mailgun</span>
+                        <span class="smtp-tag">Gmail</span>
+                        <span class="smtp-tag">Outlook</span>
+                        <span class="smtp-tag">Any Custom SMTP</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔄</span>
+                    <h3>SMTP Rotation</h3>
+                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect deliverability at any send volume without hitting limits.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">✅</span>
+                    <h3>Email Validation</h3>
+                    <p>SMTP handshake verification plus catch-all detection. Clean your list before sending. Keep bounce rates under 1% — without paying ZeroBounce.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎲</span>
+                    <h3>Spintax Engine</h3>
+                    <p>Every email looks unique. No two recipients get the same message — inbox filters can't pattern-match you. Native <code>{Hi|Hello|Hey}</code> syntax.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚙️</span>
+                    <h3>Cadences & Automation</h3>
+                    <p>Set up your sequence once. Automatic follow-ups, scheduling, and reply detection run without you. Full multi-step drip campaigns.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚨</span>
+                    <h3>Spam Word Detector</h3>
+                    <p>Flags risky words before you send. Know your spam score before the email hits a single inbox. Protect your sender reputation proactively.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎯</span>
+                    <h3>Subject Line Rotation</h3>
+                    <p>A/B test multiple subject lines simultaneously. Rotate automatically across your sender pool for higher open rates.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📬</span>
+                    <h3>Unlimited Mailboxes</h3>
+                    <p>Create and manage unlimited mailboxes. Add unlimited domains and senders with zero per-seat or per-mailbox charges.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📋</span>
+                    <h3>Newsletter Forms</h3>
+                    <p>Generate embeddable newsletter signup forms. Full subscriber management and list segmentation built in.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Built in Go — Ultra Fast</h3>
+                    <p>Blazing fast, low memory footprint. Runs comfortably on a <strong>$6/month VPS</strong>. No bloat, no heavy dependencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section section">
+        <div class="section-inner">
+            <span class="section-label">How It Works</span>
+            <h2 class="section-headline">Live in 4 steps.</h2>
+            <p class="section-sub">From sign-up to sending your first cold email — in under 24 hours.</p>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <span class="step-num">01</span>
+                    <h3>Get your license</h3>
+                    <p>Pick a plan. One-time payment. You get instant access to download and the setup guide.</p>
+                </div>
+                <div class="timeline-step">
+                    <span class="step-num">02</span>
+                    <h3>We install it for you</h3>
+                    <p>Point us to your Linux VPS. We deploy and configure everything end-to-end at zero extra cost.</p>
+                </div>
+                <div class="timeline-step">
+                    <span class="step-num">03</span>
+                    <h3>Connect your SMTP</h3>
+                    <p>Use the inbuilt SMTP engine out of the box, or connect AWS SES, Gmail, or any relay in minutes.</p>
+                </div>
+                <div class="timeline-step">
+                    <span class="step-num">04</span>
+                    <h3>Start sending</h3>
+                    <p>Upload your list, build your cadence, set spintax — and send. Unlimited. Forever.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION -->
+    <section class="compare-section section" id="compare">
+        <div class="section-inner">
+            <span class="section-label">Comparison</span>
+            <h2 class="section-headline">How we stack up.</h2>
+            <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing."</p>
+
+            <div class="compare-table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th style="color: var(--gold);">Cleanmails ★</th>
+                            <th>Instantly</th>
+                            <th>Smartlead</th>
+                            <th>Lemlist</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pricing model</td>
+                            <td class="highlight-col" style="color:#2ecc71; font-weight:900;">One-time</td>
+                            <td>Monthly</td>
+                            <td>Monthly</td>
+                            <td>Monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Email sending limit</td>
+                            <td class="yes highlight-col">Unlimited</td>
+                            <td class="no">Capped</td>
+                            <td class="no">Capped</td>
+                            <td class="no">Capped</td>
+                        </tr>
+                        <tr>
+                            <td>SMTP handshake validation</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Catch-all detection</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Spam word detector</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Spintax support</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="yes">✓</td>
+                            <td class="yes">✓</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Self-hosted / data ownership</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Free installation included</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI SECTION -->
+    <section class="roi-section section" id="roi">
+        <div class="section-inner">
+            <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">The Math</span>
+            <h2 class="section-headline">Pays for itself in 6 weeks.</h2>
+            <p class="section-sub">An agency running 10 client campaigns on Smartlead pays $400–$600/month — over $5,000 a year. Our Agency license costs $497 once. The math isn't complicated.</p>
+
+            <div class="roi-box">
+                <h3>Annual Cost Breakdown</h3>
+                <div class="roi-row">
+                    <div class="roi-row-label">Smartlead (10 clients / year)</div>
+                    <div class="roi-row-val neg">−$5,760</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-row-label">Agency License (one-time)</div>
+                    <div class="roi-row-val neg">−$497</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-row-label">Annual support (optional)</div>
+                    <div class="roi-row-val neg">−$99</div>
+                </div>
+                <div class="roi-row" style="border-top: 2px solid #333; padding-top: 24px; margin-top: 8px;">
+                    <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 1 Savings</div>
+                    <div class="roi-row-val pos">+$5,164</div>
+                </div>
+                <div class="roi-row">
+                    <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 2 Savings</div>
+                    <div class="roi-row-val pos">+$5,661</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing-section section" id="pricing">
+        <div class="section-inner">
+            <span class="section-label">Pricing</span>
+            <h2 class="section-headline">One price. Forever.</h2>
+            <p class="section-sub">No subscriptions. No per-seat fees. No gotchas.</p>
+
+            <div class="pricing-grid">
+                <!-- Solo -->
+                <div class="plan-card">
+                    <div class="plan-name">Solo</div>
+                    <div class="plan-price">$197</div>
+                    <div class="plan-period">one-time payment</div>
+                    <div class="plan-desc">For freelancers and solo operators running their own campaigns.</div>
+                    <ul class="plan-features">
+                        <li>1 server install</li>
+                        <li>Unlimited emails</li>
+                        <li>Inbuilt SMTP + connect any relay</li>
+                        <li>All core features</li>
+                        <li>Free installation</li>
+                    </ul>
+                    <a href="https://buy.dodopayments.com/buy/cleanmails-solo"
+                        class="plan-btn checkout-button"
+                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'Solo Plan'});">
+                        Get Solo Access →
+                    </a>
+                </div>
+
+                <!-- Agency (Popular) -->
+                <div class="plan-card popular" style="position:relative;">
+                    <div class="popular-badge">🏷 Most Popular</div>
+                    <div class="plan-name">Agency</div>
+                    <div class="plan-price">$497</div>
+                    <div class="plan-period">one-time payment</div>
+                    <div class="plan-desc">For agencies managing multiple client campaigns at scale.</div>
+                    <ul class="plan-features">
+                        <li>Unlimited installs</li>
+                        <li>Unlimited clients</li>
+                        <li>Inbuilt SMTP + SES/Mailgun ready</li>
+                        <li>All core features</li>
+                        <li>Free installation</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="https://buy.dodopayments.com/buy/cleanmails-agency"
+                        class="plan-btn dark checkout-button"
+                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'Agency Plan'});">
+                        Get Agency Access →
+                    </a>
+                </div>
+
+                <!-- White Label -->
+                <div class="plan-card">
+                    <div class="plan-name">White Label</div>
+                    <div class="plan-price">$997</div>
+                    <div class="plan-period">one-time payment</div>
+                    <div class="plan-desc">Rebrand and resell as your own SaaS product.</div>
+                    <ul class="plan-features">
+                        <li>Full rebrand rights</li>
+                        <li>Resell to clients</li>
+                        <li>Source code access</li>
+                        <li>Inbuilt SMTP + any relay</li>
+                        <li>All core features</li>
+                        <li>White-glove setup</li>
+                    </ul>
+                    <a href="https://buy.dodopayments.com/buy/cleanmails-whitelabel"
+                        class="plan-btn checkout-button"
+                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'White Label Plan'});">
+                        Get White Label →
+                    </a>
+                </div>
+            </div>
+
+            <div class="pricing-badges">
+                <span class="pricing-badge">⚡ Free installation included</span>
+                <span class="pricing-badge">🔄 Optional updates &amp; support: $99/yr</span>
+                <span class="pricing-badge">🖥️ Inbuilt SMTP — no extra tools needed</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section section" id="faq">
+        <div class="section-inner">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-headline">Common questions.</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">No. Free installation is included with every license. We handle the setup on your server end-to-end. You're ready to send on day one.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">What server do I need?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">Any Linux VPS works. A $6/month Hetzner or DigitalOcean server handles thousands of emails per day comfortably. The tool is built in Go — it's extremely lightweight.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits. The only limit is your server's capacity — which on a standard VPS is massive.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">What happens after I buy — how do updates work?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">You get the current version forever. Future updates are available via an optional $99/year support plan. Entirely optional — the core product works without it indefinitely.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Does Cleanmails have inbuilt SMTP or do I need a relay?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong> — you can start sending without any third-party relay. If you want higher deliverability or sending volume, you can optionally connect <strong>AWS SES, SendGrid, Mailgun, Gmail, Outlook, or any custom SMTP</strong> in minutes. You are never forced to buy a separate relay.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Can I use this for client campaigns?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">Yes — the Agency license covers unlimited client campaigns on unlimited installs. The White Label license lets you rebrand and resell the tool itself as your own SaaS.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span class="faq-question-text">Do I need to buy SMTP accounts separately?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">Yes — you bring your own SMTP providers (Gmail, Outlook, any custom SMTP). The tool manages and rotates them. This actually works in your favor: you're never locked into our sending infrastructure.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+        <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Get Started</span>
+        <h2 class="section-headline" style="margin-top: 24px;">Cancel your subscriptions.<br>Own your stack.</h2>
+        <p class="section-sub">Join the agencies and solo operators who stopped renting their email infrastructure and started owning it.</p>
+        <div class="final-cta-btns">
+            <a href="#pricing" class="btn-primary" id="finalCta">Get Lifetime Access →</a>
+            <a href="#pricing" class="btn-secondary">Compare Plans</a>
+        </div>
+    </section>
+
+    <!-- STICKY BOTTOM BAR -->
+    <div class="sticky-bar" id="stickyBar">
+        <div class="sticky-bar-text">🔥 <span>Cleanmails</span> — Self-hosted cold email. Unlimited everything. <span>One-time price.</span></div>
+        <a href="#pricing" class="btn-primary"
+            onclick="gtag('event','click_sticky_cta',{'event_category':'engagement','event_label':'Sticky Bar CTA'});">Get Lifetime Access →</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">Cleanmails</div>
+            <nav class="footer-links">
+                <a href="/">Home</a>
                 <a href="/docs">Docs</a>
-                <a href="/support">Support</a>
-                <a href="/developer">Developer</a>
-                <a href="/affiliate">Affiliate</a>
-                <a href="/terms">Terms</a>
                 <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+                <a href="/support">Support</a>
+                <a href="/affiliate">Affiliate</a>
+                <a href="/infrastructure">Own the System</a>
             </nav>
-        </footer>
+            <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">🎉</span>
+        <span id="toastMsg">Copied!</span>
     </div>
 
-    <div id="toast" class="toast">
-        <span class="toast-icon"></span>
-        <span id="toast-message"></span>
-    </div>
-
-    <script type="module">
-        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
-
-        // Newsletter Form Logic
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterEmail = document.getElementById('newsletter-email');
-        const newsletterBtn = document.getElementById('newsletter-btn');
-
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = newsletterEmail.value;
-
-                // UI Feedback
-                newsletterBtn.disabled = true;
-                const originalText = newsletterBtn.innerText;
-                newsletterBtn.innerText = 'Joining...';
-
-                try {
-                    await addDoc(collection(db, "newsletter"), {
-                        email: email,
-                        createdAt: serverTimestamp()
-                    });
-
-                    showToast('Welcome to the inner circle! 🚀', '🎉');
-                    newsletterForm.reset();
-                } catch (error) {
-                    console.error("Newsletter Error:", error);
-                    showToast('Submission failed. Try again!', '⚠️');
-                } finally {
-                    newsletterBtn.disabled = false;
-                    newsletterBtn.innerText = originalText;
-                }
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+                btn.setAttribute('aria-expanded', !isOpen);
             });
-        }
+        });
 
-        function showToast(message, icon = '🎉') {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            const toastIcon = toast ? toast.querySelector('.toast-icon') : null;
-
-            if (!toast || !toastMsg || !toastIcon) return;
-
-            toastMsg.innerText = message;
-            toastIcon.innerText = icon;
-
-            toast.classList.add('show');
-
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 4000);
-        }
-
-        // Savings Calculator Logic
-        const slider = document.getElementById('calc-slider');
-        const emailCounter = document.getElementById('email-count');
-        const zbCostEl = document.getElementById('zb-cost');
-        const reoonCostEl = document.getElementById('reoon-cost');
-        const cleanCostEl = document.getElementById('clean-cost');
-        const savingsBadge = id => document.getElementById(id);
-
-        function updateSavings() {
-            if (!slider) return;
-            const count = parseInt(slider.value);
-            emailCounter.textContent = count.toLocaleString();
-
-            // ZeroBounce: $0.0019 per email
-            const zb = Math.round(count * 0.0019);
-            // Reoon: $0.0007 per email
-            const reoon = Math.round(count * 0.0007);
-
-            // Cleanmails: VPS Cost only ($5 per ~300k emails capacity)
-            const vpsCount = Math.ceil(count / 300000);
-            const clean = vpsCount * 5;
-
-            zbCostEl.textContent = `$${zb.toLocaleString()}`;
-            reoonCostEl.textContent = `$${reoon.toLocaleString()}`;
-            cleanCostEl.textContent = `$${clean.toLocaleString()}`;
-
-            const savings = zb - clean;
-            const badge = document.getElementById('savings-amt');
-            if (badge) {
-                badge.textContent = `Save $${savings.toLocaleString()}`;
-                badge.style.display = 'inline-block';
+        // Sticky Bottom Bar
+        const stickyBar = document.getElementById('stickyBar');
+        const heroEl = document.getElementById('hero');
+        window.addEventListener('scroll', () => {
+            if (heroEl && window.scrollY > heroEl.offsetHeight + 200) {
+                stickyBar.classList.add('show');
+            } else {
+                stickyBar.classList.remove('show');
             }
-        }
+        });
 
-        if (slider) {
-            slider.addEventListener('input', updateSavings);
-            // Initial call
-            updateSavings();
-        }
+        // GTM Events
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroCta = document.getElementById('heroCta');
+            if (heroCta) heroCta.addEventListener('click', () =>
+                gtag('event', 'click_hero_cta', { event_category: 'engagement', event_label: 'Hero CTA' }));
 
-
-        // Pricing Toggle Logic & Tracking (Standard Script)
-        document.addEventListener('DOMContentLoaded', function () {
-            // Hero CTA
-            const heroCta = document.querySelector('.hero .cta-button');
-            if (heroCta) {
-                heroCta.addEventListener('click', function () {
-                    gtag('event', 'click_hero_cta', {
-                        'event_category': 'engagement',
-                        'event_label': 'Get Lifetime Access'
-                    });
-                });
-            }
-
-            // Pricing Button (Checkout)
-            const pricingBtn = document.querySelector('.checkout-button');
-            if (pricingBtn) {
-                pricingBtn.addEventListener('click', function () {
-                    gtag('event', 'click_pricing_cta', {
-                        'event_category': 'conversion',
-                        'event_label': 'Dodo Payments Checkout'
-                    });
-                });
-            }
-
-            // Follow Button
-            if (newsletterBtn) {
-                newsletterBtn.addEventListener('click', function () {
-                    gtag('event', 'click_follow_cta', {
-                        'event_category': 'subscription',
-                        'event_label': 'Follow Button'
-                    });
-                });
-            }
-
-            // Sticky Nav Scroll Logic
-            const stickyNav = document.getElementById('stickyNav');
-            const heroSection = document.querySelector('.hero');
-
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > heroSection.offsetHeight + 100) {
-                    stickyNav.classList.add('visible');
-                } else {
-                    stickyNav.classList.remove('visible');
-                }
-            });
-
-
+            const finalCta = document.getElementById('finalCta');
+            if (finalCta) finalCta.addEventListener('click', () =>
+                gtag('event', 'click_final_cta', { event_category: 'engagement', event_label: 'Final CTA' }));
         });
     </script>
 </body>
-
 </html>
