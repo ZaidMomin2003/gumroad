@@ -98,38 +98,6 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', system-ui, sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
 
-        /* NAV */
-        .nav {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
-            border-bottom: 3px solid var(--black);
-        }
-        .nav-inner {
-            max-width: 1100px; margin: 0 auto; padding: 16px 24px;
-            display: flex; align-items: center; justify-content: space-between; gap: 24px;
-        }
-        .nav-logo {
-            display: flex; align-items: center; gap: 10px;
-            font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
-            text-decoration: none; color: var(--black);
-        }
-        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; }
-        .nav-links {
-            display: flex; align-items: center; gap: 28px; list-style: none;
-        }
-        .nav-links a {
-            font-weight: 700; font-size: 0.9rem; text-decoration: none; color: var(--muted);
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--black); }
-        .nav-cta {
-            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.9rem;
-            padding: 10px 20px; border-radius: 10px; border: 2px solid var(--black);
-            box-shadow: 3px 3px 0 var(--black); text-decoration: none;
-            transition: all 0.2s;
-        }
-        .nav-cta:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-
         /* SECTIONS WRAPPER */
         .section { padding: 100px 24px; }
         .section-inner { max-width: 1100px; margin: 0 auto; }
@@ -147,11 +115,45 @@
             font-size: 1.15rem; color: var(--muted); font-weight: 500; max-width: 600px;
         }
 
+        /* New Header System */
+        .site-header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
+            border-bottom: 3px solid var(--black);
+        }
+        .announcement-bar {
+            background: var(--gold); color: var(--black); text-align: center;
+            padding: 10px 20px; font-size: 0.88rem; font-weight: 800;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+        .nav {
+            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between; gap: 24px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
+            text-decoration: none; color: var(--black);
+        }
+        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); }
+        .nav-cta {
+            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
+            padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black); text-decoration: none;
+        }
+
+        /* Proof Bar Removal Residue */
+        .proof-bar { display: none; }
+
         /* =============================================
            HERO SECTION
         =============================================*/
         .hero-section {
-            padding: 160px 24px 100px;
+            padding: 210px 24px 100px;
             text-align: center;
             border-bottom: 3px solid var(--black);
             background: var(--off-white);
@@ -544,42 +546,47 @@
 
 <body>
 
-    <!-- SOCIAL PROOF BAR -->
-    <div class="proof-bar">
-        <div class="proof-item">⭐⭐⭐⭐⭐ <span>4.9/5</span> from 87 users</div>
-        <div class="proof-item">🚀 <span>2,400+</span> agencies onboarded</div>
-        <div class="proof-item">📬 <span>Instantly alternative</span> — self-hosted</div>
-        <div class="proof-item">🔒 <span>100%</span> data ownership</div>
-    </div>
-
-    <!-- NAV -->
-    <nav class="nav" id="mainNav">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo">
-                <img src="/logo.svg" alt="Cleanmails — Self-Hosted Cold Email Tool">
-                Cleanmails
-            </a>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#compare">Compare</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-            <a href="#pricing" class="nav-cta" id="navCta">Get Lifetime Access →</a>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="announcement-bar">
+            We're thrilled to be backed by <strong>AWS Startups</strong>! 🚀
         </div>
-    </nav>
+        <nav class="nav">
+            <div class="nav-inner">
+                <a href="/" class="nav-logo">
+                    <img src="/logo.svg" alt="Cleanmails">
+                    Cleanmails
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#compare">Compare</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <a href="#pricing" class="nav-cta">Get Lifetime Access →</a>
+            </div>
+        </nav>
+    </header>
 
     <!-- HERO -->
     <section class="hero-section" id="hero">
         <div class="urgency-chip">🔥 Limited Early Access Pricing — Prices increase soon</div>
-        <div class="hero-badge">
-            <span class="dot"></span>
-            Self-Hosted &nbsp;·&nbsp; One-Time Payment &nbsp;·&nbsp; Unlimited Everything
-        </div>
         <h1 class="hero-headline">
             Stop Paying Monthly<br>
             For <span>Cold Email</span>
         </h1>
+        <!-- AWS Startups trust line -->
+        <p style="font-size: 0.88rem; font-weight: 700; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            ☁️ Backed by <strong style="color: var(--black);">AWS Startups</strong>
+        </p>
+        <!-- Product Hunt Badge -->
+        <div style="margin-bottom: 32px; display: flex; justify-content: center;">
+            <a href="https://www.producthunt.com/products/cleanmails?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cleanmails"
+                target="_blank" rel="noopener noreferrer">
+                <img alt="Cleanmails - Self-host bulk email validation | Product Hunt" width="250" height="54"
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&theme=light&t=1769534073976">
+            </a>
+        </div>
         <p class="hero-sub">
             The complete cold email infrastructure — SMTP rotation, email validation, spintax,
             cadences, and automation — running on your own server. Pay once, own it forever.
