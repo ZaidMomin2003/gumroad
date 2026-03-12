@@ -585,12 +585,21 @@
         =============================================*/
         @media (max-width: 768px) {
             .nav-links { display: none; }
+            .nav-inner { padding: 10px 16px; }
+            .nav-cta { padding: 10px 20px; font-size: 0.85rem; border-width: 2px !important; }
+            .hero-section { padding-top: 180px; text-align: center; }
+            .hero-headline { font-size: 2.8rem; }
+            .hero-sub { font-size: 1.1rem; }
             .plan-card.popular { transform: none; }
             .pain-banner { flex-direction: column; }
             .roi-box { padding: 32px 24px; }
             .smtp-highlight { grid-column: span 1; }
             .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
             .timeline-step:last-child { border-bottom: none; }
+            .sticky-bar { display: none !important; }
+            .section { padding: 60px 20px; }
+            .final-cta-section { padding: 80px 20px; }
+            .modal-content { padding: 32px 20px; border-radius: 20px; }
         }
     </style>
 </head>
@@ -614,7 +623,7 @@
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
-                <a href="#pricing" class="nav-cta">Get Lifetime Access →</a>
+                <a href="javascript:void(0)" class="nav-cta waitlist-trigger">Join the Waitlist →</a>
             </div>
         </nav>
     </header>
