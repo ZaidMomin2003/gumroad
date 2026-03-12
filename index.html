@@ -441,7 +441,19 @@
         .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
         .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.9rem; }
         .footer-links a:hover { color: var(--black); }
-        .footer-copy { font-size: 0.85rem; color: var(--muted); }
+        .footer-copy { font-size: 0.85rem; color: var(--muted); margin-top: 32px; }
+        .footer-newsletter { max-width: 400px; margin: 0 auto 40px; }
+        .footer-newsletter h4 { font-size: 0.95rem; font-weight: 900; margin-bottom: 12px; }
+        .newsletter-form { display: flex; gap: 8px; }
+        .newsletter-input {
+            flex: 1; padding: 12px 16px; border: 2px solid var(--black);
+            border-radius: 8px; font-weight: 700; font-family: inherit; font-size: 0.85rem;
+        }
+        .newsletter-btn {
+            background: var(--black); color: var(--white); border: none;
+            padding: 12px 20px; border-radius: 8px; font-weight: 900;
+            cursor: pointer; font-size: 0.85rem;
+        }
 
         /* =============================================
            TOAST
@@ -529,6 +541,45 @@
         }
         .smtp-tag.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
+        /* Waitlist Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+            display: none; align-items: center; justify-content: center;
+            z-index: 3000; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--white); border: 4px solid var(--black);
+            padding: 48px; border-radius: 32px; width: 100%; max-width: 500px;
+            box-shadow: 12px 12px 0 var(--black); position: relative;
+            animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+        @keyframes modalPop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-close {
+            position: absolute; top: 20px; right: 20px;
+            font-size: 1.5rem; font-weight: 900; cursor: pointer;
+            background: var(--gold); border: 2px solid var(--black);
+            width: 40px; height: 40px; display: flex; align-items: center;
+            justify-content: center; border-radius: 12px;
+        }
+        .waitlist-form h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.02em; }
+        .waitlist-form p { color: var(--muted); font-weight: 600; margin-bottom: 24px; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 14px; border: 3px solid var(--black);
+            border-radius: 12px; font-weight: 700; font-family: inherit;
+        }
+        .form-group input:focus { outline: none; background: #FFD70010; }
+        .waitlist-submit {
+            width: 100%; background: var(--black); color: var(--white);
+            padding: 16px; border: none; border-radius: 14px;
+            font-weight: 900; font-size: 1.1rem; cursor: pointer;
+            transition: all 0.2s; margin-top: 10px;
+        }
+        .waitlist-submit:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--gold); }
+
         /* =============================================
            RESPONSIVE
         =============================================*/
@@ -592,7 +643,7 @@
             cadences, and automation — running on your own server. Pay once, own it forever.
         </p>
         <div class="hero-ctas">
-            <a href="#pricing" class="btn-primary" id="heroCta">Get Lifetime Access →</a>
+            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist →</a>
             <a href="#features" class="btn-secondary">▶ See All Features</a>
         </div>
         <div class="stats-bar">
@@ -605,7 +656,7 @@
     </section>
 
     <!-- VIDEO -->
-    <section class="video-section">
+    <section class="video-section" style="display: none;">
         <div class="video-wrapper-outer">
             <h2>How it looks.</h2>
             <div class="video-embed">
@@ -861,16 +912,16 @@
                     <div class="roi-row-val neg">−$497</div>
                 </div>
                 <div class="roi-row">
-                    <div class="roi-row-label">Annual support (optional)</div>
-                    <div class="roi-row-val neg">−$99</div>
+                    <div class="roi-row-label">Lifetime Updates</div>
+                    <div class="roi-row-val pos">FREE</div>
                 </div>
                 <div class="roi-row" style="border-top: 2px solid #333; padding-top: 24px; margin-top: 8px;">
                     <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 1 Savings</div>
-                    <div class="roi-row-val pos">+$5,164</div>
+                    <div class="roi-row-val pos">+$5,263</div>
                 </div>
                 <div class="roi-row">
                     <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 2 Savings</div>
-                    <div class="roi-row-val pos">+$5,661</div>
+                    <div class="roi-row-val pos">+$5,760</div>
                 </div>
             </div>
         </div>
@@ -897,10 +948,10 @@
                         <li>All core features</li>
                         <li>Free installation</li>
                     </ul>
-                    <a href="https://buy.dodopayments.com/buy/cleanmails-solo"
-                        class="plan-btn checkout-button"
-                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'Solo Plan'});">
-                        Get Solo Access →
+                    <a href="javascript:void(0)"
+                        class="plan-btn waitlist-trigger"
+                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'Solo Waitlist'});">
+                        Join the Waitlist →
                     </a>
                 </div>
 
@@ -919,10 +970,10 @@
                         <li>Free installation</li>
                         <li>Priority support</li>
                     </ul>
-                    <a href="https://buy.dodopayments.com/buy/cleanmails-agency"
-                        class="plan-btn dark checkout-button"
-                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'Agency Plan'});">
-                        Get Agency Access →
+                    <a href="javascript:void(0)"
+                        class="plan-btn dark waitlist-trigger"
+                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'Agency Waitlist'});">
+                        Join the Waitlist →
                     </a>
                 </div>
 
@@ -940,17 +991,17 @@
                         <li>All core features</li>
                         <li>White-glove setup</li>
                     </ul>
-                    <a href="https://buy.dodopayments.com/buy/cleanmails-whitelabel"
-                        class="plan-btn checkout-button"
-                        onclick="gtag('event','click_pricing_cta',{'event_category':'conversion','event_label':'White Label Plan'});">
-                        Get White Label →
+                    <a href="javascript:void(0)"
+                        class="plan-btn waitlist-trigger"
+                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'White Label Waitlist'});">
+                        Join the Waitlist →
                     </a>
                 </div>
             </div>
 
             <div class="pricing-badges">
                 <span class="pricing-badge">⚡ Free installation included</span>
-                <span class="pricing-badge">🔄 Optional updates &amp; support: $99/yr</span>
+                <span class="pricing-badge">🔄 Lifetime updates included for FREE</span>
                 <span class="pricing-badge">🖥️ Inbuilt SMTP — no extra tools needed</span>
             </div>
         </div>
@@ -989,7 +1040,7 @@
                         <span class="faq-question-text">What happens after I buy — how do updates work?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">You get the current version forever. Future updates are available via an optional $99/year support plan. Entirely optional — the core product works without it indefinitely.</div>
+                    <div class="faq-answer">You get everything. All future updates, features, and security patches are included for free with your one-time purchase. No recurring fees, ever.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
@@ -1010,7 +1061,7 @@
                         <span class="faq-question-text">Do I need to buy SMTP accounts separately?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">Yes — you bring your own SMTP providers (Gmail, Outlook, any custom SMTP). The tool manages and rotates them. This actually works in your favor: you're never locked into our sending infrastructure.</div>
+                    <div class="faq-answer">No — Cleanmails features a best-in-class inbuilt SMTP engine, so there's no need to buy external accounts to get started. While you can certainly bring your own (Gmail, Outlook, SES), Cleanmails is designed to work perfectly even without external SMTP setup.</div>
                 </div>
             </div>
         </div>
@@ -1022,16 +1073,51 @@
         <h2 class="section-headline" style="margin-top: 24px;">Cancel your subscriptions.<br>Own your stack.</h2>
         <p class="section-sub">Join the agencies and solo operators who stopped renting their email infrastructure and started owning it.</p>
         <div class="final-cta-btns">
-            <a href="#pricing" class="btn-primary" id="finalCta">Get Lifetime Access →</a>
-            <a href="#pricing" class="btn-secondary">Compare Plans</a>
+            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
+            <a href="#pricing" class="btn-secondary">Check Pricing</a>
         </div>
     </section>
 
     <!-- STICKY BOTTOM BAR -->
     <div class="sticky-bar" id="stickyBar">
         <div class="sticky-bar-text">🔥 <span>Cleanmails</span> — Self-hosted cold email. Unlimited everything. <span>One-time price.</span></div>
-        <a href="#pricing" class="btn-primary"
-            onclick="gtag('event','click_sticky_cta',{'event_category':'engagement','event_label':'Sticky Bar CTA'});">Get Lifetime Access →</a>
+        <a href="javascript:void(0)" class="btn-primary waitlist-trigger"
+            onclick="gtag('event','click_sticky_waitlist',{'event_category':'engagement','event_label':'Sticky Waitlist'});">Join the Waitlist →</a>
+    </div>
+
+    <!-- WAITLIST MODAL -->
+    <div class="modal-overlay" id="waitlistModal">
+        <div class="modal-content">
+            <div class="modal-close" id="closeModal">×</div>
+            <form id="waitlistForm" class="waitlist-form">
+                <h2>Join the Waitlist 🎁</h2>
+                <p>Secure your spot now and get an exclusive bonus gift upon launch.</p>
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="wName" name="name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Work Email</label>
+                    <input type="email" id="wEmail" name="email" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>I am a...</label>
+                    <select id="wCategory" name="category" required>
+                        <option value="" disabled selected>Select your profile</option>
+                        <option value="agency">Agency Owner</option>
+                        <option value="freelancer">Freelancer</option>
+                        <option value="founder">Saas Founder</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="waitlist-submit" id="wSubmit">Submit & Get Access →</button>
+                <p style="font-size: 0.75rem; margin-top: 16px; margin-bottom: 0;">You will be redirected to our Cold Email Masterclass upon submission.</p>
+            </form>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -1041,12 +1127,16 @@
             <nav class="footer-links">
                 <a href="/">Home</a>
                 <a href="/docs">Docs</a>
-                <a href="/privacy">Privacy</a>
-                <a href="/terms">Terms</a>
-                <a href="/support">Support</a>
                 <a href="/affiliate">Affiliate</a>
-                <a href="/infrastructure">Own the System</a>
+                <a href="/privacy">Privacy</a>
             </nav>
+            <div class="footer-newsletter">
+                <h4>Join the Cold Email Newsletter</h4>
+                <form id="newsletterForm" class="newsletter-form">
+                    <input type="email" id="nEmail" class="newsletter-input" placeholder="your@email.com" required>
+                    <button type="submit" id="nSubmit" class="newsletter-btn">Join</button>
+                </form>
+            </div>
             <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
         </div>
     </footer>
@@ -1057,7 +1147,32 @@
         <span id="toastMsg">Copied!</span>
     </div>
 
-    <script>
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+        // Modal Logic
+        const modal = document.getElementById('waitlistModal');
+        const triggerBtns = document.querySelectorAll('.waitlist-trigger');
+        const closeBtn = document.getElementById('closeModal');
+
+        triggerBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeModalFunc = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeModalFunc);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModalFunc();
+        });
+
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1079,6 +1194,110 @@
                 stickyBar.classList.remove('show');
             }
         });
+
+        // Waitlist Form Submission
+        const wForm = document.getElementById('waitlistForm');
+        const wSubmit = document.getElementById('wSubmit');
+
+        if (wForm) {
+            wForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const originalText = wSubmit.innerText;
+                
+                const formData = {
+                    name: document.getElementById('wName').value,
+                    email: document.getElementById('wEmail').value,
+                    category: document.getElementById('wCategory').value,
+                    source: 'landing_page_waitlist',
+                    status: 'pending',
+                    createdAt: serverTimestamp()
+                };
+
+                // UI Feedback (Affiliate Logic)
+                wSubmit.disabled = true;
+                wSubmit.innerText = 'Submitting...';
+                wSubmit.style.opacity = '0.7';
+                wSubmit.style.cursor = 'not-allowed';
+
+                try {
+                    await addDoc(collection(db, "waitlist"), formData);
+                    showToast('You are on the list! Redirecting...', '🚀');
+                    e.target.reset();
+                    
+                    setTimeout(() => {
+                        window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
+                    }, 1200);
+
+                } catch (error) {
+                    console.error("Firestore Error:", error);
+                    let errorMsg = 'Error joining. Try again.';
+                    if (error.code === 'permission-denied') {
+                        errorMsg = 'Permission Denied. Please check Firestore rules.';
+                    }
+                    showToast(errorMsg, '⚠️');
+                    
+                    // Fail-safe redirect if it's just a rule issue
+                    setTimeout(() => {
+                        window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
+                    }, 2000);
+                } finally {
+                    wSubmit.disabled = false;
+                    wSubmit.innerText = originalText;
+                    wSubmit.style.opacity = '1';
+                    wSubmit.style.cursor = 'pointer';
+                }
+            });
+        }
+
+        // Newsletter Form Submission
+        const nForm = document.getElementById('newsletterForm');
+        const nSubmit = document.getElementById('nSubmit');
+
+        if (nForm) {
+            nForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const originalText = nSubmit.innerText;
+                
+                const formData = {
+                    email: document.getElementById('nEmail').value,
+                    source: 'footer_newsletter',
+                    status: 'pending',
+                    createdAt: serverTimestamp()
+                };
+
+                nSubmit.disabled = true;
+                nSubmit.innerText = 'Joining...';
+                nSubmit.style.opacity = '0.7';
+                nSubmit.style.cursor = 'not-allowed';
+
+                try {
+                    await addDoc(collection(db, "newsletter"), formData);
+                    showToast('Welcome to the inner circle! 💌', '🎉');
+                    e.target.reset();
+                } catch (error) {
+                    console.error("Firestore Error:", error);
+                    showToast('Error joining. Try again.', '⚠️');
+                } finally {
+                    nSubmit.disabled = false;
+                    nSubmit.innerText = originalText;
+                    nSubmit.style.opacity = '1';
+                    nSubmit.style.cursor = 'pointer';
+                }
+            });
+        }
+
+        function showToast(message, icon = '🎉') {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            const toastIcon = toast.querySelector('.toast-icon');
+            if (!toast) return;
+
+            toastMsg.innerText = message;
+            toastIcon.innerText = icon;
+
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
 
         // GTM Events
         document.addEventListener('DOMContentLoaded', () => {
