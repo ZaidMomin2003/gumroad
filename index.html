@@ -30,7 +30,6 @@
       "url": "https://cleanmails.online",
       "description": "Self-hosted cold email platform with SMTP rotation, email validation, spintax, cadences, and automation. One-time payment.",
       "offers": [
-        { "@type": "Offer", "name": "Solo", "price": "197", "priceCurrency": "USD" },
         { "@type": "Offer", "name": "Agency", "price": "497", "priceCurrency": "USD" },
         { "@type": "Offer", "name": "White Label", "price": "997", "priceCurrency": "USD" }
       ],
@@ -409,23 +408,75 @@
         /* =============================================
            FAQ SECTION
         =============================================*/
-        .faq-section { background: var(--white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
-        .faq-list { max-width: 780px; margin: 60px auto 0; }
+        .faq-section { background: var(--off-white); border-top: 3px solid var(--black); }
+        .faq-list { max-width: 850px; margin: 60px auto 0; }
         .faq-item {
-            border: 2px solid #eee; border-radius: 16px; margin-bottom: 16px; overflow: hidden;
-            transition: all 0.2s;
+            background: var(--white);
+            border: 3px solid var(--black); 
+            border-radius: 20px; 
+            margin-bottom: 20px; 
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
         }
-        .faq-item:hover { border-color: var(--black); }
+        .faq-item:hover { 
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow);
+        }
         .faq-question {
-            width: 100%; background: var(--white); border: none; cursor: pointer;
-            padding: 24px 28px; text-align: left; display: flex; justify-content: space-between;
-            align-items: center; gap: 16px;
+            width: 100%; 
+            background: transparent; 
+            border: none; 
+            cursor: pointer;
+            padding: 28px 32px; 
+            text-align: left; 
+            display: flex; 
+            justify-content: space-between;
+            align-items: center; 
+            gap: 20px;
         }
-        .faq-question-text { font-size: 1.05rem; font-weight: 800; color: var(--black); }
-        .faq-icon { font-size: 1.5rem; font-weight: 300; color: var(--muted); transition: transform 0.3s; flex-shrink: 0; }
-        .faq-answer { padding: 0 28px 24px; color: var(--muted); line-height: 1.7; font-weight: 500; display: none; }
-        .faq-item.open .faq-answer { display: block; }
-        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .faq-question-text { 
+            font-size: 1.15rem; 
+            font-weight: 800; 
+            color: var(--black); 
+            letter-spacing: -0.01em;
+        }
+        .faq-icon { 
+            width: 36px; height: 36px;
+            background: var(--off-white);
+            border: 2px solid var(--black);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: 900;
+            color: var(--black); 
+            transition: all 0.3s; 
+            flex-shrink: 0; 
+        }
+        .faq-answer { 
+            padding: 0 32px 32px; 
+            color: var(--muted); 
+            line-height: 1.8; 
+            font-weight: 500; 
+            font-size: 1.05rem;
+            display: none; 
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        .faq-item.open {
+            background: var(--white);
+            border-color: var(--black);
+            box-shadow: var(--shadow);
+        }
+        .faq-item.open .faq-answer { 
+            display: block; 
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .faq-item.open .faq-icon { 
+            background: var(--gold);
+            transform: rotate(45deg); 
+        }
 
         /* =============================================
            FINAL CTA SECTION
@@ -675,7 +726,7 @@
         </div>
     </section>
 
-    <!-- VIDEO -->
+    <!-- 
     <section class="video-section" style="display: none;">
         <div class="video-wrapper-outer">
             <h2>How it looks.</h2>
@@ -690,6 +741,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- PAIN SECTION -->
     <section class="pain-section section" id="pain">
@@ -821,8 +873,8 @@
                 </div>
                 <div class="timeline-step">
                     <span class="step-num">02</span>
-                    <h3>White-Glove Install</h3>
-                    <p>We handle the technical heavy lifting. We deploy the stack to your VPS and configure your first 10 sender domains for you.</p>
+                    <h3>One-Command Install</h3>
+                    <p>Get up and running instantly with a single command. Or, choose our <b>White-Glove Service ($30)</b> — we'll deploy the stack and configure your first 10 domains for you.</p>
                 </div>
                 <div class="timeline-step">
                     <span class="step-num">03</span>
@@ -832,7 +884,7 @@
                 <div class="timeline-step">
                     <span class="step-num">04</span>
                     <h3>Scale to Infinity</h3>
-                    <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. Your cost stays exactly $0/month forever.</p>
+                    <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. You just pay barely $10-$20/month for your own VPS server.</p>
                 </div>
             </div>
         </div>
@@ -907,8 +959,8 @@
                             <td class="no">✗</td>
                         </tr>
                         <tr>
-                            <td>Free installation included</td>
-                            <td class="yes highlight-col">✓</td>
+                            <td>Setup & Support</td>
+                            <td class="highlight-col" style="color:#2ecc71; font-weight:900; font-size:0.9rem;">Installation assistance</td>
                             <td class="no">✗</td>
                             <td class="no">✗</td>
                             <td class="no">✗</td>
@@ -959,40 +1011,20 @@
             <h2 class="section-headline">One price. Forever.</h2>
             <p class="section-sub">No subscriptions. No per-seat fees. No gotchas.</p>
 
-            <div class="pricing-grid">
-                <!-- Solo -->
-                <div class="plan-card">
-                    <div class="plan-name">Solo</div>
-                    <div class="plan-price">$197</div>
-                    <div class="plan-period">one-time payment</div>
-                    <div class="plan-desc">For freelancers and solo operators running their own campaigns.</div>
-                    <ul class="plan-features">
-                        <li>1 server install</li>
-                        <li>Unlimited emails</li>
-                        <li>Inbuilt SMTP + connect any relay</li>
-                        <li>All core features</li>
-                        <li>Free installation</li>
-                    </ul>
-                    <a href="javascript:void(0)"
-                        class="plan-btn waitlist-trigger"
-                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'Solo Waitlist'});">
-                        Join the Waitlist →
-                    </a>
-                </div>
-
+            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); max-width: 900px; margin-left: auto; margin-right: auto;">
                 <!-- Agency (Popular) -->
                 <div class="plan-card popular" style="position:relative;">
-                    <div class="popular-badge">🏷 Most Popular</div>
+                    <div class="popular-badge">🏷 Only Plan You Need</div>
                     <div class="plan-name">Agency</div>
                     <div class="plan-price">$497</div>
                     <div class="plan-period">one-time payment</div>
-                    <div class="plan-desc">For agencies managing multiple client campaigns at scale.</div>
+                    <div class="plan-desc">The industry standard for agencies managing multiple client campaigns at scale.</div>
                     <ul class="plan-features">
                         <li>Unlimited installs</li>
                         <li>Unlimited clients</li>
                         <li>Inbuilt SMTP + SES/Mailgun ready</li>
                         <li>All core features</li>
-                        <li>Free installation</li>
+                        <li>Installation assistance</li>
                         <li>Priority support</li>
                     </ul>
                     <a href="javascript:void(0)"
@@ -1007,14 +1039,14 @@
                     <div class="plan-name">White Label</div>
                     <div class="plan-price">$997</div>
                     <div class="plan-period">one-time payment</div>
-                    <div class="plan-desc">Rebrand and resell as your own SaaS product.</div>
+                    <div class="plan-desc">Rebrand and resell the Cleanmails engine as your own custom SaaS product.</div>
                     <ul class="plan-features">
                         <li>Full rebrand rights</li>
                         <li>Resell to clients</li>
                         <li>Source code access</li>
                         <li>Inbuilt SMTP + any relay</li>
                         <li>All core features</li>
-                        <li>White-glove setup</li>
+                        <li>Installation assistance</li>
                     </ul>
                     <a href="javascript:void(0)"
                         class="plan-btn waitlist-trigger"
@@ -1025,7 +1057,8 @@
             </div>
 
             <div class="pricing-badges">
-                <span class="pricing-badge">⚡ Free installation included</span>
+                <span class="pricing-badge">⚡ Installation assistance included</span>
+                <span class="pricing-badge">🛡️ 1 month money-back guarantee</span>
                 <span class="pricing-badge">🔄 Lifetime updates included for FREE</span>
                 <span class="pricing-badge">🖥️ Inbuilt SMTP — no extra tools needed</span>
             </div>
@@ -1044,7 +1077,7 @@
                         <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">No. Free installation is included with every license. We handle the setup on your server end-to-end. You're ready to send on day one.</div>
+                    <div class="faq-answer">No. Installation assistance is included with every license. We handle the setup on your server end-to-end. You're ready to send on day one.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
@@ -1096,7 +1129,7 @@
     <section class="final-cta-section">
         <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Get Started</span>
         <h2 class="section-headline" style="margin-top: 24px;">Cancel your subscriptions.<br>Own your stack.</h2>
-        <p class="section-sub">Join the agencies and solo operators who stopped renting their email infrastructure and started owning it.</p>
+        <p class="section-sub">Join the smart agencies who stopped renting their email infrastructure and started owning it.</p>
         <div class="final-cta-btns">
             <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
             <a href="#pricing" class="btn-secondary">Check Pricing</a>
