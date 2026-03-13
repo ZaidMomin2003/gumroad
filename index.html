@@ -71,7 +71,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 
     <style>
@@ -122,7 +122,7 @@
         }
         .announcement-bar {
             background: var(--gold); color: var(--black); text-align: center;
-            padding: 10px 20px; font-size: 0.88rem; font-weight: 800;
+            padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
             border-bottom: 2px solid rgba(0,0,0,0.1);
         }
         .nav {
@@ -175,9 +175,18 @@
         }
         .hero-headline span {
             background: var(--gold);
-            padding: 0 8px;
-            border-radius: 6px;
+            padding: 0 12px;
+            border-radius: 12px;
             display: inline;
+        }
+        .fancy-text {
+            font-family: 'Outfit', sans-serif;
+            color: #ff6600;
+            font-size: 1.05em;
+            display: inline-block;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
         .hero-sub {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
@@ -597,6 +606,7 @@
             .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
             .timeline-step:last-child { border-bottom: none; }
             .sticky-bar { display: none !important; }
+            .announcement-bar { display: none !important; }
             .section { padding: 60px 20px; }
             .final-cta-section { padding: 80px 20px; }
             .modal-content { padding: 32px 20px; border-radius: 20px; }
@@ -632,8 +642,8 @@
     <section class="hero-section" id="hero">
         <div class="urgency-chip">🔥 Limited Early Access Pricing — Prices increase soon</div>
         <h1 class="hero-headline">
-            Stop Paying Monthly<br>
-            For <span>Cold Email</span>
+            Send <span>Unlimited Mails</span><br>
+            to Inbox. <span class="fancy-text">Guaranteed.</span>
         </h1>
         <!-- AWS Startups trust line -->
         <p style="font-size: 0.88rem; font-weight: 700; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 6px;">
@@ -648,12 +658,13 @@
             </a>
         </div>
         <p class="hero-sub">
-            The complete cold email infrastructure — SMTP rotation, email validation, spintax,
-            cadences, and automation — running on your own server. Pay once, own it forever.
+            Outreach agencies win when they own the stack. Leverage dedicated IPs, hyper-personalization, and 
+            spam-filter bypassing technology to reach the inbox every time. Own your private infrastructure 
+            for a lifetime and scale your clients without limits.
         </p>
         <div class="hero-ctas">
-            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist →</a>
-            <a href="#features" class="btn-secondary">▶ See All Features</a>
+            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="heroCta">Own Your Infrastructure →</a>
+            <a href="#features" class="btn-secondary">▶ See How We Scale</a>
         </div>
         <div class="stats-bar">
             <div class="stat-pill"><span class="stat-val">∞</span> Emails/Month</div>
@@ -683,9 +694,9 @@
     <!-- PAIN SECTION -->
     <section class="pain-section section" id="pain">
         <div class="section-inner">
-            <span class="section-label" style="background:#e63946; border-color:#e63946; color:#fff;">The Problem</span>
-            <h2 class="section-headline">You're renting software<br>that should be yours.</h2>
-            <p class="section-sub">Every month you hit send, a SaaS company takes a cut. Here's what you're actually paying.</p>
+            <span class="section-label" style="background:#e63946; border-color:#e63946; color:#fff;">The Agency Margin Bleed</span>
+            <h2 class="section-headline">Stop Paying a "Success Tax"<br>on Every New Client.</h2>
+            <p class="section-sub">Traditional tools punish you for growing. The more clients you win, the more they charge. It's time to own your stack.</p>
 
             <div class="pain-grid">
                 <div class="pain-card">
@@ -729,8 +740,8 @@
 
                 <!-- SMTP Highlight Card (spans 2 cols) -->
                 <div class="smtp-highlight">
-                    <h3>🖥️ Inbuilt SMTP — No Third-Party Required</h3>
-                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending immediately without buying a separate relay. And if you want higher deliverability at scale, simply plug in <strong>AWS SES, SendGrid, Mailgun, Gmail, or any custom SMTP</strong> — it connects in seconds. You are never locked in.</p>
+                    <h3>🖥️ Stop Buying SMTP Relays</h3>
+                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in.</p>
                     <div class="smtp-tags">
                         <span class="smtp-tag active">Inbuilt SMTP ✓</span>
                         <span class="smtp-tag">AWS SES</span>
@@ -744,28 +755,28 @@
 
                 <div class="feature-card">
                     <span class="feature-icon">🔄</span>
-                    <h3>SMTP Rotation</h3>
-                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect deliverability at any send volume without hitting limits.</p>
+                    <h3>Zero-Risk Client Scaling</h3>
+                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect client deliverability at any volume without hitting tool-imposed limits.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">✅</span>
-                    <h3>Email Validation</h3>
-                    <p>SMTP handshake verification plus catch-all detection. Clean your list before sending. Keep bounce rates under 1% — without paying ZeroBounce.</p>
+                    <h3>Keep Bounces &lt; 1%</h3>
+                    <p>Handshake verification plus catch-all detection. Clean every client list locally before sending. Stop paying ZeroBounce $0.005 per lead.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎲</span>
-                    <h3>Spintax Engine</h3>
-                    <p>Every email looks unique. No two recipients get the same message — inbox filters can't pattern-match you. Native <code>{Hi|Hello|Hey}</code> syntax.</p>
+                    <h3>Pattern-Proof Spintax</h3>
+                    <p>Every client email looks organic. No two recipients get the same message. Native syntax ensures inbox filters can't pattern-match your sequences.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">⚙️</span>
-                    <h3>Cadences & Automation</h3>
-                    <p>Set up your sequence once. Automatic follow-ups, scheduling, and reply detection run without you. Full multi-step drip campaigns.</p>
+                    <h3>Set & Forget Cadences</h3>
+                    <p>Set up client sequences once. Automatic follow-ups, reply detection, and scheduling run 24/7 on your server. Full multi-step drip campaigns.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🚨</span>
-                    <h3>Spam Word Detector</h3>
-                    <p>Flags risky words before you send. Know your spam score before the email hits a single inbox. Protect your sender reputation proactively.</p>
+                    <h3>Pre-Send Spam Guard</h3>
+                    <p>Automatically flags risky words before they ruin a client's sender reputation. Know exactly how to fix a draft before it hits the inbox.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎯</span>
@@ -774,8 +785,13 @@
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📬</span>
-                    <h3>Unlimited Mailboxes</h3>
-                    <p>Create and manage unlimited mailboxes. Add unlimited domains and senders with zero per-seat or per-mailbox charges.</p>
+                    <h3>$0 Per-Client Seat Cost</h3>
+                    <p>Create and manage unlimited mailboxes. Onboard new clients and add unlimited team members with zero per-seat or per-mailbox surcharges.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏢</span>
+                    <h3>Unified Client Switcher</h3>
+                    <p>Toggle between different client accounts in one click. Keep campaigns, leads, and sender reputations perfectly isolated and organized without the workspace mess.</p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">📋</span>
@@ -800,23 +816,23 @@
             <div class="timeline">
                 <div class="timeline-step">
                     <span class="step-num">01</span>
-                    <h3>Get your license</h3>
-                    <p>Pick a plan. One-time payment. You get instant access to download and the setup guide.</p>
+                    <h3>Secure Your License</h3>
+                    <p>Get instant access to the Agency core. One-time payment, no recurring seat fees for you or your team.</p>
                 </div>
                 <div class="timeline-step">
                     <span class="step-num">02</span>
-                    <h3>We install it for you</h3>
-                    <p>Point us to your Linux VPS. We deploy and configure everything end-to-end at zero extra cost.</p>
+                    <h3>White-Glove Install</h3>
+                    <p>We handle the technical heavy lifting. We deploy the stack to your VPS and configure your first 10 sender domains for you.</p>
                 </div>
                 <div class="timeline-step">
                     <span class="step-num">03</span>
-                    <h3>Connect your SMTP</h3>
-                    <p>Use the inbuilt SMTP engine out of the box, or connect AWS SES, Gmail, or any relay in minutes.</p>
+                    <h3>Onboard Unlimited Clients</h3>
+                    <p>Add clients, connect their SMTPs (or use our inbuilt engine), and set up separate workspaces in seconds.</p>
                 </div>
                 <div class="timeline-step">
                     <span class="step-num">04</span>
-                    <h3>Start sending</h3>
-                    <p>Upload your list, build your cadence, set spintax — and send. Unlimited. Forever.</p>
+                    <h3>Scale to Infinity</h3>
+                    <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. Your cost stays exactly $0/month forever.</p>
                 </div>
             </div>
         </div>
