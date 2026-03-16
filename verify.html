@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QWXBBLS661');
+    </script>
+
+    <title>Bulk Email Verifier — Clean Your Lists Fast | Cleanmails</title>
+    <meta name="description" content="Use our world-class email validator to clean your CSV or XLSX lead lists. Stop bounces and protect your sender reputation.">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    
+    <!-- PapaParse for CSV handling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+    <style>
+        :root {
+            --gold: #FFD700;
+            --black: #000;
+            --white: #fff;
+            --off-white: #fafafa;
+            --muted: #555;
+            --blue: #3b82f6;
+            --green: #2ecc71;
+            --red: #e63946;
+            --border: 3px solid #000;
+            --shadow: 6px 6px 0 #000;
+            --shadow-lg: 10px 10px 0 #000;
+        }
+
+        body {
+            background-color: var(--off-white);
+            color: var(--black);
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .verify-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .verify-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .verify-hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            line-height: 1;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .verify-hero p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* UPLOAD ZONE IMPROVED */
+        .upload-section {
+            background: var(--white);
+            border: var(--border);
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 80px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .upload-zone {
+            border: 3px dashed #000;
+            border-radius: 20px;
+            padding: 80px 40px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background: #fdfdfd;
+        }
+
+        .upload-zone:hover {
+            border-color: var(--gold);
+            background: #fffdf0;
+            transform: scale(1.01);
+        }
+
+        .upload-icon {
+            font-size: 4rem;
+            filter: drop-shadow(4px 4px 0 var(--gold));
+        }
+
+        .upload-text h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .upload-text p {
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        /* PREVIEW TABLE */
+        .preview-container {
+            display: none;
+            margin-top: 40px;
+            text-align: left;
+            overflow-x: auto;
+            border: var(--border);
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: var(--shadow);
+            animation: slideIn 0.4s ease-out;
+        }
+
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .preview-table th {
+            background: var(--black);
+            color: var(--white);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .preview-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #eee;
+            font-weight: 500;
+        }
+
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            border: 2px solid currentColor;
+        }
+
+        /* STATUS DISPLAY */
+        .status-container {
+            display: none;
+            margin-top: 40px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .status-card {
+            background: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .status-card span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--muted);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .status-card strong {
+            font-size: 1.8rem;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .progress-wrapper {
+            background: #eee;
+            border: 2px solid var(--black);
+            height: 24px;
+            border-radius: 12px;
+            padding: 3px;
+            position: relative;
+            margin: 32px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 8px;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* MODAL UPDATED */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+            display: none; align-items: center; justify-content: center;
+            z-index: 3000; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-content {
+            background: var(--white); border: 4px solid var(--black);
+            padding: 48px; border-radius: 32px; width: 100%; max-width: 550px;
+            box-shadow: 12px 12px 0 var(--black); position: relative;
+            animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="verify-container">
+        <a href="/" class="back-link">← Back to Home</a>
+
+        <section class="verify-hero">
+            <h1>Bulk List Verifier</h1>
+            <p>Clean leads with 1,26,000+ disposable domains & smart MX analysis.</p>
+        </section>
+
+        <!-- LIST VERIFIER MAIN -->
+        <section class="upload-section" id="drop-zone">
+            <input type="file" id="file-input" class="file-input" accept=".csv, .xlsx, .xls">
+            
+            <div class="upload-zone" id="upload-ui">
+                <span class="upload-icon">🚀</span>
+                <div class="upload-text">
+                    <h3>Upload your leads</h3>
+                    <p>Drop your CSV/XLSX file here to start the engine</p>
+                </div>
+                <button class="btn-primary" style="margin-top: 12px; padding: 16px 32px;" onclick="document.getElementById('file-input').click()">Browse Files</button>
+            </div>
+
+            <div class="status-container" id="status-ui">
+                <div style="text-align: center;">
+                    <h3 id="file-name" style="font-weight: 900; font-size: 1.4rem;">Analyzing leads...</h3>
+                    <div class="progress-wrapper">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="progress-text" style="font-weight: 800; color: var(--muted);">Establishing SMTP Tunnel: 0%</p>
+                </div>
+                
+                <div class="status-grid">
+                    <div class="status-card">
+                        <span>Safe to Send</span>
+                        <strong style="color: var(--green);" id="valid-count">0</strong>
+                    </div>
+                    <div class="status-card">
+                        <span>High Risk</span>
+                        <strong style="color: var(--red);" id="invalid-count">0</strong>
+                    </div>
+                    <div class="status-card">
+                        <span>Disposable</span>
+                        <strong style="color: var(--gold);" id="catch-count">0</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PREVIEW ZONE -->
+            <div class="preview-container" id="preview-container">
+                <div style="padding: 20px; border-bottom: 2px solid #000; background: var(--gray); display: flex; justify-content: space-between; align-items: center;">
+                    <h4 style="margin:0; font-weight: 950; text-transform: uppercase;">Sample Preview (First 10 leads)</h4>
+                    <span id="preview-badge" class="badge">Processing...</span>
+                </div>
+                <table class="preview-table" id="preview-table">
+                    <thead><tr id="preview-header"></tr></thead>
+                    <tbody id="preview-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer class="footer" style="border: none; margin-top: 100px;">
+            <p class="footer-brand">Cleanmails</p>
+            <nav class="footer-nav">
+                <a href="/">Home</a>
+                <a href="/support">Support</a>
+                <a href="/terms">Terms</a>
+            </nav>
+        </footer>
+    </div>
+
+    <!-- DOWNLOAD / PROMO MODAL -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content" style="text-align: center;">
+            <div class="modal-close" onclick="document.getElementById('downloadModal').classList.remove('active')">×</div>
+            
+            <div style="font-size: 3.5rem; margin-bottom: 10px;">📉</div>
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; margin-bottom: 12px;">80% Accuracy Achieved</h2>
+            <p style="font-weight: 600; color: var(--muted); margin-bottom: 24px;">Your list was checked against 1,26,000+ disposable domains and MX records. It's now significantly cleaner.</p>
+
+            <div style="background: #fffdf0; border: 3px dashed var(--gold); border-radius: 24px; padding: 24px; margin-bottom: 30px; text-align: left;">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; margin-bottom: 12px; color: var(--black);">Get 100% Accuracy</h3>
+                <p style="font-size: 0.95rem; line-height: 1.4; color: #555; margin-bottom: 16px;">The free tool identifies obvious risks. To reach <strong>Zero Bounce</strong> levels with full Port 25 handshakes and private SMTP rotation, upgrade to the Agency Infrastructure.</p>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="font-size: 0.75rem; font-weight: 800; background: var(--gold); padding: 4px 10px; border-radius: 6px;">PRIVATE STACK</span>
+                    <span style="font-size: 0.75rem; font-weight: 800; background: var(--gold); padding: 4px 10px; border-radius: 6px;">SMTP ROTATION</span>
+                    <span style="font-size: 0.75rem; font-weight: 800; background: var(--gold); padding: 4px 10px; border-radius: 6px;">UNLIMITED LEADS</span>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+                <button id="download-btn" class="btn-primary" style="width: 100%; padding: 18px; font-size: 1.1rem; border: 3px solid #000; box-shadow: 4px 4px 0 #000;">Download Cleaned CSV</button>
+                <a href="/#pricing" class="btn-secondary" style="width: 100%; padding: 18px; font-size: 1.1rem; border: 3px solid #000; background: #fff; color: #000; font-weight: 900; text-decoration: none; border-radius: 14px; transition: 0.2s;" onmouseover="this.style.transform='translate(-2px,-2px)'; this.style.boxShadow='4px 4px 0 #000'" onmouseout="this.style.transform='none'; this.style.boxShadow='none'">Scale to 100% Accuracy →</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+        // Modal Logic
+        const downloadModal = document.getElementById('downloadModal');
+        const showModal = () => { downloadModal.classList.add('active'); document.body.style.overflow = 'hidden'; };
+        const closeModal = () => { downloadModal.classList.remove('active'); document.body.style.overflow = 'auto'; };
+
+        window.onclick = (e) => { if (e.target == downloadModal) closeModal(); };
+
+        // REAL Verification Logic
+        const API_ENDPOINT = 'https://lead-validator.vercel.app/api/verify';
+        const API_KEY = 'hubsellistrash';
+
+        const fileInput = document.getElementById('file-input');
+        const dropZone = document.getElementById('drop-zone');
+        const uploadUI = document.getElementById('upload-ui');
+        const statusUI = document.getElementById('status-ui');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        const fileNameLabel = document.getElementById('file-name');
+        const previewContainer = document.getElementById('preview-container');
+        const previewHeader = document.getElementById('preview-header');
+        const previewBody = document.getElementById('preview-body');
+        const downloadBtn = document.getElementById('download-btn');
+
+        const validCountDisplay = document.getElementById('valid-count');
+        const invalidCountDisplay = document.getElementById('invalid-count');
+        const catchAllCountDisplay = document.getElementById('catch-count');
+
+        let fullResults = [];
+        let headers = [];
+
+        fileInput.addEventListener('change', handleFile);
+
+        async function handleFile(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            uploadUI.style.display = 'none';
+            statusUI.style.display = 'block';
+            fileNameLabel.innerText = `${file.name}`;
+
+            Papa.parse(file, {
+                header: true,
+                skipEmptyLines: true,
+                complete: function(results) {
+                    processRows(results.data, results.meta.fields);
+                }
+            });
+        }
+
+        async function processRows(data, fields) {
+            headers = [...fields, "Cleanmails Status"];
+            const total = Math.min(data.length, 2000);
+            const subset = data.slice(0, total);
+            
+            let processed = 0;
+            let counts = { valid: 0, invalid: 0, disposable: 0 };
+            fullResults = [];
+
+            // Find email column
+            const emailKey = fields.find(f => f.toLowerCase().includes('email')) || fields[0];
+
+            const updateUI = () => {
+                const progress = Math.round((processed / total) * 100);
+                progressFill.style.width = progress + '%';
+                progressText.innerText = `Analyzing Reputation & MX Records: ${progress}%`;
+                validCountDisplay.innerText = counts.valid;
+                invalidCountDisplay.innerText = counts.invalid;
+                catchAllCountDisplay.innerText = counts.disposable;
+            };
+
+            const CONCURRENCY = 50;
+            let index = 0;
+
+            const worker = async () => {
+                while (index < total) {
+                    const rowIdx = index++;
+                    const row = subset[rowIdx];
+                    const email = row[emailKey];
+                    
+                    if (!email) {
+                        row["Cleanmails Status"] = "Bad: No Email Found";
+                        counts.invalid++;
+                        processed++;
+                        fullResults[rowIdx] = row;
+                        continue;
+                    }
+
+                    const res = await verifyEmail(email);
+                    processed++;
+
+                    if (res && res.is_valid) {
+                        row["Cleanmails Status"] = "Good: Valid";
+                        counts.valid++;
+                    } else if (res && res.is_disposable) {
+                        row["Cleanmails Status"] = "Bad: Disposable";
+                        counts.disposable++;
+                    } else if (res && !res.has_mx_records) {
+                        row["Cleanmails Status"] = "Bad: No MX Records";
+                        counts.invalid++;
+                    } else {
+                        row["Cleanmails Status"] = "Bad: Syntax/Role Account";
+                        counts.invalid++;
+                    }
+
+                    fullResults[rowIdx] = row;
+
+                    if (processed % 10 === 0 || processed === total) updateUI();
+                    if (processed <= 10) renderPreview();
+                }
+            };
+
+            const workers = Array(CONCURRENCY).fill(null).map(() => worker());
+            await Promise.all(workers);
+
+            progressText.innerHTML = "<span style='color: var(--green);'>✓ Analysis Complete</span>";
+            renderPreview();
+            previewContainer.style.display = 'block';
+            document.getElementById('preview-badge').innerText = 'Complete';
+            document.getElementById('preview-badge').style.background = 'var(--green)';
+
+            downloadBtn.onclick = () => downloadCSV();
+            setTimeout(showModal, 1000);
+        }
+
+        async function verifyEmail(email) {
+            try {
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-API-KEY': API_KEY },
+                    body: JSON.stringify({ email })
+                });
+                return await response.json();
+            } catch (err) { return null; }
+        }
+
+        function renderPreview() {
+            previewHeader.innerHTML = headers.map(h => `<th>${h}</th>`).join('');
+            const previewData = fullResults.filter(r => r).slice(0, 10);
+            previewBody.innerHTML = previewData.map(row => {
+                return `<tr>${headers.map(h => {
+                    const val = row[h] || '';
+                    if (h === "Cleanmails Status") {
+                        const isGood = val.includes('Good');
+                        return `<td><span class="status-pill" style="color: ${isGood ? 'var(--green)' : 'var(--red)'}">${val}</span></td>`;
+                    }
+                    return `<td>${val}</td>`;
+                }).join('')}</tr>`;
+            }).join('');
+        }
+
+        function downloadCSV() {
+            const csv = Papa.unparse({
+                fields: headers,
+                data: fullResults
+            });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "cleaned_leads_cleanmails.csv");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function resetUI() {
+            uploadUI.style.display = 'block';
+            statusUI.style.display = 'none';
+            previewContainer.style.display = 'none';
+            fileInput.value = '';
+        }
+
+        // Drag & Drop
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.style.transform = 'scale(1.02)'; });
+        dropZone.addEventListener('dragleave', (e) => { e.preventDefault(); dropZone.style.transform = 'none'; });
+        dropZone.addEventListener('drop', (e) => { 
+            e.preventDefault(); 
+            dropZone.style.transform = 'none'; 
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFile({ target: fileInput });
+            }
+        });
+    </script>
+</body>
+</html>

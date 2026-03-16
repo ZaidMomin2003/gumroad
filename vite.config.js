@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
           cleanie: resolve(__dirname, 'CleanieAI.html'),
           infrastructure: resolve(__dirname, 'infrastructure.html'),
           saasstarter: resolve(__dirname, 'saas-starter.html'),
+          verify: resolve(__dirname, 'verify.html'),
         },
       },
     },
@@ -116,7 +117,8 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/millionmails': '/millionmails.html',
                 '/CleanieAI': '/CleanieAI.html',
                 '/infrastructure': '/infrastructure.html',
-                '/saas-starter': '/saas-starter.html'
+                '/saas-starter': '/saas-starter.html',
+                '/verify': '/verify.html'
               };
 
               if (routeMap[url]) {
