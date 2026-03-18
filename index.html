@@ -119,30 +119,46 @@
             position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
             border-bottom: 3px solid var(--black);
         }
-        .announcement-bar {
-            background: var(--gold); color: var(--black); text-align: center;
-            padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
-            border-bottom: 2px solid rgba(0,0,0,0.1);
-        }
-        .nav {
-            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
-        }
         .nav-inner {
             max-width: 1100px; margin: 0 auto; padding: 14px 24px;
             display: flex; align-items: center; justify-content: space-between; gap: 24px;
+            transition: padding 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .nav-logo {
             display: flex; align-items: center; gap: 10px;
             font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
             text-decoration: none; color: var(--black);
+            transition: transform 0.3s ease;
         }
-        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; }
-        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-        .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); }
+        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.3s ease; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; transition: opacity 0.3s ease; }
+        .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); transition: color 0.2s; }
         .nav-cta {
             background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
             padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
             box-shadow: 3px 3px 0 var(--black); text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Shrink State */
+        .site-header.scrolled {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .site-header.scrolled .announcement-bar {
+            height: 0; padding: 0; border-bottom: none; overflow: hidden; opacity: 0;
+        }
+        .site-header.scrolled .nav-inner {
+            padding: 8px 24px;
+        }
+        .site-header.scrolled .nav-logo {
+            transform: scale(0.95);
+        }
+        .site-header.scrolled .nav-cta {
+            transform: scale(1.05);
+            box-shadow: 5px 5px 0 var(--black);
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--gold);
         }
 
         /* Proof Bar Removal Residue */
@@ -163,6 +179,7 @@
             padding: 8px 20px; border-radius: 100px; border: 2px solid #000;
             margin-bottom: 32px; letter-spacing: 0.05em;
         }
+        .hero-badge .spots { color: var(--gold); border-left: 1px solid #333; padding-left: 8px; margin-left: 8px; }
         .hero-badge .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
         @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 
@@ -348,7 +365,37 @@
         .roi-row-label { font-weight: 700; color: #aaa; }
         .roi-row-val { font-size: 1.15rem; font-weight: 900; }
         .roi-row-val.neg { color: var(--red); }
-        .roi-row-val.pos { color: var(--green); font-size: 1.5rem; }
+        .roi-row-val.pos { color: var(--green); font-size: 1.5rem; text-shadow: 0 0 20px rgba(46, 204, 113, 0.2); }
+
+        /* ROI Calculator Styles */
+        .calculator-card {
+            background: #111; border: 3px solid #333; border-radius: 32px;
+            padding: 48px; max-width: 900px; margin: 60px auto 0;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+            box-shadow: 20px 20px 0 rgba(0,0,0,0.2);
+        }
+        @media (max-width: 850px) { .calculator-card { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; } }
+        .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
+        .calc-label { font-size: 0.9rem; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
+        .calc-slider-wrap { position: relative; }
+        .calc-slider {
+            width: 100%; height: 8px; background: #333; border-radius: 10px;
+            appearance: none; outline: none; cursor: pointer;
+        }
+        .calc-slider::-webkit-slider-thumb {
+            appearance: none; width: 24px; height: 24px; background: var(--gold);
+            border: 4px solid #000; border-radius: 50%; cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+        .calc-value { font-size: 2.5rem; font-weight: 900; color: var(--white); display: block; margin-top: 8px; }
+        .calc-results {
+            background: #1a1a1a; border: 2px solid #333; border-radius: 24px;
+            padding: 32px; display: flex; flex-direction: column; justify-content: center;
+            text-align: center; border: 2px dashed var(--green);
+        }
+        .calc-result-title { color: #888; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; }
+        .calc-saving-amount { font-size: 3.5rem; font-weight: 900; color: var(--green); line-height: 1; margin: 12px 0; }
+        .calc-saving-period { color: #555; font-size: 0.9rem; font-weight: 600; }
 
         /* =============================================
            PRICING SECTION
@@ -550,18 +597,18 @@
         }
         @keyframes urgencyPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.3);} 50%{box-shadow:0 0 0 8px rgba(230,57,70,0);} }
 
-        /* Sticky Bottom Bar */
-        .sticky-bar {
-            position: fixed; bottom: 0; left: 0; width: 100%; z-index: 999;
-            background: var(--black); border-top: 3px solid var(--gold);
-            padding: 14px 24px;
-            display: none; align-items: center; justify-content: space-between;
-            gap: 16px; flex-wrap: wrap;
+        .announcement-bar {
+            background: var(--gold); color: var(--black); text-align: center;
+            padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: auto;
+            opacity: 1;
         }
-        .sticky-bar.show { display: flex; }
-        .sticky-bar-text { color: var(--white); font-weight: 800; font-size: 0.95rem; }
-        .sticky-bar-text span { color: var(--gold); }
-        .sticky-bar .btn-primary { font-size: 0.9rem; padding: 12px 24px; }
+        .nav {
+            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+        }
 
         /* How It Works Timeline */
         .how-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
@@ -656,8 +703,7 @@
             .smtp-highlight { grid-column: span 1; }
             .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
             .timeline-step:last-child { border-bottom: none; }
-            .sticky-bar { display: none !important; }
-            .announcement-bar { display: none !important; }
+            .site-header.scrolled .announcement-bar { display: none; }
             .section { padding: 60px 20px; }
             .final-cta-section { padding: 80px 20px; }
             .modal-content { padding: 32px 20px; border-radius: 20px; }
@@ -670,7 +716,7 @@
     <!-- HEADER -->
     <header class="site-header">
         <div class="announcement-bar">
-            We're thrilled to be backed by <strong>AWS Startups</strong>! 🚀
+            🎁 Founders Batch Special: <strong>Lifetime Updates Included (Save $99/yr)</strong>
         </div>
         <nav class="nav">
             <div class="nav-inner">
@@ -680,49 +726,41 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="/verify">Verify List</a></li>
+                    <li><a href="/verify">Free Validator</a></li>
+                    <li><a href="#roi">Calculator</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#faq">FAQ</a></li>
                 </ul>
-                <a href="javascript:void(0)" class="nav-cta waitlist-trigger">Join the Waitlist →</a>
+                <a href="javascript:void(0)" class="nav-cta waitlist-trigger">Claim Lifetime Access →</a>
             </div>
         </nav>
     </header>
 
     <!-- HERO -->
     <section class="hero-section" id="hero">
-        <div class="urgency-chip">🔥 Limited Early Access Pricing — Prices increase soon</div>
-        <h1 class="hero-headline">
-            Send <span>Unlimited Mails</span><br>
-            to Inbox. <span class="fancy-text">Guaranteed.</span>
-        </h1>
-        <!-- AWS Startups trust line -->
-        <p style="font-size: 0.88rem; font-weight: 700; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            ☁️ Backed by <strong style="color: var(--black);">AWS Startups</strong>
-        </p>
-        <!-- Product Hunt Badge -->
-        <div style="margin-bottom: 32px; display: flex; justify-content: center;">
-            <a href="https://www.producthunt.com/products/cleanmails?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cleanmails"
-                target="_blank" rel="noopener noreferrer">
-                <img alt="Cleanmails - Self-host bulk email validation | Product Hunt" width="250" height="54"
-                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&theme=light&t=1769534073976">
-            </a>
+        <div class="hero-badge">
+            <span class="dot"></span> FOUNDERS BATCH LIVE <span class="spots">Only 16 spots left</span>
         </div>
-        <p class="hero-sub">
-            Outreach agencies win when they own the stack. Leverage dedicated IPs, hyper-personalization, and 
-            spam-filter bypassing technology to reach the inbox every time. Own your private infrastructure 
-            for a lifetime and scale your clients without limits.
+        <h1 class="hero-headline">
+            The <span>Private Fortress</span><br>
+            for Growth Agencies.
+        </h1>
+        <p class="hero-sub" style="margin-bottom: 32px;">
+            Stop renting your success from monthly SaaS platforms. Own a private, high-performance cold email infrastructure with <strong>unlimited everything</strong>. Zero footprints, zero success-tax, 100% margin.
         </p>
         <div class="hero-ctas">
-            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="heroCta">Own Your Infrastructure →</a>
-            <a href="#features" class="btn-secondary">▶ See How We Scale</a>
+            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="heroCta">Claim Founders License & Save $200 →</a>
+            <a href="#features" class="btn-secondary">Explore the Fortress 🛡️</a>
         </div>
-        <div class="stats-bar">
-            <div class="stat-pill"><span class="stat-val">∞</span> Emails/Month</div>
-            <div class="stat-pill"><span class="stat-val">∞</span> Contacts</div>
-            <div class="stat-pill"><span class="stat-val">∞</span> Senders</div>
-            <div class="stat-pill"><span class="stat-val">∞</span> Domains</div>
-            <div class="stat-pill"><span class="stat-val">$0</span>/month forever</div>
+        
+        <!-- Trust Bar -->
+        <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 40px;">
+            <p style="font-size: 0.75rem; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;">TRUSTED BY FOUNDERS FROM</p>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; opacity: 0.4; filter: grayscale(1);">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" height="24">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/DigitalOcean_logo.svg" alt="DigitalOcean" height="24">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg" alt="GitHub" height="24">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Hetzner-logo.svg" alt="Hetzner" height="20">
+            </div>
         </div>
     </section>
 
@@ -847,19 +885,34 @@
                     <p>Manage all your clients from one high-performance dashboard. Effortlessly switch between workspaces while keeping everything organized.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">🎨</span>
-                    <h3>Private Label Branding</h3>
-                    <p>Run the tool on your own custom domain with your agency's logo. Make the infrastructure truly yours and look like a pro to your clients.</p>
+                    <span class="feature-icon">🤖</span>
+                    <h3>Gemini 2.5 AI Personalization</h3>
+                    <p>Hyper-personalized P.S. lines and email openers. Cleanmails uses Gemini 2.5 Flash to research your leads and write unique, human-like lines for every send.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">📋</span>
-                    <h3>Newsletter Forms</h3>
-                    <p>Generate embeddable newsletter signup forms. Full subscriber management and list segmentation built in.</p>
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Auto-Healing Reputation</h3>
+                    <p>Real-time RBL monitoring. If a domain hits a blacklist, Cleanmails automatically pauses and rotates it out of your fleet to protect your delivery.</p>
                 </div>
                 <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Built in Go — Ultra Fast</h3>
-                    <p>Blazing fast, low memory footprint. Runs comfortably on a <strong>$6/month VPS</strong>. No bloat, no heavy dependencies.</p>
+                    <span class="feature-icon">🕸️</span>
+                    <h3>Master-Satellite Cluster</h3>
+                    <p>Scale vertically or horizontally. Deploy satellite nodes across the globe and manage them from a single Master dashboard for massive volume.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👻</span>
+                    <h3>Ghost Tracking Domains</h3>
+                    <p>100% white-labeled tracking. Every workspace gets its own unique tracking domain. Zero footprints, maximum branding for your clients.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🧪</span>
+                    <h3>Hybrid Validation 3.0</h3>
+                    <p>Near 100% accuracy. We combine SMTP handshakes with private Google, Outlook, and Yahoo API checks to verify accounts that others can't.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚀</span>
+                    <h3>One-Tap Turbo Updates</h3>
+                    <p>The system heals itself. Get the latest features and security patches with a single click. No manual server maintenance required.</p>
                 </div>
             </div>
         </div>
@@ -965,8 +1018,22 @@
                             <td class="no">✗</td>
                         </tr>
                         <tr>
+                            <td>AI Personalization</td>
+                            <td class="yes highlight-col">Gemini 2.5</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
+                            <td>Cluster Scalability</td>
+                            <td class="yes highlight-col">✓</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                            <td class="no">✗</td>
+                        </tr>
+                        <tr>
                             <td>Setup & Support</td>
-                            <td class="highlight-col" style="color:#2ecc71; font-weight:900; font-size:0.9rem;">Installation assistance</td>
+                            <td class="highlight-col" style="color:#2ecc71; font-weight:900; font-size:0.9rem;">Full Concierge Setup</td>
                             <td class="no">✗</td>
                             <td class="no">✗</td>
                             <td class="no">✗</td>
@@ -980,31 +1047,28 @@
     <!-- ROI SECTION -->
     <section class="roi-section section" id="roi">
         <div class="section-inner">
-            <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">The Math</span>
-            <h2 class="section-headline">Pays for itself in 6 weeks.</h2>
-            <p class="section-sub">An agency running 10 client campaigns on Smartlead pays $400–$600/month — over $5,000 a year. Our Agency license costs $497 once. The math isn't complicated.</p>
+            <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">Savings Calculator</span>
+            <h2 class="section-headline">Calculate Your Tool-Tax.</h2>
+            <p class="section-sub">Stop donating your agency's profit to software companies. See exactly how much you're losing every single year.</p>
 
-            <div class="roi-box">
-                <h3>Annual Cost Breakdown</h3>
-                <div class="roi-row">
-                    <div class="roi-row-label">Smartlead (10 clients / year)</div>
-                    <div class="roi-row-val neg">−$5,760</div>
+            <div class="calculator-card">
+                <div class="calc-inputs">
+                    <div class="calc-slider-wrap">
+                        <label class="calc-label">Total Client Workspaces</label>
+                        <input type="range" id="calc-clients" class="calc-slider" min="1" max="50" value="10">
+                        <span class="calc-value" id="calc-clients-val">10</span>
+                    </div>
+                    <div class="calc-slider-wrap">
+                        <label class="calc-label">Monthly per-client cost (Avg $50)</label>
+                        <input type="range" id="calc-cost" class="calc-slider" min="30" max="150" value="50">
+                        <span class="calc-value" id="calc-cost-val">$50</span>
+                    </div>
                 </div>
-                <div class="roi-row">
-                    <div class="roi-row-label">Agency License (one-time)</div>
-                    <div class="roi-row-val neg">−$497</div>
-                </div>
-                <div class="roi-row">
-                    <div class="roi-row-label">Annual Updates</div>
-                    <div class="roi-row-val neg">-$99/yr</div>
-                </div>
-                <div class="roi-row" style="border-top: 2px solid #333; padding-top: 24px; margin-top: 8px;">
-                    <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 1 Savings</div>
-                    <div class="roi-row-val pos">+$5,263</div>
-                </div>
-                <div class="roi-row">
-                    <div class="roi-row-label" style="font-size:1.1rem; color:#ccc; font-weight:900;">Year 2 Savings</div>
-                    <div class="roi-row-val pos">+$5,760</div>
+                <div class="calc-results">
+                    <span class="calc-result-title">Your Yearly Savings with Cleanmails</span>
+                    <div class="calc-saving-amount" id="calc-total">$5,503</div>
+                    <p class="calc-saving-period">ROI Achieved in <span id="calc-roi" style="color:var(--gold); font-weight:900;">4.2</span> weeks</p>
+                    <div style="margin-top: 24px; font-size: 0.8rem; color: #666; font-weight: 700;">*Compared to Smartlead/Instantly Pro plans</div>
                 </div>
             </div>
         </div>
@@ -1026,20 +1090,16 @@
                     <div class="plan-period">one-time payment</div>
                     <div class="plan-desc">The industry standard for agencies. Own the system with your custom domain, logo, and a unified admin dashboard.</div>
                     <ul class="plan-features">
-                        <li><b>Inbuilt World-Class Validator</b></li>
-                        <li><b>Custom Domain & Logo Branding</b></li>
-                        <li><b>Unified Admin Dashboard</b></li>
-                        <li>Unlimited installs & clients</li>
-                        <li>All core features included</li>
-                        <li>Inbuilt SMTP + SES/Mailgun ready</li>
+                        <li><b>Gemini 2.5 AI Personalization</b></li>
+                        <li><b>Unlimited Workspaces & Clients</b></li>
+                        <li><b>Unlimited Mailboxes & Domains</b></li>
+                        <li>Hybrid Validation 3.0</li>
+                        <li>Ghost Tracking Domains</li>
+                        <li>Auto-Healing Reputation</li>
+                        <li>Unified Admin Dashboard</li>
                         <li>Installation assistance</li>
-                        <li>1-Month Money Back Guarantee</li>
                     </ul>
-                    <a href="javascript:void(0)"
-                        class="plan-btn dark waitlist-trigger"
-                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'Agency Waitlist'});">
-                        Join the Waitlist →
-                    </a>
+                    <a href="javascript:void(0)" class="plan-btn dark waitlist-trigger">Join the Waitlist →</a>
                 </div>
 
                 <!-- Sell as your SaaS -->
@@ -1050,19 +1110,15 @@
                     <div class="plan-desc">Rebrand and resell the Cleanmails engine as your own custom subscription SaaS product.</div>
                     <ul class="plan-features">
                         <li><b>Full Commercial Resell Rights</b></li>
-                        <li><b>Source Code Access</b></li>
-                        <li>Custom Domain & Logo Branding</li>
-                        <li>Unified Admin Dashboard</li>
-                        <li>Inbuilt World-Class Validator</li>
-                        <li>All core features included</li>
-                        <li>Installation assistance</li>
-                        <li>1-Month Money Back Guarantee</li>
+                        <li><b>Source Code Access (Go + React)</b></li>
+                        <li><b>Build Your Own SaaS Platform</b></li>
+                        <li>Unlimited Workspaces & Clients</li>
+                        <li>Gemini 2.5 AI Personalization</li>
+                        <li>Hybrid Validation 3.0</li>
+                        <li>Master-Satellite Cluster Support</li>
+                        <li>Priority Developer Support</li>
                     </ul>
-                    <a href="javascript:void(0)"
-                        class="plan-btn waitlist-trigger"
-                        onclick="gtag('event','click_waitlist',{'event_category':'engagement','event_label':'SaaS Waitlist'});">
-                        Join the Waitlist →
-                    </a>
+                    <a href="javascript:void(0)" class="plan-btn waitlist-trigger">Join the Waitlist →</a>
                 </div>
             </div>
 
@@ -1137,21 +1193,14 @@
 
     <!-- FINAL CTA -->
     <section class="final-cta-section">
-        <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Get Started</span>
-        <h2 class="section-headline" style="margin-top: 24px;">Cancel your subscriptions.<br>Own your stack.</h2>
-        <p class="section-sub">Join the smart agencies who stopped renting their email infrastructure and started owning it.</p>
+        <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Escape the Subscription Trap</span>
+        <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
+        <p class="section-sub">Join the Founders Batch today and lock in Lifetime Updates. Limited to first 100 Agencies only.</p>
         <div class="final-cta-btns">
-            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
-            <a href="#pricing" class="btn-secondary">Check Pricing</a>
+            <a href="javascript:void(0)" class="btn-primary waitlist-trigger" id="finalCta">Claim My Founders Spot →</a>
+            <a href="#roi" class="btn-secondary">Check My Savings</a>
         </div>
     </section>
-
-    <!-- STICKY BOTTOM BAR -->
-    <div class="sticky-bar" id="stickyBar">
-        <div class="sticky-bar-text">🔥 <span>Cleanmails</span> — Self-hosted cold email. Unlimited everything. <span>One-time price.</span></div>
-        <a href="javascript:void(0)" class="btn-primary waitlist-trigger"
-            onclick="gtag('event','click_sticky_waitlist',{'event_category':'engagement','event_label':'Sticky Waitlist'});">Join the Waitlist →</a>
-    </div>
 
     <!-- WAITLIST MODAL -->
     <div class="modal-overlay" id="waitlistModal">
@@ -1253,14 +1302,39 @@
             });
         });
 
-        // Sticky Bottom Bar
-        const stickyBar = document.getElementById('stickyBar');
-        const heroEl = document.getElementById('hero');
+        // ROI Calculator Logic
+        const sliderClients = document.getElementById('calc-clients');
+        const sliderCost = document.getElementById('calc-cost');
+        const displayClients = document.getElementById('calc-clients-val');
+        const displayCost = document.getElementById('calc-cost-val');
+        const displayTotal = document.getElementById('calc-total');
+        const displayRoi = document.getElementById('calc-roi');
+
+        function updateCalc() {
+            const clients = parseInt(sliderClients.value);
+            const cost = parseInt(sliderCost.value);
+            const yearlyCost = clients * cost * 12;
+            const savings = yearlyCost - 497;
+            const weeklyRevenueLoss = (clients * cost) / 4.33;
+            const roiWeeks = (497 / (clients * cost / 4.33)).toFixed(1);
+
+            displayClients.innerText = clients;
+            displayCost.innerText = `$${cost}`;
+            displayTotal.innerText = `$${savings.toLocaleString()}`;
+            displayRoi.innerText = roiWeeks;
+        }
+
+        sliderClients.addEventListener('input', updateCalc);
+        sliderCost.addEventListener('input', updateCalc);
+        updateCalc();
+
+        // Header Shrink Logic
+        const siteHeader = document.querySelector('.site-header');
         window.addEventListener('scroll', () => {
-            if (heroEl && window.scrollY > heroEl.offsetHeight + 200) {
-                stickyBar.classList.add('show');
+            if (window.scrollY > 100) {
+                siteHeader.classList.add('scrolled');
             } else {
-                stickyBar.classList.remove('show');
+                siteHeader.classList.remove('scrolled');
             }
         });
 

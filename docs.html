@@ -241,9 +241,19 @@
 
         code {
             font-family: 'JetBrains Mono', monospace;
+            color: #000;
+            background: rgba(0,0,0,0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        pre code {
             color: #fff;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            background: transparent;
+            padding: 0;
+            font-weight: 500;
         }
 
         /* Callouts / Alerts */
@@ -357,27 +367,20 @@
             </a>
 
             <div class="docs-nav-group">
-                <p class="docs-nav-title">Setup Guide</p>
+                <p class="docs-nav-title">Quick Start</p>
                 <ul class="docs-nav-list">
-                    <li class="docs-nav-item"><a href="/CleanieAI"
-                            style="color: var(--docs-accent); display: flex; align-items: center; gap: 8px;">🤖 Ask
-                            CleanieAI</a></li>
-                    <li class="docs-nav-item"><a href="#overview" class="active">Overview</a></li>
-                    <li class="docs-nav-item"><a href="#preflight">1. Pre-Flight Checklist</a></li>
-                    <li class="docs-nav-item"><a href="#reputation">2. Infrastructure Reputation</a></li>
-                    <li class="docs-nav-item"><a href="#repo">3. Prepare Private Repo</a></li>
-                    <li class="docs-nav-item"><a href="#dependencies">4. Install Dependencies</a></li>
-                    <li class="docs-nav-item"><a href="#launch">5. Clone and Launch</a></li>
-                    <li class="docs-nav-item"><a href="#https">6. Domain & HTTPS</a></li>
-                    <li class="docs-nav-item"><a href="#initialization">7. First-Time Initialization</a></li>
+                    <li class="docs-nav-item"><a href="#beginner-intro" class="active">Beginner's Introduction</a></li>
+                    <li class="docs-nav-item"><a href="#vps-tools">1. Getting your VPS & Tools</a></li>
+                    <li class="docs-nav-item"><a href="#one-command">2. The One-Command Setup</a></li>
+                    <li class="docs-nav-item"><a href="#first-login">3. Your First Login</a></li>
                 </ul>
             </div>
 
             <div class="docs-nav-group">
-                <p class="docs-nav-title">Maintenance</p>
+                <p class="docs-nav-title">Pro Mode</p>
                 <ul class="docs-nav-list">
-                    <li class="docs-nav-item"><a href="#ops">8. Operational Commands</a></li>
-                    <li class="docs-nav-item"><a href="#final">9. Final Checklist</a></li>
+                    <li class="docs-nav-item"><a href="#advanced">Advanced Configuration</a></li>
+                    <li class="docs-nav-item"><a href="#troubleshooting">Troubleshooting</a></li>
                 </ul>
             </div>
 
@@ -388,262 +391,95 @@
 
         <!-- Main Content -->
         <main class="docs-main">
-            <header class="docs-header" id="overview">
-                <span class="docs-badge">VPS DEPLOYMENT GUIDE</span>
-                <h1 class="docs-title">Production-Grade Email Validation Setup</h1>
+            <header class="docs-header" id="beginner-intro">
+                <span class="docs-badge">BEGINNER-FRIENDLY GUIDE</span>
+                <h1 class="docs-title">Getting Started with Cleanmails</h1>
                 <p class="docs-subtitle">
-                    This document outlines the complete deployment process for Cleanmails on a fresh VPS. Configure a
-                    secure, reputation-safe, containerized email validation node with HTTPS and proper SMTP alignment.
+                    New to self-hosting? No problem. This guide will take you from zero to a fully working email validation system in under 10 minutes. <b>No coding required.</b>
                 </p>
-                <div
-                    style="margin-top: 32px; padding: 24px; background: #FFF9E6; border: 3px solid #000; border-radius: 16px; box-shadow: 6px 6px 0 #000;">
-                    <h4 style="margin: 0 0 12px 0; font-weight: 900;">Deploy in minutes using CleanieAI 🤖</h4>
-                    <p style="margin: 0 0 20px 0; font-size: 0.95rem; font-weight: 600;">Stuck with an error? Our AI
-                        assistant knows exactly how to fix deployment issues. Get your dashboard live effortlessly.</p>
-                    <a href="/CleanieAI" class="checkout-button"
-                        style="display: inline-block; padding: 12px 24px; font-size: 0.95rem;">Launch AI Assistant</a>
-                </div>
             </header>
 
-            <!-- 1. Pre-Flight Checklist -->
-            <section id="preflight">
+            <!-- Beginner Intro -->
+            <section id="basics">
+                <h2>The Basics: What is a VPS?</h2>
+                <p>
+                    Think of a <b>VPS (Virtual Private Server)</b> as a computer that stays on 24/7 in a data center. 
+                    Instead of running Cleanmails on your laptop, you run it on a VPS so it can handle thousands of emails while you sleep.
+                </p>
+                <div class="callout info">
+                    <h4>🌟 Recommendation</h4>
+                    We recommend <b>Contabo</b> or <b>DigitalOcean</b>. Choose a plan with at least 4GB RAM and <b>Ubuntu 22.04</b> as the Operating System.
+                </div>
+            </section>
+
+            <!-- 1. Tools -->
+            <section id="vps-tools">
                 <div class="step-visual">
                     <div class="step-number">1</div>
-                    <h2 style="margin-bottom: 0;">Pre-Flight Checklist</h2>
+                    <h2 style="margin-bottom: 0;">Getting your Tools</h2>
                 </div>
 
-                <h3>Infrastructure Requirements</h3>
+                <h3>Install Putty (Windows Users)</h3>
+                <p>To talk to your VPS, you need a "Terminal". If you are on Windows, <b>Putty</b> is the industry standard.</p>
                 <ul style="padding-left: 20px; line-height: 2;">
-                    <li><strong>VPS OS</strong>: Ubuntu 22.04 or Debian 11+</li>
-                    <li><strong>Network</strong>: Dedicated Public IPv4</li>
-                    <li><strong>Port 25</strong>: Outbound Port 25 must be unblocked</li>
-                    <li><strong>DNS</strong>: Ability to configure Reverse DNS (PTR)</li>
+                    <li>Download Putty from <a href="https://www.putty.org/" target="_blank" style="color: var(--docs-accent); font-weight: 800;">putty.org</a>.</li>
+                    <li>Open Putty, enter your VPS IP address, and click <b>Open</b>.</li>
+                    <li>When it asks for a login, type <code>root</code> and press Enter.</li>
+                    <li>Then type your VPS password (note: characters won't show as you type for security) and press Enter.</li>
                 </ul>
 
-                <h3>Domain Requirements</h3>
-                <ul style="padding-left: 20px; line-height: 2;">
-                    <li>Domain ownership confirmed</li>
-                    <li>DNS panel access (Cloudflare or equivalent)</li>
-                    <li>Gray Cloud enabled (Proxy disabled / DNS-only mode)</li>
-                </ul>
-
-                <div class="callout info">
-                    <h4>📝 Note on Source Code</h4>
-                    Check that your private GitHub repository is created and your production-ready source code is
-                    committed with a verified docker-compose.yml.
+                <div class="callout warning">
+                    <h4>🖱️ Pro Tip: How to Paste</h4>
+                    In most Terminals (like Putty), you don't use <code>Ctrl + V</code> to paste. 
+                    <b>Just right-click your mouse once</b> inside the terminal window, and it will automatically paste whatever you copied!
                 </div>
             </section>
 
-            <!-- 2. Infrastructure Reputation -->
-            <section id="reputation">
+            <!-- 2. One-Command -->
+            <section id="one-command">
                 <div class="step-visual">
                     <div class="step-number">2</div>
-                    <h2 style="margin-bottom: 0;">Infrastructure Reputation Setup</h2>
+                    <h2 style="margin-bottom: 0;">The One-Command Setup</h2>
                 </div>
-
-                <h3>2.1 Validate Outbound Port 25</h3>
-                <p>Ensure your VPS can communicate with external SMTP servers. Run this command on your VPS:</p>
+                <p>
+                    Go to your <a href="/success-v1-x8fk2m9s7q5p4r3w.html" style="color: var(--docs-accent); font-weight: 800;">Success Page</a>, 
+                    enter your license key, and copy the code generated for you. 
+                </p>
+                <p>It will look something like this:</p>
+                
                 <div class="code-container">
                     <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        <span class="code-lang">Copy from your success page</span>
                     </div>
-                    <pre><code>telnet gmail-smtp-in.l.google.com 25</code></pre>
+                    <pre><code>curl -sSL https://raw.githubusercontent.com/cleanmails/install/main/linux.sh | bash -s -- --key CK-XXXX-XXXX</code></pre>
                 </div>
-                <p><strong>Expected Output:</strong> A "220" response from the Gmail SMTP server. If the connection
-                    fails, contact your VPS provider to request outbound Port 25 unblocking.</p>
 
-                <h3>2.2 Configure Reverse DNS (PTR Record)</h3>
-                <p>In your VPS dashboard (Networking settings), set the Reverse DNS / PTR hostname to:</p>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Hostname</span>
-                    </div>
-                    <pre><code>verify.yourdomain.com</code></pre>
-                </div>
-                <div class="callout warning">
-                    <h4>🚨 Mandatory Alignment</h4>
-                    The A record must resolve to the VPS IP, and the PTR record must resolve back to the same hostname.
-                    Your SMTP HELO must match this hostname for 100% accuracy.
-                </div>
+                <p><b>Instructions:</b></p>
+                <ol style="padding-left: 20px; line-height: 2; font-weight: 600;">
+                    <li>Copy that line.</li>
+                    <li>Right-click in your Putty terminal to paste it.</li>
+                    <li>Press <kbd style="background: #eee; padding: 2px 6px; border-radius: 4px; border: 1px solid #ccc; font-family: sans-serif;">Enter</kbd>.</li>
+                    <li>Sit back. The script will install Docker, Nginx, SSL, and Cleanmails automatically.</li>
+                </ol>
             </section>
 
-            <!-- 3. Prepare Repo -->
-            <section id="repo">
+            <!-- 3. First Login -->
+            <section id="first-login">
                 <div class="step-visual">
                     <div class="step-number">3</div>
-                    <h2 style="margin-bottom: 0;">Prepare Private Repository</h2>
+                    <h2 style="margin-bottom: 0;">Your First Login</h2>
                 </div>
-                <p>Initialize and push your Cleanmails code to your private repository from your local machine:</p>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Git</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>git init
-git add .
-git commit -m "Deployment Ready"
-git remote add origin https://github.com/USERNAME/cleanmails.git
-git push -u origin main</code></pre>
-                </div>
-            </section>
-
-            <!-- 4. Dependencies -->
-            <section id="dependencies">
-                <div class="step-visual">
-                    <div class="step-number">4</div>
-                    <h2 style="margin-bottom: 0;">Install Core Dependencies</h2>
-                </div>
-                <p>Run these commands on your VPS to prepare the environment:</p>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>sudo apt update && sudo apt upgrade -y
-sudo apt install docker.io docker-compose git -y
-sudo systemctl start docker
-sudo systemctl enable docker</code></pre>
-                </div>
-                <div class="callout">
-                    <h4>💡 Pro Tip</h4>
-                    Add your user to the docker group to run commands without <code>sudo</code>:
-                    <br><code>sudo usermod -aG docker $USER</code>
-                </div>
-            </section>
-
-            <!-- 5. Clone and Launch -->
-            <section id="launch">
-                <div class="step-visual">
-                    <div class="step-number">5</div>
-                    <h2 style="margin-bottom: 0;">Clone and Launch Application</h2>
-                </div>
-                <h3>Clone Repository</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                    </div>
-                    <pre><code>git clone https://github.com/USERNAME/cleanmails.git
-cd cleanmails</code></pre>
-                </div>
-
-                <h3>Configure Environment</h3>
-                <p>Edit your <code>docker-compose.yml</code> to match your setup:</p>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">YAML</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code># Inside docker-compose.yml
-SMTP_HELO_NAME=verify.yourdomain.com
-SMTP_FROM_EMAIL=scanner@yourdomain.com</code></pre>
-                </div>
-
-                <h3>Build and Start</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>sudo docker-compose up -d --build</code></pre>
-                </div>
-            </section>
-
-            <!-- 6. HTTPS -->
-            <section id="https">
-                <div class="step-visual">
-                    <div class="step-number">6</div>
-                    <h2 style="margin-bottom: 0;">Domain and HTTPS Configuration</h2>
-                </div>
-                <h3>6.1 DNS Setup</h3>
-                <p>Create the following A Record in your DNS panel:</p>
-                <table class="docs-table">
-                    <thead>
-                        <tr>
-                            <th>Field</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Type</td>
-                            <td>A Record</td>
-                        </tr>
-                        <tr>
-                            <td>Name</td>
-                            <td>verify</td>
-                        </tr>
-                        <tr>
-                            <td>Value</td>
-                            <td>YOUR_VPS_IP</td>
-                        </tr>
-                        <tr>
-                            <td>Proxy Status</td>
-                            <td>DNS Only (Gray Cloud)</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h3>6.2 Install Nginx and SSL</h3>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Bash</span>
-                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-                    </div>
-                    <pre><code>sudo apt install nginx certbot python3-certbot-nginx -y
-sudo certbot --nginx -d verify.yourdomain.com</code></pre>
-                </div>
-            </section>
-
-            <!-- 7. Initialization -->
-            <section id="initialization">
-                <div class="step-visual">
-                    <div class="step-number">7</div>
-                    <h2 style="margin-bottom: 0;">First-Time Initialization</h2>
-                </div>
-                <p>Open your browser and navigate to <code>https://verify.yourdomain.com</code>.</p>
-                <p>You will be prompted to create your <strong>Admin Account</strong> and <strong>Master
-                        Password</strong>. There is no password recovery mechanism — save these details securely.</p>
-            </section>
-
-            <!-- 8. Operations -->
-            <section id="ops">
-                <div class="step-visual">
-                    <div class="step-number">8</div>
-                    <h2 style="margin-bottom: 0;">Operational Commands</h2>
-                </div>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Log view</span>
-                    </div>
-                    <pre><code>sudo docker-compose logs -f cleanmails</code></pre>
-                </div>
-                <div class="code-container">
-                    <div class="code-header">
-                        <span class="code-lang">Restart</span>
-                    </div>
-                    <pre><code>sudo docker-compose restart</code></pre>
-                </div>
-            </section>
-
-            <!-- 9. Final Checklist -->
-            <section id="final">
-                <div class="step-visual">
-                    <div class="step-number">9</div>
-                    <h2 style="margin-bottom: 0;">Final Verification Checklist</h2>
-                </div>
+                <p>Once the script finishes (it takes about 2-5 minutes), it will give you a URL like <code>https://verify.yourdomain.com</code>.</p>
                 <ul style="padding-left: 20px; line-height: 2;">
-                    <li>✅ <strong>SSL Valid</strong>: HTTPS loads without security warnings.</li>
-                    <li>✅ <strong>Auth Active</strong>: Dashboard requires login for access.</li>
-                    <li>✅ <strong>DNS Matched</strong>: HELO matches Reverse DNS hostname.</li>
-                    <li>✅ <strong>Port Lock</strong>: Direct access via IP:8080 is blocked by Nginx.</li>
+                    <li>Open that URL in your browser.</li>
+                    <li>You will see the <b>Initialization Page</b>.</li>
+                    <li>Create your Admin account. <b>Important:</b> Write down your password! There is no "Forgot Password" button because your data is private.</li>
                 </ul>
             </section>
 
             <footer style="margin-top: 100px; padding-top: 40px; border-top: 4px solid #000;">
-                <h3 style="margin-top: 0;">Deployment Complete 🎉</h3>
-                <p>Cleanmails is now operational. You have a private, reputation-safe email validation node running on
-                    your own infrastructure.</p>
+                <h3 style="margin-top: 0;">You're all set! 🚀</h3>
+                <p>Your Cleanmails instance is now live and secured. You can start uploading lists and validating emails immediately.</p>
                 <a href="/" style="font-weight: 800; color: #000; text-decoration: none;">← Back to Home</a>
             </footer>
         </main>

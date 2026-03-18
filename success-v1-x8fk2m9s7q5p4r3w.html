@@ -35,21 +35,68 @@
 
             <div class="success-actions-grid"
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; text-align: left;">
+                <!-- Express Installation Card (Infused) -->
+                <div id="installation-hub"
+                    style="padding: 32px; border: 4px solid #000; border-radius: 24px; background-color: #000; color: #fff; box-shadow: 12px 12px 0 #FF90E8; grid-column: 1 / -1; display: flex; flex-direction: column; gap: 24px; position: relative; overflow: hidden;">
+                    
+                    <div style="position: absolute; top: 0; right: 0; padding: 12px 20px; background: #FF90E8; color: #000; font-size: 0.75rem; font-weight: 900; border-bottom-left-radius: 16px; border-left: 3px solid #000; border-bottom: 3px solid #000;">
+                        NEW: ONE-COMMAND SETUP
+                    </div>
+
+                    <div style="max-width: 500px;">
+                        <h3 style="margin-bottom: 8px; font-size: 1.8rem; font-weight: 900; color: #FF90E8; font-style: italic; text-transform: uppercase;">Turbo Setup ⚡</h3>
+                        <p style="font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1.5;">
+                            Paste your license key below to generate your unique, pre-activated installation command.
+                        </p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <label style="font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #FF90E8;">Enter License Key</label>
+                        <input type="text" id="license-input" placeholder="e.g. CK-XXXX-XXXX-XXXX" 
+                            style="width: 100%; max-width: 400px; padding: 16px 20px; border: 3px solid #FF90E8; background: transparent; color: #fff; border-radius: 12px; font-family: monospace; font-size: 1.1rem; outline: none; transition: all 0.3s; box-shadow: 4px 4px 0 #FF90E8;"
+                            onInput="updateCommand()">
+                    </div>
+
+                    <div style="background: #111; border: 2px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; position: relative;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                            <div style="width: 10px; h-10; height: 10px; background: #ff5f56; rounded: 50%; border-radius: 50%;"></div>
+                            <div style="width: 10px; h-10; height: 10px; background: #ffbd2e; rounded: 50%; border-radius: 50%;"></div>
+                            <div style="width: 10px; h-10; height: 10px; background: #27c93f; rounded: 50%; border-radius: 50%;"></div>
+                            <span style="font-size: 0.7rem; font-weight: 900; color: rgba(255,255,255,0.2); margin-left: 8px; text-transform: uppercase; letter-spacing: 1px;">Terminal (Ubuntu/Linux/VPS)</span>
+                        </div>
+                        
+                        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+                            <code id="command-block" style="display: block; font-family: monospace; font-size: 0.95rem; color: #fff; line-height: 1.6; word-break: break-all;">
+                                curl -sSL https://raw.githubusercontent.com/cleanmails/install/main/linux.sh | bash -s -- --key <span id="key-placeholder" style="color: #FF90E8; font-weight: 900;">{YOUR_LICENSE_KEY}</span>
+                            </code>
+                            <button onClick="copyCommand()" id="copy-btn"
+                                style="flex-shrink: 0; background: #FF90E8; border: 2px solid #000; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 4px 4px 0 #000; text-transform: uppercase;">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="font-size: 1.2rem;">💡</div>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.4);">
+                            Just paste this command into your terminal and press <span style="color: #fff;">Enter</span>. The script will handle everything else automatically.
+                        </p>
+                    </div>
+                </div>
+
                 <!-- Get Started Card -->
                 <div
                     style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: var(--accent-color); box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
                     <div>
-                        <h3 style="margin-bottom: 16px; font-size: 1.5rem; font-weight: 900;">1. Get Started 🚀</h3>
+                        <h3 style="margin-bottom: 16px; font-size: 1.5rem; font-weight: 900;">1. Alternative Guide 📖</h3>
                         <p
-                            style="margin: 0 0 24px 0; font-size: 1rem; font-weight: 600; color: #000; line-height: 1.5;">
-                            Your purchase is complete! Please <strong>check your inbox for an email from Dodo
-                                Payments</strong>
-                            to download your product files.
+                            style="margin: 0 0 24px 0; font-size: 1.1rem; font-weight: 600; color: #000; line-height: 1.5;">
+                            Prefer a step-by-step manual setup? Our documentation covers every configuration in detail.
                         </p>
                     </div>
                     <a href="/docs" class="cta-button"
                         style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1.1rem; padding: 16px; border-radius: 12px; font-weight: 800;">
-                        📖 View Setup Guide
+                        📖 View Docs
                     </a>
                 </div>
 
@@ -88,6 +135,37 @@
         <p style="font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: #000; opacity: 0.5;">
             CLEANMAILS.ONLINE</p>
     </div>
+    <script>
+        function updateCommand() {
+            const input = document.getElementById('license-input');
+            const placeholder = document.getElementById('key-placeholder');
+            const value = input.value.trim();
+            
+            if (value) {
+                placeholder.innerText = value;
+                placeholder.style.color = '#fff';
+            } else {
+                placeholder.innerText = '{YOUR_LICENSE_KEY}';
+                placeholder.style.color = '#FF90E8';
+            }
+        }
+
+        function copyCommand() {
+            const command = document.getElementById('command-block').innerText;
+            const btn = document.getElementById('copy-btn');
+            
+            navigator.clipboard.writeText(command).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'COPIED!';
+                btn.style.background = '#27c93f';
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '#FF90E8';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 
 </html>
