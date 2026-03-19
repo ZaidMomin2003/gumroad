@@ -18,7 +18,7 @@ echo -e "${CYAN}=================================================${NC}"
 
 # 1. Ask for License Key right away
 echo -e "\n${YELLOW}Please enter your DodoPayments License Key:${NC}"
-read -p "> " LICENSE_KEY
+read -p "> " LICENSE_KEY < /dev/tty
 
 if [ -z "$LICENSE_KEY" ]; then
     echo -e "${RED}Error: License Key is required.${NC}"
