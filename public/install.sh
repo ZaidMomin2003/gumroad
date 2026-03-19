@@ -16,33 +16,7 @@ echo -e "${CYAN}=================================================${NC}"
 echo -e "${GREEN}   Welcome to the Cleanmails Engine Installer    ${NC}"
 echo -e "${CYAN}=================================================${NC}"
 
-# 1. Ask for License Key right away
-echo -e "\n${YELLOW}Please enter your DodoPayments License Key:${NC}"
-read -p "> " LICENSE_KEY < /dev/tty
-
-if [ -z "$LICENSE_KEY" ]; then
-    echo -e "${RED}Error: License Key is required.${NC}"
-    exit 1
-fi
-
-MACHINE_NAME=$(hostname)
-
-echo -e "\n${CYAN}Verifying License Key with central server...${NC}"
-# Ping our secure Vercel Middleman at cleanmails.online
-HTTP_STATUS=$(curl -s -w "%{http_code}" -X POST https://cleanmails.online/api/verify-license \
-  -H "Content-Type: application/json" \
-  -d "{\"license_key\":\"${LICENSE_KEY}\", \"instance_name\":\"${MACHINE_NAME}\"}" \
-  -o /tmp/cleanmails-auth-response.json)
-
-if [ "$HTTP_STATUS" != "200" ]; then
-    ERROR_MSG=$(grep -o '"message":"[^"]*' /tmp/cleanmails-auth-response.json | cut -d'"' -f4)
-    echo -e "${RED}License Verification Failed: ${ERROR_MSG:-"Invalid License Key or Server Error."}${NC}"
-    exit 1
-fi
-
-echo -e "${GREEN}✔ License Verified successfully! Starting installation...${NC}"
-
-# 2. Setup Directory and Download Binary
+# 1. Setup Directory and Download Binary
 APP_DIR="/var/www/cleanmails"
 echo -e "\n${YELLOW}Creating App Directory at ${APP_DIR}...${NC}"
 sudo mkdir -p ${APP_DIR}
@@ -56,8 +30,7 @@ echo -e "${YELLOW}Downloading Cleanmails Engine Binary...${NC}"
 sudo wget -q -O cleanmails-engine $AWS_BINARY_URL
 sudo chmod +x cleanmails-engine
 
-# Save the license key to a .env file so the app knows it's activated
-sudo bash -c "echo 'DODO_LICENSE_KEY=${LICENSE_KEY}' > ${APP_DIR}/.env"
+
 
 # 3. Setting up SystemD Service
 echo -e "${YELLOW}Configuring Auto-Boot SystemD Service...${NC}"
