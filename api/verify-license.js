@@ -30,8 +30,8 @@ export default async function handler(req, res) {
     // Determine whether to use Live or Test environment based on the key prefix
     const isTest = DODO_PRIVATE_KEY.startsWith('test_');
     const apiUrl = isTest 
-      ? 'https://test.api.dodopayments.com/v1/license-keys/activate'
-      : 'https://live.api.dodopayments.com/v1/license-keys/activate';
+      ? 'https://test.api.dodopayments.com/v1/licenses/activate'
+      : 'https://live.api.dodopayments.com/v1/licenses/activate';
 
     const dodoResponse = await fetch(apiUrl, {
       method: 'POST',
