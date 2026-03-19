@@ -22,9 +22,8 @@ echo -e "\n${YELLOW}Creating App Directory at ${APP_DIR}...${NC}"
 sudo mkdir -p ${APP_DIR}
 cd ${APP_DIR}
 
-# Download the compiled binary from AWS S3 (you must configure this URL in your S3)
-# Currently points to a public S3 URL where your binary lives.
-AWS_BINARY_URL="https://your-cleanmails-bucket.s3.amazonaws.com/cleanmails-v1-linux-amd64"
+# Download the compiled binary from AWS S3
+AWS_BINARY_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1"
 
 echo -e "${YELLOW}Downloading Cleanmails Engine Binary...${NC}"
 sudo wget -q -O cleanmails-engine $AWS_BINARY_URL
