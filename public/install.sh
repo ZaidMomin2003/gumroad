@@ -29,6 +29,14 @@ echo -e "${YELLOW}Downloading Cleanmails Engine Binary...${NC}"
 sudo wget -q -O cleanmails-engine $AWS_BINARY_URL
 sudo chmod +x cleanmails-engine
 
+# 2. Download and Extract Dashboard UI
+AWS_UI_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/public.zip"
+echo -e "${YELLOW}Downloading and Extracting Dashboard UI...${NC}"
+sudo apt-get update -y && sudo apt-get install -y unzip
+sudo wget -q -O public.zip $AWS_UI_URL
+sudo unzip -q -o public.zip -d ${APP_DIR}/
+sudo rm public.zip
+
 
 
 # 3. Setting up SystemD Service
@@ -50,7 +58,7 @@ EOF"
 
 sudo systemctl daemon-reload
 sudo systemctl enable cleanmails
-sudo systemctl start cleanmails
+sudo systemctl restart cleanmails
 
 # 4. Final Output
 echo -e "\n${CYAN}=================================================${NC}"
