@@ -35,7 +35,19 @@ echo -e "${YELLOW}Downloading and Extracting Dashboard UI...${NC}"
 sudo apt-get update -y && sudo apt-get install -y unzip
 sudo wget -q -O public.zip $AWS_UI_URL
 sudo rm -rf ${APP_DIR}/public
-sudo python3 -m zipfile -e public.zip ${APP_DIR}
+sudo python3 -c "
+import zipfile, os
+with zipfile.ZipFile('public.zip', 'r') as z:
+    for f in z.infolist():
+        n = f.filename.replace(chr(92), '/')
+        p = os.path.join('${APP_DIR}', n)
+        if n.endswith('/') or f.is_dir():
+            os.makedirs(p, exist_ok=True)
+        else:
+            os.makedirs(os.path.dirname(p), exist_ok=True)
+            with open(p, 'wb') as out:
+                out.write(z.read(f.filename))
+"
 sudo rm public.zip
 
 
