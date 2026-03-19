@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
     const data = await dodoResponse.json();
 
-    if (dodoResponse.ok && data.license_id) {
+    if (dodoResponse.status === 201 || (dodoResponse.ok && data.id)) {
       // The key is valid and successfully activated/verified!
       return res.status(200).json({
         valid: true,
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       });
     } else {
       // Dodo indicates invalid, expired, or max activations reached
-      return res.status(401).json({
+      return res.status(dodoResponse.status === 404 ? 404 : 401).json({
         valid: false,
         message: data.detail || data.message || 'Invalid or revoked license key.'
       });
