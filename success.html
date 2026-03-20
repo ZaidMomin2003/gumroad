@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QWXBBLS661');
+    </script>
+    <title>Purchase Successful — Cleanmails</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+        .input-group label {
+            font-size: 0.75rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #FF90E8;
+        }
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 3px solid #FF90E8;
+            background: rgba(255,144,232,0.05);
+            color: #fff;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 #FF90E8;
+        }
+        .form-input:focus {
+            background: rgba(255,144,232,0.1);
+            transform: translate(-1px, -1px);
+            box-shadow: 6px 6px 0 #FF90E8;
+        }
+        #command-block {
+            word-break: break-all;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); padding: 40px 20px;">
+    <div class="success-wrapper" style="text-align: center; max-width: 900px; width: 100%;">
+        <div style="background: var(--card-bg); border: 4px solid #000; padding: 40px 30px; border-radius: 32px; box-shadow: 12px 12px 0 #000; margin-bottom: 40px;">
+            <div style="font-size: 4rem; margin-bottom: 16px;">🎉</div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 12px; font-weight: 900;">Welcome to the Agency!</h1>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; font-weight: 500;">
+                Your payment was successful. Follow the steps below to deploy your private email infrastructure.
+            </p>
+
+            <!-- Pre-Flight Step -->
+            <div style="background: #FFF9E8; border: 4px solid #000; border-radius: 20px; padding: 24px; margin-bottom: 32px; text-align: left; box-shadow: 8px 8px 0 #000;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <div style="background: #000; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;">1</div>
+                    <h3 style="font-weight: 900; text-transform: uppercase; font-size: 1rem;">Connect Your Domain First</h3>
+                </div>
+                <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 600; color: #444;">
+                    Go to your DNS provider (Cloudflare, etc.) and point an <strong style="color: #000;">A Record</strong> (e.g., <code style="background: #eee; padding: 2px 6px; border-radius: 4px;">app</code>) to your VPS IP. <br>
+                    <span style="color: #FF5F56; font-weight: 900;">⚠️ IMPORTANT: Wait 15 minutes</span> for DNS to update before running the command below.
+                </p>
+            </div>
+
+            <div class="success-actions-grid" style="display: grid; grid-template-columns: 1fr; gap: 32px; text-align: left;">
+                <!-- Express Installation Card -->
+                <div id="installation-hub" style="padding: 32px; border: 4px solid #000; border-radius: 24px; background-color: #000; color: #fff; box-shadow: 12px 12px 0 #FF90E8; display: flex; flex-direction: column; gap: 24px; position: relative; overflow: hidden;">
+                    
+                    <div style="position: absolute; top: 0; right: 0; padding: 12px 20px; background: #FF90E8; color: #000; font-size: 0.75rem; font-weight: 900; border-bottom-left-radius: 16px; border-left: 3px solid #000; border-bottom: 3px solid #000;">
+                        STEP 2: AUTO-DEPLOY
+                    </div>
+
+                    <div style="max-width: 600px;">
+                        <h3 style="margin-bottom: 8px; font-size: 1.8rem; font-weight: 900; color: #FF90E8; font-style: italic; text-transform: uppercase;">Turbo Installer ⚡</h3>
+                        <p style="font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1.5;">
+                            Fill in your details to generate your one-click installation command with automatic SSL.
+                        </p>
+                    </div>
+
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                        <div class="input-group">
+                            <label>License Key</label>
+                            <input type="text" id="license-input" placeholder="CK-XXXX-XXXX" class="form-input" onInput="updateCommand()">
+                        </div>
+                        <div class="input-group">
+                            <label>Your App Domain</label>
+                            <input type="text" id="domain-input" placeholder="app.yourdomain.com" class="form-input" onInput="updateCommand()">
+                        </div>
+                    </div>
+
+                    <div style="background: #111; border: 2px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; position: relative;">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                            <div style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></div>
+                            <div style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></div>
+                            <div style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></div>
+                            <span style="font-size: 0.7rem; font-weight: 900; color: rgba(255,255,255,0.2); margin-left: 8px; text-transform: uppercase;">Terminal (Paste & Run)</span>
+                        </div>
+                        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+                            <code style="display: block; font-family: monospace; font-size: 0.9rem; color: #fff; line-height: 1.6; flex: 1;">
+                                curl -sSL https://cleanmails.online/install.sh | bash -s -- --key <span id="key-placeholder" style="color: #FF90E8; font-weight: 900;">{LICENSE_KEY}</span> --domain <span id="domain-placeholder" style="color: #FF90E8; font-weight: 900;">{YOUR_DOMAIN}</span>
+                            </code>
+                            <button onClick="copyCommand()" id="copy-btn" style="flex-shrink: 0; background: #FF90E8; border: 2px solid #000; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 4px 4px 0 #000; text-transform: uppercase;">
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="font-size: 1.2rem;">🚀</div>
+                        <p style="font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.4);">
+                            This command installs Cleanmails, sets up Nginx, and configures your SSL certificate automatically.
+                        </p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.05); border: 2px dashed rgba(255,255,255,0.2); border-radius: 16px; padding: 20px;">
+                        <h4 style="color: #FF90E8; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; font-size: 0.8rem;">rDNS Configuration</h4>
+                        <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 12px; line-height: 1.5;">
+                            To ensure emails land in the Inbox, go to your VPS Provider (e.g., Contabo) and set your server's <b>Reverse DNS (PTR)</b> record to exactly:
+                        </p>
+                        <code style="display: inline-block; background: #000; color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 900; border: 1px solid #333;">
+                            <span id="rdns-placeholder" style="color: #FF90E8;">{YOUR_DOMAIN}</span>
+                        </code>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                    <!-- Alternative Guide -->
+                    <div style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: #F8F8F8; box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 style="margin-bottom: 16px; font-size: 1.3rem; font-weight: 900;">Manual Guide 📖</h3>
+                            <p style="margin: 0 0 24px 0; font-size: 0.95rem; font-weight: 600; color: #666; line-height: 1.6;">
+                                Need more control? Our documentation covers every manual configuration step.
+                            </p>
+                        </div>
+                        <a href="/docs" style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1rem; padding: 14px; border-radius: 12px; font-weight: 800;">
+                            View Docs
+                        </a>
+                    </div>
+
+                    <!-- Managed Setup -->
+                    <div style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: #fff; box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 style="margin-bottom: 16px; font-size: 1.3rem; font-weight: 900;">White-Glove Setup 🛠️</h3>
+                            <p style="font-size: 0.95rem; font-weight: 600; color: #666; margin-bottom: 24px; line-height: 1.6;">
+                                Want us to do it? We'll set up your private infrastructure for a one-time fee of <strong>$50</strong>.
+                            </p>
+                        </div>
+                        <a href="https://cal.com/zaid-momin-st0o8z/cleanmails-setup" target="_blank" style="display: block; text-align: center; text-decoration: none; background: #FF90E8; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1rem; padding: 14px; border-radius: 12px; font-weight: 800;">
+                            Book Setup Call
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; color: #000; opacity: 0.3; margin-top: 40px;">CLEANMAILS.ONLINE — SECURE INFRASTRUCTURE</p>
+    </div>
+
+    <script>
+        function updateCommand() {
+            const licInput = document.getElementById('license-input');
+            const domInput = document.getElementById('domain-input');
+            const licPlaceholder = document.getElementById('key-placeholder');
+            const domPlaceholder = document.getElementById('domain-placeholder');
+            const rdnsPlaceholder = document.getElementById('rdns-placeholder');
+            
+            if (licInput.value.trim()) {
+                licPlaceholder.innerText = licInput.value.trim();
+                licPlaceholder.style.color = '#fff';
+            } else {
+                licPlaceholder.innerText = '{LICENSE_KEY}';
+                licPlaceholder.style.color = '#FF90E8';
+            }
+
+            if (domInput.value.trim()) {
+                domPlaceholder.innerText = domInput.value.trim();
+                domPlaceholder.style.color = '#fff';
+                rdnsPlaceholder.innerText = domInput.value.trim();
+                rdnsPlaceholder.style.color = '#fff';
+            } else {
+                domPlaceholder.innerText = '{YOUR_DOMAIN}';
+                domPlaceholder.style.color = '#FF90E8';
+                rdnsPlaceholder.innerText = '{YOUR_DOMAIN}';
+                rdnsPlaceholder.style.color = '#FF90E8';
+            }
+        }
+
+        function copyCommand() {
+            const command = `curl -sSL https://cleanmails.online/install.sh | bash -s -- --key ${document.getElementById('license-input').value.trim() || '{LICENSE_KEY}'} --domain ${document.getElementById('domain-input').value.trim() || '{YOUR_DOMAIN}'}`;
+            const btn = document.getElementById('copy-btn');
+            
+            navigator.clipboard.writeText(command).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'COPIED!';
+                btn.style.background = '#27c93f';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '#FF90E8';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           support: resolve(__dirname, 'support.html'),
           developer: resolve(__dirname, 'developer.html'),
           docs: resolve(__dirname, 'docs.html'),
-          success: resolve(__dirname, 'success-v1-x8fk2m9s7q5p4r3w.html'),
+          success: resolve(__dirname, 'success.html'),
           cancel: resolve(__dirname, 'cancel.html'),
           affiliate: resolve(__dirname, 'affiliate.html'),
           millionmails: resolve(__dirname, 'millionmails.html'),
@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
           infrastructure: resolve(__dirname, 'infrastructure.html'),
           saasstarter: resolve(__dirname, 'saas-starter.html'),
           verify: resolve(__dirname, 'verify.html'),
+          successEnterprise: resolve(__dirname, 'success-enterprise.html'),
         },
       },
     },
@@ -111,14 +112,15 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/support': '/support.html',
                 '/developer': '/developer.html',
                 '/docs': '/docs.html',
-                '/success': '/success-v1-x8fk2m9s7q5p4r3w.html',
+                '/success': '/success.html',
                 '/cancel': '/cancel.html',
                 '/affiliate': '/affiliate.html',
                 '/millionmails': '/millionmails.html',
                 '/CleanieAI': '/CleanieAI.html',
                 '/infrastructure': '/infrastructure.html',
                 '/saas-starter': '/saas-starter.html',
-                '/verify': '/verify.html'
+                '/verify': '/verify.html',
+                '/success-enterprise': '/success-enterprise.html'
               };
 
               if (routeMap[url]) {
