@@ -34,12 +34,10 @@ echo -e "${CYAN}=================================================${NC}"
 echo -e "${GREEN}   Cleanmails Enterprise Installer Initializing  ${NC}"
 echo -e "${CYAN}=================================================${NC}"
 
-# 2. Dependency Check (Need jq for JSON parsing)
-if ! command -v jq &> /dev/null; then
-    echo -e "${YELLOW}Installing required dependencies (jq)...${NC}"
-    sudo apt-get update -y -q
-    sudo apt-get install -y jq curl unzip nginx certbot python3-certbot-nginx
-fi
+# 2. Dependency Check
+echo -e "${YELLOW}Ensuring required dependencies are installed...${NC}"
+sudo apt-get update -y -q
+sudo apt-get install -y jq curl unzip nginx certbot python3-certbot-nginx
 
 # 3. Dodo Payments Machine-Binding (Anti-Piracy)
 echo -e "${YELLOW}Authenticating License with Dodo Payments...${NC}"
@@ -116,6 +114,8 @@ sudo systemctl restart cleanmails
 
 # 6. Proxy & SSL Magic (Reverse Proxy to 8080)
 echo -e "${YELLOW}Configuring Reverse Proxy & SSL for ${APP_DOMAIN}...${NC}"
+
+sudo mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
 
 sudo bash -c "cat > /etc/nginx/sites-available/cleanmails << EOF
 server {
