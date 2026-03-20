@@ -47,7 +47,7 @@ echo -e "${YELLOW}Authenticating License with Dodo Payments...${NC}"
 HW_ID="$(cat /etc/machine-id 2>/dev/null || hostname)"
 
 # Activate (Bind to this VPS)
-ACTIVATE_RESP=$(curl -s -X POST https://live.dodopayments.com/licenses/activate \
+ACTIVATE_RESP=$(curl -s -X POST https://test.dodopayments.com/licenses/activate \
   -H "Content-Type: application/json" \
   -d "{\"license_key\":\"$LICENSE_KEY\",\"name\":\"$HW_ID\"}")
 
@@ -60,7 +60,7 @@ if [ -z "$LKI_ID" ] || [ "$LKI_ID" = "null" ]; then
 fi
 
 # Validate (Strict check for this specific instance)
-VALIDATE_RESP=$(curl -s -X POST https://live.dodopayments.com/licenses/validate \
+VALIDATE_RESP=$(curl -s -X POST https://test.dodopayments.com/licenses/validate \
   -H "Content-Type: application/json" \
   -d "{\"license_key\":\"$LICENSE_KEY\",\"license_key_instance_id\":\"$LKI_ID\"}")
 
