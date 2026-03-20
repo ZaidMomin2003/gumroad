@@ -76,14 +76,14 @@ APP_DIR="/var/www/cleanmails"
 sudo mkdir -p ${APP_DIR}
 cd ${APP_DIR}
 
-AWS_BINARY_URL="https://cleanmails-software-dist.s3.us-east-1.amazonaws.com/cleanmails-linux-v1"
+AWS_BINARY_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1"
 echo -e "\n${YELLOW}Downloading Cleanmails Enterprise Binary...${NC}"
 sudo curl -s -o cleanmails-engine $AWS_BINARY_URL
 sudo chmod +x cleanmails-engine
 
 # Note: Assuming the standalone binary serves everything smoothly from memory or /public. 
 # We maintain the generic public.zip pull in case it's still needed from earlier setups.
-AWS_UI_URL="https://cleanmails-software-dist.s3.us-east-1.amazonaws.com/public.zip"
+AWS_UI_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/public.zip"
 if curl --output /dev/null --silent --head --fail "$AWS_UI_URL"; then
     sudo curl -s -o public.zip $AWS_UI_URL
     sudo rm -rf ${APP_DIR}/public
