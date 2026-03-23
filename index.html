@@ -247,13 +247,13 @@
             padding: 80px 24px; background: var(--off-white); border-bottom: 3px solid var(--black);
         }
         .video-wrapper-outer {
-            max-width: 860px; margin: 0 auto;
+            max-width: 1100px; margin: 0 auto;
         }
-        .video-wrapper-outer h2 { text-align: center; font-size: 2rem; font-weight: 900; margin-bottom: 32px; }
+        .video-wrapper-outer h2 { text-align: center; font-size: 2.2rem; font-weight: 900; margin-bottom: 32px; }
         .video-embed {
             border: 4px solid var(--black); border-radius: var(--radius);
             overflow: hidden; box-shadow: var(--shadow-lg);
-            position: relative; padding-bottom: 58.5%;
+            position: relative; padding-bottom: 56.25%;
         }
         .video-embed iframe {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -728,7 +728,7 @@
             border-radius: 10px;
         }
         .screenshot-card {
-            flex: 0 0 800px;
+            flex: 0 0 650px;
             background: var(--black);
             border: 4px solid var(--black);
             border-radius: 32px;
@@ -765,10 +765,41 @@
             box-shadow: 4px 4px 0 var(--black);
         }
 
+        /* NEW SCREENSHOT NAV */
+        .screenshot-scroll-wrap { position: relative; }
+        .screenshot-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 56px; height: 56px; background: var(--black); color: var(--gold);
+            border: 3px solid var(--black); border-radius: 12px; font-size: 1.5rem;
+            cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+            box-shadow: 4px 4px 0 var(--gold); transition: all 0.2s;
+        }
+        .screenshot-nav:hover { transform: translateY(-52%) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--gold); }
+        .screenshot-nav:active { transform: translateY(-48%) translate(2px, 2px); box-shadow: 2px 2px 0 var(--gold); }
+        .screenshot-nav.prev { left: 40px; }
+        .screenshot-nav.next { right: 40px; }
+        @media (max-width: 900px) { .screenshot-nav { display: none; } }
+
+        /* =============================================
+           AFFILIATE SECTION
+        =============================================*/
+        .affiliate-section { background: var(--off-white); border-top: 3px solid var(--black); }
+        .affiliate-card {
+            background: var(--black); color: var(--white);
+            border: 4px solid var(--black); border-radius: 40px;
+            padding: 80px 40px; text-align: center;
+            box-shadow: 20px 20px 0 var(--gold);
+        }
+        .affiliate-card .section-headline { color: var(--white); margin-bottom: 24px; }
+        .affiliate-card .section-sub { color: #888; margin: 0 auto 32px; }
+
         /* =============================================
            RESPONSIVE
         =============================================*/
+        .nav-cta .mobile-text { display: none; }
         @media (max-width: 768px) {
+            .nav-cta .desktop-text { display: none; }
+            .nav-cta .mobile-text { display: inline; }
             .nav-links { display: none; }
             .nav-inner { padding: 10px 16px; }
             .nav-cta { padding: 10px 20px; font-size: 0.85rem; border-width: 2px !important; }
@@ -808,7 +839,10 @@
                     <li><a href="#roi">Calculator</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                 </ul>
-                <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="nav-cta">Claim Agency License →</a>
+                <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="nav-cta">
+                    <span class="desktop-text">Claim Agency License →</span>
+                    <span class="mobile-text">Claim Offer →</span>
+                </a>
             </div>
         </nav>
     </header>
@@ -816,7 +850,7 @@
     <!-- HERO -->
     <section class="hero-section" id="hero">
         <div class="hero-badge">
-            <span class="dot"></span> FOUNDERS BATCH LIVE <span class="spots">Only 16 spots left</span>
+            <span class="dot"></span> FOUNDERS BATCH LIVE <span class="spots">Only 24 spots left</span>
         </div>
         
         <!-- AWS Trust Line -->
@@ -825,8 +859,8 @@
         </p>
 
         <h1 class="hero-headline">
-            The <span>Private Fortress</span><br>
-            for Growth Agencies.
+            The <span>Email Fortress</span><br>
+            for Marketing Agencies.
         </h1>
         <p class="hero-sub" style="margin-bottom: 32px;">
             Stop renting your success from monthly SaaS platforms. Own a private, high-performance cold email infrastructure with <strong>unlimited everything</strong>. Zero footprints, zero success-tax, 100% margin.
@@ -1086,19 +1120,23 @@
             <h2 class="section-headline">Take a look inside.</h2>
             <p class="section-sub" style="margin: 0 auto;">No complexity. No clutter. Just high-performance infrastructure.</p>
         </div>
-        <div class="screenshot-scroll-container">
-            <div class="screenshot-card">
-                <img src="/screenshots/preview1.png" alt="Cleanmails Dashboard 1">
-                <span class="screenshot-label-overlay">Campaign Analytics & AI Ops</span>
+        <div class="screenshot-scroll-wrap">
+            <button class="screenshot-nav prev" id="ssPrev">←</button>
+            <div class="screenshot-scroll-container">
+                <div class="screenshot-card">
+                    <img src="/screenshots/preview1.png" alt="Cleanmails Dashboard 1">
+                    <span class="screenshot-label-overlay">Campaign Analytics & AI Ops</span>
+                </div>
+                <div class="screenshot-card">
+                    <img src="/screenshots/preview2.png" alt="Cleanmails Dashboard 2">
+                    <span class="screenshot-label-overlay">Precision Email Validation</span>
+                </div>
+                <div class="screenshot-card">
+                    <img src="/screenshots/preview3.png" alt="Cleanmails Dashboard 3">
+                    <span class="screenshot-label-overlay">Global Infrastructure Monitor</span>
+                </div>
             </div>
-            <div class="screenshot-card">
-                <img src="/screenshots/preview2.png" alt="Cleanmails Dashboard 2">
-                <span class="screenshot-label-overlay">Precision Email Validation</span>
-            </div>
-            <div class="screenshot-card">
-                <img src="/screenshots/preview3.png" alt="Cleanmails Dashboard 3">
-                <span class="screenshot-label-overlay">Global Infrastructure Monitor</span>
-            </div>
+            <button class="screenshot-nav next" id="ssNext">→</button>
         </div>
     </section>
 
@@ -1291,6 +1329,18 @@
                 <span class="pricing-badge">🔄 Optional lifetime updates ($99/year)</span>
                 <span class="pricing-badge">🖥️ Inbuilt World-Class Validator</span>
                 <span class="pricing-badge">⚡ Installation assistance included</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- AFFILIATE SECTION -->
+    <section class="affiliate-section section" id="affiliate">
+        <div class="section-inner">
+            <div class="affiliate-card">
+              <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
+              <h2 class="section-headline">Join Affiliate. <br> $50 per sale.</h2>
+              <p class="section-sub">Help other agency owners escape the monthly SaaS trap and get paid every Friday. No caps, zero friction.</p>
+              <a href="/affiliate" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
             </div>
         </div>
     </section>
@@ -1616,37 +1666,66 @@
                 gtag('event', 'click_final_cta', { event_category: 'engagement', event_label: 'Final CTA' }));
         });
 
-        // SCREENSHOT DRAG-TO-SCROLL
+        // SCREENSHOT INTERACTIVITY & AUTO-SCROLL
         const slider = document.querySelector('.screenshot-scroll-container');
+        const ssPrev = document.getElementById('ssPrev');
+        const ssNext = document.getElementById('ssNext');
         let isDown = false;
         let startX;
         let scrollLeft;
+        let autoScrollInterval;
+
+        const startAutoScroll = () => {
+            autoScrollInterval = setInterval(() => {
+                if (!isDown) {
+                    if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 1) {
+                        slider.scrollLeft = 0;
+                    } else {
+                        slider.scrollLeft += 1;
+                    }
+                }
+            }, 30);
+        };
+
+        const stopAutoScroll = () => clearInterval(autoScrollInterval);
 
         slider.addEventListener('mousedown', (e) => {
             isDown = true;
-            slider.classList.add('active');
+            slider.style.cursor = 'grabbing';
             startX = e.pageX - slider.offsetLeft;
             scrollLeft = slider.scrollLeft;
-            slider.style.cursor = 'grabbing';
-            slider.style.userSelect = 'none';
         });
+
         slider.addEventListener('mouseleave', () => {
             isDown = false;
-            slider.classList.remove('active');
             slider.style.cursor = 'grab';
+            startAutoScroll();
         });
+
         slider.addEventListener('mouseup', () => {
             isDown = false;
-            slider.classList.remove('active');
             slider.style.cursor = 'grab';
         });
+
         slider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2; // scroll-fast
+            const walk = (x - startX) * 2;
             slider.scrollLeft = scrollLeft - walk;
         });
+
+        slider.addEventListener('mouseenter', stopAutoScroll);
+
+        // Manual Navigation
+        ssPrev.addEventListener('click', () => {
+            slider.scrollBy({ left: -700, behavior: 'smooth' });
+        });
+        ssNext.addEventListener('click', () => {
+            slider.scrollBy({ left: 700, behavior: 'smooth' });
+        });
+
+        startAutoScroll();
     </script>
 </body>
 </html>
