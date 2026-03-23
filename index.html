@@ -688,6 +688,84 @@
         .waitlist-submit:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--gold); }
 
         /* =============================================
+           SCREENSHOT PREVIEWS
+        =============================================*/
+        .screenshot-section {
+            background: var(--off-white);
+            padding: 100px 0;
+            overflow: hidden;
+            border-bottom: 3px solid var(--black);
+        }
+        .screenshot-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .screenshot-header {
+            padding: 0 24px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .screenshot-scroll-container {
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            padding: 40px 24px 60px;
+            cursor: grab;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .screenshot-scroll-container::-webkit-scrollbar {
+            height: 10px;
+        }
+        .screenshot-scroll-container::-webkit-scrollbar-track {
+            background: #eee;
+            border-radius: 10px;
+            margin: 0 40px;
+        }
+        .screenshot-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border: 2px solid var(--black);
+            border-radius: 10px;
+        }
+        .screenshot-card {
+            flex: 0 0 800px;
+            background: var(--black);
+            border: 4px solid var(--black);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 12px 12px 0 var(--gold);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        @media (max-width: 900px) {
+            .screenshot-card {
+                flex: 0 0 calc(100vw - 80px);
+            }
+        }
+        .screenshot-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 20px 20px 0 var(--gold);
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .screenshot-label-overlay {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 900;
+            border: 2px solid var(--black);
+            font-size: 0.9rem;
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        /* =============================================
            RESPONSIVE
         =============================================*/
         @media (max-width: 768px) {
@@ -805,22 +883,22 @@
         </div>
     </section>
 
-    <!-- 
-    <section class="video-section" style="display: none;">
+    <section class="video-section">
         <div class="video-wrapper-outer">
             <h2>How it looks.</h2>
             <div class="video-embed">
                 <iframe
-                    src="https://player.vimeo.com/video/1169465351?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"
+                    src="https://player.vimeo.com/video/1176093594?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
                     frameborder="0"
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                     referrerpolicy="strict-origin-when-cross-origin"
-                    title="Cleanmails Dashboard Demo">
+                    title="Cleanmails Dashboard Demo"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;">
                 </iframe>
             </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
         </div>
     </section>
-    -->
 
     <!-- PAIN SECTION -->
     <section class="pain-section section" id="pain">
@@ -996,6 +1074,30 @@
                     <h3>Scale to Infinity</h3>
                     <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. You just pay barely $10-$20/month for your own VPS server.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SCREENSHOT PREVIEWS -->
+    <section class="screenshot-section">
+        <div class="screenshot-header">
+            <span class="section-label" style="background: var(--black); color: var(--gold); border-color: var(--black);">Visual Tour</span>
+            <h2 class="section-headline">Take a look inside.</h2>
+            <p class="section-sub" style="margin: 0 auto;">No complexity. No clutter. Just high-performance infrastructure.</p>
+        </div>
+        <div class="screenshot-scroll-container">
+            <div class="screenshot-card">
+                <img src="/screenshots/preview1.png" alt="Cleanmails Dashboard 1">
+                <span class="screenshot-label-overlay">Campaign Analytics & AI Ops</span>
+            </div>
+            <div class="screenshot-card">
+                <img src="/screenshots/preview2.png" alt="Cleanmails Dashboard 2">
+                <span class="screenshot-label-overlay">Precision Email Validation</span>
+            </div>
+            <div class="screenshot-card">
+                <img src="/screenshots/preview3.png" alt="Cleanmails Dashboard 3">
+                <span class="screenshot-label-overlay">Global Infrastructure Monitor</span>
             </div>
         </div>
     </section>
@@ -1512,6 +1614,38 @@
             const finalCta = document.getElementById('finalCta');
             if (finalCta) finalCta.addEventListener('click', () =>
                 gtag('event', 'click_final_cta', { event_category: 'engagement', event_label: 'Final CTA' }));
+        });
+
+        // SCREENSHOT DRAG-TO-SCROLL
+        const slider = document.querySelector('.screenshot-scroll-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+            slider.style.cursor = 'grabbing';
+            slider.style.userSelect = 'none';
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
         });
     </script>
 </body>
