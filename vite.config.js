@@ -28,6 +28,12 @@ export default defineConfig(({ mode }) => {
           saasstarter: resolve(__dirname, 'saas-starter.html'),
           verify: resolve(__dirname, 'verify.html'),
           successEnterprise: resolve(__dirname, 'success-enterprise.html'),
+          emailValidation: resolve(__dirname, 'email-validation.html'),
+          senderRotation: resolve(__dirname, 'sender-rotation.html'),
+          spintaxGenerator: resolve(__dirname, 'spintax-generator.html'),
+          coldEmailCadence: resolve(__dirname, 'cold-email-cadence.html'),
+          vsInstantly: resolve(__dirname, 'cleanmails-vs-instantly.html'),
+          vsSmartlead: resolve(__dirname, 'cleanmails-vs-smartlead.html'),
         },
       },
     },
@@ -120,7 +126,13 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/infrastructure': '/infrastructure.html',
                 '/saas-starter': '/saas-starter.html',
                 '/verify': '/verify.html',
-                '/success-enterprise': '/success-enterprise.html'
+                '/success-enterprise': '/success-enterprise.html',
+                '/email-validation': '/email-validation.html',
+                '/sender-rotation': '/sender-rotation.html',
+                '/spintax-generator': '/spintax-generator.html',
+                '/cold-email-cadence': '/cold-email-cadence.html',
+                '/cleanmails-vs-instantly': '/cleanmails-vs-instantly.html',
+                '/cleanmails-vs-smartlead': '/cleanmails-vs-smartlead.html'
               };
 
               if (routeMap[url]) {

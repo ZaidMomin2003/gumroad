@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Self-Hosted Email Validation — Stop Bounces Forever | Cleanmails</title>
+    <meta name="description" content="Clean your CSV lead lists locally with our self-hosted email validator. Zero per-email fees, unlimited validation, catch-all detection, and SMTP handshake checks.">
+    <meta name="keywords" content="unlimited email validation, self-hosted email verifier, bulk email cleaning, catch-all detection, zero per-email fees, SMTP validation tool">
+    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --black: #000;
+            --white: #fff;
+            --off-white: #fafafa;
+            --muted: #555;
+            --green: #2ecc71;
+            --red: #e63946;
+            --border: 3px solid #000;
+            --radius: 24px;
+            --shadow: 6px 6px 0 #000;
+        }
+
+        body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
+        .section { padding: 80px 24px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; }
+        .section-label {
+            display: inline-block; font-size: 0.8rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 0.12em; padding: 6px 16px; border-radius: 100px;
+            border: 2px solid var(--black); background: var(--gold); margin-bottom: 20px;
+        }
+        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 900; line-height: 1; margin-bottom: 24px; }
+        .hero-sub { font-size: 1.25rem; color: var(--muted); max-width: 700px; margin-bottom: 40px; }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 60px; }
+        .feature-card { background: #fff; border: 3px solid #000; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-5px); }
+        .feature-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
+        .feature-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+
+        .compare-box { background: var(--black); color: var(--white); border-radius: 32px; padding: 60px; margin-top: 80px; box-shadow: 15px 15px 0 var(--gold); }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } .compare-box { padding: 40px 20px; } }
+
+        .cost-card { background: #111; border: 2px solid #333; padding: 32px; border-radius: 20px; text-align: center; }
+        .cost-card .brand { font-weight: 900; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .cost-card .price { font-size: 3rem; font-weight: 900; color: var(--red); }
+        .cost-card.cleanmails .price { color: var(--green); }
+
+        .cta-box { text-align: center; margin-top: 100px; }
+        .btn-primary { 
+            background: var(--gold); color: #000; font-weight: 900; padding: 20px 48px; 
+            border: 3px solid #000; border-radius: 14px; text-decoration: none; display: inline-block;
+            box-shadow: var(--shadow); transition: all 0.2s;
+        }
+        .btn-primary:hover { transform: translate(-3px, -3px); box-shadow: 10px 10px 0 #000; }
+    </style>
+</head>
+<body>
+    <header style="padding: 24px; border-bottom: 3px solid #000; background: #fff;">
+        <div class="section-inner" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="/" style="font-weight: 900; text-decoration: none; color: #000; display: flex; align-items: center; gap: 10px;">
+                <img src="/logo.svg" alt="Cleanmails" width="32"> Cleanmails
+            </a>
+            <a href="/verify" style="font-weight: 800; text-decoration: none; color: #000; font-size: 0.9rem;">Free Tool →</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="section-inner">
+            <span class="section-label">For High-Volume Agencies</span>
+            <h1 class="hero-title">Unlimited Bulk Email Validation.<br>Zero Per-Lead Fees.</h1>
+            <p class="hero-sub">Most platforms tax you for cleaning your lists. We give you the keys to the infrastructure. Clean 100k or 1M leads on your own server for $0 extra cost.</p>
+            
+            <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="btn-primary">Claim Agency Infrastructure →</a>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🛡️</span>
+                    <h3>Native Port 25 Handshakes</h3>
+                    <p>We don't just check syntax. Our engine performs real-time SMTP handshakes to confirm the mailbox actually exists on the recipient's server.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🕵️</span>
+                    <h3>Advanced Catch-All Detection</h3>
+                    <p>Protect your reputation from "silent killers." Our hybrid system identifies catch-all domains that cloud-based validators often miss.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚫</span>
+                    <h3>126k+ Disposable Database</h3>
+                    <p>Instantly flag disposable and temporary email addresses. Our private database is updated every 24 hours to stay ahead of bad lead lists.</p>
+                </div>
+            </div>
+
+            <div class="compare-box">
+                <h2 style="font-size: 2.5rem; font-weight: 900; text-align: center;">The "Tool Tax" is Killing Your Margins.</h2>
+                <p style="text-align: center; color: #aaa; margin-top: 10px;">Cost to clean 100,000 leads every month:</p>
+                
+                <div class="compare-grid">
+                    <div class="cost-card">
+                        <span class="brand">ZeroBounce / NeverBounce</span>
+                        <div class="price">$350 - $500</div>
+                        <p style="color: #666; margin-top: 10px;">Per month, every month.</p>
+                    </div>
+                    <div class="cost-card cleanmails" style="border-color: var(--gold);">
+                        <span class="brand">Cleanmails (Self-Hosted)</span>
+                        <div class="price">$0*</div>
+                        <p style="color: #666; margin-top: 10px;">*Just regular $6/mo VPS cost.</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="font-weight: 800; font-size: 1.2rem;">Yearly Savings: <span style="color: var(--green);">$4,200+</span></p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h2 style="font-size: 3rem; font-weight: 900; margin-bottom: 24px;">Stop Renting. Start Owning.</h2>
+                <p style="font-size: 1.15rem; color: var(--muted); margin-bottom: 40px;">Get the full Cleanmails Agency stack including the built-in validator, SMTP rotation, and AI personalization.</p>
+                <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="btn-primary">Claim Founders Price Now →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 60px 24px; background: #fff; border-top: 3px solid #000; text-align: center;">
+        <div class="section-inner">
+            <p style="font-weight: 900; font-size: 1.2rem; margin-bottom: 20px;">Cleanmails</p>
+            <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                <a href="/" style="text-decoration: none; color: var(--muted); font-weight: 700;">Home</a>
+                <a href="/docs" style="text-decoration: none; color: var(--muted); font-weight: 700;">Documentation</a>
+                <a href="/support" style="text-decoration: none; color: var(--muted); font-weight: 700;">Support</a>
+            </div>
+            <p style="color: #999; font-size: 0.85rem;">© 2026 Cleanmails Fortress. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

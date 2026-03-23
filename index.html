@@ -543,10 +543,12 @@
             background: var(--off-white); border-top: 3px solid var(--black);
             padding: 40px 24px; text-align: center;
         }
-        .footer-inner { max-width: 800px; margin: 0 auto; }
-        .footer-brand { font-weight: 900; font-size: 1.15rem; margin-bottom: 16px; }
-        .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
-        .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.9rem; }
+        .footer-inner { max-width: 1100px; margin: 0 auto; }
+        .footer-brand { font-weight: 900; font-size: 1.15rem; margin-bottom: 32px; text-align: left; }
+        .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; text-align: left; margin-bottom: 48px; }
+        .footer-col { display: flex; flex-direction: column; gap: 12px; }
+        .footer-col strong { color: var(--black); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+        .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
         .footer-links a:hover { color: var(--black); }
         .footer-copy { font-size: 0.85rem; color: var(--muted); margin-top: 32px; }
         .footer-newsletter { max-width: 400px; margin: 0 auto 40px; }
@@ -863,7 +865,7 @@
             for Marketing Agencies.
         </h1>
         <p class="hero-sub" style="margin-bottom: 32px;">
-            Stop renting your success from monthly SaaS platforms. Own a private, high-performance cold email infrastructure with <strong>unlimited everything</strong>. Zero footprints, zero success-tax, 100% margin.
+            Stop renting your success from monthly SaaS platforms. Own a private, high-performance cold email infrastructure with <strong>unlimited everything</strong>. Zero footprints, zero success-tax, 100% margin, <strong>with free installation services</strong>.
         </p>
         <div class="hero-ctas">
             <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="heroCta">Claim Agency Access Now →</a>
@@ -984,7 +986,7 @@
                 <!-- SMTP Highlight Card (spans 2 cols) -->
                 <div class="smtp-highlight">
                     <h3>🖥️ Stop Buying SMTP Relays</h3>
-                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in.</p>
+                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">Learn about SMTP Rotation →</a></p>
                     <div class="smtp-tags">
                         <span class="smtp-tag active">Inbuilt SMTP ✓</span>
                         <span class="smtp-tag">AWS SES</span>
@@ -999,23 +1001,23 @@
                 <div class="feature-card">
                     <span class="feature-icon">🔄</span>
                     <h3>Zero-Risk Client Scaling</h3>
-                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect client deliverability at any volume without hitting tool-imposed limits.</p>
+                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect client deliverability at any volume without hitting tool-imposed limits. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">How Rotation Works →</a></p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">✅</span>
                     <h3>Keep Bounces &lt; 1%</h3>
-                    <p>Handshake verification plus catch-all detection. Clean every client list locally before sending. Stop paying ZeroBounce $0.005 per lead.</p>
+                    <p>Handshake verification plus catch-all detection. Clean every client list locally before sending. Stop paying ZeroBounce $0.005 per lead. <a href="/email-validation" style="color: var(--black); font-weight: 800; text-decoration: underline;">View Tech Specs →</a></p>
                     <a href="/verify" style="color: var(--black); font-weight: 800; text-decoration: underline; margin-top: 10px; display: block;">Try the free validator →</a>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🎲</span>
                     <h3>Pattern-Proof Spintax</h3>
-                    <p>Every client email looks organic. No two recipients get the same message. Native syntax ensures inbox filters can't pattern-match your sequences.</p>
+                    <p>Every client email looks organic. No two recipients get the same message. Native syntax ensures inbox filters can't pattern-match your sequences. <a href="/spintax-generator" style="color: var(--black); font-weight: 800; text-decoration: underline;">Randomness Engine →</a></p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">⚙️</span>
                     <h3>Set & Forget Cadences</h3>
-                    <p>Set up client sequences once. Automatic follow-ups, reply detection, and scheduling run 24/7 on your server. Full multi-step drip campaigns.</p>
+                    <p>Set up client sequences once. Automatic follow-ups, reply detection, and scheduling run 24/7 on your server. Full multi-step drip campaigns. <a href="/cold-email-cadence" style="color: var(--black); font-weight: 800; text-decoration: underline;">Automate Follow-ups →</a></p>
                 </div>
                 <div class="feature-card">
                     <span class="feature-icon">🚨</span>
@@ -1145,7 +1147,11 @@
         <div class="section-inner">
             <span class="section-label">Comparison</span>
             <h2 class="section-headline">How we stack up.</h2>
-            <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing."</p>
+            <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing." 
+                <br>
+                <a href="/cleanmails-vs-instantly" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Instantly</a> | 
+                <a href="/cleanmails-vs-smartlead" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Smartlead</a>
+            </p>
 
             <div class="compare-table-wrap">
                 <table class="compare-table">
@@ -1455,13 +1461,32 @@
         <div class="footer-inner">
             <div class="footer-brand">Cleanmails</div>
             <nav class="footer-links">
-                <a href="/">Home</a>
-                <a href="/verify">Verify List</a>
-                <a href="/docs">Docs</a>
-                <a href="/affiliate">Affiliate</a>
-                <a href="/privacy">Privacy</a>
+                <div class="footer-col">
+                    <strong>Platform</strong>
+                    <a href="/">Home</a>
+                    <a href="/verify">Free Validator</a>
+                    <a href="/affiliate">Affiliate Program</a>
+                    <a href="/docs">Documentation</a>
+                </div>
+                <div class="footer-col">
+                    <strong>Infrastructure</strong>
+                    <a href="/email-validation">Email Validation</a>
+                    <a href="/sender-rotation">Sender Rotation</a>
+                    <a href="/spintax-generator">Spintax & AI</a>
+                    <a href="/cold-email-cadence">Outbound Cadence</a>
+                </div>
+                <div class="footer-col">
+                    <strong>Compare</strong>
+                    <a href="/cleanmails-vs-instantly">vs Instantly</a>
+                    <a href="/cleanmails-vs-smartlead">vs Smartlead</a>
+                </div>
+                <div class="footer-col">
+                    <strong>Legal</strong>
+                    <a href="/terms">Terms of Service</a>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
             </nav>
-            <div class="footer-newsletter">
+            <div class="footer-newsletter" style="margin-left: 0; text-align: left;">
                 <h4>Join the Cold Email Newsletter</h4>
                 <form id="newsletterForm" class="newsletter-form">
                     <input type="email" id="nEmail" class="newsletter-input" placeholder="your@email.com" required>
