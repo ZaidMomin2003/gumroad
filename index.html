@@ -2,1755 +2,1808 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-QWXBBLS661');
-    </script>
+ <!-- Google Tag Manager -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWXBBLS661"></script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag() { dataLayer.push(arguments); }
+ gtag('js', new Date());
+ gtag('config', 'G-QWXBBLS661');
+ </script>
 
-    <!-- SEO -->
-    <title>Best Self-Hosted Cold Email Tool — SMTP Rotation, Validation & Cadences | Cleanmails</title>
-    <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. Inbuilt SMTP, unlimited sender rotation, email validation, spintax, cadences & automation. One-time payment, no monthly fees, no caps.">
-    <meta name="keywords" content="self hosted cold email tool, cold email software, SMTP rotation, email validation, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, email list cleaning, catch-all detection, bulk email sender">
-    <link rel="canonical" href="https://cleanmails.online" />
-    <!-- Schema.org Product -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Cleanmails",
-      "applicationCategory": "BusinessApplication",
-      "operatingSystem": "Linux",
-      "url": "https://cleanmails.online",
-      "description": "Self-hosted cold email platform with SMTP rotation, email validation, spintax, cadences, and automation. One-time payment.",
-      "offers": [
-        { "@type": "Offer", "name": "Agency", "price": "497", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Sell as your SaaS", "price": "1997", "priceCurrency": "USD" }
-      ],
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
-    }
-    </script>
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free installation is included with every license. We handle the setup on your server end-to-end." } },
-        { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "Any Linux VPS works. A $6/month Hetzner or DigitalOcean server handles thousands of emails per day comfortably." } },
-        { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with an inbuilt SMTP engine. You can use it directly or plug in AWS SES, SendGrid, Gmail, or any external relay for higher deliverability." } },
-        { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits." } }
-      ]
-    }
-    </script>
+ <!-- SEO -->
+ <title>Best Self-Hosted Cold Email Tool — SMTP Rotation, Validation & Cadences | Cleanmails</title>
+ <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. Inbuilt SMTP, unlimited sender rotation, email validation, spintax, cadences & automation. One-time payment, no monthly fees, no caps.">
+ <meta name="keywords" content="self hosted cold email tool, cold email software, SMTP rotation, email validation, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, email list cleaning, catch-all detection, bulk email sender">
+ <link rel="canonical" href="https://cleanmails.online" />
+ <!-- Schema.org Product -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "SoftwareApplication",
+ "name": "Cleanmails",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Linux",
+ "url": "https://cleanmails.online",
+ "description": "Self-hosted cold email platform with SMTP rotation, email validation, spintax, cadences, and automation. One-time payment.",
+ "offers": [
+ { "@type": "Offer", "name": "Agency", "price": "497", "priceCurrency": "USD" },
+ { "@type": "Offer", "name": "Sell as your SaaS", "price": "1997", "priceCurrency": "USD" }
+ ],
+ "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
+ }
+ </script>
+ <!-- FAQ Schema -->
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+ { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free installation is included with every license. We handle the setup on your server end-to-end." } },
+ { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how you use it. If you're using the inbuilt SMTP relay or inbuilt email validation, a Linux VPS with Port 25 open is required. If you're using an external relay and external validation, Port 25 is not needed — you can even run Cleanmails locally with no VPS at all." } },
+ { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with an inbuilt SMTP engine. You can use it directly or plug in AWS SES, SendGrid, Gmail, or any external relay for higher deliverability." } },
+ { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits." } }
+ ]
+ }
+ </script>
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/logo.svg">
+ <!-- Favicon -->
+ <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cleanmails.online">
-    <meta property="og:title" content="Best Self-Hosted Cold Email Tool — SMTP, Validation & Cadences | Cleanmails">
-    <meta property="og:description" content="Self-hosted cold email with inbuilt SMTP, unlimited sender rotation, email validation, spintax & cadences. One-time payment, no monthly fees.">
-    <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
+ <!-- Open Graph -->
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://cleanmails.online">
+ <meta property="og:title" content="Best Self-Hosted Cold Email Tool — SMTP, Validation & Cadences | Cleanmails">
+ <meta property="og:description" content="Self-hosted cold email with inbuilt SMTP, unlimited sender rotation, email validation, spintax & cadences. One-time payment, no monthly fees.">
+ <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://cleanmails.online">
-    <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
-    <meta property="twitter:description" content="Inbuilt SMTP. Unlimited everything. Spintax, cadences, email validation. One-time payment.">
-    <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
+ <!-- Twitter -->
+ <meta property="twitter:card" content="summary_large_image">
+ <meta property="twitter:url" content="https://cleanmails.online">
+ <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
+ <meta property="twitter:description" content="Inbuilt SMTP. Unlimited everything. Spintax, cadences, email validation. One-time payment.">
+ <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+ <!-- Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="./style.css">
 
-    <style>
-        /* =============================================
-           PAGE-LEVEL STYLES — NEW LANDING PAGE
-        =============================================*/
+ <style>
+ /* =============================================
+ PAGE-LEVEL STYLES — NEW LANDING PAGE
+ =============================================*/
 
-        :root {
-            --gold: #FFD700;
-            --gold-dark: #d4a017;
-            --black: #000;
-            --white: #fff;
-            --off-white: #fafafa;
-            --muted: #555;
-            --red: #e63946;
-            --green: #2ecc71;
-            --border: 3px solid #000;
-            --radius: 24px;
-            --shadow: 6px 6px 0 #000;
-            --shadow-lg: 10px 10px 0 #000;
-        }
+ :root {
+ --gold: #FFD700;
+ --gold-dark: #d4a017;
+ --black: #000;
+ --white: #fff;
+ --off-white: #fafafa;
+ --muted: #555;
+ --red: #e63946;
+ --green: #2ecc71;
+ --border: 3px solid #000;
+ --radius: 24px;
+ --shadow: 6px 6px 0 #000;
+ --shadow-lg: 10px 10px 0 #000;
+ }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+ body { font-family: 'Inter', system-ui, sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
 
-        /* SECTIONS WRAPPER */
-        .section { padding: 100px 24px; }
-        .section-inner { max-width: 1100px; margin: 0 auto; }
-        .section-label {
-            display: inline-block; font-size: 0.8rem; font-weight: 900; text-transform: uppercase;
-            letter-spacing: 0.12em; padding: 6px 16px; border-radius: 100px;
-            border: 2px solid var(--black); background: var(--gold); color: var(--black);
-            margin-bottom: 20px;
-        }
-        .section-headline {
-            font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
-            line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
-        }
-        .section-sub {
-            font-size: 1.15rem; color: var(--muted); font-weight: 500; max-width: 600px;
-        }
+ /* SECTIONS WRAPPER */
+ .section { padding: 100px 24px; }
+ .section-inner { max-width: 1100px; margin: 0 auto; }
+ .section-label {
+ display: inline-block; font-size: 0.8rem; font-weight: 900; text-transform: uppercase;
+ letter-spacing: 0.12em; padding: 6px 16px; border-radius: 100px;
+ border: 2px solid var(--black); background: var(--gold); color: var(--black);
+ margin-bottom: 20px;
+ }
+ .section-headline {
+ font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
+ line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px;
+ }
+ .section-sub {
+ font-size: 1.15rem; color: var(--muted); font-weight: 500; max-width: 600px;
+ }
 
-        /* New Header System */
-        .site-header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
-            border-bottom: 3px solid var(--black);
-        }
-        .nav-inner {
-            max-width: 1100px; margin: 0 auto; padding: 14px 24px;
-            display: flex; align-items: center; justify-content: space-between; gap: 24px;
-            transition: padding 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .nav-logo {
-            display: flex; align-items: center; gap: 10px;
-            font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
-            text-decoration: none; color: var(--black);
-            transition: transform 0.3s ease;
-        }
-        .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.3s ease; }
-        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; transition: opacity 0.3s ease; }
-        .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); transition: color 0.2s; }
-        .nav-cta {
-            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
-            padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
-            box-shadow: 3px 3px 0 var(--black); text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+ /* New Header System */
+ .site-header {
+ position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
+ border-bottom: 3px solid var(--black);
+ }
+ .nav-inner {
+ max-width: 1100px; margin: 0 auto; padding: 14px 24px;
+ display: flex; align-items: center; justify-content: space-between; gap: 24px;
+ transition: padding 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+ .nav-logo {
+ display: flex; align-items: center; gap: 10px;
+ font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
+ text-decoration: none; color: var(--black);
+ transition: transform 0.3s ease;
+ }
+ .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.3s ease; }
+ .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; transition: opacity 0.3s ease; }
+ .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); transition: color 0.2s; }
+ .nav-cta {
+ background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
+ padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
+ box-shadow: 3px 3px 0 var(--black); text-decoration: none;
+ transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
 
-        /* Shrink State */
-        .site-header.scrolled {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .site-header.scrolled .announcement-bar {
-            height: 0; padding: 0; border-bottom: none; overflow: hidden; opacity: 0;
-        }
-        .site-header.scrolled .nav-inner {
-            padding: 8px 24px;
-        }
-        .site-header.scrolled .nav-logo {
-            transform: scale(0.95);
-        }
-        .site-header.scrolled .nav-cta {
-            transform: scale(1.05);
-            box-shadow: 5px 5px 0 var(--black);
-            background: var(--black);
-            color: var(--white);
-            border-color: var(--gold);
-        }
+ /* Shrink State */
+ .site-header.scrolled {
+ box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+ }
+ .site-header.scrolled .announcement-bar {
+ height: 0; padding: 0; border-bottom: none; overflow: hidden; opacity: 0;
+ }
+ .site-header.scrolled .nav-inner {
+ padding: 8px 24px;
+ }
+ .site-header.scrolled .nav-logo {
+ transform: scale(0.95);
+ }
+ .site-header.scrolled .nav-cta {
+ transform: scale(1.05);
+ box-shadow: 5px 5px 0 var(--black);
+ background: var(--black);
+ color: var(--white);
+ border-color: var(--gold);
+ }
 
-        /* Proof Bar Removal Residue */
-        .proof-bar { display: none; }
+ /* Proof Bar Removal Residue */
+ .proof-bar { display: none; }
 
-        /* =============================================
-           HERO SECTION
-        =============================================*/
-        .hero-section {
-            padding: 210px 24px 100px;
-            text-align: center;
-            border-bottom: 3px solid var(--black);
-            background: var(--off-white);
-        }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: #000; color: #fff; font-size: 0.82rem; font-weight: 800;
-            padding: 8px 20px; border-radius: 100px; border: 2px solid #000;
-            margin-bottom: 32px; letter-spacing: 0.05em;
-        }
-        .hero-badge .spots { color: var(--gold); border-left: 1px solid #333; padding-left: 8px; margin-left: 8px; }
-        .hero-badge .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+ /* =============================================
+ HERO SECTION
+ =============================================*/
+ .hero-section {
+ padding: 180px 24px 80px;
+ text-align: center;
+ border-bottom: 3px solid var(--black);
+ background: var(--off-white);
+ }
 
-        .hero-headline {
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 900; line-height: 1;
-            letter-spacing: -0.04em;
-            margin-bottom: 24px;
-        }
-        .hero-headline span {
-            background: var(--gold);
-            padding: 0 12px;
-            border-radius: 12px;
-            display: inline;
-        }
-        .fancy-text {
-            font-family: 'Outfit', sans-serif;
-            color: #ff6600;
-            font-size: 1.05em;
-            display: inline-block;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        }
-        .hero-sub {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-            color: var(--muted); font-weight: 500;
-            max-width: 680px; margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-        .hero-ctas {
-            display: flex; align-items: center; justify-content: center; gap: 16px;
-            flex-wrap: wrap; margin-bottom: 60px;
-        }
-        .btn-primary {
-            background: var(--gold); color: var(--black); font-weight: 900; font-size: 1.05rem;
-            padding: 16px 32px; border-radius: 14px; border: 3px solid var(--black);
-            box-shadow: var(--shadow); text-decoration: none; display: inline-flex;
-            align-items: center; gap: 8px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
-        }
-        .btn-primary:hover { transform: translate(-3px,-3px); box-shadow: var(--shadow-lg); }
-        .btn-secondary {
-            background: var(--black); color: var(--white); font-weight: 800; font-size: 1.05rem;
-            padding: 16px 32px; border-radius: 14px; border: 3px solid var(--black);
-            box-shadow: 6px 6px 0 var(--gold); text-decoration: none; display: inline-flex;
-            align-items: center; gap: 8px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
-        }
-        .btn-secondary:hover { transform: translate(-3px,-3px); box-shadow: 10px 10px 0 var(--gold); }
+ .hero-eyebrow {
+ display: inline-flex; align-items: center; gap: 8px;
+ font-size: 0.82rem; font-weight: 700; color: #000;
+ background: var(--gold); border: 2px solid #000; border-radius: 100px;
+ padding: 6px 16px; margin-bottom: 28px;
+ box-shadow: 3px 3px 0 #000;
+ }
+ .hero-headline .hero-hl {
+ background: var(--gold);
+ padding: 2px 10px;
+ border-radius: 8px;
+ display: inline;
+ }
+ width: 7px; height: 7px; background: var(--green); border-radius: 50%;
+ display: inline-block; animation: pulse 2s infinite;
+ }
+ @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 
-        /* Stats bar */
-        .stats-bar {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;
-            max-width: 900px; margin: 0 auto;
-        }
-        .stat-pill {
-            background: var(--black); color: var(--white); font-weight: 900; font-size: 0.95rem;
-            padding: 12px 24px; border-radius: 100px; display: flex; align-items: center; gap: 8px;
-        }
-        .stat-pill .stat-val { color: var(--gold); }
+ .hero-headline {
+ font-size: clamp(2.4rem, 5.5vw, 4rem);
+ font-weight: 900; line-height: 1.08;
+ letter-spacing: -0.04em;
+ margin-bottom: 20px;
+ max-width: 780px; margin-left: auto; margin-right: auto;
+ }
 
-        /* =============================================
-           VIDEO EMBED
-        =============================================*/
-        .video-section {
-            padding: 80px 24px; background: var(--off-white); border-bottom: 3px solid var(--black);
-        }
-        .video-wrapper-outer {
-            max-width: 1100px; margin: 0 auto;
-        }
-        .video-wrapper-outer h2 { text-align: center; font-size: 2.2rem; font-weight: 900; margin-bottom: 32px; }
-        .video-embed {
-            border: 4px solid var(--black); border-radius: var(--radius);
-            overflow: hidden; box-shadow: var(--shadow-lg);
-            position: relative; padding-bottom: 56.25%;
-        }
-        .video-embed iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        }
+ .hero-sub {
+ font-size: 1.1rem; color: #555; font-weight: 500;
+ max-width: 560px; margin: 0 auto 32px;
+ line-height: 1.65;
+ }
 
-        /* =============================================
-           PAIN SECTION
-        =============================================*/
-        .pain-section { background: var(--black); color: var(--white); }
-        .pain-section .section-headline { color: var(--white); }
-        .pain-section .section-sub { color: #999; }
+ .hero-pills {
+ display: flex; flex-wrap: nowrap; justify-content: center; gap: 6px;
+ max-width: 900px; margin: 0 auto 36px;
+ overflow: hidden;
+ }
+ .hero-pill {
+ font-size: 0.73rem; font-weight: 700; color: var(--black);
+ background: var(--white); border: 2px solid #ddd;
+ padding: 4px 12px; border-radius: 100px;
+ letter-spacing: 0.01em; white-space: nowrap;
+ }
 
-        .pain-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px; margin-top: 60px;
-        }
-        .pain-card {
-            background: #111; border: 2px solid #333; border-radius: var(--radius); padding: 36px;
-            transition: all 0.2s;
-        }
-        .pain-card:hover { border-color: var(--red); transform: translateY(-4px); }
-        .pain-card-name {
-            font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
-            color: var(--red); margin-bottom: 16px;
-        }
-        .pain-card h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 12px; color: #eee; }
-        .pain-card p { color: #777; line-height: 1.6; margin-bottom: 16px; }
-        .pain-cost {
-            font-weight: 900; color: var(--red); font-size: 0.95rem;
-            background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.3);
-            padding: 8px 16px; border-radius: 8px; display: inline-block;
-        }
-        .pain-banner {
-            background: #111; border: 2px solid #e63946; border-radius: var(--radius);
-            padding: 40px; margin-top: 40px; display: flex; justify-content: space-between;
-            align-items: center; flex-wrap: wrap; gap: 24px;
-        }
-        .pain-banner p { font-size: 1.15rem; font-weight: 700; color: #ccc; max-width: 500px; }
-        .pain-banner-cost {
-            font-size: 2rem; font-weight: 900; color: var(--red);
-            white-space: nowrap;
-        }
-        .pain-banner-cost span { font-size: 1rem; display: block; color: #777; font-weight: 600; }
+ .hero-ctas {
+ display: flex; align-items: center; justify-content: center; gap: 12px;
+ flex-wrap: wrap; margin-bottom: 24px;
+ }
 
-        /* =============================================
-           FEATURES SECTION
-        =============================================*/
-        .features-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
-        .features-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px; margin-top: 60px;
-        }
-        .feature-card {
-            background: var(--white); border: 3px solid var(--black); border-radius: var(--radius);
-            padding: 36px; box-shadow: 6px 6px 0 rgba(0,0,0,0.06);
-            transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
-        }
-        .feature-card:hover { transform: translate(-4px,-4px); box-shadow: 10px 10px 0 var(--black); }
-        .feature-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; }
-        .feature-card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; }
-        .feature-card p { color: var(--muted); line-height: 1.6; }
+ .hero-meta {
+ display: flex; align-items: center; justify-content: center;
+ gap: 10px; flex-wrap: wrap;
+ font-size: 0.78rem; font-weight: 600; color: #999;
+ }
+ .hero-meta-dot {
+ width: 3px; height: 3px; background: #ccc; border-radius: 50%; display: inline-block;
+ }
 
-        /* =============================================
-           COMPARISON SECTION
-        =============================================*/
-        .compare-section { background: var(--white); border-bottom: 3px solid var(--black); }
-        .compare-table-wrap { overflow-x: auto; margin-top: 60px; }
-        .compare-table {
-            width: 100%; border-collapse: collapse;
-            border: 3px solid var(--black); border-radius: var(--radius);
-            overflow: hidden;
-        }
-        .compare-table thead { background: var(--black); color: var(--white); }
-        .compare-table thead th {
-            padding: 20px 24px; text-align: left; font-size: 0.85rem;
-            font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;
-        }
-        .compare-table thead th:first-child { font-size: 1rem; text-transform: none; letter-spacing: 0; }
-        .compare-table tbody tr { border-bottom: 2px solid #eee; }
-        .compare-table tbody tr:last-child { border-bottom: none; }
-        .compare-table td {
-            padding: 18px 24px; font-weight: 600; font-size: 0.95rem;
-            vertical-align: middle; color: var(--muted);
-        }
-        .compare-table td:first-child { color: var(--black); font-weight: 800; font-size: 1rem; }
-        .compare-table td.yes { color: var(--green); font-size: 1.3rem; font-weight: 900; }
-        .compare-table td.no { color: #ccc; font-size: 1.3rem; }
-        .compare-table tbody tr:hover { background: #f8f8f8; }
-        .compare-table .highlight-col { background: rgba(255,215,0,0.06); }
+ .btn-primary {
+ background: var(--black); color: var(--white); font-weight: 900; font-size: 1rem;
+ padding: 14px 28px; border-radius: 12px; border: 2px solid var(--black);
+ box-shadow: 4px 4px 0 var(--gold); text-decoration: none; display: inline-flex;
+ align-items: center; gap: 8px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
+ }
+ .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--gold); }
+ .btn-secondary {
+ background: transparent; color: var(--black); font-weight: 700; font-size: 1rem;
+ padding: 14px 28px; border-radius: 12px; border: 2px solid #ccc;
+ text-decoration: none; display: inline-flex;
+ align-items: center; gap: 8px; transition: all 0.2s ease;
+ }
+ .btn-secondary:hover { border-color: var(--black); background: var(--white); }
 
-        /* =============================================
-           ROI SECTION
-        =============================================*/
-        .roi-section {
-            background: var(--black); color: var(--white);
-        }
-        .roi-section .section-headline { color: var(--white); }
-        .roi-section .section-sub { color: #999; }
-        .roi-box {
-            background: #111; border: 2px solid #333; border-radius: var(--radius);
-            padding: 48px; max-width: 680px; margin: 60px auto 0;
-        }
-        .roi-box h3 { font-size: 1.2rem; font-weight: 800; color: #888; margin-bottom: 32px; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; }
-        .roi-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 16px 0; border-bottom: 1px solid #222;
-        }
-        .roi-row:last-child { border-bottom: none; }
-        .roi-row-label { font-weight: 700; color: #aaa; }
-        .roi-row-val { font-size: 1.15rem; font-weight: 900; }
-        .roi-row-val.neg { color: var(--red); }
-        .roi-row-val.pos { color: var(--green); font-size: 1.5rem; text-shadow: 0 0 20px rgba(46, 204, 113, 0.2); }
+ /* =============================================
+ VIDEO EMBED
+ =============================================*/
+ .video-section {
+ padding: 80px 24px; background: var(--off-white); border-bottom: 3px solid var(--black);
+ }
+ .video-wrapper-outer {
+ max-width: 1100px; margin: 0 auto;
+ }
+ .video-wrapper-outer h2 { text-align: center; font-size: 2.2rem; font-weight: 900; margin-bottom: 32px; }
+ .video-embed {
+ border: 4px solid var(--black); border-radius: var(--radius);
+ overflow: hidden; box-shadow: var(--shadow-lg);
+ position: relative; padding-bottom: 56.25%;
+ }
+ .video-embed iframe {
+ position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ }
 
-        /* ROI Calculator Styles */
-        .calculator-card {
-            background: #111; border: 3px solid #333; border-radius: 32px;
-            padding: 48px; max-width: 900px; margin: 60px auto 0;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
-            box-shadow: 20px 20px 0 rgba(0,0,0,0.2);
-        }
-        @media (max-width: 850px) { .calculator-card { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; } }
-        .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
-        .calc-label { font-size: 0.9rem; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
-        .calc-slider-wrap { position: relative; }
-        .calc-slider {
-            width: 100%; height: 8px; background: #333; border-radius: 10px;
-            appearance: none; outline: none; cursor: pointer;
-        }
-        .calc-slider::-webkit-slider-thumb {
-            appearance: none; width: 24px; height: 24px; background: var(--gold);
-            border: 4px solid #000; border-radius: 50%; cursor: pointer;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
-        .calc-value { font-size: 2.5rem; font-weight: 900; color: var(--white); display: block; margin-top: 8px; }
-        .calc-results {
-            background: #1a1a1a; border: 2px solid #333; border-radius: 24px;
-            padding: 32px; display: flex; flex-direction: column; justify-content: center;
-            text-align: center; border: 2px dashed var(--green);
-        }
-        .calc-result-title { color: #888; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; }
-        .calc-saving-amount { font-size: 3.5rem; font-weight: 900; color: var(--green); line-height: 1; margin: 12px 0; }
-        .calc-saving-period { color: #555; font-size: 0.9rem; font-weight: 600; }
+ /* =============================================
+ PAIN SECTION
+ =============================================*/
+ .pain-section { background: var(--black); color: var(--white); padding-top: 60px; padding-bottom: 60px; }
+ .pain-section .section-headline { color: var(--white); font-size: 1.8rem; }
+ .pain-section .section-sub { color: #999; }
 
-        /* =============================================
-           PRICING SECTION
-        =============================================*/
-        .pricing-section { background: var(--off-white); border-top: 3px solid var(--black); }
-        .pricing-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px; margin-top: 60px;
-        }
-        .plan-card {
-            background: var(--white); border: 3px solid var(--black); border-radius: var(--radius);
-            padding: 40px; box-shadow: 6px 6px 0 rgba(0,0,0,0.06);
-            display: flex; flex-direction: column;
-        }
-        .plan-card.popular {
-            border-width: 4px; box-shadow: 8px 8px 0 var(--black);
-            position: relative; transform: scale(1.02);
-        }
-        .popular-badge {
-            position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
-            background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.78rem;
-            text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 20px;
-            border-radius: 100px; border: 2px solid var(--black); white-space: nowrap;
-        }
-        .plan-name { font-size: 0.85rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 12px; }
-        .plan-price { font-size: 3rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 4px; }
-        .plan-period { font-size: 0.9rem; color: var(--muted); font-weight: 600; margin-bottom: 24px; }
-        .plan-desc { font-size: 1rem; color: var(--muted); margin-bottom: 32px; line-height: 1.5; }
-        .plan-features { list-style: none; margin-bottom: 36px; flex: 1; }
-        .plan-features li {
-            padding: 10px 0; border-bottom: 1px solid #eee;
-            font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 10px;
-        }
-        .plan-features li:last-child { border-bottom: none; }
-        .plan-features li::before { content: '✓'; font-weight: 900; color: var(--green); font-size: 1rem; }
-        .plan-btn {
-            background: var(--gold); color: var(--black); font-weight: 900; font-size: 1rem;
-            padding: 16px; border-radius: 14px; border: 3px solid var(--black);
-            box-shadow: var(--shadow); text-decoration: none; display: block;
-            text-align: center; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);
-        }
-        .plan-btn:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
-        .plan-btn.dark {
-            background: var(--black); color: var(--white);
-            box-shadow: 6px 6px 0 var(--gold);
-        }
-        .plan-btn.dark:hover { box-shadow: 10px 10px 0 var(--gold); }
-        .pricing-badges {
-            text-align: center; margin-top: 40px; display: flex;
-            justify-content: center; gap: 24px; flex-wrap: wrap;
-        }
-        .pricing-badge {
-            font-size: 0.9rem; font-weight: 700; color: var(--muted);
-            display: flex; align-items: center; gap: 6px;
-        }
+ .pain-grid {
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 16px; margin-top: 28px;
+ }
+ .pain-card {
+ background: #111; border: 2px solid #333; border-radius: 16px; padding: 22px;
+ transition: all 0.2s;
+ }
+ .pain-card:hover { border-color: var(--red); transform: translateY(-3px); }
+ .pain-card-name {
+ font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
+ color: var(--red); margin-bottom: 8px;
+ }
+ .pain-card h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 8px; color: #eee; }
+ .pain-card p { color: #777; line-height: 1.5; margin-bottom: 10px; font-size: 0.85rem; }
+ .pain-cost {
+ font-weight: 900; color: var(--red); font-size: 0.82rem;
+ background: rgba(230,57,70,0.1); border: 1px solid rgba(230,57,70,0.3);
+ padding: 5px 12px; border-radius: 8px; display: inline-block;
+ }
+ .pain-banner {
+ background: #111; border: 2px solid #e63946; border-radius: 16px;
+ padding: 20px 28px; margin-top: 16px; display: flex; justify-content: space-between;
+ align-items: center; flex-wrap: wrap; gap: 16px;
+ }
+ .pain-banner p { font-size: 0.95rem; font-weight: 700; color: #ccc; max-width: 500px; margin: 0; }
+ .pain-banner-cost {
+ font-size: 1.6rem; font-weight: 900; color: var(--red);
+ white-space: nowrap;
+ }
+ .pain-banner-cost span { font-size: 0.85rem; display: block; color: #777; font-weight: 600; }
+ @media (max-width: 768px) { .pain-grid { grid-template-columns: 1fr; } }
 
-        /* =============================================
-           FAQ SECTION
-        =============================================*/
-        .faq-section { background: var(--off-white); border-top: 3px solid var(--black); }
-        .faq-list { max-width: 850px; margin: 60px auto 0; }
-        .faq-item {
-            background: var(--white);
-            border: 3px solid var(--black); 
-            border-radius: 20px; 
-            margin-bottom: 20px; 
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
-        }
-        .faq-item:hover { 
-            transform: translate(-2px, -2px);
-            box-shadow: var(--shadow);
-        }
-        .faq-question {
-            width: 100%; 
-            background: transparent; 
-            border: none; 
-            cursor: pointer;
-            padding: 28px 32px; 
-            text-align: left; 
-            display: flex; 
-            justify-content: space-between;
-            align-items: center; 
-            gap: 20px;
-        }
-        .faq-question-text { 
-            font-size: 1.15rem; 
-            font-weight: 800; 
-            color: var(--black); 
-            letter-spacing: -0.01em;
-        }
-        .faq-icon { 
-            width: 36px; height: 36px;
-            background: var(--off-white);
-            border: 2px solid var(--black);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; font-weight: 900;
-            color: var(--black); 
-            transition: all 0.3s; 
-            flex-shrink: 0; 
-        }
-        .faq-answer { 
-            padding: 0 32px 32px; 
-            color: var(--muted); 
-            line-height: 1.8; 
-            font-weight: 500; 
-            font-size: 1.05rem;
-            display: none; 
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-        .faq-item.open {
-            background: var(--white);
-            border-color: var(--black);
-            box-shadow: var(--shadow);
-        }
-        .faq-item.open .faq-answer { 
-            display: block; 
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .faq-item.open .faq-icon { 
-            background: var(--gold);
-            transform: rotate(45deg); 
-        }
+ /* =============================================
+ FEATURES SECTION
+ =============================================*/
+ .features-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+ /* Feature Points Grid */
+ .feature-points-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 0;
+ margin-top: 48px;
+ border: 3px solid var(--black);
+ border-radius: var(--radius);
+ overflow: hidden;
+ background: var(--white);
+ }
+ .feature-point {
+ display: flex;
+ align-items: flex-start;
+ gap: 16px;
+ padding: 24px 28px;
+ border-bottom: 3px solid var(--black);
+ border-right: 3px solid var(--black);
+ transition: background 0.15s ease;
+ }
+ .feature-point:nth-child(even) { border-right: none; }
+ .feature-point:nth-last-child(-n+2) { border-bottom: none; }
+ .feature-point:nth-last-child(1):nth-child(odd) { border-bottom: none; border-right: 3px solid var(--black); }
+ .feature-point:hover { background: #fafafa; }
+ .fp-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+ .feature-point div { display: flex; flex-direction: column; gap: 4px; }
+ .feature-point strong { font-size: 1rem; font-weight: 800; color: var(--black); line-height: 1.3; }
+ .feature-point span { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+ @media (max-width: 700px) {
+ .feature-points-grid { grid-template-columns: 1fr; }
+ .feature-point { border-right: none !important; }
+ .feature-point:nth-last-child(-n+2) { border-bottom: 3px solid var(--black); }
+ .feature-point:last-child { border-bottom: none; }
+ }
 
-        /* =============================================
-           FINAL CTA SECTION
-        =============================================*/
-        .final-cta-section {
-            background: var(--black); color: var(--white); text-align: center;
-            padding: 120px 24px;
-        }
-        .final-cta-section .section-headline { color: var(--white); text-align: center; }
-        .final-cta-section .section-sub { color: #888; margin: 0 auto 48px; max-width: 560px; text-align: center; }
-        .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+ /* =============================================
+ COMPARISON SECTION
+ =============================================*/
+ .compare-section { background: var(--white); border-bottom: 3px solid var(--black); padding-top: 60px; padding-bottom: 60px; }
+ .compare-table-wrap { overflow-x: auto; margin-top: 32px; }
+ .compare-table {
+ width: 100%; border-collapse: collapse;
+ border: 3px solid var(--black); border-radius: var(--radius);
+ overflow: hidden;
+ }
+ .compare-table thead { background: var(--black); color: var(--white); }
+ .compare-table thead th {
+ padding: 12px 16px; text-align: left; font-size: 0.78rem;
+ font-weight: 900; text-transform: uppercase; letter-spacing: 0.08em;
+ }
+ .compare-table thead th:first-child { font-size: 0.88rem; text-transform: none; letter-spacing: 0; }
+ .compare-table tbody tr { border-bottom: 1px solid #eee; }
+ .compare-table tbody tr:last-child { border-bottom: none; }
+ .compare-table td {
+ padding: 11px 16px; font-weight: 600; font-size: 0.85rem;
+ vertical-align: middle; color: var(--muted);
+ }
+ .compare-table td:first-child { color: var(--black); font-weight: 800; font-size: 0.88rem; }
+ .compare-table td.yes { color: var(--green); font-size: 1.1rem; font-weight: 900; }
+ .compare-table td.no { color: #ccc; font-size: 1.1rem; }
+ .compare-table tbody tr:hover { background: #f8f8f8; }
+ .compare-table .highlight-col { background: rgba(255,215,0,0.06); }
 
-        /* =============================================
-           FOOTER
-        =============================================*/
-        .footer {
-            background: var(--off-white); border-top: 3px solid var(--black);
-            padding: 40px 24px; text-align: center;
-        }
-        .footer-inner { max-width: 1100px; margin: 0 auto; }
-        .footer-brand { font-weight: 900; font-size: 1.15rem; margin-bottom: 32px; text-align: left; }
-        .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; text-align: left; margin-bottom: 48px; }
-        .footer-col { display: flex; flex-direction: column; gap: 12px; }
-        .footer-col strong { color: var(--black); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-        .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--black); }
-        .footer-copy { font-size: 0.85rem; color: var(--muted); margin-top: 32px; }
-        .footer-newsletter { max-width: 400px; margin: 0 auto 40px; }
-        .footer-newsletter h4 { font-size: 0.95rem; font-weight: 900; margin-bottom: 12px; }
-        .newsletter-form { display: flex; gap: 8px; }
-        .newsletter-input {
-            flex: 1; padding: 12px 16px; border: 2px solid var(--black);
-            border-radius: 8px; font-weight: 700; font-family: inherit; font-size: 0.85rem;
-        }
-        .newsletter-btn {
-            background: var(--black); color: var(--white); border: none;
-            padding: 12px 20px; border-radius: 8px; font-weight: 900;
-            cursor: pointer; font-size: 0.85rem;
-        }
+ /* =============================================
+ ROI SECTION
+ =============================================*/
+ .roi-section {
+ background: var(--black); color: var(--white);
+ }
+ .roi-section .section-headline { color: var(--white); }
+ .roi-section .section-sub { color: #999; }
+ .roi-box {
+ background: #111; border: 2px solid #333; border-radius: var(--radius);
+ padding: 48px; max-width: 680px; margin: 60px auto 0;
+ }
+ .roi-box h3 { font-size: 1.2rem; font-weight: 800; color: #888; margin-bottom: 32px; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; }
+ .roi-row {
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 16px 0; border-bottom: 1px solid #222;
+ }
+ .roi-row:last-child { border-bottom: none; }
+ .roi-row-label { font-weight: 700; color: #aaa; }
+ .roi-row-val { font-size: 1.15rem; font-weight: 900; }
+ .roi-row-val.neg { color: var(--red); }
+ .roi-row-val.pos { color: var(--green); font-size: 1.5rem; text-shadow: 0 0 20px rgba(46, 204, 113, 0.2); }
 
-        /* =============================================
-           TOAST
-        =============================================*/
-        .toast {
-            position: fixed; bottom: 30px; right: 30px;
-            background: var(--black); color: var(--white);
-            padding: 16px 32px; border-radius: 16px; font-weight: 800;
-            box-shadow: 8px 8px 0 var(--gold);
-            transform: translateY(100px); opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
-            z-index: 2000; display: flex; align-items: center; gap: 12px;
-            border: 3px solid var(--black);
-        }
-        .toast.show { transform: translateY(0); opacity: 1; }
+ /* ROI Calculator Styles */
+ .calculator-card {
+ background: #111; border: 3px solid #333; border-radius: 32px;
+ padding: 48px; max-width: 900px; margin: 60px auto 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+ box-shadow: 20px 20px 0 rgba(0,0,0,0.2);
+ }
+ @media (max-width: 850px) { .calculator-card { grid-template-columns: 1fr; gap: 32px; padding: 32px 24px; } }
+ .calc-inputs { display: flex; flex-direction: column; gap: 32px; }
+ .calc-label { font-size: 0.9rem; font-weight: 800; color: #888; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; display: block; }
+ .calc-slider-wrap { position: relative; }
+ .calc-slider {
+ width: 100%; height: 8px; background: #333; border-radius: 10px;
+ appearance: none; outline: none; cursor: pointer;
+ }
+ .calc-slider::-webkit-slider-thumb {
+ appearance: none; width: 24px; height: 24px; background: var(--gold);
+ border: 4px solid #000; border-radius: 50%; cursor: pointer;
+ box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+ }
+ .calc-value { font-size: 2.5rem; font-weight: 900; color: var(--white); display: block; margin-top: 8px; }
+ .calc-results {
+ background: #1a1a1a; border: 2px solid #333; border-radius: 24px;
+ padding: 32px; display: flex; flex-direction: column; justify-content: center;
+ text-align: center; border: 2px dashed var(--green);
+ }
+ .calc-result-title { color: #888; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 8px; }
+ .calc-saving-amount { font-size: 3.5rem; font-weight: 900; color: var(--green); line-height: 1; margin: 12px 0; }
+ .calc-saving-period { color: #555; font-size: 0.9rem; font-weight: 600; }
 
-        /* Social Proof Ticker */
-        .proof-bar {
-            background: var(--black); color: var(--white);
-            padding: 14px 24px; border-bottom: 3px solid var(--gold);
-            display: flex; align-items: center; justify-content: center;
-            gap: 32px; flex-wrap: wrap; font-size: 0.88rem; font-weight: 700;
-        }
-        .proof-item { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
-        .proof-item span { color: var(--gold); }
+ /* =============================================
+ PRICING SECTION
+ =============================================*/
+ .pricing-section { background: var(--black); border-top: 3px solid var(--black); padding-top: 70px; padding-bottom: 70px; }
+ .pricing-section .section-label { background: var(--gold); border-color: var(--black); }
+ .pricing-section .section-headline { color: var(--white); }
+ .pricing-section .section-sub { color: #666; }
 
-        /* Urgency badge */
-        .urgency-chip {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(230,57,70,0.1); border: 2px solid var(--red);
-            color: var(--red); font-size: 0.82rem; font-weight: 900;
-            padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
-            animation: urgencyPulse 2s infinite;
-        }
-        @keyframes urgencyPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.3);} 50%{box-shadow:0 0 0 8px rgba(230,57,70,0);} }
+ .pricing-main { margin-top: 40px; max-width: 860px; margin-left: auto; margin-right: auto; }
 
-        .announcement-bar {
-            background: var(--gold); color: var(--black); text-align: center;
-            padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
-            border-bottom: 2px solid rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            height: auto;
-            opacity: 1;
-        }
-        .nav {
-            background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-        }
+ /* Featured plan — big card */
+ .pricing-featured {
+ background: var(--white); border: 3px solid var(--white);
+ border-radius: 24px; padding: 48px;
+ position: relative; overflow: hidden;
+ margin-bottom: 16px;
+ }
+ .pricing-featured::before {
+ content: '';
+ position: absolute; top: 0; left: 0; right: 0; height: 4px;
+ background: var(--gold);
+ }
+ .pf-top {
+ display: flex; justify-content: space-between; align-items: flex-start;
+ gap: 32px; flex-wrap: wrap;
+ }
+ .pf-left { display: flex; flex-direction: column; gap: 8px; }
+ .pf-badge {
+ display: inline-block; font-size: 0.7rem; font-weight: 900;
+ text-transform: uppercase; letter-spacing: 0.12em;
+ background: var(--gold); color: var(--black);
+ padding: 4px 12px; border-radius: 100px; border: 1.5px solid #000;
+ width: fit-content; margin-bottom: 4px;
+ }
+ .pf-name { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #888; }
+ .pf-price-row { display: flex; align-items: baseline; gap: 10px; margin-top: 4px; }
+ .pf-old { font-size: 1.2rem; color: #bbb; text-decoration: line-through; font-weight: 700; }
+ .pf-price { font-size: 4rem; font-weight: 900; letter-spacing: -0.04em; color: var(--black); line-height: 1; }
+ .pf-period { font-size: 0.82rem; color: #888; font-weight: 600; margin-top: 4px; }
+ .pf-hike {
+ display: inline-block; font-size: 0.75rem; font-weight: 800; color: #b45309;
+ background: #FFF9E8; border: 1px solid #F59E0B;
+ padding: 5px 12px; border-radius: 8px; margin-top: 8px;
+ }
+ .pf-cta-wrap { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; justify-content: center; min-width: 220px; }
+ .pf-btn {
+ display: block; width: 100%; text-align: center;
+ background: var(--black); color: var(--white); font-weight: 900; font-size: 1rem;
+ padding: 16px 28px; border-radius: 14px; border: 2px solid var(--black);
+ box-shadow: 4px 4px 0 var(--gold); text-decoration: none;
+ transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275); white-space: nowrap;
+ }
+ .pf-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--gold); }
+ .pf-guarantee { font-size: 0.75rem; color: #888; font-weight: 600; text-align: center; }
 
-        /* How It Works Timeline */
-        .how-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
-        .timeline {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 0; margin-top: 60px;
-        }
-        .timeline-step {
-            padding: 40px 32px; border-right: 3px solid var(--black);
-            position: relative;
-        }
-        .timeline-step:last-child { border-right: none; }
-        .step-num {
-            font-size: 3rem; font-weight: 900; color: var(--gold);
-            line-height: 1; margin-bottom: 16px; display: block;
-        }
-        .timeline-step h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
-        .timeline-step p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+ .pf-divider { border: none; border-top: 2px solid #f0f0f0; margin: 32px 0; }
 
-        /* SMTP Highlight Card */
-        .smtp-highlight {
-            background: #000; color: #fff;
-            border: 3px solid var(--gold); border-radius: var(--radius);
-            padding: 36px; box-shadow: 8px 8px 0 var(--gold);
-            grid-column: span 2;
-        }
-        @media (max-width: 900px) { .smtp-highlight { grid-column: span 1; } }
-        .smtp-highlight h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--gold); }
-        .smtp-highlight p { color: #aaa; line-height: 1.6; }
-        .smtp-tags {
-            display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
-        }
-        .smtp-tag {
-            background: #1a1a1a; border: 1px solid #333; color: #ccc;
-            font-size: 0.8rem; font-weight: 800; padding: 6px 14px;
-            border-radius: 8px; letter-spacing: 0.04em;
-        }
-        .smtp-tag.active { background: var(--gold); color: #000; border-color: var(--gold); }
+ .pf-features {
+ display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 16px;
+ }
+ .pf-feature {
+ display: flex; align-items: flex-start; gap: 8px;
+ font-size: 0.85rem; font-weight: 600; color: #333;
+ }
+ .pf-feature::before {
+ content: '✓'; font-weight: 900; color: var(--black);
+ background: var(--gold); width: 18px; height: 18px; border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ font-size: 0.65rem; flex-shrink: 0; margin-top: 1px;
+ }
 
-        /* Waitlist Modal */
-        .modal-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
-            display: none; align-items: center; justify-content: center;
-            z-index: 3000; padding: 20px;
-        }
-        .modal-overlay.active { display: flex; }
-        .modal-content {
-            background: var(--white); border: 4px solid var(--black);
-            padding: 48px; border-radius: 32px; width: 100%; max-width: 500px;
-            box-shadow: 12px 12px 0 var(--black); position: relative;
-            animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
-        }
-        @keyframes modalPop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .modal-close {
-            position: absolute; top: 20px; right: 20px;
-            font-size: 1.5rem; font-weight: 900; cursor: pointer;
-            background: var(--gold); border: 2px solid var(--black);
-            width: 40px; height: 40px; display: flex; align-items: center;
-            justify-content: center; border-radius: 12px;
-        }
-        .waitlist-form h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.02em; }
-        .waitlist-form p { color: var(--muted); font-weight: 600; margin-bottom: 24px; }
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.9rem; }
-        .form-group input, .form-group select {
-            width: 100%; padding: 14px; border: 3px solid var(--black);
-            border-radius: 12px; font-weight: 700; font-family: inherit;
-        }
-        .form-group input:focus { outline: none; background: #FFD70010; }
-        .waitlist-submit {
-            width: 100%; background: var(--black); color: var(--white);
-            padding: 16px; border: none; border-radius: 14px;
-            font-weight: 900; font-size: 1.1rem; cursor: pointer;
-            transition: all 0.2s; margin-top: 10px;
-        }
-        .waitlist-submit:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--gold); }
+ /* Secondary plan — slim strip */
+ .pricing-secondary {
+ background: #111; border: 2px solid #333;
+ border-radius: 20px; padding: 28px 36px;
+ display: flex; align-items: center; justify-content: space-between;
+ gap: 24px; flex-wrap: wrap;
+ }
+ .ps-left { display: flex; flex-direction: column; gap: 4px; }
+ .ps-name { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; color: #666; }
+ .ps-price { font-size: 2rem; font-weight: 900; color: var(--white); letter-spacing: -0.03em; }
+ .ps-period { font-size: 0.78rem; color: #555; font-weight: 600; }
+ .ps-features {
+ display: flex; flex-wrap: wrap; gap: 6px 16px; flex: 1;
+ }
+ .ps-feature {
+ font-size: 0.8rem; font-weight: 600; color: #888;
+ display: flex; align-items: center; gap: 6px;
+ }
+ .ps-feature::before { content: '—'; color: #444; }
+ .ps-btn {
+ background: var(--white); color: var(--black); font-weight: 900; font-size: 0.88rem;
+ padding: 12px 24px; border-radius: 12px; border: 2px solid var(--white);
+ text-decoration: none; white-space: nowrap;
+ transition: all 0.2s ease;
+ }
+ .ps-btn:hover { background: var(--gold); border-color: var(--gold); }
 
-        /* =============================================
-           SCREENSHOT PREVIEWS
-        =============================================*/
-        .screenshot-section {
-            background: var(--off-white);
-            padding: 100px 0;
-            overflow: hidden;
-            border-bottom: 3px solid var(--black);
-        }
-        .screenshot-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .screenshot-header {
-            padding: 0 24px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .screenshot-scroll-container {
-            display: flex;
-            gap: 40px;
-            overflow-x: auto;
-            padding: 40px 24px 60px;
-            cursor: grab;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-        .screenshot-scroll-container::-webkit-scrollbar {
-            height: 10px;
-        }
-        .screenshot-scroll-container::-webkit-scrollbar-track {
-            background: #eee;
-            border-radius: 10px;
-            margin: 0 40px;
-        }
-        .screenshot-scroll-container::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border: 2px solid var(--black);
-            border-radius: 10px;
-        }
-        .screenshot-card {
-            flex: 0 0 650px;
-            background: var(--black);
-            border: 4px solid var(--black);
-            border-radius: 32px;
-            overflow: hidden;
-            box-shadow: 12px 12px 0 var(--gold);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        @media (max-width: 900px) {
-            .screenshot-card {
-                flex: 0 0 calc(100vw - 80px);
-            }
-        }
-        .screenshot-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 20px 20px 0 var(--gold);
-        }
-        .screenshot-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .screenshot-label-overlay {
-            position: absolute;
-            bottom: 24px;
-            left: 24px;
-            background: var(--gold);
-            color: var(--black);
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-weight: 900;
-            border: 2px solid var(--black);
-            font-size: 0.9rem;
-            box-shadow: 4px 4px 0 var(--black);
-        }
+ .pricing-badges {
+ text-align: center; margin-top: 20px; display: flex;
+ justify-content: center; gap: 20px; flex-wrap: wrap;
+ }
+ .pricing-badge { font-size: 0.78rem; font-weight: 700; color: #555; display: flex; align-items: center; gap: 6px; }
 
-        /* NEW SCREENSHOT NAV */
-        .screenshot-scroll-wrap { position: relative; }
-        .screenshot-nav {
-            position: absolute; top: 50%; transform: translateY(-50%);
-            width: 56px; height: 56px; background: var(--black); color: var(--gold);
-            border: 3px solid var(--black); border-radius: 12px; font-size: 1.5rem;
-            cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
-            box-shadow: 4px 4px 0 var(--gold); transition: all 0.2s;
-        }
-        .screenshot-nav:hover { transform: translateY(-52%) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--gold); }
-        .screenshot-nav:active { transform: translateY(-48%) translate(2px, 2px); box-shadow: 2px 2px 0 var(--gold); }
-        .screenshot-nav.prev { left: 40px; }
-        .screenshot-nav.next { right: 40px; }
-        @media (max-width: 900px) { .screenshot-nav { display: none; } }
+ @media (max-width: 860px) {
+ .pf-top { flex-direction: column; }
+ .pf-cta-wrap { align-items: stretch; width: 100%; }
+ .pf-features { grid-template-columns: repeat(2, 1fr); }
+ .pricing-secondary { flex-direction: column; align-items: flex-start; }
+ }
 
-        /* =============================================
-           AFFILIATE SECTION
-        =============================================*/
-        .affiliate-section { background: var(--off-white); border-top: 3px solid var(--black); }
-        .affiliate-card {
-            background: var(--black); color: var(--white);
-            border: 4px solid var(--black); border-radius: 40px;
-            padding: 80px 40px; text-align: center;
-            box-shadow: 20px 20px 0 var(--gold);
-        }
-        .affiliate-card .section-headline { color: var(--white); margin-bottom: 24px; }
-        .affiliate-card .section-sub { color: #888; margin: 0 auto 32px; }
+ /* =============================================
+ FAQ SECTION
+ =============================================*/
+ .faq-section { background: var(--off-white); border-top: 3px solid var(--black); padding-top: 60px; padding-bottom: 60px; }
+ .faq-list {
+ max-width: 1100px; margin: 36px auto 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+ align-items: start;
+ }
 
-        /* =============================================
-           RESPONSIVE
-        =============================================*/
-        .nav-cta .mobile-text { display: none; }
-        @media (max-width: 768px) {
-            .nav-cta .desktop-text { display: none; }
-            .nav-cta .mobile-text { display: inline; }
-            .nav-links { display: none; }
-            .nav-inner { padding: 10px 16px; }
-            .nav-cta { padding: 10px 20px; font-size: 0.85rem; border-width: 2px !important; }
-            .hero-section { padding-top: 180px; text-align: center; }
-            .hero-headline { font-size: 2.8rem; }
-            .hero-sub { font-size: 1.1rem; }
-            .plan-card.popular { transform: none; }
-            .pain-banner { flex-direction: column; }
-            .roi-box { padding: 32px 24px; }
-            .smtp-highlight { grid-column: span 1; }
-            .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
-            .timeline-step:last-child { border-bottom: none; }
-            .site-header.scrolled .announcement-bar { display: none; }
-            .section { padding: 60px 20px; }
-            .final-cta-section { padding: 80px 20px; }
-            .modal-content { padding: 32px 20px; border-radius: 20px; }
-        }
-    </style>
+ .faq-item {
+ background: var(--white);
+ border: 2px solid #e8e8e8;
+ border-radius: 14px;
+ overflow: hidden;
+ transition: border-color 0.2s ease, box-shadow 0.2s ease;
+ }
+ .faq-item:hover { border-color: #ccc; }
+ .faq-item.open { border-color: var(--black); box-shadow: 4px 4px 0 var(--black); }
+
+ .faq-question {
+ width: 100%; background: transparent; border: none; cursor: pointer;
+ padding: 16px 20px; text-align: left;
+ display: flex; justify-content: space-between; align-items: center; gap: 16px;
+ }
+ .faq-question-text { font-size: 0.95rem; font-weight: 700; color: var(--black); line-height: 1.4; }
+
+ .faq-icon {
+ width: 28px; height: 28px; flex-shrink: 0;
+ background: #f0f0f0; border-radius: 8px;
+ font-size: 1.1rem; font-weight: 700; color: #555;
+ display: flex; align-items: center; justify-content: center;
+ transition: all 0.2s ease;
+ }
+ .faq-item.open .faq-icon { background: var(--gold); color: var(--black); transform: rotate(45deg); }
+
+ .faq-answer {
+ padding: 0 20px 16px;
+ color: #666; line-height: 1.7; font-size: 0.9rem; font-weight: 500;
+ border-top: 1px solid #f0f0f0;
+ display: none; opacity: 0; transform: translateY(-4px); transition: all 0.2s ease;
+ }
+ .faq-item.open .faq-answer { display: block; opacity: 1; transform: translateY(0); padding-top: 14px; }
+
+ @media (max-width: 768px) { .faq-list { grid-template-columns: 1fr; } }
+
+ /* =============================================
+ FINAL CTA SECTION
+ =============================================*/
+ .final-cta-section {
+ background: var(--black); color: var(--white); text-align: center;
+ padding: 120px 24px;
+ }
+ .final-cta-section .section-headline { color: var(--white); text-align: center; }
+ .final-cta-section .section-sub { color: #888; margin: 0 auto 48px; max-width: 560px; text-align: center; }
+ .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+ /* =============================================
+ FOOTER
+ =============================================*/
+ .footer {
+ background: var(--off-white); border-top: 3px solid var(--black);
+ padding: 40px 24px; text-align: center;
+ }
+ .footer-inner { max-width: 1100px; margin: 0 auto; }
+ .footer-brand { font-weight: 900; font-size: 1.15rem; margin-bottom: 32px; text-align: left; }
+ .footer-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px; text-align: left; margin-bottom: 48px; }
+ .footer-col { display: flex; flex-direction: column; gap: 12px; }
+ .footer-col strong { color: var(--black); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+ .footer-links a { text-decoration: none; color: var(--muted); font-weight: 600; font-size: 0.85rem; transition: color 0.2s; }
+ .footer-links a:hover { color: var(--black); }
+ .footer-copy { font-size: 0.85rem; color: var(--muted); margin-top: 32px; }
+.footer-built { font-size: 0.8rem; color: #bbb; margin-top: 8px; letter-spacing: 0.02em; }
+.footer-built-link { color: #00ADD8; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(0,173,216,0.3); transition: border-color 0.2s; }
+.footer-built-link:hover { border-color: #00ADD8; }
+ .footer-newsletter { max-width: 400px; margin: 0 auto 40px; }
+ .footer-newsletter h4 { font-size: 0.95rem; font-weight: 900; margin-bottom: 12px; }
+ .newsletter-form { display: flex; gap: 8px; }
+ .newsletter-input {
+ flex: 1; padding: 12px 16px; border: 2px solid var(--black);
+ border-radius: 8px; font-weight: 700; font-family: inherit; font-size: 0.85rem;
+ }
+ .newsletter-btn {
+ background: var(--black); color: var(--white); border: none;
+ padding: 12px 20px; border-radius: 8px; font-weight: 900;
+ cursor: pointer; font-size: 0.85rem;
+ }
+
+ /* =============================================
+ TOAST
+ =============================================*/
+ .toast {
+ position: fixed; bottom: 30px; right: 30px;
+ background: var(--black); color: var(--white);
+ padding: 16px 32px; border-radius: 16px; font-weight: 800;
+ box-shadow: 8px 8px 0 var(--gold);
+ transform: translateY(100px); opacity: 0;
+ transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+ z-index: 2000; display: flex; align-items: center; gap: 12px;
+ border: 3px solid var(--black);
+ }
+ .toast.show { transform: translateY(0); opacity: 1; }
+
+ /* Social Proof Ticker */
+ .proof-bar {
+ background: var(--black); color: var(--white);
+ padding: 14px 24px; border-bottom: 3px solid var(--gold);
+ display: flex; align-items: center; justify-content: center;
+ gap: 32px; flex-wrap: wrap; font-size: 0.88rem; font-weight: 700;
+ }
+ .proof-item { display: flex; align-items: center; gap: 8px; opacity: 0.85; }
+ .proof-item span { color: var(--gold); }
+
+ /* Urgency badge */
+ .urgency-chip {
+ display: inline-flex; align-items: center; gap: 8px;
+ background: rgba(230,57,70,0.1); border: 2px solid var(--red);
+ color: var(--red); font-size: 0.82rem; font-weight: 900;
+ padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
+ animation: urgencyPulse 2s infinite;
+ }
+ @keyframes urgencyPulse { 0%,100%{box-shadow:0 0 0 0 rgba(230,57,70,0.3);} 50%{box-shadow:0 0 0 8px rgba(230,57,70,0);} }
+
+ .announcement-bar {
+ background: var(--gold); color: var(--black); text-align: center;
+ padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
+ border-bottom: 2px solid rgba(0,0,0,0.1);
+ transition: all 0.3s ease;
+ height: auto;
+ opacity: 1;
+ }
+ .nav {
+ background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
+ transition: all 0.3s ease;
+ }
+
+ /* How It Works Timeline */
+ .how-section { background: var(--off-white); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+ .timeline {
+ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+ gap: 0; margin-top: 60px;
+ }
+ .timeline-step {
+ padding: 40px 32px; border-right: 3px solid var(--black);
+ position: relative;
+ }
+ .timeline-step:last-child { border-right: none; }
+ .step-num {
+ font-size: 3rem; font-weight: 900; color: var(--gold);
+ line-height: 1; margin-bottom: 16px; display: block;
+ }
+ .timeline-step h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; }
+ .timeline-step p { font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+
+ /* SMTP Highlight Card */
+ .smtp-highlight {
+ background: #000; color: #fff;
+ border: 3px solid var(--gold); border-radius: var(--radius);
+ padding: 36px; box-shadow: 8px 8px 0 var(--gold);
+ }
+ .smtp-highlight h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; color: var(--gold); }
+ .smtp-highlight p { color: #aaa; line-height: 1.6; }
+ .smtp-tags {
+ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;
+ }
+ .smtp-tag {
+ background: #1a1a1a; border: 1px solid #333; color: #ccc;
+ font-size: 0.8rem; font-weight: 800; padding: 6px 14px;
+ border-radius: 8px; letter-spacing: 0.04em;
+ }
+ .smtp-tag.active { background: var(--gold); color: #000; border-color: var(--gold); }
+
+ /* Waitlist Modal */
+ .modal-overlay {
+ position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+ background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+ display: none; align-items: center; justify-content: center;
+ z-index: 3000; padding: 20px;
+ }
+ .modal-overlay.active { display: flex; }
+ .modal-content {
+ background: var(--white); border: 4px solid var(--black);
+ padding: 48px; border-radius: 32px; width: 100%; max-width: 500px;
+ box-shadow: 12px 12px 0 var(--black); position: relative;
+ animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
+ }
+ @keyframes modalPop { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+ .modal-close {
+ position: absolute; top: 20px; right: 20px;
+ font-size: 1.5rem; font-weight: 900; cursor: pointer;
+ background: var(--gold); border: 2px solid var(--black);
+ width: 40px; height: 40px; display: flex; align-items: center;
+ justify-content: center; border-radius: 12px;
+ }
+ .waitlist-form h2 { font-size: 2rem; font-weight: 900; margin-bottom: 12px; letter-spacing: -0.02em; }
+ .waitlist-form p { color: var(--muted); font-weight: 600; margin-bottom: 24px; }
+ .form-group { margin-bottom: 20px; text-align: left; }
+ .form-group label { display: block; font-weight: 800; margin-bottom: 8px; font-size: 0.9rem; }
+ .form-group input, .form-group select {
+ width: 100%; padding: 14px; border: 3px solid var(--black);
+ border-radius: 12px; font-weight: 700; font-family: inherit;
+ }
+ .form-group input:focus { outline: none; background: #FFD70010; }
+ .waitlist-submit {
+ width: 100%; background: var(--black); color: var(--white);
+ padding: 16px; border: none; border-radius: 14px;
+ font-weight: 900; font-size: 1.1rem; cursor: pointer;
+ transition: all 0.2s; margin-top: 10px;
+ }
+ .waitlist-submit:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 var(--gold); }
+
+ /* =============================================
+ SCREENSHOT PREVIEWS
+ =============================================*/
+ .screenshot-section {
+ background: var(--off-white);
+ padding: 100px 0;
+ overflow: hidden;
+ border-bottom: 3px solid var(--black);
+ }
+ .screenshot-inner {
+ max-width: 1400px;
+ margin: 0 auto;
+ }
+ .screenshot-header {
+ padding: 0 24px;
+ text-align: center;
+ margin-bottom: 40px;
+ }
+ .screenshot-scroll-container {
+ display: flex;
+ gap: 40px;
+ overflow-x: auto;
+ padding: 40px 24px 60px;
+ cursor: grab;
+ scroll-behavior: smooth;
+ -webkit-overflow-scrolling: touch;
+ }
+ .screenshot-scroll-container::-webkit-scrollbar {
+ height: 10px;
+ }
+ .screenshot-scroll-container::-webkit-scrollbar-track {
+ background: #eee;
+ border-radius: 10px;
+ margin: 0 40px;
+ }
+ .screenshot-scroll-container::-webkit-scrollbar-thumb {
+ background: var(--gold);
+ border: 2px solid var(--black);
+ border-radius: 10px;
+ }
+ .screenshot-card {
+ flex: 0 0 650px;
+ background: var(--black);
+ border: 4px solid var(--black);
+ border-radius: 32px;
+ overflow: hidden;
+ box-shadow: 12px 12px 0 var(--gold);
+ transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ position: relative;
+ }
+ @media (max-width: 900px) {
+ .screenshot-card {
+ flex: 0 0 calc(100vw - 80px);
+ }
+ }
+ .screenshot-card:hover {
+ transform: translateY(-10px) scale(1.02);
+ box-shadow: 20px 20px 0 var(--gold);
+ }
+ .screenshot-card img {
+ width: 100%;
+ height: auto;
+ display: block;
+ }
+ .screenshot-label-overlay {
+ position: absolute;
+ bottom: 24px;
+ left: 24px;
+ background: var(--gold);
+ color: var(--black);
+ padding: 8px 16px;
+ border-radius: 12px;
+ font-weight: 900;
+ border: 2px solid var(--black);
+ font-size: 0.9rem;
+ box-shadow: 4px 4px 0 var(--black);
+ }
+
+ /* NEW SCREENSHOT NAV */
+ .screenshot-scroll-wrap { position: relative; }
+ .screenshot-nav {
+ position: absolute; top: 50%; transform: translateY(-50%);
+ width: 56px; height: 56px; background: var(--black); color: var(--gold);
+ border: 3px solid var(--black); border-radius: 12px; font-size: 1.5rem;
+ cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;
+ box-shadow: 4px 4px 0 var(--gold); transition: all 0.2s;
+ }
+ .screenshot-nav:hover { transform: translateY(-52%) translate(-2px, -2px); box-shadow: 6px 6px 0 var(--gold); }
+ .screenshot-nav:active { transform: translateY(-48%) translate(2px, 2px); box-shadow: 2px 2px 0 var(--gold); }
+ .screenshot-nav.prev { left: 40px; }
+ .screenshot-nav.next { right: 40px; }
+ @media (max-width: 900px) { .screenshot-nav { display: none; } }
+
+ /* =============================================
+ AFFILIATE SECTION
+ =============================================*/
+ .affiliate-section { background: var(--off-white); border-top: 3px solid var(--black); }
+ .affiliate-card {
+ background: var(--black); color: var(--white);
+ border: 4px solid var(--black); border-radius: 40px;
+ padding: 80px 40px; text-align: center;
+ box-shadow: 20px 20px 0 var(--gold);
+ }
+ .affiliate-card .section-headline { color: var(--white); margin-bottom: 24px; }
+ .affiliate-card .section-sub { color: #888; margin: 0 auto 32px; }
+
+ /* =============================================
+ RESPONSIVE
+ =============================================*/
+ .nav-cta .mobile-text { display: none; }
+ @media (max-width: 768px) {
+ .nav-cta .desktop-text { display: none; }
+ .nav-cta .mobile-text { display: inline; }
+ .nav-links { display: none; }
+ .nav-inner { padding: 10px 16px; }
+ .nav-cta { padding: 10px 20px; font-size: 0.85rem; border-width: 2px !important; }
+ .hero-section { padding-top: 180px; text-align: center; }
+ .hero-headline { font-size: 2.8rem; }
+ .hero-sub { font-size: 1.1rem; }
+ .plan-card.popular { transform: none; }
+ .pain-banner { flex-direction: column; }
+ .roi-box { padding: 32px 24px; }
+ .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
+ .timeline-step:last-child { border-bottom: none; }
+ .site-header.scrolled .announcement-bar { display: none; }
+ .section { padding: 60px 20px; }
+ .final-cta-section { padding: 80px 20px; }
+ .modal-content { padding: 32px 20px; border-radius: 20px; }
+ }
+ </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="announcement-bar">
-            🎁 Founders Batch Special: <strong>Lifetime Updates Included (Save $99/yr)</strong>
-        </div>
-        <nav class="nav">
-            <div class="nav-inner">
-                <a href="/" class="nav-logo">
-                    <img src="/logo.svg" alt="Cleanmails">
-                    Cleanmails
-                </a>
-                <ul class="nav-links">
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="/verify">Free Validator</a></li>
-                    <li><a href="#roi">Calculator</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                </ul>
-                <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="nav-cta">
-                    <span class="desktop-text">Claim Agency License →</span>
-                    <span class="mobile-text">Claim Offer →</span>
-                </a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero-section" id="hero">
-        <div class="hero-badge">
-            <span class="dot"></span> FOUNDERS BATCH LIVE <span class="spots">Only 24 spots left</span>
-        </div>
-        
-        <!-- AWS Trust Line -->
-        <p style="font-size: 0.88rem; font-weight: 700; color: var(--muted); margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-            ☁️ Backed by <strong style="color: var(--black);">AWS Startups</strong>
-        </p>
-
-        <h1 class="hero-headline">
-            The <span>Email Fortress</span><br>
-            for Marketing Agencies.
-        </h1>
-        <p class="hero-sub" style="margin-bottom: 32px;">
-            Stop renting your success from monthly SaaS platforms. Own a private, high-performance cold email infrastructure with <strong>unlimited everything</strong>. Zero footprints, zero success-tax, 100% margin, <strong>with free installation services</strong>.
-        </p>
-        <div class="hero-ctas">
-            <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="heroCta">Claim Agency Access Now →</a>
-            <a href="#features" class="btn-secondary">Explore the Fortress 🛡️</a>
-        </div>
-
-        <!-- Product Hunt Badge -->
-        <div style="margin-top: 32px; display: flex; justify-content: center;">
-            <a href="https://www.producthunt.com/products/cleanmails?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cleanmails"
-                target="_blank" rel="noopener noreferrer">
-                <img alt="Cleanmails - Self-host bulk email validation | Product Hunt" width="250" height="54"
-                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&theme=light&t=1769534073976">
-            </a>
-        </div>
-        
-        <!-- Testimonials Section -->
-        <div style="margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px; text-align: left;">
-            <p style="text-align:center; font-size: 0.75rem; font-weight: 800; color: #999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 32px;">Real Feedback from Early Adopters</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                <div style="background: #fdfdfd; padding: 24px; border: 2px solid #000; border-radius: 16px; box-shadow: 4px 4px 0 #000;">
-                    <p style="font-style: italic; font-size: 0.95rem; margin-bottom: 16px;">"Moved 15 client accounts from Smartlead. Our margins increased by 40% overnight. The inbuilt SMTP is a game changer for lead-gen agencies."</p>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%;"></div>
-                        <div>
-                            <div style="font-weight: 800; font-size: 0.9rem;">Alex Rivier</div>
-                            <div style="font-size: 0.8rem; color: #666;">Founder, ScaleFlow Agency</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #fdfdfd; padding: 24px; border: 2px solid #000; border-radius: 16px; box-shadow: 4px 4px 0 #000;">
-                    <p style="font-style: italic; font-size: 0.95rem; margin-bottom: 16px;">"The AI personalization writes better openers than my VAs did. Self-hosting was intimidating but the white-glove setup made it effortless."</p>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%;"></div>
-                        <div>
-                            <div style="font-weight: 800; font-size: 0.9rem;">Sarah Jenkins</div>
-                            <div style="font-size: 0.8rem; color: #666;">Growth Lead, Outreach Labs</div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background: #fdfdfd; padding: 24px; border: 2px solid #000; border-radius: 16px; box-shadow: 4px 4px 0 #000;">
-                    <p style="font-style: italic; font-size: 0.95rem; margin-bottom: 16px;">"Finally, a tool that doesn't tax my success. Unlimited everything means I can test 100 variations without checking my bank account."</p>
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 40px; height: 40px; background: #ddd; border-radius: 50%;"></div>
-                        <div>
-                            <div style="font-weight: 800; font-size: 0.9rem;">Marcus Thorne</div>
-                            <div style="font-size: 0.8rem; color: #666;">Independent Consultant</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="video-section">
-        <div class="video-wrapper-outer">
-            <h2>How it looks.</h2>
-            <div class="video-embed">
-                <iframe
-                    src="https://player.vimeo.com/video/1176093594?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    title="Cleanmails Dashboard Demo"
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                </iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
-        </div>
-    </section>
-
-    <!-- PAIN SECTION -->
-    <section class="pain-section section" id="pain">
-        <div class="section-inner">
-            <span class="section-label" style="background:#e63946; border-color:#e63946; color:#fff;">The Agency Margin Bleed</span>
-            <h2 class="section-headline">Stop Paying a "Success Tax"<br>on Every New Client.</h2>
-            <p class="section-sub">Traditional tools punish you for growing. The more clients you win, the more they charge. It's time to own your stack.</p>
-
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <div class="pain-card-name">Instantly</div>
-                    <h3>Active lead limits. Per-email fees.</h3>
-                    <p>Costs scale as you scale. The moment you start winning, your bill goes up.</p>
-                    <div class="pain-cost">$37–$97/mo &nbsp;→&nbsp; <strong>$444–$1,164/yr</strong></div>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card-name">Smartlead</div>
-                    <h3>2,000 active leads on basic.</h3>
-                    <p>6,000 emails/month cap. Pay more to do more. Growth is punished, not rewarded.</p>
-                    <div class="pain-cost">$39–$94/mo &nbsp;→&nbsp; <strong>$468–$1,128/yr</strong></div>
-                </div>
-                <div class="pain-card">
-                    <div class="pain-card-name">Lemlist</div>
-                    <h3>Per-seat pricing. Costs explode.</h3>
-                    <p>Every feature is an upsell. Hire someone? Pay more. Every person who joins hits your credit card.</p>
-                    <div class="pain-cost"><strong>$59–$99/mo per seat</strong></div>
-                </div>
-            </div>
-
-            <div class="pain-banner">
-                <p><strong>Running 10 Client Campaigns?</strong><br>You're looking at $400–$700/month in tool costs alone. Before staff. Before ads.</p>
-                <div class="pain-banner-cost">
-                    $4,800–$8,400
-                    <span>/ year — and rising</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES SECTION -->
-    <section class="features-section section" id="features">
-        <div class="section-inner">
-            <span class="section-label">The Solution</span>
-            <h2 class="section-headline">Everything you need.<br>Nothing you don't.</h2>
-            <p class="section-sub">One self-hosted install covers your entire cold email stack.</p>
-
-            <div class="features-grid">
-
-                <!-- SMTP Highlight Card (spans 2 cols) -->
-                <div class="smtp-highlight">
-                    <h3>🖥️ Stop Buying SMTP Relays</h3>
-                    <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">Learn about SMTP Rotation →</a></p>
-                    <div class="smtp-tags">
-                        <span class="smtp-tag active">Inbuilt SMTP ✓</span>
-                        <span class="smtp-tag">AWS SES</span>
-                        <span class="smtp-tag">SendGrid</span>
-                        <span class="smtp-tag">Mailgun</span>
-                        <span class="smtp-tag">Gmail</span>
-                        <span class="smtp-tag">Outlook</span>
-                        <span class="smtp-tag">Any Custom SMTP</span>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <span class="feature-icon">🔄</span>
-                    <h3>Zero-Risk Client Scaling</h3>
-                    <p>Rotate across unlimited senders and SMTP accounts automatically. Protect client deliverability at any volume without hitting tool-imposed limits. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">How Rotation Works →</a></p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">✅</span>
-                    <h3>Keep Bounces &lt; 1%</h3>
-                    <p>Handshake verification plus catch-all detection. Clean every client list locally before sending. Stop paying ZeroBounce $0.005 per lead. <a href="/email-validation" style="color: var(--black); font-weight: 800; text-decoration: underline;">View Tech Specs →</a></p>
-                    <a href="/verify" style="color: var(--black); font-weight: 800; text-decoration: underline; margin-top: 10px; display: block;">Try the free validator →</a>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎲</span>
-                    <h3>Pattern-Proof Spintax</h3>
-                    <p>Every client email looks organic. No two recipients get the same message. Native syntax ensures inbox filters can't pattern-match your sequences. <a href="/spintax-generator" style="color: var(--black); font-weight: 800; text-decoration: underline;">Randomness Engine →</a></p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">⚙️</span>
-                    <h3>Set & Forget Cadences</h3>
-                    <p>Set up client sequences once. Automatic follow-ups, reply detection, and scheduling run 24/7 on your server. Full multi-step drip campaigns. <a href="/cold-email-cadence" style="color: var(--black); font-weight: 800; text-decoration: underline;">Automate Follow-ups →</a></p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🚨</span>
-                    <h3>Pre-Send Spam Guard</h3>
-                    <p>Automatically flags risky words before they ruin a client's sender reputation. Know exactly how to fix a draft before it hits the inbox.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Subject Line Rotation</h3>
-                    <p>A/B test multiple subject lines simultaneously. Rotate automatically across your sender pool for higher open rates.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📬</span>
-                    <h3>$0 Per-Client Seat Cost</h3>
-                    <p>Create and manage unlimited mailboxes. Onboard new clients and add unlimited team members with zero per-seat or per-mailbox surcharges.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🏢</span>
-                    <h3>Unified Admin Dashboard</h3>
-                    <p>Manage all your clients from one high-performance dashboard. Effortlessly switch between workspaces while keeping everything organized.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🤖</span>
-                    <h3>Advanced AI Personalization</h3>
-                    <p>Hyper-personalized P.S. lines and email openers. Cleanmails uses dedicated AI engines to research your leads and write unique, human-like lines for every send.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <h3>Auto-Healing Reputation</h3>
-                    <p>Real-time RBL monitoring. If a domain hits a blacklist, Cleanmails automatically pauses and rotates it out of your fleet to protect your delivery.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🕸️</span>
-                    <h3>Master-Satellite Cluster</h3>
-                    <p>Scale vertically or horizontally. Deploy satellite nodes across the globe and manage them from a single Master dashboard for massive volume.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">👻</span>
-                    <h3>Ghost Tracking Domains</h3>
-                    <p>100% white-labeled tracking. Every workspace gets its own unique tracking domain. Zero footprints, maximum branding for your clients.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🧪</span>
-                    <h3>Hybrid Validation 3.0</h3>
-                    <p>Near 100% accuracy. We combine SMTP handshakes with private Google, Outlook, and Yahoo API checks to verify accounts that others can't.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔥</span>
-                    <h3>Inbuilt Warmup System</h3>
-                    <p>Stop paying $29/mo per inbox. Cleanmails includes a native warmup engine that builds sender reputation automatically across our private network.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔒</span>
-                    <h3>100% Data Sovereignty</h3>
-                    <p>Your leads, client lists, and campaign data <strong>never leave your server</strong>. Unlike cloud tools that harvest your patterns, you own your data fortress. Total privacy, zero leaks.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🚀</span>
-                    <h3>One-Tap Turbo Updates</h3>
-                    <p>The system heals itself. Get the latest features and security patches with a single click. No manual server maintenance required.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="how-section section">
-        <div class="section-inner">
-            <span class="section-label">How It Works</span>
-            <h2 class="section-headline">Live in 4 steps.</h2>
-            <p class="section-sub">From sign-up to sending your first cold email — in under 24 hours.</p>
-            <div class="timeline">
-                <div class="timeline-step">
-                    <span class="step-num">01</span>
-                    <h3>Secure Your License</h3>
-                    <p>Get instant access to the Agency core. One-time payment, no recurring seat fees for you or your team.</p>
-                </div>
-                <div class="timeline-step">
-                    <span class="step-num">02</span>
-                    <h3>White-Glove Install</h3>
-                    <p>Skip the terminal. <b>Full Concierge Setup is included</b> with every license. We'll deploy the stack and configure your first 10 domains for you at no extra cost.</p>
-                </div>
-                <div class="timeline-step">
-                    <span class="step-num">03</span>
-                    <h3>Onboard Unlimited Clients</h3>
-                    <p>Add clients, connect their SMTPs (or use our inbuilt engine), and set up separate workspaces in seconds.</p>
-                </div>
-                <div class="timeline-step">
-                    <span class="step-num">04</span>
-                    <h3>Scale to Infinity</h3>
-                    <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. You just pay barely $10-$20/month for your own VPS server.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- SCREENSHOT PREVIEWS -->
-    <section class="screenshot-section">
-        <div class="screenshot-header">
-            <span class="section-label" style="background: var(--black); color: var(--gold); border-color: var(--black);">Visual Tour</span>
-            <h2 class="section-headline">Take a look inside.</h2>
-            <p class="section-sub" style="margin: 0 auto;">No complexity. No clutter. Just high-performance infrastructure.</p>
-        </div>
-        <div class="screenshot-scroll-wrap">
-            <button class="screenshot-nav prev" id="ssPrev">←</button>
-            <div class="screenshot-scroll-container">
-                <div class="screenshot-card">
-                    <img src="/screenshots/preview1.png" alt="Cleanmails Dashboard 1">
-                    <span class="screenshot-label-overlay">Campaign Analytics & AI Ops</span>
-                </div>
-                <div class="screenshot-card">
-                    <img src="/screenshots/preview2.png" alt="Cleanmails Dashboard 2">
-                    <span class="screenshot-label-overlay">Precision Email Validation</span>
-                </div>
-                <div class="screenshot-card">
-                    <img src="/screenshots/preview3.png" alt="Cleanmails Dashboard 3">
-                    <span class="screenshot-label-overlay">Global Infrastructure Monitor</span>
-                </div>
-            </div>
-            <button class="screenshot-nav next" id="ssNext">→</button>
-        </div>
-    </section>
-
-    <!-- COMPARISON SECTION -->
-    <section class="compare-section section" id="compare">
-        <div class="section-inner">
-            <span class="section-label">Comparison</span>
-            <h2 class="section-headline">How we stack up.</h2>
-            <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing." 
-                <br>
-                <a href="/cleanmails-vs-instantly" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Instantly</a> | 
-                <a href="/cleanmails-vs-smartlead" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Smartlead</a>
-            </p>
-
-            <div class="compare-table-wrap">
-                <table class="compare-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th style="color: var(--gold);">Cleanmails ★</th>
-                            <th>Instantly</th>
-                            <th>Smartlead</th>
-                            <th>Lemlist</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Pricing model</td>
-                            <td class="highlight-col" style="color:#2ecc71; font-weight:900;">One-time</td>
-                            <td>Monthly</td>
-                            <td>Monthly</td>
-                            <td>Monthly</td>
-                        </tr>
-                        <tr>
-                            <td>Email sending limit</td>
-                            <td class="yes highlight-col">Unlimited</td>
-                            <td class="no">Capped</td>
-                            <td class="no">Capped</td>
-                            <td class="no">Capped</td>
-                        </tr>
-                        <tr>
-                            <td>SMTP handshake validation</td>
-                            <td class="yes highlight-col">✓</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Catch-all detection</td>
-                            <td class="yes highlight-col">✓</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Spam word detector</td>
-                            <td class="yes highlight-col">✓</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Spintax support</td>
-                            <td class="yes highlight-col">✓</td>
-                            <td class="yes">✓</td>
-                            <td class="yes">✓</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Lead Data Privacy</td>
-                            <td class="yes highlight-col">100% Private (Self-Hosted)</td>
-                            <td class="no">Shared/Cloud</td>
-                            <td class="no">Shared/Cloud</td>
-                            <td class="no">Shared/Cloud</td>
-                        </tr>
-                        <tr>
-                            <td>AI Personalization</td>
-                            <td class="yes highlight-col">Advanced AI</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Cluster Scalability</td>
-                            <td class="yes highlight-col">✓</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                        <tr>
-                            <td>Inbuilt Warmup System</td>
-                            <td class="yes highlight-col">✓ (Included)</td>
-                            <td class="no">+$29/mo</td>
-                            <td class="no">+$29/mo</td>
-                            <td class="no">+$29/mo</td>
-                        </tr>
-                        <tr>
-                            <td>Setup & Support</td>
-                            <td class="highlight-col" style="color:#2ecc71; font-weight:900; font-size:0.9rem;">Included White-Glove</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                            <td class="no">✗</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- ROI SECTION -->
-    <section class="roi-section section" id="roi">
-        <div class="section-inner">
-            <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">Savings Calculator</span>
-            <h2 class="section-headline">Calculate Your Tool-Tax.</h2>
-            <p class="section-sub">Stop donating your agency's profit to software companies. See exactly how much you're losing every single year.</p>
-
-            <div class="calculator-card">
-                <div class="calc-inputs">
-                    <div class="calc-slider-wrap">
-                        <label class="calc-label">Total Client Workspaces</label>
-                        <input type="range" id="calc-clients" class="calc-slider" min="1" max="50" value="10">
-                        <span class="calc-value" id="calc-clients-val">10</span>
-                    </div>
-                    <div class="calc-slider-wrap">
-                        <label class="calc-label">Monthly per-client cost (Avg $50)</label>
-                        <input type="range" id="calc-cost" class="calc-slider" min="30" max="150" value="50">
-                        <span class="calc-value" id="calc-cost-val">$50</span>
-                    </div>
-                </div>
-                <div class="calc-results">
-                    <span class="calc-result-title">Your Yearly Savings with Cleanmails</span>
-                    <div class="calc-saving-amount" id="calc-total">$5,503</div>
-                    <p class="calc-saving-period">ROI Achieved in <span id="calc-roi" style="color:var(--gold); font-weight:900;">4.2</span> weeks</p>
-                    <div style="margin-top: 24px; font-size: 0.8rem; color: #666; font-weight: 700;">*Compared to Smartlead/Instantly Pro plans</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section class="pricing-section section" id="pricing">
-        <div class="section-inner">
-            <span class="section-label">Pricing</span>
-            <h2 class="section-headline">One price. Forever.</h2>
-            <p class="section-sub">No subscriptions. No per-seat fees. No gotchas.</p>
-
-            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); max-width: 900px; margin-left: auto; margin-right: auto;">
-                <!-- Agency (Popular) -->
-                <div class="plan-card popular" style="position:relative;">
-                    <div class="popular-badge">🏷 Agency Founder Batch</div>
-                    <div class="plan-name">Agency Professional</div>
-                    <div style="display: flex; align-items: baseline; gap: 8px;">
-                        <span style="font-size: 1.5rem; color: #666; text-decoration: line-through; font-weight: 700;">$797</span>
-                        <div class="plan-price">$497</div>
-                    </div>
-                    <div class="plan-period">one-time payment</div>
-                    <div style="background: #FFF9E8; border-left: 4px solid #F59E0B; padding: 12px; margin: 16px 0; border-radius: 8px; font-size: 0.85rem; font-weight: 700; color: #92400E; line-height: 1.3;">
-                        ⚠️ PRICE HIKE: Increases to <span style="text-decoration: underline;">$797 on April 1st</span>. Secure the Founder Price today.
-                    </div>
-                    <div class="plan-desc">The industry standard for agencies. Own the system with your custom domain, logo, and a unified admin dashboard.</div>
-                    <ul class="plan-features">
-                        <li><b>Advanced AI Personalization</b></li>
-                        <li><b>Inbuilt Warmup System</b></li>
-                        <li><b>Unlimited Mailboxes & Domains</b></li>
-                        <li><b>Unlimited Workspaces & Clients</b></li>
-                        <li><b>Ghost Tracking Domains</b></li>
-                        <li>Auto-Healing Reputation</li>
-                        <li>Unified Admin Dashboard</li>
-                        <li>White-Glove Setup Included</li>
-                    </ul>
-                    <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="plan-btn dark">Get Agency Access Now →</a>
-                </div>
-
-                <!-- Sell as your SaaS -->
-                <div class="plan-card">
-                    <div class="plan-name">Enterprise / SaaS Rights</div>
-                    <div class="plan-price">$1997</div>
-                    <div class="plan-period">one-time payment</div>
-                    <div class="plan-desc">Rebrand and resell the Cleanmails engine as your own custom subscription SaaS product.</div>
-                    <ul class="plan-features">
-                        <li><b>Full Commercial Resell Rights</b></li>
-                        <li><b>Source Code Access (Go + React)</b></li>
-                        <li><b>Build Your Own SaaS Platform</b></li>
-                        <li>Unlimited Workspaces & Clients</li>
-                        <li>Priority Developer Support</li>
-                        <li>Cloud Infrastructure Consulting</li>
-                    </ul>
-                    <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapElOZWiSbybTKLYv3O?quantity=1&redirect_url=https://cleanmails.online/success-enterprise" class="plan-btn">Claim SaaS Rights →</a>
-                </div>
-            </div>
-
-            <div class="pricing-badges">
-                <span class="pricing-badge">🛡️ 1 month money-back guarantee for ALL</span>
-                <span class="pricing-badge">🔄 Optional lifetime updates ($99/year)</span>
-                <span class="pricing-badge">🖥️ Inbuilt World-Class Validator</span>
-                <span class="pricing-badge">⚡ Installation assistance included</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- AFFILIATE SECTION -->
-    <section class="affiliate-section section" id="affiliate">
-        <div class="section-inner">
-            <div class="affiliate-card">
-              <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
-              <h2 class="section-headline">Join Affiliate. <br> $50 per sale.</h2>
-              <p class="section-sub">Help other agency owners escape the monthly SaaS trap and get paid every Friday. No caps, zero friction.</p>
-              <a href="/affiliate" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="faq-section section" id="faq">
-        <div class="section-inner">
-            <span class="section-label">FAQ</span>
-            <h2 class="section-headline">Common questions.</h2>
-
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">No. Installation assistance is included with every license. We handle the setup on your server end-to-end. You're ready to send on day one.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">What server do I need?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">Any Linux VPS works. A $6/month Hetzner or DigitalOcean server handles thousands of emails per day comfortably. The tool is built in Go — it's extremely lightweight.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits. The only limit is your server's capacity — which on a standard VPS is massive.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">What happens after I buy — how do updates work?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">You get access to the current version of the software forever. To receive all future feature updates, performance patches, and dedicated technical support, we offer an optional maintenance plan at just $99/year. No forced renewals — you only pay if you want the latest version.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">Does Cleanmails have inbuilt SMTP or do I need a relay?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">Cleanmails turns your server into a high-performance outbound sender with its <strong>fully built-in SMTP engine</strong>. This means you can start sending campaigns immediately without subscribing to any 3rd-party relays. External providers like AWS SES or SendGrid are completely optional, not required.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">Can I use this for client campaigns?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">Yes — the Agency license covers unlimited client campaigns on unlimited installs. You get your own custom domain, logo branding, and a unified admin dashboard to make the system truly yours. The <strong>Sell as your SaaS</strong> license adds full commercial resell rights and source code access.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span class="faq-question-text">Do I need to buy SMTP accounts separately?</span>
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">No separate accounts are required. Cleanmails is designed to be a complete 'out-of-the-box' solution where your VPS handles both the dashboard and the actual email sending. You only pay for your server, while the software manages the rest without any added per-email or per-account fees.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final-cta-section">
-        <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Escape the Subscription Trap</span>
-        <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
-        <p class="section-sub">Join the Founders Batch today and lock in Lifetime Updates. Limited to first 100 Agencies only.</p>
-        <div class="final-cta-btns">
-            <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="finalCta">Claim Agency Access Now →</a>
-            <a href="#roi" class="btn-secondary">Check My Savings</a>
-        </div>
-    </section>
-
-    <!-- WAITLIST MODAL -->
-    <div class="modal-overlay" id="waitlistModal">
-        <div class="modal-content">
-            <div class="modal-close" id="closeModal">×</div>
-            <form id="waitlistForm" class="waitlist-form">
-                <h2>Join the Waitlist 🎁</h2>
-                <p>Secure your spot now and get an exclusive bonus gift upon launch.</p>
-                
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="wName" name="name" placeholder="John Doe" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>Work Email</label>
-                    <input type="email" id="wEmail" name="email" placeholder="john@example.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>I am a...</label>
-                    <select id="wCategory" name="category" required>
-                        <option value="" disabled selected>Select your profile</option>
-                        <option value="agency">Agency Owner</option>
-                        <option value="freelancer">Solo Professional</option>
-                        <option value="founder">Saas Founder</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="waitlist-submit" id="wSubmit">Submit & Get Access →</button>
-                <p style="font-size: 0.75rem; margin-top: 16px; margin-bottom: 0;">You will be redirected to our Cold Email Masterclass upon submission.</p>
-            </form>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">Cleanmails</div>
-            <nav class="footer-links">
-                <div class="footer-col">
-                    <strong>Platform</strong>
-                    <a href="/">Home</a>
-                    <a href="/verify">Free Validator</a>
-                    <a href="/affiliate">Affiliate Program</a>
-                    <a href="/docs">Documentation</a>
-                </div>
-                <div class="footer-col">
-                    <strong>Infrastructure</strong>
-                    <a href="/email-validation">Email Validation</a>
-                    <a href="/sender-rotation">Sender Rotation</a>
-                    <a href="/spintax-generator">Spintax & AI</a>
-                    <a href="/cold-email-cadence">Outbound Cadence</a>
-                </div>
-                <div class="footer-col">
-                    <strong>Compare</strong>
-                    <a href="/cleanmails-vs-instantly">vs Instantly</a>
-                    <a href="/cleanmails-vs-smartlead">vs Smartlead</a>
-                </div>
-                <div class="footer-col">
-                    <strong>Legal</strong>
-                    <a href="/terms">Terms of Service</a>
-                    <a href="/privacy">Privacy Policy</a>
-                </div>
-            </nav>
-            <div class="footer-newsletter" style="margin-left: 0; text-align: left;">
-                <h4>Join the Cold Email Newsletter</h4>
-                <form id="newsletterForm" class="newsletter-form">
-                    <input type="email" id="nEmail" class="newsletter-input" placeholder="your@email.com" required>
-                    <button type="submit" id="nSubmit" class="newsletter-btn">Join</button>
-                </form>
-            </div>
-            <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- TOAST -->
-    <div class="toast" id="toast">
-        <span class="toast-icon">🎉</span>
-        <span id="toastMsg">Copied!</span>
-    </div>
-
-    <script type="module">
-        import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
-
-        // Modal Logic
-        const modal = document.getElementById('waitlistModal');
-        const triggerBtns = document.querySelectorAll('.waitlist-trigger');
-        const closeBtn = document.getElementById('closeModal');
-
-        triggerBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        const closeModalFunc = () => {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        };
-
-        closeBtn.addEventListener('click', closeModalFunc);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModalFunc();
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const item = btn.closest('.faq-item');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-                if (!isOpen) item.classList.add('open');
-                btn.setAttribute('aria-expanded', !isOpen);
-            });
-        });
-
-        // ROI Calculator Logic
-        const sliderClients = document.getElementById('calc-clients');
-        const sliderCost = document.getElementById('calc-cost');
-        const displayClients = document.getElementById('calc-clients-val');
-        const displayCost = document.getElementById('calc-cost-val');
-        const displayTotal = document.getElementById('calc-total');
-        const displayRoi = document.getElementById('calc-roi');
-
-        function updateCalc() {
-            const clients = parseInt(sliderClients.value);
-            const cost = parseInt(sliderCost.value);
-            const yearlyCost = clients * cost * 12;
-            const savings = yearlyCost - 497;
-            const weeklyRevenueLoss = (clients * cost) / 4.33;
-            const roiWeeks = (497 / (clients * cost / 4.33)).toFixed(1);
-
-            displayClients.innerText = clients;
-            displayCost.innerText = `$${cost}`;
-            displayTotal.innerText = `$${savings.toLocaleString()}`;
-            displayRoi.innerText = roiWeeks;
-        }
-
-        sliderClients.addEventListener('input', updateCalc);
-        sliderCost.addEventListener('input', updateCalc);
-        updateCalc();
-
-        // Header Shrink Logic
-        const siteHeader = document.querySelector('.site-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                siteHeader.classList.add('scrolled');
-            } else {
-                siteHeader.classList.remove('scrolled');
-            }
-        });
-
-        // Waitlist Form Submission
-        const wForm = document.getElementById('waitlistForm');
-        const wSubmit = document.getElementById('wSubmit');
-
-        if (wForm) {
-            wForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const originalText = wSubmit.innerText;
-                
-                const formData = {
-                    name: document.getElementById('wName').value,
-                    email: document.getElementById('wEmail').value,
-                    category: document.getElementById('wCategory').value,
-                    source: 'landing_page_waitlist',
-                    status: 'pending',
-                    createdAt: serverTimestamp()
-                };
-
-                // UI Feedback (Affiliate Logic)
-                wSubmit.disabled = true;
-                wSubmit.innerText = 'Submitting...';
-                wSubmit.style.opacity = '0.7';
-                wSubmit.style.cursor = 'not-allowed';
-
-                try {
-                    await addDoc(collection(db, "waitlist"), formData);
-                    showToast('You are on the list! Redirecting...', '🚀');
-                    e.target.reset();
-                    
-                    setTimeout(() => {
-                        window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
-                    }, 1200);
-
-                } catch (error) {
-                    console.error("Firestore Error:", error);
-                    let errorMsg = 'Error joining. Try again.';
-                    if (error.code === 'permission-denied') {
-                        errorMsg = 'Permission Denied. Please check Firestore rules.';
-                    }
-                    showToast(errorMsg, '⚠️');
-                    
-                    // Fail-safe redirect if it's just a rule issue
-                    setTimeout(() => {
-                        window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
-                    }, 2000);
-                } finally {
-                    wSubmit.disabled = false;
-                    wSubmit.innerText = originalText;
-                    wSubmit.style.opacity = '1';
-                    wSubmit.style.cursor = 'pointer';
-                }
-            });
-        }
-
-        // Newsletter Form Submission
-        const nForm = document.getElementById('newsletterForm');
-        const nSubmit = document.getElementById('nSubmit');
-
-        if (nForm) {
-            nForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const originalText = nSubmit.innerText;
-                
-                const formData = {
-                    email: document.getElementById('nEmail').value,
-                    source: 'footer_newsletter',
-                    status: 'pending',
-                    createdAt: serverTimestamp()
-                };
-
-                nSubmit.disabled = true;
-                nSubmit.innerText = 'Joining...';
-                nSubmit.style.opacity = '0.7';
-                nSubmit.style.cursor = 'not-allowed';
-
-                try {
-                    await addDoc(collection(db, "newsletter"), formData);
-                    showToast('Welcome to the inner circle! 💌', '🎉');
-                    e.target.reset();
-                } catch (error) {
-                    console.error("Firestore Error:", error);
-                    showToast('Error joining. Try again.', '⚠️');
-                } finally {
-                    nSubmit.disabled = false;
-                    nSubmit.innerText = originalText;
-                    nSubmit.style.opacity = '1';
-                    nSubmit.style.cursor = 'pointer';
-                }
-            });
-        }
-
-        function showToast(message, icon = '🎉') {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toastMsg');
-            const toastIcon = toast.querySelector('.toast-icon');
-            if (!toast) return;
-
-            toastMsg.innerText = message;
-            toastIcon.innerText = icon;
-
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
-        }
-
-        // GTM Events
-        document.addEventListener('DOMContentLoaded', () => {
-            const heroCta = document.getElementById('heroCta');
-            if (heroCta) heroCta.addEventListener('click', () =>
-                gtag('event', 'click_hero_cta', { event_category: 'engagement', event_label: 'Hero CTA' }));
-
-            const finalCta = document.getElementById('finalCta');
-            if (finalCta) finalCta.addEventListener('click', () =>
-                gtag('event', 'click_final_cta', { event_category: 'engagement', event_label: 'Final CTA' }));
-        });
-
-        // SCREENSHOT INTERACTIVITY & AUTO-SCROLL
-        const slider = document.querySelector('.screenshot-scroll-container');
-        const ssPrev = document.getElementById('ssPrev');
-        const ssNext = document.getElementById('ssNext');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        let autoScrollInterval;
-
-        const startAutoScroll = () => {
-            autoScrollInterval = setInterval(() => {
-                if (!isDown) {
-                    if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 1) {
-                        slider.scrollLeft = 0;
-                    } else {
-                        slider.scrollLeft += 1;
-                    }
-                }
-            }, 30);
-        };
-
-        const stopAutoScroll = () => clearInterval(autoScrollInterval);
-
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-            startAutoScroll();
-        });
-
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 2;
-            slider.scrollLeft = scrollLeft - walk;
-        });
-
-        slider.addEventListener('mouseenter', stopAutoScroll);
-
-        // Manual Navigation
-        ssPrev.addEventListener('click', () => {
-            slider.scrollBy({ left: -700, behavior: 'smooth' });
-        });
-        ssNext.addEventListener('click', () => {
-            slider.scrollBy({ left: 700, behavior: 'smooth' });
-        });
-
-        startAutoScroll();
-    </script>
+ <!-- HEADER -->
+ <header class="site-header">
+ <div class="announcement-bar">
+ Founders Batch Special: <strong>Free Lifetime Updates + Free Installation</strong>
+ </div>
+ <nav class="nav">
+ <div class="nav-inner">
+ <a href="/" class="nav-logo">
+ <img src="/logo.svg" alt="Cleanmails">
+ Cleanmails
+ </a>
+ <ul class="nav-links">
+ <li><a href="#features">Features</a></li>
+ <li><a href="/verify">Free Validator</a></li>
+ <li><a href="#pricing">Pricing</a></li>
+ </ul>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="nav-cta">
+ <span class="desktop-text">Claim Agency License →</span>
+ <span class="mobile-text">Claim Offer →</span>
+ </a>
+ </div>
+ </nav>
+ </header>
+
+ <!-- HERO -->
+ <section class="hero-section" id="hero">
+
+ <div class="hero-eyebrow">
+ <span class="hero-live-dot"></span>
+ Founders Batch — <strong>$497 until May 15th</strong>
+ </div>
+
+ <h1 class="hero-headline">
+ Self-Hosted <span class="hero-hl">Cold Email Infrastructure</span><br>for Agencies.
+ </h1>
+
+ <p class="hero-sub">
+ Send campaigns, validate lists, rotate senders, and run cadences — all from your own server. One-time payment. No monthly fees. No limits.
+ </p>
+
+ <div class="hero-pills">
+ <span class="hero-pill">Inbuilt SMTP</span>
+ <span class="hero-pill">Email Validation</span>
+ <span class="hero-pill">Sender Rotation</span>
+ <span class="hero-pill">AI Personalization</span>
+ <span class="hero-pill">Spintax Engine</span>
+ <span class="hero-pill">Cadence Automation</span>
+ </div>
+
+ <div class="hero-ctas">
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="heroCta">Get Cleanmails — $497 →</a>
+ <a href="#features" class="btn-secondary">See What's Inside</a>
+ </div>
+
+ <div class="hero-meta">
+ <span>Free installation on request</span>
+ <span class="hero-meta-dot"></span>
+ <span>1-month money-back guarantee</span>
+ <span class="hero-meta-dot"></span>
+ <span>Backed by AWS Startups</span>
+ </div>
+
+ <div style="margin-top: 28px; display: flex; justify-content: center;">
+ <a href="https://www.producthunt.com/products/cleanmails?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cleanmails"
+ target="_blank" rel="noopener noreferrer">
+ <img alt="Cleanmails - Self-host bulk email validation | Product Hunt" width="200" height="44"
+ src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&theme=light&t=1769534073976">
+ </a>
+ </div>
+
+ </section>
+
+ <section class="video-section">
+ <div class="video-wrapper-outer">
+ <h2>How it looks.</h2>
+ <div class="video-embed">
+ <iframe
+ src="https://player.vimeo.com/video/1176093594?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
+ frameborder="0"
+ allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+ referrerpolicy="strict-origin-when-cross-origin"
+ title="Cleanmails Dashboard Demo"
+ style="position:absolute;top:0;left:0;width:100%;height:100%;">
+ </iframe>
+ </div>
+ <script src="https://player.vimeo.com/api/player.js"></script>
+ </div>
+ </section>
+
+ <!-- HOW IT WORKS -->
+ <section class="how-section section">
+ <div class="section-inner">
+ <span class="section-label">How It Works</span>
+ <h2 class="section-headline">Live in 4 steps.</h2>
+ <p class="section-sub">From sign-up to sending your first cold email — in under 24 hours.</p>
+ <div class="timeline">
+ <div class="timeline-step">
+ <span class="step-num">01</span>
+ <h3>Secure Your License</h3>
+ <p>Get instant access to the Agency core. One-time payment, no recurring seat fees for you or your team.</p>
+ </div>
+ <div class="timeline-step">
+ <span class="step-num">02</span>
+ <h3>White-Glove Install</h3>
+ <p>Skip the terminal. <b>Full Concierge Setup is included</b> with every license. We'll deploy the stack and configure your first 10 domains for you at no extra cost.</p>
+ </div>
+ <div class="timeline-step">
+ <span class="step-num">03</span>
+ <h3>Onboard Unlimited Clients</h3>
+ <p>Add clients, connect their SMTPs (or use our inbuilt engine), and set up separate workspaces in seconds.</p>
+ </div>
+ <div class="timeline-step">
+ <span class="step-num">04</span>
+ <h3>Scale to Infinity</h3>
+ <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. You just pay barely $10-$20/month for your own VPS server.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- FEATURES SECTION -->
+ <section class="features-section section" id="features">
+ <div class="section-inner">
+ <span class="section-label">The Solution</span>
+ <h2 class="section-headline">Everything you need.<br>Nothing you don't.</h2>
+ <p class="section-sub">One self-hosted install covers your entire cold email stack.</p>
+
+ <!-- SMTP Highlight Card -->
+ <div class="smtp-highlight" style="margin-bottom: 48px;">
+ <h3> Stop Buying SMTP Relays</h3>
+ <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">Learn about SMTP Rotation →</a></p>
+ <div class="smtp-tags">
+ <span class="smtp-tag active">Inbuilt SMTP </span>
+ <span class="smtp-tag">AWS SES</span>
+ <span class="smtp-tag">SendGrid</span>
+ <span class="smtp-tag">Mailgun</span>
+ <span class="smtp-tag">Gmail</span>
+ <span class="smtp-tag">Outlook</span>
+ <span class="smtp-tag">Any Custom SMTP</span>
+ </div>
+ </div>
+
+ <div class="feature-points-grid">
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Zero-Risk Client Scaling</strong>
+ <span>Rotate unlimited senders automatically — no tool-imposed limits, ever.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Keep Bounces &lt; 1%</strong>
+ <span>SMTP handshake + catch-all detection. Clean lists locally, stop paying per lead.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Pattern-Proof Spintax</strong>
+ <span>Every email looks organic. Inbox filters can't pattern-match your sequences.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Set &amp; Forget Cadences</strong>
+ <span>Multi-step drip campaigns with reply detection run 24/7 on your server.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Pre-Send Spam Guard</strong>
+ <span>Flags risky words before they damage a client's sender reputation.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Subject Line Rotation</strong>
+ <span>A/B test multiple subjects simultaneously across your entire sender pool.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>$0 Per-Client Seat Cost</strong>
+ <span>Unlimited mailboxes, unlimited team members — no per-seat surcharges.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Unified Admin Dashboard</strong>
+ <span>Manage every client from one dashboard. Switch workspaces in one click.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>AI Personalization</strong>
+ <span>Unique openers and P.S. lines per lead — written by AI, not copy-pasted.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Auto-Healing Reputation</strong>
+ <span>Blacklisted domain? Cleanmails pauses and rotates it out automatically.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Master-Satellite Cluster</strong>
+ <span>Deploy nodes globally, manage everything from one Master dashboard.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Ghost Tracking Domains</strong>
+ <span>Each workspace gets its own tracking domain. Zero footprints, full branding.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Hybrid Validation 3.0</strong>
+ <span>SMTP + private Google/Outlook/Yahoo API checks. Near 100% accuracy.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>Inbuilt Warmup System</strong>
+ <span>Builds sender reputation automatically. Stop paying $29/mo per inbox.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>100% Data Sovereignty</strong>
+ <span>Leads, lists, and campaigns never leave your server. You own everything.</span>
+ </div>
+ </div>
+ <div class="feature-point">
+ <span class="fp-icon"></span>
+ <div>
+ <strong>One-Tap Turbo Updates</strong>
+ <span>Latest features and security patches in a single click. Zero maintenance.</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- PAIN SECTION -->
+ <section class="pain-section section" id="pain">
+ <div class="section-inner">
+ <span class="section-label" style="background:#e63946; border-color:#e63946; color:#fff;">The Agency Margin Bleed</span>
+ <h2 class="section-headline">Stop Paying a "Success Tax"<br>on Every New Client.</h2>
+ <p class="section-sub">Traditional tools punish you for growing. The more clients you win, the more they charge. It's time to own your stack.</p>
+
+ <div class="pain-grid">
+ <div class="pain-card">
+ <div class="pain-card-name">Instantly</div>
+ <h3>Active lead limits. Per-email fees.</h3>
+ <p>Costs scale as you scale. The moment you start winning, your bill goes up.</p>
+ <div class="pain-cost">$37–$97/mo &nbsp;→&nbsp; <strong>$444–$1,164/yr</strong></div>
+ </div>
+ <div class="pain-card">
+ <div class="pain-card-name">Smartlead</div>
+ <h3>2,000 active leads on basic.</h3>
+ <p>6,000 emails/month cap. Pay more to do more. Growth is punished, not rewarded.</p>
+ <div class="pain-cost">$39–$94/mo &nbsp;→&nbsp; <strong>$468–$1,128/yr</strong></div>
+ </div>
+ <div class="pain-card">
+ <div class="pain-card-name">Lemlist</div>
+ <h3>Per-seat pricing. Costs explode.</h3>
+ <p>Every feature is an upsell. Hire someone? Pay more. Every person who joins hits your credit card.</p>
+ <div class="pain-cost"><strong>$59–$99/mo per seat</strong></div>
+ </div>
+ </div>
+
+ <div class="pain-banner">
+ <p><strong>Running 10 Client Campaigns?</strong><br>You're looking at $400–$700/month in tool costs alone. Before staff. Before ads.</p>
+ <div class="pain-banner-cost">
+ $4,800–$8,400
+ <span>/ year — and rising</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+
+
+ <!-- COMPARISON SECTION -->
+ <section class="compare-section section" id="compare">
+ <div class="section-inner">
+ <span class="section-label">Comparison</span>
+ <h2 class="section-headline">How we stack up.</h2>
+ <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing." 
+ <br>
+ <a href="/cleanmails-vs-instantly" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Instantly</a> | 
+ <a href="/cleanmails-vs-smartlead" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Smartlead</a>
+ </p>
+
+ <div class="compare-table-wrap">
+ <table class="compare-table">
+ <thead>
+ <tr>
+ <th>Feature</th>
+ <th style="color: var(--gold);">Cleanmails </th>
+ <th>Instantly</th>
+ <th>Smartlead</th>
+ <th>Lemlist</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Pricing model</td>
+ <td class="highlight-col" style="color:#2ecc71; font-weight:900;">One-time</td>
+ <td>Monthly</td>
+ <td>Monthly</td>
+ <td>Monthly</td>
+ </tr>
+ <tr>
+ <td>Email sending limit</td>
+ <td class="yes highlight-col">Unlimited</td>
+ <td class="no">Capped</td>
+ <td class="no">Capped</td>
+ <td class="no">Capped</td>
+ </tr>
+ <tr>
+ <td>SMTP handshake validation</td>
+ <td class="yes highlight-col"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Catch-all detection</td>
+ <td class="yes highlight-col"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Spam word detector</td>
+ <td class="yes highlight-col"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Spintax support</td>
+ <td class="yes highlight-col"></td>
+ <td class="yes"></td>
+ <td class="yes"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Lead Data Privacy</td>
+ <td class="yes highlight-col">100% Private (Self-Hosted)</td>
+ <td class="no">Shared/Cloud</td>
+ <td class="no">Shared/Cloud</td>
+ <td class="no">Shared/Cloud</td>
+ </tr>
+ <tr>
+ <td>AI Personalization</td>
+ <td class="yes highlight-col">Advanced AI</td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Cluster Scalability</td>
+ <td class="yes highlight-col"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ <tr>
+ <td>Inbuilt Warmup System</td>
+ <td class="yes highlight-col"> (Included)</td>
+ <td class="no">+$29/mo</td>
+ <td class="no">+$29/mo</td>
+ <td class="no">+$29/mo</td>
+ </tr>
+ <tr>
+ <td>Setup & Support</td>
+ <td class="highlight-col" style="color:#2ecc71; font-weight:900; font-size:0.9rem;">Included White-Glove</td>
+ <td class="no"></td>
+ <td class="no"></td>
+ <td class="no"></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+ </section>
+
+ <!-- ROI SECTION — commented out
+ <section class="roi-section section" id="roi">
+ <div class="section-inner">
+ <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">Savings Calculator</span>
+ <h2 class="section-headline">Calculate Your Tool-Tax.</h2>
+ <p class="section-sub">Stop donating your agency's profit to software companies. See exactly how much you're losing every single year.</p>
+
+ <div class="calculator-card">
+ <div class="calc-inputs">
+ <div class="calc-slider-wrap">
+ <label class="calc-label">Total Client Workspaces</label>
+ <input type="range" id="calc-clients" class="calc-slider" min="1" max="50" value="10">
+ <span class="calc-value" id="calc-clients-val">10</span>
+ </div>
+ <div class="calc-slider-wrap">
+ <label class="calc-label">Monthly per-client cost (Avg $50)</label>
+ <input type="range" id="calc-cost" class="calc-slider" min="30" max="150" value="50">
+ <span class="calc-value" id="calc-cost-val">$50</span>
+ </div>
+ </div>
+ <div class="calc-results">
+ <span class="calc-result-title">Your Yearly Savings with Cleanmails</span>
+ <div class="calc-saving-amount" id="calc-total">$5,503</div>
+ <p class="calc-saving-period">ROI Achieved in <span id="calc-roi" style="color:var(--gold); font-weight:900;">4.2</span> weeks</p>
+ <div style="margin-top: 24px; font-size: 0.8rem; color: #666; font-weight: 700;">*Compared to Smartlead/Instantly Pro plans</div>
+ </div>
+ </div>
+ </div>
+ </section>
+ -->
+
+ <!-- PRICING SECTION -->
+ <section class="pricing-section section" id="pricing">
+ <div class="section-inner">
+ <span class="section-label">Pricing</span>
+ <h2 class="section-headline">One price. Forever.</h2>
+ <p class="section-sub">No subscriptions. No per-seat fees. No gotchas.</p>
+
+ <div class="pricing-main">
+
+ <!-- Agency — Featured Card -->
+ <div class="pricing-featured">
+ <div class="pf-top">
+ <div class="pf-left">
+ <span class="pf-badge">Agency Founder Batch</span>
+ <div class="pf-name">Agency Professional</div>
+ <div class="pf-price-row">
+ <span class="pf-old">$697</span>
+ <span class="pf-price">$497</span>
+ </div>
+ <div class="pf-period">one-time payment · yours forever</div>
+ <span class="pf-hike">Price increases to $697 on May 15th</span>
+ </div>
+ <div class="pf-cta-wrap">
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="pf-btn">Get Agency Access →</a>
+ <span class="pf-guarantee">1-month money-back guarantee</span>
+ </div>
+ </div>
+
+ <hr class="pf-divider">
+
+ <div class="pf-features">
+ <div class="pf-feature">Inbuilt SMTP Engine</div>
+ <div class="pf-feature">Email Validation</div>
+ <div class="pf-feature">Sender Rotation</div>
+ <div class="pf-feature">Cadence Automation</div>
+ <div class="pf-feature">AI Personalization</div>
+ <div class="pf-feature">Inbuilt Warmup System</div>
+ <div class="pf-feature">Ghost Tracking Domains</div>
+ <div class="pf-feature">Auto-Healing Reputation</div>
+ <div class="pf-feature">Unlimited Mailboxes & Domains</div>
+ <div class="pf-feature">Unlimited Workspaces & Clients</div>
+ <div class="pf-feature">Unified Admin Dashboard</div>
+ <div class="pf-feature">Free Installation on Request</div>
+ </div>
+ </div>
+
+ <!-- SaaS Rights — Secondary Strip -->
+ <div class="pricing-secondary">
+ <div class="ps-left">
+ <div class="ps-name">Enterprise / SaaS Rights</div>
+ <div class="ps-price">$1997</div>
+ <div class="ps-period">one-time payment</div>
+ </div>
+ <div class="ps-features">
+ <span class="ps-feature">Full Commercial Resell Rights</span>
+ <span class="ps-feature">Source Code Access (Go + React)</span>
+ <span class="ps-feature">Build Your Own SaaS Platform</span>
+ <span class="ps-feature">Priority Developer Support</span>
+ <span class="ps-feature">Cloud Infrastructure Consulting</span>
+ </div>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapElOZWiSbybTKLYv3O?quantity=1&redirect_url=https://cleanmails.online/success-enterprise" class="ps-btn">Claim SaaS Rights →</a>
+ </div>
+
+ </div>
+
+ <div class="pricing-badges">
+ <span class="pricing-badge">1-month money-back guarantee</span>
+ <span class="pricing-badge">Free lifetime updates</span>
+ <span class="pricing-badge">Free installation on request</span>
+ <span class="pricing-badge">Inbuilt world-class validator</span>
+ </div>
+ </div>
+ </section>
+
+ <!-- AFFILIATE SECTION -->
+ <section class="affiliate-section section" id="affiliate">
+ <div class="section-inner">
+ <div class="affiliate-card">
+ <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
+ <h2 class="section-headline">Join Affiliate. <br> $50 per sale.</h2>
+ <p class="section-sub">Help other agency owners escape the monthly SaaS trap and get paid on the 20th and 30th of every month. No caps, zero friction.</p>
+ <a href="/affiliate" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ SECTION -->
+ <section class="faq-section section" id="faq">
+ <div class="section-inner">
+ <span class="section-label">FAQ</span>
+ <h2 class="section-headline">Common questions.</h2>
+
+ <div class="faq-list">
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">No. Installation assistance is included with every license. We handle the setup on your server end-to-end. You're ready to send on day one.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">What server do I need?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">It depends on how you use it. If you're using the <strong>inbuilt SMTP relay or inbuilt email validation</strong>, a Linux VPS with <strong>Port 25 open</strong> is required — most providers block it by default, so pick one that allows it (Hetzner and Contabo are good options). A $6–$10/month VPS handles thousands of emails per day comfortably. If you're using an <strong>external relay</strong> (AWS SES, SendGrid, etc.) and external validation, Port 25 is not needed — you can even run Cleanmails locally on your own machine with no VPS at all.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits. The only limit is your server's capacity — which on a standard VPS is massive.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">What happens after I buy — how do updates work?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">You get access to the current version of the software forever — and all future feature updates and performance patches are included free. No maintenance plan, no renewal fees. Updates are yours as long as you hold a license.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Does Cleanmails have inbuilt SMTP or do I need a relay?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Cleanmails turns your server into a high-performance outbound sender with its <strong>fully built-in SMTP engine</strong>. This means you can start sending campaigns immediately without subscribing to any 3rd-party relays. External providers like AWS SES or SendGrid are completely optional, not required.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Can I use this for client campaigns?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Yes — the Agency license covers unlimited client campaigns on unlimited installs. You get your own custom domain, logo branding, and a unified admin dashboard to make the system truly yours. The <strong>Sell as your SaaS</strong> license adds full commercial resell rights and source code access.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Do I need to buy SMTP accounts separately?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">No separate accounts are required. Cleanmails is designed to be a complete 'out-of-the-box' solution where your VPS handles both the dashboard and the actual email sending. You only pay for your server, while the software manages the rest without any added per-email or per-account fees.</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- FINAL CTA -->
+ <section class="final-cta-section">
+ <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Escape the Subscription Trap</span>
+ <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
+ <p class="section-sub">Join the Founders Batch today and lock in Free Lifetime Updates. Limited to first 100 Agencies only.</p>
+ <div class="final-cta-btns">
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="finalCta">Claim Agency Access Now →</a>
+ </div>
+ </section>
+
+ <!-- WAITLIST MODAL -->
+ <div class="modal-overlay" id="waitlistModal">
+ <div class="modal-content">
+ <div class="modal-close" id="closeModal">×</div>
+ <form id="waitlistForm" class="waitlist-form">
+ <h2>Join the Waitlist </h2>
+ <p>Secure your spot now and get an exclusive bonus gift upon launch.</p>
+ 
+ <div class="form-group">
+ <label>Full Name</label>
+ <input type="text" id="wName" name="name" placeholder="John Doe" required>
+ </div>
+ 
+ <div class="form-group">
+ <label>Work Email</label>
+ <input type="email" id="wEmail" name="email" placeholder="john@example.com" required>
+ </div>
+ 
+ <div class="form-group">
+ <label>I am a...</label>
+ <select id="wCategory" name="category" required>
+ <option value="" disabled selected>Select your profile</option>
+ <option value="agency">Agency Owner</option>
+ <option value="freelancer">Solo Professional</option>
+ <option value="founder">Saas Founder</option>
+ </select>
+ </div>
+ 
+ <button type="submit" class="waitlist-submit" id="wSubmit">Submit & Get Access →</button>
+ <p style="font-size: 0.75rem; margin-top: 16px; margin-bottom: 0;">You will be redirected to our Cold Email Masterclass upon submission.</p>
+ </form>
+ </div>
+ </div>
+
+ <!-- FOOTER -->
+ <footer class="footer">
+ <div class="footer-inner">
+ <div class="footer-brand">Cleanmails</div>
+ <nav class="footer-links">
+ <div class="footer-col">
+ <strong>Platform</strong>
+ <a href="/">Home</a>
+ <a href="/verify">Free Validator</a>
+ <a href="/affiliate">Affiliate Program</a>
+ <a href="/docs">Documentation</a>
+ </div>
+ <div class="footer-col">
+ <strong>Infrastructure</strong>
+ <a href="/email-validation">Email Validation</a>
+ <a href="/sender-rotation">Sender Rotation</a>
+ <a href="/spintax-generator">Spintax & AI</a>
+ <a href="/cold-email-cadence">Outbound Cadence</a>
+ </div>
+ <div class="footer-col">
+ <strong>Compare</strong>
+ <a href="/cleanmails-vs-instantly">vs Instantly</a>
+ <a href="/cleanmails-vs-smartlead">vs Smartlead</a>
+ </div>
+ <div class="footer-col">
+ <strong>Legal</strong>
+ <a href="/terms">Terms of Service</a>
+ <a href="/privacy">Privacy Policy</a>
+ </div>
+ </nav>
+ <div class="footer-newsletter" style="margin-left: 0; text-align: left;">
+ <h4>Join the Cold Email Newsletter</h4>
+ <form id="newsletterForm" class="newsletter-form">
+ <input type="email" id="nEmail" class="newsletter-input" placeholder="your@email.com" required>
+ <button type="submit" id="nSubmit" class="newsletter-btn">Join</button>
+ </form>
+ </div>
+ <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
+ <p class="footer-built">Engine built with <a href="https://go.dev" target="_blank" rel="noopener noreferrer" class="footer-built-link">Go</a></p>
+ </div>
+ </footer>
+
+ <!-- TOAST -->
+ <div class="toast" id="toast">
+ <span class="toast-icon"></span>
+ <span id="toastMsg">Copied!</span>
+ </div>
+
+ <script type="module">
+ import { db, collection, addDoc, serverTimestamp } from './firebase-config.js';
+
+ // Modal Logic
+ const modal = document.getElementById('waitlistModal');
+ const triggerBtns = document.querySelectorAll('.waitlist-trigger');
+ const closeBtn = document.getElementById('closeModal');
+
+ triggerBtns.forEach(btn => {
+ btn.addEventListener('click', (e) => {
+ e.preventDefault();
+ modal.classList.add('active');
+ document.body.style.overflow = 'hidden';
+ });
+ });
+
+ const closeModalFunc = () => {
+ modal.classList.remove('active');
+ document.body.style.overflow = 'auto';
+ };
+
+ closeBtn.addEventListener('click', closeModalFunc);
+ modal.addEventListener('click', (e) => {
+ if (e.target === modal) closeModalFunc();
+ });
+
+ // FAQ Accordion
+ document.querySelectorAll('.faq-question').forEach(btn => {
+ btn.addEventListener('click', () => {
+ const item = btn.closest('.faq-item');
+ const isOpen = item.classList.contains('open');
+ document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+ if (!isOpen) item.classList.add('open');
+ btn.setAttribute('aria-expanded', !isOpen);
+ });
+ });
+
+ // ROI Calculator Logic
+ const sliderClients = document.getElementById('calc-clients');
+ const sliderCost = document.getElementById('calc-cost');
+ const displayClients = document.getElementById('calc-clients-val');
+ const displayCost = document.getElementById('calc-cost-val');
+ const displayTotal = document.getElementById('calc-total');
+ const displayRoi = document.getElementById('calc-roi');
+
+ function updateCalc() {
+ const clients = parseInt(sliderClients.value);
+ const cost = parseInt(sliderCost.value);
+ const yearlyCost = clients * cost * 12;
+ const savings = yearlyCost - 497;
+ const weeklyRevenueLoss = (clients * cost) / 4.33;
+ const roiWeeks = (497 / (clients * cost / 4.33)).toFixed(1);
+
+ displayClients.innerText = clients;
+ displayCost.innerText = `$${cost}`;
+ displayTotal.innerText = `$${savings.toLocaleString()}`;
+ displayRoi.innerText = roiWeeks;
+ }
+
+ sliderClients.addEventListener('input', updateCalc);
+ sliderCost.addEventListener('input', updateCalc);
+ updateCalc();
+
+ // Header Shrink Logic
+ const siteHeader = document.querySelector('.site-header');
+ window.addEventListener('scroll', () => {
+ if (window.scrollY > 100) {
+ siteHeader.classList.add('scrolled');
+ } else {
+ siteHeader.classList.remove('scrolled');
+ }
+ });
+
+ // Waitlist Form Submission
+ const wForm = document.getElementById('waitlistForm');
+ const wSubmit = document.getElementById('wSubmit');
+
+ if (wForm) {
+ wForm.addEventListener('submit', async (e) => {
+ e.preventDefault();
+ const originalText = wSubmit.innerText;
+ 
+ const formData = {
+ name: document.getElementById('wName').value,
+ email: document.getElementById('wEmail').value,
+ category: document.getElementById('wCategory').value,
+ source: 'landing_page_waitlist',
+ status: 'pending',
+ createdAt: serverTimestamp()
+ };
+
+ // UI Feedback (Affiliate Logic)
+ wSubmit.disabled = true;
+ wSubmit.innerText = 'Submitting...';
+ wSubmit.style.opacity = '0.7';
+ wSubmit.style.cursor = 'not-allowed';
+
+ try {
+ await addDoc(collection(db, "waitlist"), formData);
+ showToast('You are on the list! Redirecting...', '');
+ e.target.reset();
+ 
+ setTimeout(() => {
+ window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
+ }, 1200);
+
+ } catch (error) {
+ console.error("Firestore Error:", error);
+ let errorMsg = 'Error joining. Try again.';
+ if (error.code === 'permission-denied') {
+ errorMsg = 'Permission Denied. Please check Firestore rules.';
+ }
+ showToast(errorMsg, '');
+ 
+ // Fail-safe redirect if it's just a rule issue
+ setTimeout(() => {
+ window.location.href = "https://hustlerscult.notion.site/millionmails-2f441e46f2f9806f8d78f22a03e8070e";
+ }, 2000);
+ } finally {
+ wSubmit.disabled = false;
+ wSubmit.innerText = originalText;
+ wSubmit.style.opacity = '1';
+ wSubmit.style.cursor = 'pointer';
+ }
+ });
+ }
+
+ // Newsletter Form Submission
+ const nForm = document.getElementById('newsletterForm');
+ const nSubmit = document.getElementById('nSubmit');
+
+ if (nForm) {
+ nForm.addEventListener('submit', async (e) => {
+ e.preventDefault();
+ const originalText = nSubmit.innerText;
+ 
+ const formData = {
+ email: document.getElementById('nEmail').value,
+ source: 'footer_newsletter',
+ status: 'pending',
+ createdAt: serverTimestamp()
+ };
+
+ nSubmit.disabled = true;
+ nSubmit.innerText = 'Joining...';
+ nSubmit.style.opacity = '0.7';
+ nSubmit.style.cursor = 'not-allowed';
+
+ try {
+ await addDoc(collection(db, "newsletter"), formData);
+ showToast('Welcome to the inner circle! ', '');
+ e.target.reset();
+ } catch (error) {
+ console.error("Firestore Error:", error);
+ showToast('Error joining. Try again.', '');
+ } finally {
+ nSubmit.disabled = false;
+ nSubmit.innerText = originalText;
+ nSubmit.style.opacity = '1';
+ nSubmit.style.cursor = 'pointer';
+ }
+ });
+ }
+
+ function showToast(message, icon = '') {
+ const toast = document.getElementById('toast');
+ const toastMsg = document.getElementById('toastMsg');
+ const toastIcon = toast.querySelector('.toast-icon');
+ if (!toast) return;
+
+ toastMsg.innerText = message;
+ toastIcon.innerText = icon;
+
+ toast.classList.add('show');
+ setTimeout(() => toast.classList.remove('show'), 4000);
+ }
+
+ // GTM Events
+ document.addEventListener('DOMContentLoaded', () => {
+ const heroCta = document.getElementById('heroCta');
+ if (heroCta) heroCta.addEventListener('click', () =>
+ gtag('event', 'click_hero_cta', { event_category: 'engagement', event_label: 'Hero CTA' }));
+
+ const finalCta = document.getElementById('finalCta');
+ if (finalCta) finalCta.addEventListener('click', () =>
+ gtag('event', 'click_final_cta', { event_category: 'engagement', event_label: 'Final CTA' }));
+ });
+
+ // SCREENSHOT INTERACTIVITY & AUTO-SCROLL
+ const slider = document.querySelector('.screenshot-scroll-container');
+ const ssPrev = document.getElementById('ssPrev');
+ const ssNext = document.getElementById('ssNext');
+ let isDown = false;
+ let startX;
+ let scrollLeft;
+ let autoScrollInterval;
+
+ const startAutoScroll = () => {
+ autoScrollInterval = setInterval(() => {
+ if (!isDown) {
+ if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 1) {
+ slider.scrollLeft = 0;
+ } else {
+ slider.scrollLeft += 1;
+ }
+ }
+ }, 30);
+ };
+
+ const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+ slider.addEventListener('mousedown', (e) => {
+ isDown = true;
+ slider.style.cursor = 'grabbing';
+ startX = e.pageX - slider.offsetLeft;
+ scrollLeft = slider.scrollLeft;
+ });
+
+ slider.addEventListener('mouseleave', () => {
+ isDown = false;
+ slider.style.cursor = 'grab';
+ startAutoScroll();
+ });
+
+ slider.addEventListener('mouseup', () => {
+ isDown = false;
+ slider.style.cursor = 'grab';
+ });
+
+ slider.addEventListener('mousemove', (e) => {
+ if (!isDown) return;
+ e.preventDefault();
+ const x = e.pageX - slider.offsetLeft;
+ const walk = (x - startX) * 2;
+ slider.scrollLeft = scrollLeft - walk;
+ });
+
+ slider.addEventListener('mouseenter', stopAutoScroll);
+
+ // Manual Navigation
+ ssPrev.addEventListener('click', () => {
+ slider.scrollBy({ left: -700, behavior: 'smooth' });
+ });
+ ssNext.addEventListener('click', () => {
+ slider.scrollBy({ left: 700, behavior: 'smooth' });
+ });
+
+ startAutoScroll();
+ </script>
 </body>
 </html>
