@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +15,7 @@
  </script>
 
  <!-- SEO -->
- <title>Best Self-Hosted Cold Email Tool — SMTP Rotation, Validation & Cadences | Cleanmails</title>
+ <title>Best Self-Hosted Cold Email Tool â€” SMTP Rotation, Validation & Cadences | Cleanmails</title>
  <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. Inbuilt SMTP, unlimited sender rotation, email validation, spintax, cadences & automation. One-time payment, no monthly fees, no caps.">
  <meta name="keywords" content="self hosted cold email tool, cold email software, SMTP rotation, email validation, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, email list cleaning, catch-all detection, bulk email sender">
  <link rel="canonical" href="https://cleanmails.online" />
@@ -43,7 +43,7 @@
  "@type": "FAQPage",
  "mainEntity": [
  { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free installation is included with every license. We handle the setup on your server end-to-end." } },
- { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how you use it. If you're using the inbuilt SMTP relay or inbuilt email validation, a Linux VPS with Port 25 open is required. If you're using an external relay and external validation, Port 25 is not needed — you can even run Cleanmails locally with no VPS at all." } },
+ { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on how you use it. If you're using the inbuilt SMTP relay or inbuilt email validation, a Linux VPS with Port 25 open is required. If you're using an external relay and external validation, Port 25 is not needed â€” you can even run Cleanmails locally with no VPS at all." } },
  { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with an inbuilt SMTP engine. You can use it directly or plug in AWS SES, SendGrid, Gmail, or any external relay for higher deliverability." } },
  { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits." } }
  ]
@@ -56,14 +56,14 @@
  <!-- Open Graph -->
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://cleanmails.online">
- <meta property="og:title" content="Best Self-Hosted Cold Email Tool — SMTP, Validation & Cadences | Cleanmails">
+ <meta property="og:title" content="Best Self-Hosted Cold Email Tool â€” SMTP, Validation & Cadences | Cleanmails">
  <meta property="og:description" content="Self-hosted cold email with inbuilt SMTP, unlimited sender rotation, email validation, spintax & cadences. One-time payment, no monthly fees.">
  <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
  <!-- Twitter -->
  <meta property="twitter:card" content="summary_large_image">
  <meta property="twitter:url" content="https://cleanmails.online">
- <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
+ <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool â€” No Monthly Fees | Cleanmails">
  <meta property="twitter:description" content="Inbuilt SMTP. Unlimited everything. Spintax, cadences, email validation. One-time payment.">
  <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
@@ -75,7 +75,7 @@
 
  <style>
  /* =============================================
- PAGE-LEVEL STYLES — NEW LANDING PAGE
+ PAGE-LEVEL STYLES â€” NEW LANDING PAGE
  =============================================*/
 
  :root {
@@ -118,6 +118,7 @@
  .site-header {
  position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
  border-bottom: 3px solid var(--black);
+ transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease;
  }
  .nav-inner {
  max-width: 1100px; margin: 0 auto; padding: 14px 24px;
@@ -141,20 +142,19 @@
  }
 
  /* Shrink State */
+ .site-header.hidden {
+ transform: translateY(-100%) !important;
+ }
  .site-header.scrolled {
- box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+ box-shadow: 0 4px 20px rgba(0,0,0,0.08);
  }
  .site-header.scrolled .announcement-bar {
- height: 0; padding: 0; border-bottom: none; overflow: hidden; opacity: 0;
+ height: 0 !important; padding: 0 !important; border-bottom: none; overflow: hidden; opacity: 0;
  }
  .site-header.scrolled .nav-inner {
  padding: 8px 24px;
  }
- .site-header.scrolled .nav-logo {
- transform: scale(0.95);
- }
  .site-header.scrolled .nav-cta {
- transform: scale(1.05);
  box-shadow: 5px 5px 0 var(--black);
  background: var(--black);
  color: var(--white);
@@ -436,7 +436,7 @@
 
  .pricing-main { margin-top: 40px; max-width: 860px; margin-left: auto; margin-right: auto; }
 
- /* Featured plan — big card */
+ /* Featured plan â€” big card */
  .pricing-featured {
  background: var(--white); border: 3px solid var(--white);
  border-radius: 24px; padding: 48px;
@@ -491,13 +491,13 @@
  font-size: 0.85rem; font-weight: 600; color: #333;
  }
  .pf-feature::before {
- content: '✓'; font-weight: 900; color: var(--black);
+ content: 'âœ“'; font-weight: 900; color: var(--black);
  background: var(--gold); width: 18px; height: 18px; border-radius: 50%;
  display: flex; align-items: center; justify-content: center;
  font-size: 0.65rem; flex-shrink: 0; margin-top: 1px;
  }
 
- /* Secondary plan — slim strip */
+ /* Secondary plan â€” slim strip */
  .pricing-secondary {
  background: #111; border: 2px solid #333;
  border-radius: 20px; padding: 28px 36px;
@@ -515,7 +515,7 @@
  font-size: 0.8rem; font-weight: 600; color: #888;
  display: flex; align-items: center; gap: 6px;
  }
- .ps-feature::before { content: '—'; color: #444; }
+ .ps-feature::before { content: 'â€”'; color: #444; }
  .ps-btn {
  background: var(--white); color: var(--black); font-weight: 900; font-size: 0.88rem;
  padding: 12px 24px; border-radius: 12px; border: 2px solid var(--white);
@@ -662,11 +662,10 @@
 
  .announcement-bar {
  background: var(--gold); color: var(--black); text-align: center;
- padding: 6px 20px; font-size: 0.85rem; font-weight: 800;
- border-bottom: 2px solid rgba(0,0,0,0.1);
+ padding: 5px 20px; font-size: 0.78rem; font-weight: 700;
+ border-bottom: 2px solid rgba(0,0,0,0.12);
  transition: all 0.3s ease;
- height: auto;
- opacity: 1;
+ overflow: hidden;
  }
  .nav {
  background: rgba(250,250,250,0.95); backdrop-filter: blur(12px);
@@ -872,7 +871,6 @@
  .roi-box { padding: 32px 24px; }
  .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
  .timeline-step:last-child { border-bottom: none; }
- .site-header.scrolled .announcement-bar { display: none; }
  .section { padding: 60px 20px; }
  .final-cta-section { padding: 80px 20px; }
  .modal-content { padding: 32px 20px; border-radius: 20px; }
@@ -899,8 +897,8 @@
  <li><a href="#pricing">Pricing</a></li>
  </ul>
  <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="nav-cta">
- <span class="desktop-text">Claim Agency License →</span>
- <span class="mobile-text">Claim Offer →</span>
+ <span class="desktop-text">Claim Agency License â†’</span>
+ <span class="mobile-text">Claim Offer â†’</span>
  </a>
  </div>
  </nav>
@@ -911,7 +909,7 @@
 
  <div class="hero-eyebrow">
  <span class="hero-live-dot"></span>
- Founders Batch — <strong>$497 until May 15th</strong>
+ Founders Batch â€” <strong>$497 until May 15th</strong>
  </div>
 
  <h1 class="hero-headline">
@@ -919,7 +917,7 @@
  </h1>
 
  <p class="hero-sub">
- Send campaigns, validate lists, rotate senders, and run cadences — all from your own server. One-time payment. No monthly fees. No limits.
+ Send campaigns, validate lists, rotate senders, and run cadences â€” all from your own server. One-time payment. No monthly fees. No limits.
  </p>
 
  <div class="hero-pills">
@@ -932,7 +930,7 @@
  </div>
 
  <div class="hero-ctas">
- <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="heroCta">Get Cleanmails — $497 →</a>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="heroCta">Get Cleanmails â€” $497 â†’</a>
  <a href="#features" class="btn-secondary">See What's Inside</a>
  </div>
 
@@ -976,7 +974,7 @@
  <div class="section-inner">
  <span class="section-label">How It Works</span>
  <h2 class="section-headline">Live in 4 steps.</h2>
- <p class="section-sub">From sign-up to sending your first cold email — in under 24 hours.</p>
+ <p class="section-sub">From sign-up to sending your first cold email â€” in under 24 hours.</p>
  <div class="timeline">
  <div class="timeline-step">
  <span class="step-num">01</span>
@@ -1012,7 +1010,7 @@
  <!-- SMTP Highlight Card -->
  <div class="smtp-highlight" style="margin-bottom: 48px;">
  <h3> Stop Buying SMTP Relays</h3>
- <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">Learn about SMTP Rotation →</a></p>
+ <p>Cleanmails ships with a <strong>fully inbuilt SMTP engine</strong>. You can start sending client campaigns immediately without buying a separate relay. If you prefer, plug in <strong>AWS SES, SendGrid, Mailgun, or Gmail</strong> in seconds. Total flexibility, zero lock-in. <a href="/sender-rotation" style="color: var(--black); font-weight: 800; text-decoration: underline;">Learn about SMTP Rotation â†’</a></p>
  <div class="smtp-tags">
  <span class="smtp-tag active">Inbuilt SMTP </span>
  <span class="smtp-tag">AWS SES</span>
@@ -1029,7 +1027,7 @@
  <span class="fp-icon"></span>
  <div>
  <strong>Zero-Risk Client Scaling</strong>
- <span>Rotate unlimited senders automatically — no tool-imposed limits, ever.</span>
+ <span>Rotate unlimited senders automatically â€” no tool-imposed limits, ever.</span>
  </div>
  </div>
  <div class="feature-point">
@@ -1071,7 +1069,7 @@
  <span class="fp-icon"></span>
  <div>
  <strong>$0 Per-Client Seat Cost</strong>
- <span>Unlimited mailboxes, unlimited team members — no per-seat surcharges.</span>
+ <span>Unlimited mailboxes, unlimited team members â€” no per-seat surcharges.</span>
  </div>
  </div>
  <div class="feature-point">
@@ -1085,7 +1083,7 @@
  <span class="fp-icon"></span>
  <div>
  <strong>AI Personalization</strong>
- <span>Unique openers and P.S. lines per lead — written by AI, not copy-pasted.</span>
+ <span>Unique openers and P.S. lines per lead â€” written by AI, not copy-pasted.</span>
  </div>
  </div>
  <div class="feature-point">
@@ -1153,27 +1151,27 @@
  <div class="pain-card-name">Instantly</div>
  <h3>Active lead limits. Per-email fees.</h3>
  <p>Costs scale as you scale. The moment you start winning, your bill goes up.</p>
- <div class="pain-cost">$37–$97/mo &nbsp;→&nbsp; <strong>$444–$1,164/yr</strong></div>
+ <div class="pain-cost">$37â€“$97/mo &nbsp;â†’&nbsp; <strong>$444â€“$1,164/yr</strong></div>
  </div>
  <div class="pain-card">
  <div class="pain-card-name">Smartlead</div>
  <h3>2,000 active leads on basic.</h3>
  <p>6,000 emails/month cap. Pay more to do more. Growth is punished, not rewarded.</p>
- <div class="pain-cost">$39–$94/mo &nbsp;→&nbsp; <strong>$468–$1,128/yr</strong></div>
+ <div class="pain-cost">$39â€“$94/mo &nbsp;â†’&nbsp; <strong>$468â€“$1,128/yr</strong></div>
  </div>
  <div class="pain-card">
  <div class="pain-card-name">Lemlist</div>
  <h3>Per-seat pricing. Costs explode.</h3>
  <p>Every feature is an upsell. Hire someone? Pay more. Every person who joins hits your credit card.</p>
- <div class="pain-cost"><strong>$59–$99/mo per seat</strong></div>
+ <div class="pain-cost"><strong>$59â€“$99/mo per seat</strong></div>
  </div>
  </div>
 
  <div class="pain-banner">
- <p><strong>Running 10 Client Campaigns?</strong><br>You're looking at $400–$700/month in tool costs alone. Before staff. Before ads.</p>
+ <p><strong>Running 10 Client Campaigns?</strong><br>You're looking at $400â€“$700/month in tool costs alone. Before staff. Before ads.</p>
  <div class="pain-banner-cost">
- $4,800–$8,400
- <span>/ year — and rising</span>
+ $4,800â€“$8,400
+ <span>/ year â€” and rising</span>
  </div>
  </div>
  </div>
@@ -1287,7 +1285,7 @@
  </div>
  </section>
 
- <!-- ROI SECTION — commented out
+ <!-- ROI SECTION â€” commented out
  <section class="roi-section section" id="roi">
  <div class="section-inner">
  <span class="section-label" style="background:#2ecc71; border-color:#2ecc71; color:#000;">Savings Calculator</span>
@@ -1327,7 +1325,7 @@
 
  <div class="pricing-main">
 
- <!-- Agency — Featured Card -->
+ <!-- Agency â€” Featured Card -->
  <div class="pricing-featured">
  <div class="pf-top">
  <div class="pf-left">
@@ -1337,11 +1335,11 @@
  <span class="pf-old">$697</span>
  <span class="pf-price">$497</span>
  </div>
- <div class="pf-period">one-time payment · yours forever</div>
+ <div class="pf-period">one-time payment Â· yours forever</div>
  <span class="pf-hike">Price increases to $697 on May 15th</span>
  </div>
  <div class="pf-cta-wrap">
- <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="pf-btn">Get Agency Access →</a>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online/success" class="pf-btn">Get Agency Access â†’</a>
  <span class="pf-guarantee">1-month money-back guarantee</span>
  </div>
  </div>
@@ -1364,7 +1362,7 @@
  </div>
  </div>
 
- <!-- SaaS Rights — Secondary Strip -->
+ <!-- SaaS Rights â€” Secondary Strip -->
  <div class="pricing-secondary">
  <div class="ps-left">
  <div class="ps-name">Enterprise / SaaS Rights</div>
@@ -1378,7 +1376,7 @@
  <span class="ps-feature">Priority Developer Support</span>
  <span class="ps-feature">Cloud Infrastructure Consulting</span>
  </div>
- <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapElOZWiSbybTKLYv3O?quantity=1&redirect_url=https://cleanmails.online/success-enterprise" class="ps-btn">Claim SaaS Rights →</a>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapElOZWiSbybTKLYv3O?quantity=1&redirect_url=https://cleanmails.online/success-enterprise" class="ps-btn">Claim SaaS Rights â†’</a>
  </div>
 
  </div>
@@ -1399,7 +1397,7 @@
  <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
  <h2 class="section-headline">Join Affiliate. <br> $50 per sale.</h2>
  <p class="section-sub">Help other agency owners escape the monthly SaaS trap and get paid on the 20th and 30th of every month. No caps, zero friction.</p>
- <a href="/affiliate" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
+ <a href="/affiliate" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program â†’</a>
  </div>
  </div>
  </section>
@@ -1423,21 +1421,21 @@
  <span class="faq-question-text">What server do I need?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">It depends on how you use it. If you're using the <strong>inbuilt SMTP relay or inbuilt email validation</strong>, a Linux VPS with <strong>Port 25 open</strong> is required — most providers block it by default, so pick one that allows it (Hetzner and Contabo are good options). A $6–$10/month VPS handles thousands of emails per day comfortably. If you're using an <strong>external relay</strong> (AWS SES, SendGrid, etc.) and external validation, Port 25 is not needed — you can even run Cleanmails locally on your own machine with no VPS at all.</div>
+ <div class="faq-answer">It depends on how you use it. If you're using the <strong>inbuilt SMTP relay or inbuilt email validation</strong>, a Linux VPS with <strong>Port 25 open</strong> is required â€” most providers block it by default, so pick one that allows it (Hetzner and Contabo are good options). A $6â€“$10/month VPS handles thousands of emails per day comfortably. If you're using an <strong>external relay</strong> (AWS SES, SendGrid, etc.) and external validation, Port 25 is not needed â€” you can even run Cleanmails locally on your own machine with no VPS at all.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits. The only limit is your server's capacity — which on a standard VPS is massive.</div>
+ <div class="faq-answer">Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits. The only limit is your server's capacity â€” which on a standard VPS is massive.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">What happens after I buy — how do updates work?</span>
+ <span class="faq-question-text">What happens after I buy â€” how do updates work?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">You get access to the current version of the software forever — and all future feature updates and performance patches are included free. No maintenance plan, no renewal fees. Updates are yours as long as you hold a license.</div>
+ <div class="faq-answer">You get access to the current version of the software forever â€” and all future feature updates and performance patches are included free. No maintenance plan, no renewal fees. Updates are yours as long as you hold a license.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1451,7 +1449,7 @@
  <span class="faq-question-text">Can I use this for client campaigns?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">Yes — the Agency license covers unlimited client campaigns on unlimited installs. You get your own custom domain, logo branding, and a unified admin dashboard to make the system truly yours. The <strong>Sell as your SaaS</strong> license adds full commercial resell rights and source code access.</div>
+ <div class="faq-answer">Yes â€” the Agency license covers unlimited client campaigns on unlimited installs. You get your own custom domain, logo branding, and a unified admin dashboard to make the system truly yours. The <strong>Sell as your SaaS</strong> license adds full commercial resell rights and source code access.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1470,14 +1468,14 @@
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
  <p class="section-sub">Join the Founders Batch today and lock in Free Lifetime Updates. Limited to first 100 Agencies only.</p>
  <div class="final-cta-btns">
- <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="finalCta">Claim Agency Access Now →</a>
+ <a href="https://test.checkout.dodopayments.com/buy/pdt_0NapDJ3Y1RVtN1cEGs9AO?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess" class="btn-primary" id="finalCta">Claim Agency Access Now â†’</a>
  </div>
  </section>
 
  <!-- WAITLIST MODAL -->
  <div class="modal-overlay" id="waitlistModal">
  <div class="modal-content">
- <div class="modal-close" id="closeModal">×</div>
+ <div class="modal-close" id="closeModal">Ã—</div>
  <form id="waitlistForm" class="waitlist-form">
  <h2>Join the Waitlist </h2>
  <p>Secure your spot now and get an exclusive bonus gift upon launch.</p>
@@ -1502,7 +1500,7 @@
  </select>
  </div>
  
- <button type="submit" class="waitlist-submit" id="wSubmit">Submit & Get Access →</button>
+ <button type="submit" class="waitlist-submit" id="wSubmit">Submit & Get Access â†’</button>
  <p style="font-size: 0.75rem; margin-top: 16px; margin-bottom: 0;">You will be redirected to our Cold Email Masterclass upon submission.</p>
  </form>
  </div>
@@ -1545,7 +1543,7 @@
  <button type="submit" id="nSubmit" class="newsletter-btn">Join</button>
  </form>
  </div>
- <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
+ <p class="footer-copy">Â© 2025 Cleanmails. All rights reserved.</p>
  <p class="footer-built">Engine built with <a href="https://go.dev" target="_blank" rel="noopener noreferrer" class="footer-built-link">Go</a></p>
  </div>
  </footer>
@@ -1602,32 +1600,52 @@
  const displayRoi = document.getElementById('calc-roi');
 
  function updateCalc() {
+ if (!sliderClients || !sliderCost) return;
  const clients = parseInt(sliderClients.value);
  const cost = parseInt(sliderCost.value);
  const yearlyCost = clients * cost * 12;
  const savings = yearlyCost - 497;
- const weeklyRevenueLoss = (clients * cost) / 4.33;
  const roiWeeks = (497 / (clients * cost / 4.33)).toFixed(1);
-
- displayClients.innerText = clients;
- displayCost.innerText = `$${cost}`;
- displayTotal.innerText = `$${savings.toLocaleString()}`;
- displayRoi.innerText = roiWeeks;
+ if (displayClients) displayClients.innerText = clients;
+ if (displayCost) displayCost.innerText = `${cost}`;
+ if (displayTotal) displayTotal.innerText = `${savings.toLocaleString()}`;
+ if (displayRoi) displayRoi.innerText = roiWeeks;
  }
 
- sliderClients.addEventListener('input', updateCalc);
- sliderCost.addEventListener('input', updateCalc);
+ if (sliderClients) sliderClients.addEventListener('input', updateCalc);
+ if (sliderCost) sliderCost.addEventListener('input', updateCalc);
  updateCalc();
 
- // Header Shrink Logic
+ // Header Scroll Logic â€” hide on scroll down, show on scroll up
  const siteHeader = document.querySelector('.site-header');
+ let lastScrollY = window.scrollY;
+ let ticking = false;
+
  window.addEventListener('scroll', () => {
- if (window.scrollY > 100) {
+ if (!ticking) {
+ window.requestAnimationFrame(() => {
+ const currentScrollY = window.scrollY;
+
+ // Collapse banner after 60px
+ if (currentScrollY > 60) {
  siteHeader.classList.add('scrolled');
  } else {
  siteHeader.classList.remove('scrolled');
  }
+
+ // Scroll DOWN â†’ hide. Scroll UP â†’ show.
+ if (currentScrollY > lastScrollY && currentScrollY > 50) {
+ siteHeader.style.transform = 'translateY(-100%)';
+ } else {
+ siteHeader.style.transform = 'translateY(0)';
+ }
+
+ lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+ ticking = false;
  });
+ ticking = true;
+ }
+ }, { passive: true });
 
  // Waitlist Form Submission
  const wForm = document.getElementById('waitlistForm');
