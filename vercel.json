@@ -3,7 +3,7 @@
     "rewrites": [
         { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/" },
         { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/:path*" },
-        { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/" },
-        { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/:path*" }
+        { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/tools" },
+        { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/tools/:path*" }
     ]
 }
