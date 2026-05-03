@@ -1,8 +1,8 @@
 {
     "cleanUrls": true,
     "rewrites": [
-        { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/" },
-        { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/:path*" },
+        { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/blog" },
+        { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/blog/:path*" },
         { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/tools" },
         { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/tools/:path*" }
     ]
