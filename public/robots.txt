@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Private pages
+Disallow: /success
+Disallow: /success-enterprise
+Disallow: /success-v1-*
+Disallow: /cancel
+Disallow: /millionmails
+Disallow: /api/
+
+Sitemap: https://cleanmails.online/sitemap.xml
