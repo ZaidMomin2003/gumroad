@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
           privacy: resolve(__dirname, 'privacy.html'),
           support: resolve(__dirname, 'support.html'),
           developer: resolve(__dirname, 'developer.html'),
-          docs: resolve(__dirname, 'docs.html'),
+
           success: resolve(__dirname, 'success.html'),
           cancel: resolve(__dirname, 'cancel.html'),
           affiliate: resolve(__dirname, 'affiliate.html'),
@@ -117,7 +117,7 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/privacy': '/privacy.html',
                 '/support': '/support.html',
                 '/developer': '/developer.html',
-                '/docs': '/docs.html',
+
                 '/success': '/success.html',
                 '/cancel': '/cancel.html',
                 '/affiliate': '/affiliate.html',
