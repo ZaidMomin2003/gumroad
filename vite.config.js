@@ -20,7 +20,6 @@ export default defineConfig(({ mode }) => {
 
           success: resolve(__dirname, 'success.html'),
           cancel: resolve(__dirname, 'cancel.html'),
-          affiliate: resolve(__dirname, 'affiliate.html'),
           millionmails: resolve(__dirname, 'millionmails.html'),
           error: resolve(__dirname, '404.html'),
           cleanie: resolve(__dirname, 'CleanieAI.html'),
@@ -120,7 +119,6 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
 
                 '/success': '/success.html',
                 '/cancel': '/cancel.html',
-                '/affiliate': '/affiliate.html',
                 '/millionmails': '/millionmails.html',
                 '/CleanieAI': '/CleanieAI.html',
                 '/infrastructure': '/infrastructure.html',
