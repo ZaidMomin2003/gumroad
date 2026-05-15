@@ -159,6 +159,25 @@
  .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.3s ease; }
  .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; transition: opacity 0.3s ease; }
  .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); transition: color 0.2s; }
+ .nav-calc-link {
+ font-family: 'Outfit', sans-serif !important;
+ font-weight: 900 !important;
+ font-size: 0.82rem !important;
+ color: #000 !important;
+ background: linear-gradient(135deg, #2ecc71, #27ae60);
+ padding: 5px 14px !important;
+ border-radius: 100px;
+ border: 2px solid #000;
+ box-shadow: 2px 2px 0 #000;
+ letter-spacing: -0.01em;
+ transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+ }
+ .nav-calc-link:hover {
+ transform: translate(-1px, -1px);
+ box-shadow: 3px 3px 0 #000;
+ background: linear-gradient(135deg, #FFD700, #f0c000) !important;
+ color: #000 !important;
+ }
  .nav-cta {
  background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
  padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
@@ -918,6 +937,7 @@
  <ul class="nav-links">
  <li><a href="#features">Features</a></li>
  <li><a href="/verify">Free Validator</a></li>
+ <li><a href="#breakeven-calc" class="nav-calc-link">💰 ROI Calculator</a></li>
  <li><a href="#pricing">Pricing</a></li>
  </ul>
  <a href="#" class="nav-cta waitlist-trigger">
@@ -1246,6 +1266,141 @@
  </div>
  </section>
 
+
+ <!-- BREAKEVEN CALCULATOR SECTION -->
+ <section class="section" id="breakeven-calc" style="background: #0a0a0a; border-bottom: 3px solid #000; padding: 80px 24px;">
+ <style>
+ #monthlySpend::-webkit-outer-spin-button,
+ #monthlySpend::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+ #monthlySpend { -moz-appearance: textfield; }
+ </style>
+ <div class="section-inner" style="max-width: 900px; margin: 0 auto;">
+ <div style="text-align: center; margin-bottom: 48px;">
+ <span class="section-label" style="background: #2ecc71; border-color: #2ecc71; color: #000;">Profit Calculator</span>
+ <h2 class="section-headline" style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">When Do You Stop Bleeding<br>& Start Stacking?</h2>
+ <p style="color: #888; font-size: 1rem; font-weight: 500; max-width: 520px; margin: 0 auto;">Enter what you currently spend on cold email tools. We'll show you exactly when Cleanmails pays for itself.</p>
+ </div>
+
+ <div class="calculator-card">
+ <!-- Left: Input -->
+ <div class="calc-inputs">
+ <div>
+ <label class="calc-label" for="monthlySpend">Your monthly tool spend</label>
+ <div style="position: relative; display: flex; align-items: center;">
+ <span style="position: absolute; left: 20px; font-size: 1.8rem; font-weight: 900; color: #fff; pointer-events: none;">$</span>
+ <input type="number" id="monthlySpend" value="400" min="10" max="50000" step="10" style="width: 100%; padding: 18px 20px 18px 48px; font-size: 1.8rem; font-weight: 900; color: #fff; background: #1a1a1a; border: 3px solid #333; border-radius: 16px; font-family: inherit; outline: none; transition: border-color 0.2s; -moz-appearance: textfield;" onfocus="this.style.borderColor='#2ecc71'" onblur="this.style.borderColor='#333'">
+ </div>
+ <span style="display: block; margin-top: 8px; font-size: 0.82rem; color: #555; font-weight: 600;">per month on cold email tools</span>
+ </div>
+
+ <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 20px;">
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+ <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Cleanmails one-time cost</span>
+ <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$497</span>
+ </div>
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+ <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Your yearly spend (current)</span>
+ <span style="color: #e63946; font-size: 1.1rem; font-weight: 900;" id="yearlySpendDisplay">$4,800</span>
+ </div>
+ <div style="display: flex; justify-content: space-between; align-items: center;">
+ <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Year 1 savings</span>
+ <span style="color: #2ecc71; font-size: 1.1rem; font-weight: 900;" id="yearlySavingsDisplay">$4,303</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Right: Results -->
+ <div class="calc-results">
+ <div style="margin-bottom: 24px;">
+ <p class="calc-result-title">You break even in</p>
+ <p class="calc-saving-amount" id="breakevenDisplay">1 mo 7 days</p>
+ <p class="calc-saving-period">Then it's pure profit. Forever.</p>
+ </div>
+
+ <div style="border-top: 1px solid #333; padding-top: 20px;">
+ <p class="calc-result-title" style="margin-bottom: 4px;">After 12 months, you've saved</p>
+ <p style="font-size: 2.2rem; font-weight: 900; color: #2ecc71; margin: 8px 0;" id="totalSavedDisplay">$4,303</p>
+ <p style="color: #555; font-size: 0.82rem; font-weight: 600;">vs staying on monthly subscriptions</p>
+ </div>
+
+ <a href="#pricing" style="display: inline-flex; align-items: center; gap: 8px; background: #2ecc71; color: #000; font-weight: 900; font-size: 0.92rem; padding: 14px 28px; border-radius: 12px; text-decoration: none; border: 2px solid #2ecc71; margin-top: 24px; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);" onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='4px 4px 0 #000'" onmouseout="this.style.transform='none';this.style.boxShadow='none'">Stop paying monthly →</a>
+ </div>
+ </div>
+
+ <!-- Visual timeline bar -->
+ <div style="margin-top: 48px; background: #111; border: 2px solid #222; border-radius: 16px; padding: 24px 28px;">
+ <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+ <span style="color: #888; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em;">Payback timeline</span>
+ <span style="color: #2ecc71; font-size: 0.78rem; font-weight: 800;" id="timelineLabel">Profit zone starts at 37 days</span>
+ </div>
+ <div style="position: relative; height: 12px; background: #222; border-radius: 100px; overflow: hidden;">
+ <div id="timelineBar" style="position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, #e63946 0%, #FFD700 50%, #2ecc71 100%); border-radius: 100px; width: 10%; transition: width 0.4s cubic-bezier(0.175,0.885,0.32,1.275);"></div>
+ </div>
+ <div style="display: flex; justify-content: space-between; margin-top: 8px;">
+ <span style="color: #e63946; font-size: 0.72rem; font-weight: 700;">Day 0 (purchase)</span>
+ <span style="color: #2ecc71; font-size: 0.72rem; font-weight: 700;" id="profitDayLabel">Day 37+ (pure profit)</span>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <script>
+ (function() {
+ const input = document.getElementById('monthlySpend');
+ const yearlySpendDisplay = document.getElementById('yearlySpendDisplay');
+ const yearlySavingsDisplay = document.getElementById('yearlySavingsDisplay');
+ const breakevenDisplay = document.getElementById('breakevenDisplay');
+ const totalSavedDisplay = document.getElementById('totalSavedDisplay');
+ const timelineBar = document.getElementById('timelineBar');
+ const timelineLabel = document.getElementById('timelineLabel');
+ const profitDayLabel = document.getElementById('profitDayLabel');
+
+ function calculate() {
+ const monthly = Math.max(1, parseInt(input.value) || 0);
+ const cleanmailsCost = 497;
+ const yearly = monthly * 12;
+ const yearlySavings = yearly - cleanmailsCost;
+
+ // Breakeven calculation
+ const breakevenMonths = cleanmailsCost / monthly;
+ const fullMonths = Math.floor(breakevenMonths);
+ const remainingDays = Math.round((breakevenMonths - fullMonths) * 30);
+ const totalBreakevenDays = Math.round(cleanmailsCost / (monthly / 30));
+
+ // Display yearly spend
+ yearlySpendDisplay.textContent = '$' + yearly.toLocaleString();
+
+ // Display yearly savings
+ yearlySavingsDisplay.textContent = yearlySavings > 0 ? '$' + yearlySavings.toLocaleString() : '-$' + Math.abs(yearlySavings).toLocaleString();
+ yearlySavingsDisplay.style.color = yearlySavings > 0 ? '#2ecc71' : '#e63946';
+
+ // Display breakeven
+ if (fullMonths === 0) {
+ breakevenDisplay.textContent = remainingDays + ' days';
+ } else if (remainingDays === 0) {
+ breakevenDisplay.textContent = fullMonths + ' mo';
+ } else {
+ breakevenDisplay.textContent = fullMonths + ' mo ' + remainingDays + ' days';
+ }
+
+ // Display total saved
+ totalSavedDisplay.textContent = yearlySavings > 0 ? '$' + yearlySavings.toLocaleString() : '-$' + Math.abs(yearlySavings).toLocaleString();
+ totalSavedDisplay.style.color = yearlySavings > 0 ? '#2ecc71' : '#e63946';
+
+ // Timeline bar
+ const barPercent = Math.min((totalBreakevenDays / 365) * 100, 100);
+ timelineBar.style.width = barPercent + '%';
+
+ // Timeline labels
+ timelineLabel.textContent = 'Profit zone starts at ' + totalBreakevenDays + ' days';
+ profitDayLabel.textContent = 'Day ' + totalBreakevenDays + '+ (pure profit)';
+ }
+
+ input.addEventListener('input', calculate);
+ input.addEventListener('change', calculate);
+ calculate();
+ })();
+ </script>
 
 
  <!-- COMPARISON SECTION -->
