@@ -105,6 +105,25 @@
  }
  }
  </style>
+ <!-- Affiliate Tracking -->
+ <script>
+ (function() {
+ var params = new URLSearchParams(window.location.search);
+ var ref = params.get('ref');
+ if (ref) {
+ document.cookie = 'cm_ref=' + ref + ';path=/;max-age=' + (30*24*60*60) + ';SameSite=Lax';
+ fetch('https://affiliate.cleanmails.online/api/track-click', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({ code: ref })
+ }).catch(function(){});
+ }
+ window.getAffiliateRef = function() {
+ var match = document.cookie.match(/cm_ref=([^;]+)/);
+ return match ? match[1] : null;
+ };
+ })();
+ </script>
 </head>
 
 <body>
