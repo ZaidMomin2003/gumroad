@@ -1,5 +1,14 @@
 {
     "cleanUrls": true,
+    "headers": [
+        {
+            "source": "/version.json",
+            "headers": [
+                { "key": "Access-Control-Allow-Origin", "value": "*" },
+                { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+            ]
+        }
+    ],
     "rewrites": [
         { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/blog" },
         { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/blog/:path*" },
