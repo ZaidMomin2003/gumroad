@@ -901,6 +901,7 @@
  =============================================*/
  .nav-cta .mobile-text { display: none; }
  @media (max-width: 768px) {
+ html, body { overflow-x: hidden; }
  .nav-cta .desktop-text { display: none; }
  .nav-cta .mobile-text { display: inline; }
  .nav-links { display: none; }
@@ -1225,21 +1226,24 @@
 .feat-tags span.active{background:var(--accent-color);}
 @media(max-width:768px){
 .feat-grid{grid-template-columns:1fr;}
-.feat-section{padding:50px 0;}
-.feat-inner{padding:0 16px;}
-.feat-card{padding:20px;border-radius:18px;box-shadow:4px 4px 0 #000;}
+.feat-section{padding:50px 0;overflow-x:hidden;}
+.feat-inner{padding:0 16px;overflow:hidden;}
+.feat-card{padding:18px;border-radius:18px;box-shadow:4px 4px 0 #000;overflow:hidden;max-width:100%;word-wrap:break-word;}
 .feat-card:hover{transform:none;box-shadow:4px 4px 0 #000;}
-.feat-proto{padding:18px;border-radius:18px;}
-.feat-proto-row{padding:10px 12px;border-radius:10px;margin-bottom:8px;}
-.feat-h3{font-size:1.5rem;}
-.feat-p{font-size:0.9rem;}
-.feat-item{font-size:0.85rem;}
-.feat-bullet{font-size:0.95rem;}
-.feat-badge{font-size:0.62rem;padding:3px 7px;}
-.feat-tags span{font-size:0.68rem;padding:5px 10px;}
-.feat-card pre{font-size:0.72rem !important;padding:14px !important;line-height:1.5 !important;}
+.feat-proto{padding:16px;border-radius:18px;overflow:hidden;}
+.feat-proto-row{padding:10px 12px;border-radius:10px;margin-bottom:8px;flex-wrap:wrap;gap:6px;}
+.feat-h3{font-size:1.4rem;}
+.feat-p{font-size:0.88rem;}
+.feat-item{font-size:0.82rem;gap:8px;}
+.feat-bullet{font-size:0.9rem;}
+.feat-badge{font-size:0.6rem;padding:3px 6px;border-width:1.5px;}
+.feat-tags{gap:6px;}
+.feat-tags span{font-size:0.65rem;padding:4px 10px;border-width:1.5px;}
+.feat-card pre{font-size:0.65rem !important;padding:12px !important;line-height:1.4 !important;white-space:pre-wrap !important;word-break:break-all !important;overflow-x:hidden !important;}
 .feat-card div[style*="grid-template-columns"]{grid-template-columns:1fr 1fr !important;gap:6px !important;}
-.feat-card div[style*="grid-template-columns"] > div{padding:8px 10px !important;font-size:0.75rem !important;}
+.feat-card div[style*="grid-template-columns"] > div{padding:7px 9px !important;font-size:0.7rem !important;overflow:hidden !important;word-break:break-word !important;}
+.feat-card div[style*="align-self:flex-end"]{font-size:0.78rem !important;padding:8px 12px !important;word-break:break-word !important;}
+.feat-card div[style*="border-radius:14px 14px 14px 4px"]{font-size:0.78rem !important;padding:10px 12px !important;word-break:break-word !important;}
 }
 </style>
 
