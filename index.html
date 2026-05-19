@@ -1119,18 +1119,20 @@
  <!-- MCP AI AGENT SECTION -->
  <section class="feat-section" style="background:#FAFAFA;">
  <div class="feat-inner">
- <div style="text-align:center;margin-bottom:36px;">
+ <div style="text-align:center;margin-bottom:48px;">
  <span class="feat-tag" style="color:#7c3aed;">AI-Native</span>
  <h3 class="feat-h3" style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);">Your AI runs your outreach.</h3>
  <p class="feat-p" style="max-width:520px;margin:0 auto;">One config line. Then tell ChatGPT, Claude, or any AI to create campaigns, clean leads, and scale.</p>
  </div>
 
  <div class="feat-grid">
- <!-- Left: Setup -->
- <div>
- <div class="feat-card" style="margin-bottom:16px;border-color:#7c3aed;box-shadow:5px 5px 0 #7c3aed;">
- <div style="display:flex;align-items:center;gap:6px;margin-bottom:10px;"><div style="width:10px;height:10px;border-radius:50%;background:#7c3aed;"></div><span style="font-size:0.75rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.1em;">One-time setup</span></div>
- <pre style="background:#1a1a1a;border:2px solid #000;border-radius:14px;padding:18px;font-size:0.82rem;color:#e4e4e7;overflow-x:auto;margin:0;line-height:1.7;font-family:monospace;"><code>{
+ <!-- Left: Setup + Commands in one card -->
+ <div class="feat-card" style="border-color:#7c3aed;box-shadow:6px 6px 0 #7c3aed;">
+ <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+ <div style="width:10px;height:10px;border-radius:50%;background:#7c3aed;"></div>
+ <span style="font-size:0.75rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.1em;">One-time setup</span>
+ </div>
+ <pre style="background:#1a1a1a;border:2px solid #000;border-radius:14px;padding:18px;font-size:0.82rem;color:#e4e4e7;overflow-x:auto;margin:0 0 16px;line-height:1.7;font-family:monospace;"><code>{
  "mcpServers": {
    "cleanmails": {
      "command": "./cleanmails-mcp",
@@ -1138,13 +1140,15 @@
    }
  }
 }</code></pre>
- <p style="font-size:0.82rem;color:#999;margin:10px 0 0;">Add to Claude Desktop or Cursor. Done.</p>
+ <p style="font-size:0.82rem;color:#999;margin:0 0 20px;">Add to Claude Desktop or Cursor. Done.</p>
+ <div style="border-top:2px solid #eee;padding-top:16px;">
+ <p style="font-size:0.72rem;font-weight:800;color:#7c3aed;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 10px;">Then just say:</p>
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+ <div style="background:#F3F0FF;border:2px solid #7c3aed;border-radius:10px;padding:10px 14px;font-size:0.82rem;color:#333;"><b>"Create campaign"</b></div>
+ <div style="background:#ECFDF5;border:2px solid #059669;border-radius:10px;padding:10px 14px;font-size:0.82rem;color:#333;"><b>"Clean my list"</b></div>
+ <div style="background:#EFF6FF;border:2px solid #2563eb;border-radius:10px;padding:10px 14px;font-size:0.82rem;color:#333;"><b>"Pause high-bounce"</b></div>
+ <div style="background:#FFFBEB;border:2px solid #D97706;border-radius:10px;padding:10px 14px;font-size:0.82rem;color:#333;"><b>"Daily report"</b></div>
  </div>
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
- <div style="background:#fff;border:2px solid #000;border-radius:12px;padding:10px 14px;font-size:0.82rem;color:#333;border-left:4px solid #7c3aed;"><b>"Create campaign"</b></div>
- <div style="background:#fff;border:2px solid #000;border-radius:12px;padding:10px 14px;font-size:0.82rem;color:#333;border-left:4px solid #059669;"><b>"Clean my list"</b></div>
- <div style="background:#fff;border:2px solid #000;border-radius:12px;padding:10px 14px;font-size:0.82rem;color:#333;border-left:4px solid #2563eb;"><b>"Pause high-bounce"</b></div>
- <div style="background:#fff;border:2px solid #000;border-radius:12px;padding:10px 14px;font-size:0.82rem;color:#333;border-left:4px solid #D97706;"><b>"Daily report"</b></div>
  </div>
  </div>
 
@@ -1169,14 +1173,14 @@
  </div>
 
  <!-- Compatible pills -->
- <div style="text-align:center;margin-top:28px;">
- <p style="font-size:9px;color:#999;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-bottom:10px;">Works with</p>
- <div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">
- <span style="font-size:10px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #000;background:#fff;">Claude</span>
- <span style="font-size:10px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #000;background:#fff;">ChatGPT</span>
- <span style="font-size:10px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #000;background:#fff;">Cursor</span>
- <span style="font-size:10px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #000;background:#fff;">n8n</span>
- <span style="font-size:10px;font-weight:700;padding:6px 14px;border-radius:8px;border:2px solid #000;background:#fff;">Any MCP</span>
+ <div style="text-align:center;margin-top:36px;">
+ <p style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-bottom:12px;">Works with</p>
+ <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+ <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Claude</span>
+ <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">ChatGPT</span>
+ <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Cursor</span>
+ <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">n8n</span>
+ <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Any MCP</span>
  </div>
  </div>
  </div>
@@ -1573,125 +1577,6 @@
  </script>
 
 
- <!-- COMPARISON SECTION -->
- <section class="compare-section section" id="compare">
- <div class="section-inner">
- <span class="section-label">Comparison</span>
- <h2 class="section-headline">How we stack up.</h2>
- <p class="section-sub">One honest table. No asterisks. No "contact us for enterprise pricing." 
- <br>
- <a href="/cleanmails-vs-instantly" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Instantly</a> | 
- <a href="/cleanmails-vs-smartlead" style="color: var(--black); font-weight: 800; text-decoration: underline;">Vs Smartlead</a>
- </p>
-
- <div class="compare-table-wrap">
- <table class="compare-table">
- <thead>
- <tr>
- <th>Feature</th>
- <th style="color: var(--gold);">Cleanmails</th>
- <th>Instantly</th>
- <th>Smartlead</th>
- <th>Lemlist</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td>Pricing model</td>
- <td class="highlight-col" style="color:#2ecc71; font-weight:900;">One-time $497</td>
- <td>$97/mo+</td>
- <td>$79/mo+</td>
- <td>$59/mo+</td>
- </tr>
- <tr>
- <td>Email sending limit</td>
- <td class="yes highlight-col">Unlimited</td>
- <td class="no">Capped</td>
- <td class="no">Capped</td>
- <td class="no">Capped</td>
- </tr>
- <tr>
- <td>Inbuilt Mail Server (SMTP + IMAP)</td>
- <td class="yes highlight-col">&#x2705; Included</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>Email Validation Engine</td>
- <td class="yes highlight-col">&#x2705; Built-in</td>
- <td class="no">&#x274C; Add-on</td>
- <td class="no">&#x274C; Add-on</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>Gmail/Outlook API Verification</td>
- <td class="yes highlight-col">&#x2705;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>AI Auto-Reply to Prospects</td>
- <td class="yes highlight-col">&#x2705; Built-in</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>AI Copilot (Chat with your data)</td>
- <td class="yes highlight-col">&#x2705;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>Warmup System</td>
- <td class="highlight-col" style="color:#2ecc71; font-weight:900;">$0 (included)</td>
- <td class="no">+$29/inbox</td>
- <td class="no">+$29/inbox</td>
- <td class="no">+$29/inbox</td>
- </tr>
- <tr>
- <td>Sender Rotation (Health-Weighted)</td>
- <td class="yes highlight-col">&#x2705; Smart</td>
- <td>Basic</td>
- <td>Basic</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>CRM Integrations (HubSpot, Pipedrive)</td>
- <td class="yes highlight-col">&#x2705; Built-in</td>
- <td class="no">Add-on</td>
- <td class="no">Add-on</td>
- <td>Limited</td>
- </tr>
- <tr>
- <td>Lead Data Privacy</td>
- <td class="yes highlight-col">100% Private (Self-Hosted)</td>
- <td class="no">Shared Cloud</td>
- <td class="no">Shared Cloud</td>
- <td class="no">Shared Cloud</td>
- </tr>
- <tr>
- <td>Client Workspaces</td>
- <td class="yes highlight-col">&#x2705; Unlimited</td>
- <td class="no">&#x274C;</td>
- <td>Limited</td>
- <td class="no">&#x274C;</td>
- </tr>
- <tr>
- <td>White-Glove Setup</td>
- <td class="highlight-col" style="color:#2ecc71; font-weight:900;">Free (Included)</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- <td class="no">&#x274C;</td>
- </tr>
- </tbody>
- </table>
- </div>
- </div>
- </section>
 
  <!-- ROI SECTION — commented out
  <section class="roi-section section" id="roi">
