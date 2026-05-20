@@ -132,7 +132,7 @@ WorkingDirectory=${APP_DIR}
 ExecStart=${APP_DIR}/cleanmails
 Restart=always
 RestartSec=5
-Environment=APP_ENV=production
+Environment=APP_ENV=development
 Environment=MASTER_KEY=${MASTER_KEY}
 Environment=SITE_URL=https://${APP_DOMAIN}
 Environment=ADDR=:8080
