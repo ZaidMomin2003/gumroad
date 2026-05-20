@@ -136,7 +136,9 @@ User=root
 WorkingDirectory=${APP_DIR}
 ExecStart=${APP_DIR}/cleanmails
 Restart=always
-RestartSec=5
+RestartSec=3
+StartLimitBurst=20
+StartLimitIntervalSec=60
 Environment=APP_ENV=development
 Environment=MASTER_KEY=${MASTER_KEY}
 Environment=SITE_URL=https://${APP_DOMAIN}
