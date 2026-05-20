@@ -58,20 +58,25 @@ echo -e "${YELLOW}[2/7]${NC} Activating license..."
 HW_ID="$(cat /etc/machine-id 2>/dev/null || hostname)"
 DODO_URL="https://test.dodopayments.com"
 
-ACTIVATE_RESP=$(curl -sf -X POST "${DODO_URL}/licenses/activate" \
+ACTIVATE_RESP=$(curl -s -X POST "${DODO_URL}/licenses/activate" \
   -H "Content-Type: application/json" \
   -d "{\"license_key\":\"$LICENSE_KEY\",\"name\":\"$HW_ID\"}" 2>/dev/null || echo '{}')
 
 LKI_ID=$(echo "$ACTIVATE_RESP" | jq -r '.id // empty')
 
 if [ -z "$LKI_ID" ]; then
-  echo -e "${RED}  ✗ License activation failed. Check your key.${NC}"
-  echo "  Response: $ACTIVATE_RESP"
+  ERROR_MSG=$(echo "$ACTIVATE_RESP" | jq -r '.message // empty')
+  echo -e "${RED}  ✗ License activation failed.${NC}"
+  if [ -n "$ERROR_MSG" ]; then
+    echo -e "  ${YELLOW}Reason: ${ERROR_MSG}${NC}"
+  else
+    echo "  Response: $ACTIVATE_RESP"
+  fi
   exit 1
 fi
 
 # Validate
-VALIDATE_RESP=$(curl -sf -X POST "${DODO_URL}/licenses/validate" \
+VALIDATE_RESP=$(curl -s -X POST "${DODO_URL}/licenses/validate" \
   -H "Content-Type: application/json" \
   -d "{\"license_key\":\"$LICENSE_KEY\",\"license_key_instance_id\":\"$LKI_ID\"}" 2>/dev/null || echo '{}')
 
