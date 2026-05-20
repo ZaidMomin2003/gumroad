@@ -56,7 +56,7 @@ echo -e "${GREEN}  ✓ Dependencies installed${NC}"
 echo -e "${YELLOW}[2/7]${NC} Activating license..."
 
 HW_ID="$(cat /etc/machine-id 2>/dev/null || hostname)"
-DODO_URL="https://api.dodopayments.com"
+DODO_URL="https://test.dodopayments.com"
 
 ACTIVATE_RESP=$(curl -sf -X POST "${DODO_URL}/licenses/activate" \
   -H "Content-Type: application/json" \
