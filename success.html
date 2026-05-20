@@ -111,7 +111,7 @@
  </div>
  <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
  <code style="display: block; font-family: monospace; font-size: 0.9rem; color: #fff; line-height: 1.6; flex: 1;">
- curl -sSL https://cleanmails.online/install.sh | bash -s -- --key <span id="key-placeholder" style="color: #FF90E8; font-weight: 900;">{LICENSE_KEY}</span> --domain <span id="domain-placeholder" style="color: #FF90E8; font-weight: 900;">{YOUR_DOMAIN}</span>
+ curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key <span id="key-placeholder" style="color: #FF90E8; font-weight: 900;">{LICENSE_KEY}</span> --domain <span id="domain-placeholder" style="color: #FF90E8; font-weight: 900;">{YOUR_DOMAIN}</span>
  </code>
  <button onClick="copyCommand()" id="copy-btn" style="flex-shrink: 0; background: #FF90E8; border: 2px solid #000; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 4px 4px 0 #000; text-transform: uppercase;">
  Copy
@@ -199,7 +199,7 @@
  }
 
  function copyCommand() {
- const command = `curl -sSL https://cleanmails.online/install.sh | bash -s -- --key ${document.getElementById('license-input').value.trim() || '{LICENSE_KEY}'} --domain ${document.getElementById('domain-input').value.trim() || '{YOUR_DOMAIN}'}`;
+ const command = `curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key ${document.getElementById('license-input').value.trim() || '{LICENSE_KEY}'} --domain ${document.getElementById('domain-input').value.trim() || '{YOUR_DOMAIN}'}`;
  const btn = document.getElementById('copy-btn');
  
  navigator.clipboard.writeText(command).then(() => {

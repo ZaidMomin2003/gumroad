@@ -37,6 +37,14 @@ echo -e "${BOLD}${GREEN}   Cleanmails — Installing on this server${NC}"
 echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
 echo ""
 
+# --- Root Check ---
+if [ "$EUID" -ne 0 ] && [ "$(id -u)" -ne 0 ]; then
+  echo -e "${RED}Error: This script must be run as root.${NC}"
+  echo -e "Run with: ${BOLD}sudo bash install.sh --key YOUR_KEY --domain YOUR_DOMAIN${NC}"
+  echo -e "Or:       ${BOLD}curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key YOUR_KEY --domain YOUR_DOMAIN${NC}"
+  exit 1
+fi
+
 # --- Step 1: System Dependencies ---
 echo -e "${YELLOW}[1/7]${NC} Installing system dependencies..."
 export DEBIAN_FRONTEND=noninteractive
