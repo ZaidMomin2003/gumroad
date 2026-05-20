@@ -1,6 +1,7 @@
 {
-  "version": "1.0.0",
-  "download_url": "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-  "signature": "SIGN_AFTER_FIRST_BUILD",
-  "changelog": "Initial release"
+    "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
+    "changelog":  "API Keys, MCP HTTP, Quick Connect, Bulk Import, OAuth, Backup, Updates",
+    "signature":  "4dc1d4e5df1543fec261a8de06bf36d32ff80dffe0fdf9edfdcd484055be7429fbcbc9c22bb3f2973873069bdcc398e3e94ab8a5d1a80bc4072e75afe7b58d0e",
+    "version":  "1.1.0",
+    "released_at":  "2026-05-20T23:24:27Z"
 }
