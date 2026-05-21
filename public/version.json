@@ -1,7 +1,7 @@
 {
     "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-    "changelog":  "DNS settings redesign, auto-update now includes frontend",
-    "signature":  "f8a34a2bf85f2a96dc942f76f0785f481e22970f2afdde4f944fe56cdcf503fd0b271992f4f14b257c3654191269471ecb1a64965c1cd39dc1844aa0d653db0f",
-    "version":  "1.5.0",
-    "released_at":  "2026-05-21T11:27:00Z"
+    "changelog":  "Profile page redesign",
+    "signature":  "107df91d79c75ca124ced0e1baada7aacd8aef3aaab5d44530d46b4b8b7b43497d2ade5f4739988b323f8bedf626e9b4c637a8ac4ac5968105aa99f1580acf0f",
+    "version":  "1.6.0",
+    "released_at":  "2026-05-21T11:35:37Z"
 }
