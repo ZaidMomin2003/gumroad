@@ -1,7 +1,7 @@
 {
     "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-    "changelog":  "Security fix, client portal redesign, workspace isolation, auto-restart fix, wired campaign buttons",
-    "signature":  "4e4224db1de22b53d8a688f0d77bb9baa13561477f7b3f2897ff6c1111b2ac937274d9942fa56594cb11a53a39098bb70beed4e666901d7a1118f6d1e2650f01",
-    "version":  "1.4.0",
-    "released_at":  "2026-05-21T11:04:16Z"
+    "changelog":  "DNS settings redesign, auto-update now includes frontend",
+    "signature":  "f8a34a2bf85f2a96dc942f76f0785f481e22970f2afdde4f944fe56cdcf503fd0b271992f4f14b257c3654191269471ecb1a64965c1cd39dc1844aa0d653db0f",
+    "version":  "1.5.0",
+    "released_at":  "2026-05-21T11:27:00Z"
 }
