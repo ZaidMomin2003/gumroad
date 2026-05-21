@@ -1,7 +1,7 @@
 {
     "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-    "changelog":  "Profile page redesign — card header with gradient",
-    "signature":  "bf2a8a6062a5c56bf01513ec75d438db6e0affa9f972a136aee7d5e36ac5fb089dd2fdaa2ec33dd71ee55833325e003f9e13dd594119e9a79e3b8b57d3894700",
-    "version":  "1.7.0",
-    "released_at":  "2026-05-21T11:54:10Z"
+    "changelog":  "Preview message modal, external SMTP domain notice, campaign buttons wired",
+    "signature":  "5254e1077442cf3d899adb50a6820d352e7805427604ff05485139a5874045fddc165e8afb7143bb5e3d27b801c8ab3025484f8b859680e2f376020d2872f806",
+    "version":  "1.8.0",
+    "released_at":  "2026-05-21T12:23:16Z"
 }
