@@ -938,7 +938,7 @@
  <ul class="nav-links">
  <li><a href="#features">Features</a></li>
  <li><a href="/verify">Free Validator</a></li>
- <li><a href="#breakeven-calc" class="nav-calc-link">💰 ROI Calculator</a></li>
+ <li><a href="#breakeven-calc" style="color: #2ecc71; font-weight: 800; font-size: 0.85rem;">💰 ROI Calculator</a></li>
  <li><a href="#pricing">Pricing</a></li>
  </ul>
  <a href="#" class="nav-cta waitlist-trigger">
@@ -975,7 +975,7 @@
 
  <div class="hero-ctas">
  <a href="#" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist · $497 →</a>
- <a href="#features" class="btn-secondary">See What's Inside</a>
+ <a href="#" class="btn-secondary" onclick="document.getElementById('demo-modal').style.display='flex'; return false;">See What's Inside</a>
  </div>
 
  <div class="hero-meta">
@@ -2203,5 +2203,35 @@
 
  startAutoScroll();
  </script>
+
+<!-- Demo Access Modal -->
+<div id="demo-modal" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);" onclick="if(event.target===this)this.style.display='none'">
+ <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:36px; max-width:420px; width:90%; box-shadow:8px 8px 0 #000; text-align:center;">
+  <div style="font-size:2.5rem; margin-bottom:12px;">🖥️</div>
+  <h3 style="font-size:1.4rem; font-weight:900; margin-bottom:8px;">Live Demo Access</h3>
+  <p style="font-size:0.9rem; color:#555; margin-bottom:24px; line-height:1.6;">Explore the full platform. This is a read-only demo — you can browse everything but can't send campaigns or modify data.</p>
+  
+  <div style="background:#f8f8f8; border:2px solid #eee; border-radius:14px; padding:16px; margin-bottom:16px; text-align:left;">
+   <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+    <div>
+     <p style="font-size:0.7rem; font-weight:800; text-transform:uppercase; color:#888; letter-spacing:0.1em;">Email</p>
+     <p style="font-size:0.95rem; font-weight:700; font-family:monospace;">Demo@cleanmails.online</p>
+    </div>
+    <button onclick="navigator.clipboard.writeText('Demo@cleanmails.online');this.textContent='✓'" style="background:#000; color:#fff; border:none; padding:6px 14px; border-radius:8px; font-size:0.75rem; font-weight:800; cursor:pointer;">Copy</button>
+   </div>
+   <div style="display:flex; align-items:center; justify-content:space-between;">
+    <div>
+     <p style="font-size:0.7rem; font-weight:800; text-transform:uppercase; color:#888; letter-spacing:0.1em;">Password</p>
+     <p style="font-size:0.95rem; font-weight:700; font-family:monospace;">Demo@123</p>
+    </div>
+    <button onclick="navigator.clipboard.writeText('Demo@123');this.textContent='✓'" style="background:#000; color:#fff; border:none; padding:6px 14px; border-radius:8px; font-size:0.75rem; font-weight:800; cursor:pointer;">Copy</button>
+   </div>
+  </div>
+
+  <a href="https://app.cleanmails.online" target="_blank" style="display:block; background:#000; color:#fff; font-weight:900; font-size:0.95rem; padding:14px 24px; border-radius:12px; text-decoration:none; border:2px solid #000; box-shadow:4px 4px 0 var(--gold); transition:all 0.2s;">Open Demo Dashboard →</a>
+  <p style="font-size:0.75rem; color:#999; margin-top:12px;">Read-only mode · No credit card needed</p>
+ </div>
+</div>
+
 </body>
 </html>
