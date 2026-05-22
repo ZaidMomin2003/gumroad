@@ -1,7 +1,7 @@
 {
     "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-    "changelog":  "Preview message modal, external SMTP domain notice, campaign buttons wired",
-    "signature":  "5254e1077442cf3d899adb50a6820d352e7805427604ff05485139a5874045fddc165e8afb7143bb5e3d27b801c8ab3025484f8b859680e2f376020d2872f806",
-    "version":  "1.8.0",
-    "released_at":  "2026-05-21T12:23:16Z"
+    "changelog":  "Demo mode, seed data, preview modal fix",
+    "signature":  "3deafd4f6a630f034fdcb88aadc6476ada94c7b8631b688900c7374f4a425d988dfcdc42ffaff34c59819ac321425d8395fc474e06f7ea30b0c311234afa9c0a",
+    "version":  "1.9.0",
+    "released_at":  "2026-05-22T19:01:23Z"
 }
