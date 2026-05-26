@@ -50,7 +50,7 @@
  "url": "https://cleanmails.online",
  "description": "Self-hosted cold email platform with AI auto-reply, inbuilt mail server, email validation, warmup, sender rotation, MCP integration, and cadence automation. One-time payment.",
  "offers": [
- { "@type": "Offer", "name": "Agency", "price": "497", "priceCurrency": "USD" },
+ { "@type": "Offer", "name": "Agency", "price": "597", "priceCurrency": "USD" },
  { "@type": "Offer", "name": "Sell as your SaaS", "price": "1997", "priceCurrency": "USD" }
  ],
  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
@@ -62,8 +62,8 @@
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Free white-glove installation is included with every license. We deploy the stack on your server, configure your first 10 domains, set up DKIM/SPF/DMARC, and hand you a working system." } },
- { "@type": "Question", "name": "How fast is the setup?", "acceptedAnswer": { "@type": "Answer", "text": "Most setups are completed within 24 hours of purchase. You provide a VPS, we handle everything else. Many customers are sending their first campaign the same day they buy." } },
+ { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Installation takes about 5 minutes. If you want us to do it, we offer a done-for-you setup for a one-time $9 fee. We deploy the stack, configure DKIM/SPF/DMARC, and hand you a working system." } },
+ { "@type": "Question", "name": "How fast is the setup?", "acceptedAnswer": { "@type": "Answer", "text": "Self-install takes about 5 minutes. Run the install script, point your domains, and you're sending. If you opt for our $9 done-for-you setup, we finish within 24 hours." } },
  { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "A Linux VPS with Port 25 open for the full experience (inbuilt SMTP + validation). Hetzner and Contabo are popular choices. If you use external SMTP (AWS SES, SendGrid), Port 25 is not needed." } },
  { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits, no workspace limits." } },
  { "@type": "Question", "name": "Can I resell this to my clients or build a SaaS?", "acceptedAnswer": { "@type": "Answer", "text": "The Agency license lets you run campaigns for unlimited clients. The Enterprise/SaaS license gives you full source code access and commercial resell rights to build your own SaaS platform." } },
@@ -964,9 +964,9 @@
  <!-- HERO -->
  <section class="hero-section" id="hero">
 
- <div class="hero-eyebrow">
+ <div class="hero-eyebrow" id="licencePillTrigger" style="cursor:pointer;" onclick="document.getElementById('licence-popup').style.display='flex'">
  <span class="hero-live-dot"></span>
- Founders Batch · <strong>$497 until June 4th</strong>
+ 🔒 Limited to 1,000 Licences Only · <strong>Click to learn why</strong>
  </div>
 
  <div style="margin-bottom: 24px; display: flex; justify-content: center;">
@@ -986,12 +986,12 @@
  </p>
 
  <div class="hero-ctas">
- <a href="#" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist · $497 →</a>
+ <a href="#" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist · $597 →</a>
  <a href="#" class="btn-secondary" onclick="document.getElementById('demo-modal').style.display='flex'; return false;">Live Demo</a>
  </div>
 
  <div class="hero-meta">
- <span style="background: #d4edda; color: #155724; padding: 4px 12px; border-radius: 100px; font-weight: 800; border: 1.5px solid #28a745;">&#x1F6E0;&#xFE0F; Free White-Glove Setup Included</span>
+ <span style="background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 100px; font-weight: 800; border: 1.5px solid #ffc107;">⚡ 5-min Setup · $9 if you want us to do it</span>
  <span class="hero-meta-dot"></span>
  <span>30-day money-back guarantee</span>
  <span class="hero-meta-dot"></span>
@@ -1020,8 +1020,8 @@
  </div>
  <div class="timeline-step">
  <span class="step-num">02</span>
- <h3>White-Glove Install</h3>
- <p>Skip the terminal. <b>Full Concierge Setup is included</b> with every license. We'll deploy the stack and configure your first 10 domains for you at no extra cost.</p>
+ <h3>5-Minute Install</h3>
+ <p>Run one command on your VPS and you're live. It's that simple. <b>Want us to do it? Just $9 one-time</b> — we'll deploy, configure DKIM/SPF/DMARC, and hand you a working system.</p>
  </div>
  <div class="timeline-step">
  <span class="step-num">03</span>
@@ -1368,11 +1368,11 @@
 </div>
 </section>
 
-<!-- Free Setup Banner -->
+<!-- Setup Banner -->
 <section style="padding:40px 0;background:#FAFAFA;">
 <div style="max-width:800px;margin:0 auto;padding:0 24px;">
 <div style="background:#000;border:3px solid #000;border-radius:20px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:6px 6px 0 #FFD700;">
-<div><p style="color:#FFD700;font-weight:900;font-size:1.1rem;margin:0 0 4px;">🛠️ Free White-Glove Setup Included</p><p style="color:#999;font-size:0.9rem;margin:0;">We deploy the stack, configure your first 10 domains, DKIM/SPF/DMARC — hand you a working system.</p></div>
+<div><p style="color:#FFD700;font-weight:900;font-size:1.1rem;margin:0 0 4px;">⚡ 5-Minute Self-Install</p><p style="color:#999;font-size:0.9rem;margin:0;">Run one command and you're live. Need help? We'll do it for a one-time $9 fee — full deployment, DKIM/SPF/DMARC, and 10 domain setup.</p></div>
 <a href="#pricing" class="cta-button" style="font-size:0.9rem;padding:14px 28px;">Get Started →</a>
 </div>
 </div>
@@ -1657,6 +1657,17 @@
  </section>
  -->
 
+ <!-- LIVE DEMO SECTION -->
+ <section style="padding: 60px 24px; background: #111; border-top: 3px solid #000; border-bottom: 3px solid #000;">
+ <div style="max-width: 680px; margin: 0 auto; text-align: center;">
+ <span style="display: inline-block; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 100px; border: 2px solid #333; background: #1a1a1a; color: #FFD700; margin-bottom: 20px;">👀 See It In Action</span>
+ <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;">Don't take our word for it.<br>Try the live demo.</h2>
+ <p style="font-size: 1rem; color: #888; margin-bottom: 28px; line-height: 1.6;">Browse the full platform — campaigns, validation, AI replies, warmup, everything. No sign-up needed.</p>
+ <a href="#" onclick="document.getElementById('demo-modal').style.display='flex'; return false;" style="display: inline-flex; align-items: center; gap: 10px; background: #FFD700; color: #000; font-weight: 900; font-size: 1rem; padding: 16px 32px; border-radius: 14px; border: 2px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);">🖥️ Open Live Demo →</a>
+ <p style="font-size: 0.78rem; color: #555; margin-top: 14px;">Read-only mode · Full platform access · No credit card</p>
+ </div>
+ </section>
+
  <!-- PRICING SECTION -->
  <section class="pricing-section section" id="pricing">
  <div class="section-inner">
@@ -1670,14 +1681,14 @@
  <div class="pricing-featured">
  <div class="pf-top">
  <div class="pf-left">
- <span class="pf-badge">Agency Founder Batch</span>
+ <span class="pf-badge">Limited to 1,000 Licences</span>
  <div class="pf-name">Agency Professional</div>
  <div class="pf-price-row">
- <span class="pf-old">$697</span>
- <span class="pf-price">$497</span>
+ <span class="pf-old">$897</span>
+ <span class="pf-price">$597</span>
  </div>
  <div class="pf-period">one-time payment — yours forever</div>
- <span class="pf-hike">Price increases to $697 on June 4th</span>
+ <span class="pf-hike">Only 1,000 licences will ever be sold. Then we focus on updates.</span>
  </div>
  <div class="pf-cta-wrap">
  <a href="#" class="pf-btn waitlist-trigger">Join Waitlist →</a>
@@ -1698,7 +1709,7 @@
  <div class="pf-feature">Unlimited Client Workspaces</div>
  <div class="pf-feature">CRM Integrations (HubSpot, etc.)</div>
  <div class="pf-feature">MCP Protocol Support</div>
- <div class="pf-feature">Free White-Glove Setup</div>
+ <div class="pf-feature">5-Min Self Install (or $9 done-for-you)</div>
  <div class="pf-feature">Free Lifetime Updates</div>
  </div>
  </div>
@@ -1725,7 +1736,7 @@
  <div class="pricing-badges">
  <span class="pricing-badge">&#x1F6E1;&#xFE0F; 30-day money-back guarantee</span>
  <span class="pricing-badge">&#x267B;&#xFE0F; Free lifetime updates</span>
- <span class="pricing-badge">&#x1F6E0;&#xFE0F; Free installation on request</span>
+ <span class="pricing-badge">&#x26A1; 5-min install ($9 done-for-you)</span>
  <span class="pricing-badge">&#x2705; Inbuilt email validator</span>
  </div>
  </div>
@@ -1767,14 +1778,35 @@
  <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>No.</strong> Free white-glove installation is included with every license. We deploy the stack on your server, configure your first 10 domains, set up DKIM/SPF/DMARC, and hand you a working system. You're sending on day one — zero terminal commands needed.</div>
+ <div class="faq-answer"><strong>No.</strong> Installation takes about 5 minutes — run one command on your VPS and you're live. If you'd rather not touch the terminal, we offer a done-for-you setup for a one-time $9 fee. We'll deploy, configure DKIM/SPF/DMARC, set up your domains, and hand you a working system.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Does Cleanmails have an inbuilt SMTP server?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer"><strong>Yes.</strong> Cleanmails ships with a full mail server (Postfix + Dovecot + auto-DKIM signing). You can create unlimited mailboxes on your own domains without paying for Google Workspace or any third-party inbox provider. External relays like AWS SES or SendGrid are supported but entirely optional — not required.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">How do I connect Cleanmails with AI via MCP?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Cleanmails ships with a built-in <strong>MCP (Model Context Protocol) server</strong>. Add a single config block to Claude Desktop, Cursor, ChatGPT, or any MCP-compatible client — then just talk to your AI. Say "create a campaign" or "validate my leads" and the AI calls Cleanmails tools directly. No API keys to manage, no webhook plumbing. It works out of the box with Claude, ChatGPT, Cursor, n8n, and any MCP-compatible tool.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Why only 1,000 licences?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">We deliberately capped sales at <strong>1,000 licences</strong>. Once all 1,000 spots are filled, we stop selling and focus 100% of our engineering effort on delivering the best updates, features, and support to our existing customers. No bloated user base, no stretched-thin support. Just a tight community of agencies getting world-class tooling and rapid improvements.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">How fast is the setup?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">Most setups are completed within <strong>24 hours</strong> of purchase. You provide a VPS, we handle everything else. Many customers are sending their first campaign the same day they buy.</div>
+ <div class="faq-answer">Self-install takes <strong>~5 minutes</strong>. Run the install script, point your domains, and you're sending. If you opt for our $9 done-for-you setup, we typically finish within 24 hours — you provide a VPS and we handle the rest.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1792,10 +1824,24 @@
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Can I use my own SMTP providers alongside the inbuilt one?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer"><strong>Yes.</strong> You can mix and match. Use the inbuilt mail server for some domains and connect external providers (Gmail, Outlook, AWS SES, SendGrid, or any SMTP) for others. The smart rotation engine distributes sends across all connected mailboxes based on health, warmup status, and domain reputation.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">Can I resell this to my clients or build a SaaS?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">The <strong>Agency license ($497)</strong> lets you run campaigns for unlimited clients under your brand. The <strong>Enterprise/SaaS license ($1997)</strong> gives you full source code access and commercial resell rights — build your own SaaS platform, charge monthly, keep 100% of revenue.</div>
+ <div class="faq-answer">The <strong>Agency license ($597)</strong> lets you run campaigns for unlimited clients under your brand. The <strong>Enterprise/SaaS license ($1997)</strong> gives you full source code access and commercial resell rights — build your own SaaS platform, charge monthly, keep 100% of revenue.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">How does the email warmup work?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Cleanmails includes a built-in 30-day warmup engine. It gradually increases sending volume (2→30 emails/day) with auto-generated replies to build domain reputation. No third-party warmup tool needed. No per-inbox fees. Works with both the inbuilt mail server and external SMTP accounts.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1806,17 +1852,17 @@
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Does it have inbuilt SMTP or do I need a relay?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">Cleanmails ships with a <strong>full mail server</strong> (Postfix + Dovecot + auto-DKIM). Create unlimited mailboxes on your own domains — no Google Workspace fees. External relays like AWS SES or SendGrid are optional, not required. You can also connect any existing SMTP account (Gmail, Outlook, etc.).</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">How does the AI auto-reply work?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">When a prospect replies, the AI reads the message, classifies intent (interested, question, objection, not interested), and drafts a contextual reply using your knowledge base. You can approve each reply manually or enable autopilot mode to send automatically with a natural delay.</div>
+ <div class="faq-answer">When a prospect replies, the AI reads the message, classifies intent (interested, question, objection, not interested), and drafts a contextual reply using your knowledge base. You can approve each reply manually or enable autopilot mode to send automatically with a natural delay. Supports 10+ AI providers — BYO API key at ~$0.001/reply.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Do I need to install Docker or any dependencies?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer"><strong>No.</strong> Cleanmails is a single compiled binary (written in Go). No Docker, no Node.js, no Python, no package managers. Download, run, done. It includes everything — the web dashboard, mail server, validation engine, and API — in one executable.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1852,9 +1898,9 @@
 
  <!-- FINAL CTA -->
  <section class="final-cta-section">
- <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Escape the Subscription Trap</span>
+ <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 1,000 Licences</span>
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
- <p class="section-sub">Join the Founders Batch today and lock in Free Lifetime Updates. Free white-glove setup included — we deploy everything for you.</p>
+ <p class="section-sub">Join the 1,000 agencies who will get lifetime updates and dedicated engineering focus. 5-min install. No monthly fees.</p>
  <div class="final-cta-btns">
  <a href="#" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
  <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #5865F2; color: #fff;">&#x1F4AC; Join Discord</a>
@@ -2215,6 +2261,31 @@
 
  startAutoScroll();
  </script>
+
+<!-- 1,000 Licences Popup -->
+<div id="licence-popup" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);" onclick="if(event.target===this)this.style.display='none'">
+ <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:40px; max-width:480px; width:90%; box-shadow:10px 10px 0 #FFD700; text-align:center; animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);">
+  <div style="font-size:2.5rem; margin-bottom:12px;">🔒</div>
+  <h3 style="font-size:1.5rem; font-weight:900; margin-bottom:12px; letter-spacing:-0.02em;">Why Only 1,000 Licences?</h3>
+  <p style="font-size:0.95rem; color:#555; margin-bottom:20px; line-height:1.7;">We're not building a bloated SaaS with 50,000 users and stretched-thin support. We're building the best cold email tool for a tight community of serious agencies.</p>
+  <div style="background:#f8f8f8; border:2px solid #eee; border-radius:14px; padding:20px; text-align:left; margin-bottom:24px;">
+   <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
+    <span style="font-size:1.2rem;">📦</span>
+    <div><strong style="font-size:0.9rem;">1,000 licences sold — then we stop.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No new sales after that. Period.</p></div>
+   </div>
+   <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
+    <span style="font-size:1.2rem;">🚀</span>
+    <div><strong style="font-size:0.9rem;">100% focus on updates & features.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Every engineer hour goes into making your tool better.</p></div>
+   </div>
+   <div style="display:flex; align-items:flex-start; gap:10px;">
+    <span style="font-size:1.2rem;">🤝</span>
+    <div><strong style="font-size:0.9rem;">Tight-knit community, real support.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No ticket queues. Direct access to the dev team.</p></div>
+   </div>
+  </div>
+  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $597 →</a>
+  <p style="font-size:0.75rem; color:#999; margin-top:12px;">One-time payment · Lifetime updates · 30-day refund</p>
+ </div>
+</div>
 
 <!-- Demo Access Modal -->
 <div id="demo-modal" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px);" onclick="if(event.target===this)this.style.display='none'">
