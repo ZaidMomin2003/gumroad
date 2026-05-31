@@ -142,32 +142,40 @@
  /* New Header System */
  .site-header {
  position: fixed; top: 0; left: 0; width: 100%; z-index: 2000;
- border-bottom: 3px solid var(--black);
- transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease;
+ background: rgba(255,255,255,0.92);
+ backdrop-filter: blur(12px);
+ -webkit-backdrop-filter: blur(12px);
+ border-bottom: 2px solid rgba(0,0,0,0.08);
+ transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease, border-color 0.3s ease;
  }
  .nav-inner {
- max-width: 1100px; margin: 0 auto; padding: 14px 24px;
+ max-width: 1100px; margin: 0 auto; padding: 12px 24px;
  display: flex; align-items: center; justify-content: space-between; gap: 24px;
  transition: padding 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
  }
  .nav-logo {
  display: flex; align-items: center; gap: 10px;
- font-weight: 900; font-size: 1.15rem; letter-spacing: -0.02em;
+ font-weight: 900; font-size: 1.15rem; letter-spacing: -0.03em;
  text-decoration: none; color: var(--black);
- transition: transform 0.3s ease;
+ transition: transform 0.2s ease;
  }
- .nav-logo img { width: 32px; height: 32px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.3s ease; }
- .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; transition: opacity 0.3s ease; }
- .nav-links a { font-weight: 700; font-size: 0.85rem; text-decoration: none; color: var(--muted); transition: color 0.2s; }
+ .nav-logo:hover { transform: scale(1.02); }
+ .nav-logo img { width: 30px; height: 30px; border: 2px solid var(--black); border-radius: 8px; transition: transform 0.2s ease; }
+ .nav-links { display: flex; align-items: center; gap: 8px; list-style: none; transition: opacity 0.3s ease; }
+ .nav-links a {
+ font-weight: 700; font-size: 0.82rem; text-decoration: none; color: var(--muted);
+ padding: 6px 12px; border-radius: 8px; transition: all 0.2s ease;
+ }
+ .nav-links a:hover { color: var(--black); background: rgba(0,0,0,0.04); }
  .nav-calc-link {
  font-family: 'Outfit', sans-serif !important;
  font-weight: 900 !important;
- font-size: 0.82rem !important;
+ font-size: 0.78rem !important;
  color: #000 !important;
- background: linear-gradient(135deg, #2ecc71, #27ae60);
+ background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
  padding: 5px 14px !important;
- border-radius: 100px;
- border: 2px solid #000;
+ border-radius: 100px !important;
+ border: 2px solid #000 !important;
  box-shadow: 2px 2px 0 #000;
  letter-spacing: -0.01em;
  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
@@ -179,18 +187,21 @@
  color: #000 !important;
  }
  .nav-cta {
- background: var(--gold); color: var(--black); font-weight: 900; font-size: 0.85rem;
- padding: 8px 16px; border-radius: 8px; border: 2px solid var(--black);
- box-shadow: 3px 3px 0 var(--black); text-decoration: none;
- transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ background: var(--black); color: var(--white); font-weight: 900; font-size: 0.82rem;
+ padding: 10px 20px; border-radius: 10px; border: 2px solid var(--black);
+ box-shadow: 3px 3px 0 var(--gold); text-decoration: none;
+ display: inline-flex; align-items: center; gap: 6px;
+ transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
  }
+ .nav-cta:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--gold); }
 
  /* Shrink State */
  .site-header.hidden {
  transform: translateY(-100%) !important;
  }
  .site-header.scrolled {
- box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+ box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+ border-bottom-color: rgba(0,0,0,0.12);
  }
  .site-header.scrolled .announcement-bar {
  height: 0 !important; padding: 0 !important; border-bottom: none; overflow: hidden; opacity: 0;
@@ -199,7 +210,7 @@
  padding: 8px 24px;
  }
  .site-header.scrolled .nav-cta {
- box-shadow: 5px 5px 0 var(--black);
+ box-shadow: 4px 4px 0 var(--gold);
  background: var(--black);
  color: var(--white);
  border-color: var(--gold);
@@ -918,6 +929,9 @@
  .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
  .timeline-step:last-child { border-bottom: none; }
  .section { padding: 60px 20px; }
+ .section-inner div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+ .section-inner div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+ .section-inner div[style*="grid-row:span 2"], .section-inner div[style*="grid-row:span 3"] { grid-row: span 1 !important; }
  .final-cta-section { padding: 80px 20px; }
  .modal-content { padding: 32px 20px; border-radius: 20px; }
  .faq-section .section-inner > div[style] { flex-direction: column !important; text-align: center; }
@@ -940,22 +954,22 @@
  <ul class="nav-links">
  <li><a href="#features">Features</a></li>
  <li><a href="#integrations-section">Integrations</a></li>
- <li><a href="#breakeven-calc" style="color: #2ecc71; font-weight: 800; font-size: 0.85rem;">💰 ROI Calculator</a></li>
+ <li><a href="#breakeven-calc" style="color:#2ecc71;font-weight:800;">ROI Calculator</a></li>
  <li><a href="#pricing">Pricing</a></li>
  <li style="position:relative;" onmouseenter="this.querySelector('.nav-dropdown').style.display='block'" onmouseleave="this.querySelector('.nav-dropdown').style.display='none'">
   <a href="#" onclick="return false" style="display:flex; align-items:center; gap:4px;">Resources <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="margin-top:1px;"><path d="M2 4L5 7L8 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-  <div class="nav-dropdown" style="display:none; position:absolute; top:100%; left:0; padding-top:12px; z-index:100;">
-   <div style="background:#fff; border:2px solid #000; border-radius:12px; box-shadow:4px 4px 0 #000; min-width:160px; overflow:hidden;">
-    <a href="/blog" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none; border-bottom:1px solid #eee;">📝 Blog</a>
-    <a href="/docs" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none; border-bottom:1px solid #eee;">📖 Documentation</a>
-    <a href="/tools" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none;">🛠️ Free Tools</a>
+  <div class="nav-dropdown" style="display:none; position:absolute; top:100%; left:-20px; padding-top:12px; z-index:100;">
+   <div style="background:#fff; border:2px solid #000; border-radius:12px; box-shadow:4px 4px 0 #000; min-width:180px; overflow:hidden;">
+    <a href="/blog" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none; border-bottom:1px solid #eee; transition:background 0.15s;">📝 Blog</a>
+    <a href="/docs" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none; border-bottom:1px solid #eee; transition:background 0.15s;">📖 Documentation</a>
+    <a href="/tools" style="display:block; padding:10px 16px; font-size:0.82rem; font-weight:700; color:#333; text-decoration:none; transition:background 0.15s;">🛠️ Free Tools</a>
    </div>
   </div>
  </li>
  </ul>
  <a href="#" class="nav-cta waitlist-trigger">
- <span class="desktop-text">Join Waitlist →</span>
- <span class="mobile-text">Join Waitlist →</span>
+ <span class="desktop-text">Claim Deal →</span>
+ <span class="mobile-text">Claim Deal</span>
  </a>
  </div>
  </nav>
@@ -1006,87 +1020,61 @@
  </div>
  </section>
 
- <!-- HOW IT WORKS -->
+ <!-- HOW IT WORKS — BENTO -->
  <section class="how-section section">
  <div class="section-inner">
  <span class="section-label">How It Works</span>
- <h2 class="section-headline">Live in 3 steps.</h2>
+ <h2 class="section-headline">Live in 4 steps.</h2>
  <p class="section-sub">From purchase to sending your first cold email — in under 24 hours.</p>
- <div class="timeline">
- <!-- STEP 1: Purchase -->
- <div class="timeline-step">
- <span class="step-num">01</span>
- <h3>Purchase Your License</h3>
- <p>One-time payment. Instant key delivery. No subscriptions ever.</p>
- <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
- <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
- <span style="font-size:0.72rem;font-weight:800;color:#2ecc71;text-transform:uppercase;letter-spacing:0.08em;">✓ Payment Confirmed</span>
- <span style="font-size:0.72rem;color:#999;">Just now</span>
+
+ <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:16px;margin-top:48px;">
+
+ <!-- Card 1: Purchase -->
+ <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;display:flex;flex-direction:column;justify-content:center;">
+ <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;">1. Purchase License</h3>
+ <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">One-time $597. License key delivered instantly to your email. No subscriptions, no renewals, yours forever.</p>
  </div>
- <div style="background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:12px;font-family:monospace;font-size:0.78rem;color:#333;letter-spacing:0.02em;">
- License Key: <b style="color:#000;">CM-AGENCY-7X9K2-MF4PL</b>
+
+ <!-- Card 2: Install Command — with UI prototype -->
+ <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:28px;box-shadow:5px 5px 0 #2ecc71;grid-row:span 3;">
+ <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 8px;">2. Paste One Command</h3>
+ <p style="font-size:0.88rem;color:#555;margin:0 0 16px;line-height:1.6;">SSH into your VPS. Paste. Done. Installs SMTP, dashboard, SSL, DKIM — everything.</p>
+ <!-- Terminal UI Prototype -->
+ <div style="background:#0d0d0d;border:2px solid #333;border-radius:12px;overflow:hidden;">
+ <div style="display:flex;align-items:center;gap:6px;padding:10px 14px;background:#1a1a1a;border-bottom:1px solid #333;">
+ <div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div>
+ <div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div>
+ <div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div>
+ <span style="font-size:0.65rem;color:#666;margin-left:auto;font-family:monospace;">root@vps:~</span>
  </div>
- <p style="font-size:0.72rem;color:#999;margin:8px 0 0;">Sent to your email instantly. Valid forever.</p>
+ <div style="padding:16px;font-family:monospace;font-size:0.72rem;line-height:1.8;color:#ccc;word-break:break-all;">
+ <div><span style="color:#888;">$</span> <span style="color:#2ecc71;">curl -sSL</span> cleanmails.online/install.sh | <span style="color:#2ecc71;">bash</span> -s -- \</div>
+ <div style="padding-left:16px;">--key <span style="color:#FFD700;">CM-AGENCY-7X9K2</span> \</div>
+ <div style="padding-left:16px;">--domain <span style="color:#FFD700;">mail.yourdomain.com</span></div>
+ <div style="margin-top:12px;color:#2ecc71;">✓ SMTP configured</div>
+ <div style="color:#2ecc71;">✓ DKIM/SPF/DMARC set</div>
+ <div style="color:#2ecc71;">✓ SSL certificate issued</div>
+ <div style="color:#2ecc71;">✓ Dashboard live at :3000</div>
+ </div>
+ </div>
+ <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+ <span style="font-size:0.7rem;font-weight:700;color:#2ecc71;background:#D1FAE5;padding:4px 10px;border-radius:6px;border:1px solid #2ecc71;">~3 minutes</span>
+ <span style="font-size:0.7rem;color:#999;">Or free white-glove setup — we do it for you.</span>
  </div>
  </div>
 
- <!-- STEP 2: DNS + Install -->
- <div class="timeline-step">
- <span class="step-num">02</span>
- <h3>Point DNS + Run One Command</h3>
- <p>Add an A record. Paste one command. That's it. <b>Or let us do it — free setup included.</b></p>
- <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
- <!-- DNS Mock -->
- <div style="margin-bottom:14px;">
- <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">DNS Record</span>
- <div style="display:grid;grid-template-columns:auto 1fr auto;gap:8px;margin-top:8px;background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.75rem;">
- <span style="font-weight:800;color:#000;">A</span>
- <span style="color:#555;">mail.yourdomain.com</span>
- <span style="font-weight:800;color:#7c3aed;">→ 142.93.xx.xx</span>
- </div>
- </div>
- <!-- Terminal Mock -->
- <div>
- <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">Terminal (1 command)</span>
- <div style="margin-top:8px;background:#1a1a1a;border:2px solid #000;border-radius:10px;padding:12px 14px;font-family:monospace;font-size:0.72rem;color:#2ecc71;line-height:1.6;overflow-x:auto;">
- <span style="color:#888;">$</span> curl -sSL cleanmails.online/install.sh | bash -s -- --key <span style="color:#FFD700;">YOUR_KEY</span> --domain <span style="color:#FFD700;">yourdomain.com</span>
- </div>
- <p style="font-size:0.72rem;color:#999;margin:8px 0 0;">Installs everything: SMTP, DKIM, SSL, dashboard. ~3 minutes.</p>
- </div>
- </div>
+ <!-- Card 3: DNS -->
+ <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;display:flex;flex-direction:column;justify-content:center;">
+ <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;">3. Point DNS + rDNS</h3>
+ <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">Add one A record. Set reverse DNS at your VPS provider. 2-minute task — or we handle it in your free setup.</p>
  </div>
 
- <!-- STEP 3: rDNS + Go Live -->
- <div class="timeline-step">
- <span class="step-num">03</span>
- <h3>Set rDNS & Start Sending</h3>
- <p>Complete reverse DNS at your VPS provider. Then open your dashboard and send.</p>
- <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
- <!-- rDNS Mock -->
- <div style="margin-bottom:14px;">
- <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">VPS Panel → Reverse DNS</span>
- <div style="display:flex;align-items:center;gap:8px;margin-top:8px;background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:10px 12px;">
- <span style="font-size:0.75rem;font-weight:700;color:#555;">142.93.xx.xx</span>
- <span style="font-size:0.85rem;color:#999;">→</span>
- <span style="font-size:0.75rem;font-weight:800;color:#000;">mail.yourdomain.com</span>
- <span style="margin-left:auto;font-size:0.65rem;font-weight:800;color:#2ecc71;background:#D1FAE5;padding:3px 8px;border-radius:6px;">✓ Saved</span>
+ <!-- Card 4: Go Live -->
+ <div style="background:#000;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #FFD700;display:flex;flex-direction:column;justify-content:center;">
+ <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;color:#fff;">4. Start Sending</h3>
+ <p style="font-size:0.88rem;color:#999;margin:0;line-height:1.6;">Open your dashboard. Add leads. Launch your first campaign. Unlimited emails, unlimited clients, forever.</p>
  </div>
- </div>
- <!-- Dashboard Mock -->
- <div style="background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:12px;">
- <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
- <span style="font-size:0.72rem;font-weight:800;color:#000;">Dashboard Ready</span>
- <span style="font-size:0.6rem;font-weight:800;color:#fff;background:#2ecc71;padding:3px 8px;border-radius:6px;">LIVE</span>
- </div>
- <div style="display:flex;gap:6px;">
- <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">3 Senders</span>
- <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">DKIM ✓</span>
- <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">SPF ✓</span>
- <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">SSL ✓</span>
- </div>
- </div>
- </div>
- </div>
+
  </div>
  </div>
  </section>
@@ -1530,7 +1518,7 @@
  </div>
  <div style="text-align: right;">
  <p style="color: #888; font-size: 0.82rem; font-weight: 700; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.08em;">Cleanmails replaces all of it</p>
- <p style="color: #2ecc71; font-size: 2rem; font-weight: 900; margin: 0; line-height: 1;">$497<span style="font-size: 0.85rem; color: #777; font-weight: 600;"> once. Forever.</span></p>
+ <p style="color: #2ecc71; font-size: 2rem; font-weight: 900; margin: 0; line-height: 1;">$597<span style="font-size: 0.85rem; color: #777; font-weight: 600;"> once. Forever.</span></p>
  </div>
  </div>
 
@@ -1572,7 +1560,7 @@
  <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 20px;">
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
  <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Cleanmails one-time cost</span>
- <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$497</span>
+ <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$597</span>
  </div>
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
  <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Your yearly spend (current)</span>
@@ -1633,7 +1621,7 @@
 
  function calculate() {
  const monthly = Math.max(1, parseInt(input.value) || 0);
- const cleanmailsCost = 497;
+ const cleanmailsCost = 597;
  const yearly = monthly * 12;
  const yearlySavings = yearly - cleanmailsCost;
 
@@ -1954,7 +1942,7 @@
  <section class="final-cta-section">
  <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 2,000 Agencies</span>
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
- <p class="section-sub">Price increases to $997 after 2,000 sales. Lock in $497 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
+ <p class="section-sub">Price increases to $997 after 2,000 sales. Lock in $597 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
  <div class="final-cta-btns">
  <a href="#" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
  <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #5865F2; color: #fff;">&#x1F4AC; Join Discord</a>
@@ -2096,8 +2084,8 @@
  const clients = parseInt(sliderClients.value);
  const cost = parseInt(sliderCost.value);
  const yearlyCost = clients * cost * 12;
- const savings = yearlyCost - 497;
- const roiWeeks = (497 / (clients * cost / 4.33)).toFixed(1);
+ const savings = yearlyCost - 597;
+ const roiWeeks = (597 / (clients * cost / 4.33)).toFixed(1);
  if (displayClients) displayClients.innerText = clients;
  if (displayCost) displayCost.innerText = `${cost}`;
  if (displayTotal) displayTotal.innerText = `${savings.toLocaleString()}`;
@@ -2325,7 +2313,7 @@
   <div style="background:#f8f8f8; border:2px solid #eee; border-radius:14px; padding:20px; text-align:left; margin-bottom:24px;">
    <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
     <span style="font-size:1.2rem;">📦</span>
-    <div><strong style="font-size:0.9rem;">2,000 sales at $497 — then price goes to $997.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Lock in the lowest price while you can.</p></div>
+    <div><strong style="font-size:0.9rem;">2,000 sales at $597 — then price goes to $997.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Lock in the lowest price while you can.</p></div>
    </div>
    <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
     <span style="font-size:1.2rem;">🚀</span>
@@ -2336,7 +2324,7 @@
     <div><strong style="font-size:0.9rem;">Tight-knit community, real support.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No ticket queues. Direct access to the dev team.</p></div>
    </div>
   </div>
-  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $497 →</a>
+  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $597 →</a>
   <p style="font-size:0.75rem; color:#999; margin-top:12px;">One-time payment · Lifetime updates · 30-day refund</p>
  </div>
 </div>
