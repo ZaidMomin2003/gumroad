@@ -966,7 +966,7 @@
 
  <div class="hero-eyebrow" id="licencePillTrigger" style="cursor:pointer;" onclick="document.getElementById('licence-popup').style.display='flex'">
  <span class="hero-live-dot"></span>
- 🔒 Limited to 1,000 Licences Only · <strong>Click to learn why</strong>
+ 🔒 Limited to 2,000 Agencies Only · <strong>Click to learn why</strong>
  </div>
 
  <div style="margin-bottom: 24px; display: flex; justify-content: center;">
@@ -1010,28 +1010,82 @@
  <section class="how-section section">
  <div class="section-inner">
  <span class="section-label">How It Works</span>
- <h2 class="section-headline">Live in 4 steps.</h2>
- <p class="section-sub">From sign-up to sending your first cold email — in under 24 hours.</p>
+ <h2 class="section-headline">Live in 3 steps.</h2>
+ <p class="section-sub">From purchase to sending your first cold email — in under 24 hours.</p>
  <div class="timeline">
+ <!-- STEP 1: Purchase -->
  <div class="timeline-step">
  <span class="step-num">01</span>
- <h3>Secure Your License</h3>
- <p>Get instant access to the Agency core. One-time payment, no recurring seat fees for you or your team.</p>
+ <h3>Purchase Your License</h3>
+ <p>One-time payment. Instant key delivery. No subscriptions ever.</p>
+ <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
+ <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+ <span style="font-size:0.72rem;font-weight:800;color:#2ecc71;text-transform:uppercase;letter-spacing:0.08em;">✓ Payment Confirmed</span>
+ <span style="font-size:0.72rem;color:#999;">Just now</span>
  </div>
+ <div style="background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:12px;font-family:monospace;font-size:0.78rem;color:#333;letter-spacing:0.02em;">
+ License Key: <b style="color:#000;">CM-AGENCY-7X9K2-MF4PL</b>
+ </div>
+ <p style="font-size:0.72rem;color:#999;margin:8px 0 0;">Sent to your email instantly. Valid forever.</p>
+ </div>
+ </div>
+
+ <!-- STEP 2: DNS + Install -->
  <div class="timeline-step">
  <span class="step-num">02</span>
- <h3>5-Minute Install</h3>
- <p>Run one command on your VPS and you're live. It's that simple. <b>Want us to do it? Just $9 one-time</b> — we'll deploy, configure DKIM/SPF/DMARC, and hand you a working system.</p>
+ <h3>Point DNS + Run One Command</h3>
+ <p>Add an A record. Paste one command. That's it. <b>Or let us do it — free setup included.</b></p>
+ <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
+ <!-- DNS Mock -->
+ <div style="margin-bottom:14px;">
+ <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">DNS Record</span>
+ <div style="display:grid;grid-template-columns:auto 1fr auto;gap:8px;margin-top:8px;background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:10px 12px;font-size:0.75rem;">
+ <span style="font-weight:800;color:#000;">A</span>
+ <span style="color:#555;">mail.yourdomain.com</span>
+ <span style="font-weight:800;color:#7c3aed;">→ 142.93.xx.xx</span>
  </div>
+ </div>
+ <!-- Terminal Mock -->
+ <div>
+ <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">Terminal (1 command)</span>
+ <div style="margin-top:8px;background:#1a1a1a;border:2px solid #000;border-radius:10px;padding:12px 14px;font-family:monospace;font-size:0.72rem;color:#2ecc71;line-height:1.6;overflow-x:auto;">
+ <span style="color:#888;">$</span> curl -sSL cleanmails.online/install.sh | bash -s -- --key <span style="color:#FFD700;">YOUR_KEY</span> --domain <span style="color:#FFD700;">yourdomain.com</span>
+ </div>
+ <p style="font-size:0.72rem;color:#999;margin:8px 0 0;">Installs everything: SMTP, DKIM, SSL, dashboard. ~3 minutes.</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- STEP 3: rDNS + Go Live -->
  <div class="timeline-step">
  <span class="step-num">03</span>
- <h3>Onboard Unlimited Clients</h3>
- <p>Add clients, connect their SMTPs (or use our inbuilt engine), and set up separate workspaces in seconds.</p>
+ <h3>Set rDNS & Start Sending</h3>
+ <p>Complete reverse DNS at your VPS provider. Then open your dashboard and send.</p>
+ <div style="margin-top:16px;background:#fff;border:2px solid #000;border-radius:14px;padding:16px;box-shadow:4px 4px 0 #000;">
+ <!-- rDNS Mock -->
+ <div style="margin-bottom:14px;">
+ <span style="font-size:0.68rem;font-weight:800;color:#888;text-transform:uppercase;letter-spacing:0.08em;">VPS Panel → Reverse DNS</span>
+ <div style="display:flex;align-items:center;gap:8px;margin-top:8px;background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:10px 12px;">
+ <span style="font-size:0.75rem;font-weight:700;color:#555;">142.93.xx.xx</span>
+ <span style="font-size:0.85rem;color:#999;">→</span>
+ <span style="font-size:0.75rem;font-weight:800;color:#000;">mail.yourdomain.com</span>
+ <span style="margin-left:auto;font-size:0.65rem;font-weight:800;color:#2ecc71;background:#D1FAE5;padding:3px 8px;border-radius:6px;">✓ Saved</span>
  </div>
- <div class="timeline-step">
- <span class="step-num">04</span>
- <h3>Scale to Infinity</h3>
- <p>Send 1M or 100M emails. Clean 1,000 or 1,000,000 leads. You just pay barely $10-$20/month for your own VPS server.</p>
+ </div>
+ <!-- Dashboard Mock -->
+ <div style="background:#f8f8f8;border:2px solid #eee;border-radius:10px;padding:12px;">
+ <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+ <span style="font-size:0.72rem;font-weight:800;color:#000;">Dashboard Ready</span>
+ <span style="font-size:0.6rem;font-weight:800;color:#fff;background:#2ecc71;padding:3px 8px;border-radius:6px;">LIVE</span>
+ </div>
+ <div style="display:flex;gap:6px;">
+ <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">3 Senders</span>
+ <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">DKIM ✓</span>
+ <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">SPF ✓</span>
+ <span style="font-size:0.65rem;font-weight:700;padding:4px 8px;border-radius:6px;background:#fff;border:1px solid #ddd;">SSL ✓</span>
+ </div>
+ </div>
+ </div>
  </div>
  </div>
  </div>
@@ -1681,14 +1735,14 @@
  <div class="pricing-featured">
  <div class="pf-top">
  <div class="pf-left">
- <span class="pf-badge">Limited to 1,000 Licences</span>
+ <span class="pf-badge">Limited to 2,000 Agencies</span>
  <div class="pf-name">Agency Professional</div>
  <div class="pf-price-row">
  <span class="pf-old">$897</span>
  <span class="pf-price">$597</span>
  </div>
  <div class="pf-period">one-time payment — yours forever</div>
- <span class="pf-hike">Only 1,000 licences will ever be sold. Then we focus on updates.</span>
+ <span class="pf-hike">⚠️ Price increases to $997 after 2,000 sales. Then we stop selling.</span>
  </div>
  <div class="pf-cta-wrap">
  <a href="#" class="pf-btn waitlist-trigger">Join Waitlist →</a>
@@ -1796,10 +1850,10 @@
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Why only 1,000 licences?</span>
+ <span class="faq-question-text">Why only 2,000 agencies?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">We deliberately capped sales at <strong>1,000 licences</strong>. Once all 1,000 spots are filled, we stop selling and focus 100% of our engineering effort on delivering the best updates, features, and support to our existing customers. No bloated user base, no stretched-thin support. Just a tight community of agencies getting world-class tooling and rapid improvements.</div>
+ <div class="faq-answer">We deliberately capped sales at <strong>2,000 agencies</strong>. After 2,000 sales, the price increases to $997 and we shift focus to updates and support. No bloated user base, no stretched-thin support. Just a tight community of serious agencies getting world-class tooling and rapid improvements.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -1898,9 +1952,9 @@
 
  <!-- FINAL CTA -->
  <section class="final-cta-section">
- <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 1,000 Licences</span>
+ <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 2,000 Agencies</span>
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
- <p class="section-sub">Join the 1,000 agencies who will get lifetime updates and dedicated engineering focus. 5-min install. No monthly fees.</p>
+ <p class="section-sub">Price increases to $997 after 2,000 sales. Lock in $497 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
  <div class="final-cta-btns">
  <a href="#" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
  <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #5865F2; color: #fff;">&#x1F4AC; Join Discord</a>
@@ -2262,16 +2316,16 @@
  startAutoScroll();
  </script>
 
-<!-- 1,000 Licences Popup -->
+<!-- 2,000 Agencies Popup -->
 <div id="licence-popup" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);" onclick="if(event.target===this)this.style.display='none'">
  <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:40px; max-width:480px; width:90%; box-shadow:10px 10px 0 #FFD700; text-align:center; animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);">
   <div style="font-size:2.5rem; margin-bottom:12px;">🔒</div>
-  <h3 style="font-size:1.5rem; font-weight:900; margin-bottom:12px; letter-spacing:-0.02em;">Why Only 1,000 Licences?</h3>
+  <h3 style="font-size:1.5rem; font-weight:900; margin-bottom:12px; letter-spacing:-0.02em;">Why Only 2,000 Agencies?</h3>
   <p style="font-size:0.95rem; color:#555; margin-bottom:20px; line-height:1.7;">We're not building a bloated SaaS with 50,000 users and stretched-thin support. We're building the best cold email tool for a tight community of serious agencies.</p>
   <div style="background:#f8f8f8; border:2px solid #eee; border-radius:14px; padding:20px; text-align:left; margin-bottom:24px;">
    <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
     <span style="font-size:1.2rem;">📦</span>
-    <div><strong style="font-size:0.9rem;">1,000 licences sold — then we stop.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No new sales after that. Period.</p></div>
+    <div><strong style="font-size:0.9rem;">2,000 sales at $497 — then price goes to $997.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Lock in the lowest price while you can.</p></div>
    </div>
    <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
     <span style="font-size:1.2rem;">🚀</span>
@@ -2282,7 +2336,7 @@
     <div><strong style="font-size:0.9rem;">Tight-knit community, real support.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No ticket queues. Direct access to the dev team.</p></div>
    </div>
   </div>
-  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $597 →</a>
+  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $497 →</a>
   <p style="font-size:0.75rem; color:#999; margin-top:12px;">One-time payment · Lifetime updates · 30-day refund</p>
  </div>
 </div>
