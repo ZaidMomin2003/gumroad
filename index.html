@@ -938,9 +938,12 @@
  .timeline-step { border-right: none; border-bottom: 3px solid var(--black); }
  .timeline-step:last-child { border-bottom: none; }
  .section { padding: 60px 20px; }
- .section-inner div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
- .section-inner div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+ .section-inner div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
+ .section-inner div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
  .section-inner div[style*="grid-row:span 2"], .section-inner div[style*="grid-row:span 3"] { grid-row: span 1 !important; }
+ .section-inner div[style*="justify-content:center"] { justify-content: flex-start !important; }
+ .how-section .section-inner div[style*="grid-template"] { grid-template-columns: 1fr !important; grid-template-rows: auto !important; gap: 12px !important; margin-top: 32px !important; }
+ .how-section .section-inner div[style*="grid-row"] { grid-row: auto !important; }
  .final-cta-section { padding: 80px 20px; }
  .modal-content { padding: 32px 20px; border-radius: 20px; }
  .faq-section .section-inner > div[style] { flex-direction: column !important; text-align: center; }
