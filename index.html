@@ -915,6 +915,15 @@
  .nav-cta .mobile-text { display: none; }
  @media (max-width: 768px) {
  html, body { overflow-x: hidden; }
+ .pill-learn { display: none; }
+ .pill-emoji { display: none; }
+ .hero-eyebrow { font-size: 0.72rem; padding: 5px 12px; }
+ #licence-popup > div { padding: 24px 20px !important; max-width: 92% !important; width: 92% !important; border-radius: 18px !important; box-shadow: 6px 6px 0 #FFD700 !important; }
+ #licence-popup h3 { font-size: 1.15rem !important; }
+ #licence-popup p { font-size: 0.82rem !important; }
+ #licence-popup div[style*="background:#f8f8f8"] { padding: 16px !important; }
+ #licence-popup div[style*="font-size:1.2rem"] { font-size: 1rem !important; }
+ #licence-popup strong { font-size: 0.82rem !important; }
  .nav-cta .desktop-text { display: none; }
  .nav-cta .mobile-text { display: inline; }
  .nav-links { display: none; }
@@ -980,7 +989,7 @@
 
  <div class="hero-eyebrow" id="licencePillTrigger" style="cursor:pointer;" onclick="document.getElementById('licence-popup').style.display='flex'">
  <span class="hero-live-dot"></span>
- 🔒 Limited to 2,000 Agencies Only · <strong>Click to learn why</strong>
+ <span class="pill-emoji">🔒 </span>Limited to 2,000 Agencies Only<span class="pill-learn"> · <strong>Click to learn why</strong></span>
  </div>
 
  <div style="margin-bottom: 24px; display: flex; justify-content: center;">
@@ -2306,26 +2315,25 @@
 
 <!-- 2,000 Agencies Popup -->
 <div id="licence-popup" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);" onclick="if(event.target===this)this.style.display='none'">
- <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:40px; max-width:480px; width:90%; box-shadow:10px 10px 0 #FFD700; text-align:center; animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);">
-  <div style="font-size:2.5rem; margin-bottom:12px;">🔒</div>
-  <h3 style="font-size:1.5rem; font-weight:900; margin-bottom:12px; letter-spacing:-0.02em;">Why Only 2,000 Agencies?</h3>
-  <p style="font-size:0.95rem; color:#555; margin-bottom:20px; line-height:1.7;">We're not building a bloated SaaS with 50,000 users and stretched-thin support. We're building the best cold email tool for a tight community of serious agencies.</p>
-  <div style="background:#f8f8f8; border:2px solid #eee; border-radius:14px; padding:20px; text-align:left; margin-bottom:24px;">
-   <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
-    <span style="font-size:1.2rem;">📦</span>
-    <div><strong style="font-size:0.9rem;">2,000 sales at $597 — then price goes to $997.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Lock in the lowest price while you can.</p></div>
+ <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:32px; max-width:420px; width:90%; box-shadow:8px 8px 0 #FFD700; text-align:center; animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);">
+  <h3 style="font-size:1.4rem; font-weight:900; margin-bottom:14px; letter-spacing:-0.02em;">Why Only 2,000 Agencies?</h3>
+  <p style="font-size:0.9rem; color:#555; margin-bottom:20px; line-height:1.6;">We're building the best cold email tool for a tight community of serious agencies — not a bloated SaaS with stretched-thin support.</p>
+  <div style="background:#f8f8f8; border:2px solid #eee; border-radius:12px; padding:16px; text-align:left; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
+   <div style="display:flex; align-items:center; gap:10px;">
+    <span style="font-size:1.1rem;">📦</span>
+    <strong style="font-size:0.85rem;">2,000 sales at $597 — then price goes to $997.</strong>
    </div>
-   <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:14px;">
-    <span style="font-size:1.2rem;">🚀</span>
-    <div><strong style="font-size:0.9rem;">100% focus on updates & features.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">Every engineer hour goes into making your tool better.</p></div>
+   <div style="display:flex; align-items:center; gap:10px;">
+    <span style="font-size:1.1rem;">🚀</span>
+    <strong style="font-size:0.85rem;">100% engineering focus on updates & features.</strong>
    </div>
-   <div style="display:flex; align-items:flex-start; gap:10px;">
-    <span style="font-size:1.2rem;">🤝</span>
-    <div><strong style="font-size:0.9rem;">Tight-knit community, real support.</strong><p style="font-size:0.82rem; color:#666; margin:4px 0 0;">No ticket queues. Direct access to the dev team.</p></div>
+   <div style="display:flex; align-items:center; gap:10px;">
+    <span style="font-size:1.1rem;">🤝</span>
+    <strong style="font-size:0.85rem;">Tight-knit community. Direct dev access.</strong>
    </div>
   </div>
   <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $597 →</a>
-  <p style="font-size:0.75rem; color:#999; margin-top:12px;">One-time payment · Lifetime updates · 30-day refund</p>
+  <p style="font-size:0.72rem; color:#999; margin-top:10px;">One-time payment · Lifetime updates · 30-day refund</p>
  </div>
 </div>
 
