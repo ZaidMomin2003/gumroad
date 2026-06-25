@@ -35,9 +35,9 @@
  </script>
 
  <!-- SEO -->
- <title>Best Self-Hosted Cold Email Tool — AI Auto-Reply, SMTP, Validation & Warmup | Cleanmails</title>
- <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. Inbuilt mail server, AI auto-reply, email validation, unlimited sender rotation, warmup, MCP integration & cadences. One-time payment, no monthly fees.">
- <meta name="keywords" content="self hosted cold email tool, cold email software, SMTP rotation, email validation, AI auto reply cold email, email warmup tool, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, MCP integration, bulk email sender, cold email AI">
+ <title>Best Self-Hosted Cold Email Tool — BYO SMTP, Email Validation & Warmup | Cleanmails</title>
+ <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. BYO SMTP, inbuilt email validation (135K+ domains), unlimited sender rotation, warmup, MCP & cadences. One-time payment, no monthly fees.">
+ <meta name="keywords" content="self hosted cold email tool, cold email software, BYO SMTP, email validation, email warmup tool, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, MCP integration, bulk email sender, sender rotation">
  <link rel="canonical" href="https://cleanmails.online" />
  <!-- Schema.org Product -->
  <script type="application/ld+json">
@@ -48,7 +48,7 @@
  "applicationCategory": "BusinessApplication",
  "operatingSystem": "Linux",
  "url": "https://cleanmails.online",
- "description": "Self-hosted cold email platform with AI auto-reply, inbuilt mail server, email validation, warmup, sender rotation, MCP integration, and cadence automation. One-time payment.",
+ "description": "Self-hosted cold email platform with BYO SMTP, inbuilt email validation, warmup, sender rotation, MCP integration, and cadence automation. One-time payment.",
  "offers": [
  { "@type": "Offer", "name": "Agency", "price": "597", "priceCurrency": "USD" },
  { "@type": "Offer", "name": "Sell as your SaaS", "price": "1997", "priceCurrency": "USD" }
@@ -62,7 +62,7 @@
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Installation takes about 5 minutes. If you want us to do it, we offer a done-for-you setup for a one-time $9 fee. We deploy the stack, configure DKIM/SPF/DMARC, and hand you a working system." } },
+ { "@type": "Question", "name": "Do I need technical knowledge to set this up?", "acceptedAnswer": { "@type": "Answer", "text": "No. Installation takes about 5 minutes. If you want us to do it, we offer a done-for-you setup for a one-time $9 fee. We deploy the full stack and hand you a working system." } },
  { "@type": "Question", "name": "How fast is the setup?", "acceptedAnswer": { "@type": "Answer", "text": "Self-install takes about 5 minutes. Run the install script, point your domains, and you're sending. If you opt for our $9 done-for-you setup, we finish within 24 hours." } },
  { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "A Linux VPS with Port 25 open for the full experience (inbuilt SMTP + validation). Hetzner and Contabo are popular choices. If you use external SMTP (AWS SES, SendGrid), Port 25 is not needed." } },
  { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits, no workspace limits." } },
@@ -81,15 +81,15 @@
  <!-- Open Graph -->
  <meta property="og:type" content="website">
  <meta property="og:url" content="https://cleanmails.online">
- <meta property="og:title" content="Best Self-Hosted Cold Email Tool — AI Auto-Reply, SMTP & Validation | Cleanmails">
- <meta property="og:description" content="Self-hosted cold email with AI auto-reply, inbuilt mail server, unlimited sender rotation, email validation, warmup & cadences. One-time payment, no monthly fees.">
+ <meta property="og:title" content="Best Self-Hosted Cold Email Tool — BYO SMTP, Validation & Warmup | Cleanmails">
+ <meta property="og:description" content="Self-hosted cold email with BYO SMTP, email validation, unlimited sender rotation, warmup & cadences. One-time payment, no monthly fees.">
  <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
  <!-- Twitter -->
  <meta property="twitter:card" content="summary_large_image">
  <meta property="twitter:url" content="https://cleanmails.online">
- <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — AI-Powered, No Monthly Fees | Cleanmails">
- <meta property="twitter:description" content="AI auto-reply. Inbuilt mail server. Unlimited senders. Email validation. Warmup. One-time payment.">
+ <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
+ <meta property="twitter:description" content="BYO SMTP. Email validation. Unlimited senders. Warmup. Cadences. One-time payment.">
  <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
 
  <!-- Fonts -->
@@ -950,6 +950,54 @@
  .faq-section .section-inner > div[style] > div { flex-direction: column; align-items: center; text-align: center; }
  .faq-section .section-inner > div[style] a { width: 100%; text-align: center; }
  }
+ 
+
+/* =============================================
+   MOBILE RESPONSIVE FIXES
+   =============================================*/
+@media (max-width: 768px) {
+  /* Deliverability Section Grid */
+  section[style*="EMAIL UNIQUENESS"] .feat-inner div[style*="grid-template-columns:1fr 1fr"],
+  section .feat-inner > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Comparison table */
+  .compare-wrap { box-shadow: 4px 4px 0 #000 !important; border-radius: 14px !important; }
+  .compare-wrap th, .compare-wrap td { padding: 10px 10px !important; font-size: 0.72rem !important; }
+  .compare-wrap th:first-child, .compare-wrap td:first-child { min-width: 120px; }
+
+  /* Pain section banner */
+  .pain-banner { flex-direction: column !important; text-align: center; }
+  .pain-banner-cost { font-size: 1.3rem !important; }
+
+  /* Result banner in deliverability */
+  div[style*="Result: Zero pattern"] { flex-direction: column !important; text-align: center; }
+
+  /* Pricing secondary strip */
+  .pricing-secondary { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+  .ps-features { gap: 8px !important; }
+
+  /* General 2-col grids that should stack */
+  .feat-grid { grid-template-columns: 1fr !important; }
+}
+
+ 
+
+@media (max-width: 768px) {
+  .deliverability-grid { grid-template-columns: 1fr !important; }
+  .deliverability-grid > div { max-width: 100% !important; overflow: hidden !important; }
+  .deliverability-grid > div pre,
+  .deliverability-grid > div div[style*="font-family:monospace"] { font-size: 0.7rem !important; word-break: break-all !important; }
+}
+
+ 
+
+@media (max-width: 768px) {
+  .result-banner { flex-direction: column !important; text-align: center !important; gap: 20px !important; }
+  .result-banner > div:last-child { justify-content: center !important; }
+}
+
  </style>
 </head>
 
@@ -992,7 +1040,7 @@
 
  <div class="hero-eyebrow" id="licencePillTrigger" style="cursor:pointer;" onclick="document.getElementById('licence-popup').style.display='flex'">
  <span class="hero-live-dot"></span>
- <span class="pill-emoji">🔒 </span>Limited to 2,000 Agencies Only<span class="pill-learn"> · <strong>Click to learn why</strong></span>
+ <span class="pill-emoji">🔒 </span>Limited to 100 Agencies Only<span class="pill-learn"> · <strong>Click to learn why</strong></span>
  </div>
 
  <div style="margin-bottom: 24px; display: flex; justify-content: center;">
@@ -1012,14 +1060,14 @@
  </p>
 
  <div class="hero-ctas">
- <a href="#" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist · $597 →</a>
+ <a href="#" class="btn-primary waitlist-trigger" id="heroCta">Join the Waitlist · $199 →</a>
  <a href="#" class="btn-secondary" onclick="document.getElementById('demo-modal').style.display='flex'; return false;">Live Demo</a>
  </div>
 
  <div class="hero-meta">
  <span style="background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 100px; font-weight: 800; border: 1.5px solid #ffc107;">⚡ 5-min Setup · $9 if you want us to do it</span>
  <span class="hero-meta-dot"></span>
- <span>30-day money-back guarantee</span>
+ <span>14-day money-back guarantee</span>
  <span class="hero-meta-dot"></span>
  <span>Backed by AWS Startups</span>
  </div>
@@ -1028,7 +1076,7 @@
 
  <section class="video-section">
  <div class="video-wrapper-outer">
- <div style="padding:75% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1195884030?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="cleanmails-promo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+ <div style="padding:75.00% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1204436590?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479%2Fembed&amp;autoplay=1&amp;muted=1&amp;loop=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" frameborder="0" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe></div>
  </div>
  </section>
 
@@ -1037,20 +1085,20 @@
  <div class="section-inner">
  <span class="section-label">How It Works</span>
  <h2 class="section-headline">Live in 4 steps.</h2>
- <p class="section-sub">From purchase to sending your first cold email — in under 24 hours.</p>
+ <p class="section-sub">From purchase to sending your first cold email — in under 30 minutes.</p>
 
  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:16px;margin-top:48px;">
 
  <!-- Card 1: Purchase -->
  <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;display:flex;flex-direction:column;justify-content:center;">
  <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;">1. Purchase License</h3>
- <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">One-time $597. License key delivered instantly to your email. No subscriptions, no renewals, yours forever.</p>
+ <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">One-time $199. License key delivered instantly to your email. No subscriptions, no renewals, yours forever.</p>
  </div>
 
  <!-- Card 2: Install Command — with UI prototype -->
  <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:28px;box-shadow:5px 5px 0 #2ecc71;grid-row:span 3;">
  <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 8px;">2. Paste One Command</h3>
- <p style="font-size:0.88rem;color:#555;margin:0 0 16px;line-height:1.6;">SSH into your VPS. Paste. Done. Installs SMTP, dashboard, SSL, DKIM — everything.</p>
+ <p style="font-size:0.88rem;color:#555;margin:0 0 16px;line-height:1.6;">SSH into your VPS. Paste. Done. Installs dashboard, connects your SMTP, sets up SSL — everything.</p>
  <!-- Terminal UI Prototype -->
  <div style="background:#0d0d0d;border:2px solid #333;border-radius:12px;overflow:hidden;">
  <div style="display:flex;align-items:center;gap:6px;padding:10px 14px;background:#1a1a1a;border-bottom:1px solid #333;">
@@ -1077,8 +1125,8 @@
 
  <!-- Card 3: DNS -->
  <div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;display:flex;flex-direction:column;justify-content:center;">
- <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;">3. Point DNS + rDNS</h3>
- <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">Add one A record. Set reverse DNS at your VPS provider. 2-minute task — or we handle it in your free setup.</p>
+ <h3 style="font-size:1.1rem;font-weight:900;margin:0 0 6px;">3. Point DNS</h3>
+ <p style="font-size:0.88rem;color:#555;margin:0;line-height:1.6;">Add one A record for your dashboard. 2-minute task — or we handle it in your free setup.</p>
  </div>
 
  <!-- Card 4: Go Live -->
@@ -1183,13 +1231,134 @@
  </style>
  </section>
 
- <!-- MCP AI AGENT SECTION -->
+ <!-- EMAIL UNIQUENESS ENGINE -->
+<section class="feat-section" style="background:#FAFAFA;border-top:3px solid #000;border-bottom:3px solid #000;padding:80px 0;">
+<div class="feat-inner" style="max-width:1000px;margin:0 auto;padding:0 24px;">
+<div style="text-align:center;margin-bottom:48px;">
+<span class="section-label">Deliverability</span>
+<h2 class="section-headline">Every email is unique.<br>Every inbox is reached.</h2>
+<p class="section-sub" style="margin:0 auto;">Subject rotation, body variants, spintax, and smart sender cycling guarantee no two emails are the same. Spam filters never see a pattern.</p>
+</div>
+
+<!-- Visual Engine Grid -->
+<div class="deliverability-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+
+<!-- Card 1: Subject Line Rotation -->
+<div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;transition:all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #000'" onmouseout="this.style.transform='none';this.style.boxShadow='5px 5px 0 #000'">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:36px;height:36px;border-radius:10px;background:#D1FAE5;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:1rem;">&#x1F504;</div>
+<div>
+<p style="font-size:0.9rem;font-weight:800;color:#000;margin:0;">Subject Line Rotation</p>
+<p style="font-size:0.72rem;color:#666;margin:0;">Rotate multiple subjects with variables &amp; spintax</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div style="background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;font-size:0.8rem;color:#333;font-family:monospace;">
+<span style="color:#2ecc71;font-weight:800;">A:</span> "Quick question about <span style="color:#7c3aed;">{{company}}</span>"
+</div>
+<div style="background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;font-size:0.8rem;color:#333;font-family:monospace;">
+<span style="color:#FFD700;font-weight:800;">B:</span> "<span style="color:#7c3aed;">{{firstName}}</span>, saw your latest post"
+</div>
+<div style="background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;font-size:0.8rem;color:#333;font-family:monospace;">
+<span style="color:#2563eb;font-weight:800;">C:</span> "Idea for <span style="color:#7c3aed;">{{company}}</span>'s outreach"
+</div>
+</div>
+</div>
+
+<!-- Card 2: Sender Rotation -->
+<div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;transition:all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #000'" onmouseout="this.style.transform='none';this.style.boxShadow='5px 5px 0 #000'">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:36px;height:36px;border-radius:10px;background:#FEF3C7;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:1rem;">&#x1F500;</div>
+<div>
+<p style="font-size:0.9rem;font-weight:800;color:#000;margin:0;">Smart Sender Rotation</p>
+<p style="font-size:0.72rem;color:#666;margin:0;">Health-weighted, per-domain throttling</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div style="display:flex;align-items:center;justify-content:space-between;background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">sarah@outreach.io</span>
+<span style="font-size:0.7rem;color:#2ecc71;font-weight:800;background:#D1FAE5;padding:3px 8px;border-radius:6px;">50/day</span>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">mike@growth.co</span>
+<span style="font-size:0.7rem;color:#D97706;font-weight:800;background:#FEF3C7;padding:3px 8px;border-radius:6px;">30/day</span>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">jen@pipeline.dev</span>
+<span style="font-size:0.7rem;color:#2ecc71;font-weight:800;background:#D1FAE5;padding:3px 8px;border-radius:6px;">50/day</span>
+</div>
+</div>
+</div>
+
+<!-- Card 3: Spintax Engine -->
+<div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #7c3aed;transition:all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #7c3aed'" onmouseout="this.style.transform='none';this.style.boxShadow='5px 5px 0 #7c3aed'">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:36px;height:36px;border-radius:10px;background:#F3F0FF;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:1rem;">&#x1F3B2;</div>
+<div>
+<p style="font-size:0.9rem;font-weight:800;color:#000;margin:0;">Nested Spintax</p>
+<p style="font-size:0.72rem;color:#666;margin:0;">Infinite variations per send</p>
+</div>
+</div>
+<div style="background:#1a1a1a;border:2px solid #000;border-radius:12px;padding:14px;font-family:monospace;font-size:0.78rem;line-height:1.8;color:#ccc;">
+<span style="color:#7c3aed;">{</span>Hey<span style="color:#7c3aed;">|</span>Hi<span style="color:#7c3aed;">|</span>Hello<span style="color:#7c3aed;">}</span> <span style="color:#FFD700;">{{firstName}}</span>,<br><br>
+<span style="color:#7c3aed;">{</span>I noticed<span style="color:#7c3aed;">|</span>Saw that<span style="color:#7c3aed;">|</span>Looks like<span style="color:#7c3aed;">}</span> <span style="color:#FFD700;">{{company}}</span> is <span style="color:#7c3aed;">{</span>scaling<span style="color:#7c3aed;">|</span>growing<span style="color:#7c3aed;">|</span>expanding<span style="color:#7c3aed;">}</span>...
+</div>
+<p style="font-size:0.72rem;color:#7c3aed;margin:12px 0 0;text-align:center;font-weight:800;">27 unique combinations from this template alone</p>
+</div>
+
+<!-- Card 4: Body Variant Rotation -->
+<div style="background:#fff;border:3px solid #000;border-radius:20px;padding:24px;box-shadow:5px 5px 0 #000;transition:all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);" onmouseover="this.style.transform='translate(-3px,-3px)';this.style.boxShadow='8px 8px 0 #000'" onmouseout="this.style.transform='none';this.style.boxShadow='5px 5px 0 #000'">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+<div style="width:36px;height:36px;border-radius:10px;background:#DBEAFE;border:2px solid #000;display:flex;align-items:center;justify-content:center;font-size:1rem;">&#x1F4E7;</div>
+<div>
+<p style="font-size:0.9rem;font-weight:800;color:#000;margin:0;">Body Variant Rotation</p>
+<p style="font-size:0.72rem;color:#666;margin:0;">A/B test multiple email bodies per campaign</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;">
+<div style="background:#EFF6FF;border:2px solid #2563eb;border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">Variant A</span>
+<span style="font-size:0.7rem;color:#2563eb;font-weight:800;">32% reply rate</span>
+</div>
+<div style="background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">Variant B</span>
+<span style="font-size:0.7rem;color:#666;font-weight:800;">18% reply rate</span>
+</div>
+<div style="background:#FAFAFA;border:2px solid #eee;border-radius:10px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;">
+<span style="font-size:0.8rem;color:#000;font-weight:700;">Variant C</span>
+<span style="font-size:0.7rem;color:#666;font-weight:800;">24% reply rate</span>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Result Banner -->
+<div style="margin-top:28px;background:#fff;border:3px solid #000;border-radius:16px;padding:20px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;box-shadow:5px 5px 0 #2ecc71;">
+<div style="display:flex;align-items:center;gap:12px;">
+<span style="font-size:1.3rem;">&#x1F6E1;&#xFE0F;</span>
+<div>
+<p style="color:#000;font-weight:800;font-size:0.95rem;margin:0;">Result: Zero pattern detection</p>
+<p style="color:#666;font-size:0.82rem;margin:0;">Every email looks hand-typed. Spam filters see unique messages, not bulk sends.</p>
+</div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<span style="padding:6px 14px;border-radius:8px;border:2px solid #000;font-size:0.72rem;color:#000;font-weight:800;background:#D1FAE5;">&#x2714; Unique subjects</span>
+<span style="padding:6px 14px;border-radius:8px;border:2px solid #000;font-size:0.72rem;color:#000;font-weight:800;background:#FEF3C7;">&#x2714; Rotated senders</span>
+<span style="padding:6px 14px;border-radius:8px;border:2px solid #000;font-size:0.72rem;color:#000;font-weight:800;background:#F3F0FF;">&#x2714; Spintax bodies</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- MCP AI AGENT SECTION -->
  <section class="feat-section" style="background:#FAFAFA;">
  <div class="feat-inner">
  <div style="text-align:center;margin-bottom:48px;">
- <span class="feat-tag" style="color:#7c3aed;">AI-Native</span>
- <h3 class="feat-h3" style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);">Your AI runs your outreach.</h3>
- <p class="feat-p" style="max-width:520px;margin:0 auto;">One config line. Then tell ChatGPT, Claude, or any AI to create campaigns, clean leads, and scale.</p>
+ <span class="feat-tag" style="color:#7c3aed;">MCP Protocol</span>
+ <h3 class="feat-h3" style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);">Control Cleanmails from any AI.</h3>
+ <p class="feat-p" style="max-width:520px;margin:0 auto;">One config block. Then use ChatGPT, Claude, Cursor, or any MCP client to create campaigns, validate leads, and manage outreach.</p>
  </div>
 
  <div class="feat-grid" style="align-items:stretch;">
@@ -1227,8 +1396,8 @@
  <div class="feat-card" style="padding:0;overflow:hidden;display:flex;flex-direction:column;">
  <div style="padding:14px 20px;border-bottom:3px solid #000;display:flex;align-items:center;gap:10px;background:#FAFAFA;">
  <div style="width:28px;height:28px;border-radius:8px;background:#F3F0FF;border:2px solid #7c3aed;display:flex;align-items:center;justify-content:center;font-size:12px;">✦</div>
- <span style="font-size:0.9rem;font-weight:800;">Cleanmails AI</span>
- <span style="font-size:0.72rem;color:#999;margin-left:auto;">34 tools</span>
+ <span style="font-size:0.9rem;font-weight:800;">MCP Server</span>
+ <span style="font-size:0.72rem;color:#999;margin-left:auto;">8 tools</span>
  </div>
  <div style="padding:20px;display:flex;flex-direction:column;gap:12px;flex:1;">
  <div style="align-self:flex-end;background:#000;color:#fff;padding:10px 16px;border-radius:14px 14px 4px 14px;font-size:0.85rem;font-weight:600;">Create 3-step campaign for DevTool founders</div>
@@ -1257,13 +1426,12 @@
  <!-- Compatible pills -->
  <div style="text-align:center;margin-top:36px;">
  <p style="font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-bottom:12px;">Works with</p>
- <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
- <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Claude</span>
- <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">ChatGPT</span>
- <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Cursor</span>
- <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">n8n</span>
- <span style="font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:10px;border:2px solid #000;background:#fff;">Any MCP</span>
- </div>
+<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;align-items:center;">
+<div style="width:44px;height:44px;border-radius:12px;border:2px solid #000;background:#000;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 #000;" title="ChatGPT"><img src="/logos/openai_dark.svg" alt="ChatGPT" style="width:24px;height:24px;object-fit:contain;"></div>
+<div style="width:44px;height:44px;border-radius:12px;border:2px solid #000;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 #000;" title="Claude"><img src="/logos/claude-ai-icon.svg" alt="Claude" style="width:24px;height:24px;object-fit:contain;"></div>
+<div style="width:44px;height:44px;border-radius:12px;border:2px solid #000;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 #000;" title="Gemini"><img src="/logos/gemini.svg" alt="Gemini" style="width:24px;height:24px;object-fit:contain;"></div>
+<div style="width:44px;height:44px;border-radius:12px;border:2px solid #000;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:3px 3px 0 #000;" title="n8n"><img src="/logos/n8n.svg" alt="n8n" style="width:24px;height:24px;object-fit:contain;"></div>
+</div>
  </div>
  </div>
  </section>
@@ -1319,26 +1487,26 @@
 <div style="text-align:center;margin-bottom:60px;">
 <span class="section-label">The Solution</span>
 <h2 class="section-headline">Everything you need.<br>Nothing you don't.</h2>
-<p class="section-sub" style="margin: 0 auto;">One self-hosted install covers your entire cold email stack. No plugins, no add-ons, no extra fees.</p>
+<p class="section-sub" style="margin: 0 auto;">One self-hosted install covers your entire cold email stack. BYO SMTP, no plugins, no add-ons, no extra fees.</p>
 </div>
 <div class="feat-grid">
 <div>
-<span class="feat-tag" style="color:#7c3aed;">Sending Engine</span>
-<h3 class="feat-h3">Unlimited mailboxes.<br>Zero per-seat fees.</h3>
-<p class="feat-p">Full mail server built-in. Create unlimited senders on your domains or plug in any external SMTP.</p>
+<span class="feat-tag" style="color:#7c3aed;">Unified Inbox</span>
+<h3 class="feat-h3">Every reply. One place.<br>AI-powered responses.</h3>
+<p class="feat-p">All mailbox replies land in a single unified inbox. Read, manage, and reply with AI — across every sender, every campaign. Unlimited.</p>
 <div class="feat-list">
-<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>Smart Rotation</b> — Health-weighted, per-domain throttling, auto-cooldown</span></div>
+<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>All Mailboxes, One View</b> — Gmail, Outlook, SES, SendGrid — every reply in one stream</span></div>
 <div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>30-Day Warmup</b> — Graduated 2→30/day with auto-replies. $0 extra.</span></div>
-<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>Multi-Step Sequences</b> — Conditions, timezone scheduling, set and forget</span></div>
-<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>A/B + Spintax</b> — Per-variant stats. Every email unique.</span></div>
+<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>Thread View</b> — Full conversation history, lead context sidebar, status tracking</span></div>
+<div class="feat-item"><span class="feat-bullet" style="color:#7c3aed;">→</span><span><b>Unlimited</b> — No per-inbox fees. No reply caps. Scale without limits.</span></div>
 </div>
 </div>
 <div class="feat-proto">
-<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Active Senders</span><span class="feat-badge" style="background:#D1FAE5;color:#059669;">Healthy</span></div>
-<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">sarah@outreach.io</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">50/day • Warmup Day 22</p></div><div style="width:40px;height:8px;border-radius:4px;background:#E5E5E5;overflow:hidden;border:1px solid #000;"><div style="width:92%;height:100%;background:#10b981;"></div></div></div>
-<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">mike@growth.co</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">30/day • Ready</p></div><div style="width:40px;height:8px;border-radius:4px;background:#E5E5E5;overflow:hidden;border:1px solid #000;"><div style="width:100%;height:100%;background:#10b981;"></div></div></div>
-<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">jen@pipeline.dev</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">50/day • Ready</p></div><div style="width:40px;height:8px;border-radius:4px;background:#E5E5E5;overflow:hidden;border:1px solid #000;"><div style="width:85%;height:100%;background:#10b981;"></div></div></div>
-<div class="feat-tags"><span class="active">Inbuilt Server</span><span>AWS SES</span><span>SendGrid</span><span>Gmail</span><span>Any SMTP</span></div>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><span style="font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">Recent Replies</span><span class="feat-badge" style="background:#D1FAE5;color:#059669;">3 New</span></div>
+<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">Dan from Acme Corp</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">&ldquo;Yes, let's hop on a call this week...&rdquo;</p></div><span class="feat-badge" style="background:#D1FAE5;color:#059669;">Interested</span></div>
+<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">Lisa at BrightStar</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">&ldquo;What pricing do you have for teams?&rdquo;</p></div><span class="feat-badge" style="background:#DBEAFE;color:#2563eb;">Question</span></div>
+<div class="feat-proto-row"><div><p style="font-size:0.88rem;font-weight:800;margin:0;">Mark - CloudPeak</p><p style="font-size:0.75rem;color:#666;margin:2px 0 0;">&ldquo;Send me the demo link please&rdquo;</p></div><span class="feat-badge" style="background:#FEF3C7;color:#D97706;">Follow Up</span></div>
+<div class="feat-tags"><span class="active">All Mailboxes</span><span>AI Draft</span><span>Thread View</span><span>Lead Context</span><span>Unlimited</span></div>
 </div>
 </div>
 </div>
@@ -1354,17 +1522,18 @@
 <div class="feat-proto-row" style="background:#FEE2E2;"><span style="font-size:0.85rem;font-weight:700;color:#DC2626;">✗ Invalid</span><span style="font-size:1rem;font-weight:900;color:#DC2626;">312</span></div>
 <div class="feat-proto-row" style="background:#FEF3C7;"><span style="font-size:0.85rem;font-weight:700;color:#D97706;">? Catch-all</span><span style="font-size:1rem;font-weight:900;color:#D97706;">89</span></div>
 <div class="feat-proto-row" style="background:#F5F5F5;"><span style="font-size:0.85rem;font-weight:700;color:#666;">🗑 Disposable</span><span style="font-size:1rem;font-weight:900;color:#666;">41</span></div>
-<p style="font-size:0.75rem;color:#999;margin:12px 0 0;text-align:center;">SMTP + Gmail API + Outlook API + Yahoo API</p>
+<p style="font-size:0.75rem;color:#999;margin:12px 0 0;text-align:center;">135,000+ disposable domains • 1,000+ role addresses • MX + DNS checks</p>
 </div>
 <div>
 <span class="feat-tag" style="color:#059669;">Lead Intelligence</span>
 <h3 class="feat-h3">Validate before you send.<br>Detect after.</h3>
-<p class="feat-p">Hybrid validation engine — built-in, unlimited, $0 extra.</p>
+<p class="feat-p">Inbuilt validation engine — 135,000+ disposable domains, 1,000+ role addresses, MX/DNS checks. Unlimited, $0 extra.</p>
 <div class="feat-list">
-<div class="feat-item"><span class="feat-bullet" style="color:#059669;">→</span><span><b>SMTP + API Hybrid</b> — Near 100% accuracy for Gmail, Outlook, Yahoo</span></div>
+<div class="feat-item"><span class="feat-bullet" style="color:#059669;">→</span><span><b>135K+ Disposable Domains</b> — Spam traps, temp inboxes, and throwaway providers caught instantly</span></div>
 <div class="feat-item"><span class="feat-bullet" style="color:#059669;">→</span><span><b>Reply Detection</b> — IMAP every 2 min. Genuine vs OOO vs auto.</span></div>
 <div class="feat-item"><span class="feat-bullet" style="color:#059669;">→</span><span><b>Bounce Intelligence</b> — Hard/soft, cross-list invalidation</span></div>
 <div class="feat-item"><span class="feat-bullet" style="color:#059669;">→</span><span><b>Auto-Pause</b> — Blacklist monitor, cooldown, reputation guard</span></div>
+<p style="margin-top:16px;font-size:0.78rem;color:#888;line-height:1.5;background:#FFF9E8;border:1.5px solid #F59E0B;border-radius:8px;padding:10px 14px;"><strong style="color:#b45309;">⚠️ Note:</strong> Due to Port 25 restrictions on most VPS providers, SMTP handshake verification is not possible. We recommend verifying leads externally (MillionVerifier, ZeroBounce) for better deliverability before importing.</p>
 </div>
 </div>
 </div>
@@ -1397,6 +1566,9 @@
 </div>
 </section>
 
+
+
+
 <!-- SCALE & CONTROL -->
 <section class="feat-section" style="background:#fff;">
 <div class="feat-inner">
@@ -1426,11 +1598,145 @@
 <section style="padding:40px 0;background:#FAFAFA;">
 <div style="max-width:800px;margin:0 auto;padding:0 24px;">
 <div style="background:#000;border:3px solid #000;border-radius:20px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;box-shadow:6px 6px 0 #FFD700;">
-<div><p style="color:#FFD700;font-weight:900;font-size:1.1rem;margin:0 0 4px;">⚡ 5-Minute Self-Install</p><p style="color:#999;font-size:0.9rem;margin:0;">Run one command and you're live. Need help? We'll do it for a one-time $9 fee — full deployment, DKIM/SPF/DMARC, and 10 domain setup.</p></div>
+<div><p style="color:#FFD700;font-weight:900;font-size:1.1rem;margin:0 0 4px;">⚡ 5-Minute Self-Install</p><p style="color:#999;font-size:0.9rem;margin:0;">Run one command and you're live. Need help? We'll do it for a one-time $9 fee — full deployment and domain setup.</p></div>
 <a href="#pricing" class="cta-button" style="font-size:0.9rem;padding:14px 28px;">Get Started →</a>
 </div>
 </div>
 </section>
+
+<!-- COMPARISON TABLE -->
+<section class="section" style="background:#fff;border-top:3px solid #000;border-bottom:3px solid #000;padding:80px 24px;">
+<div class="section-inner" style="max-width:1000px;margin:0 auto;">
+<div style="text-align:center;margin-bottom:48px;">
+<span class="section-label">Compare</span>
+<h2 class="section-headline">Cleanmails vs. the subscription trap.</h2>
+<p class="section-sub" style="margin:0 auto;">Feature-for-feature. No spin. See exactly what you get for a one-time payment vs. bleeding monthly.</p>
+</div>
+
+<style>
+.compare-wrap{overflow-x:auto;border:3px solid #000;border-radius:20px;box-shadow:8px 8px 0 #000;}
+.compare-wrap table{width:100%;border-collapse:collapse;font-size:0.85rem;min-width:700px;}
+.compare-wrap thead tr{background:#000;}
+.compare-wrap th{padding:16px 20px;font-weight:800;font-size:0.82rem;}
+.compare-wrap td{padding:14px 20px;border-bottom:1px solid #f0f0f0;}
+.compare-wrap tbody tr:hover{background:#f8f8f8;}
+.compare-wrap .cm-col{border-left:2px solid #f0f0f0;background:#f9fff9;}
+.compare-wrap .yes{color:#2ecc71;font-weight:900;font-size:1.1rem;text-align:center;}
+.compare-wrap .no{color:#ccc;font-size:1.1rem;text-align:center;}
+.compare-wrap .partial{font-size:0.78rem;color:#888;font-weight:600;text-align:center;}
+@media(max-width:768px){
+.compare-wrap{box-shadow:4px 4px 0 #000;border-radius:14px;}
+.compare-wrap th,.compare-wrap td{padding:10px 12px;font-size:0.75rem;}
+}
+</style>
+
+<div class="compare-wrap">
+<table>
+<thead>
+<tr>
+<th style="text-align:left;color:#fff;width:40%;">Feature</th>
+<th style="text-align:center;color:#FFD700;width:20%;border-left:2px solid #222;background:#111;">Cleanmails<br><span style="font-size:0.65rem;color:#2ecc71;font-weight:700;">$199 once</span></th>
+<th style="text-align:center;color:#fff;width:20%;border-left:2px solid #222;">Instantly<br><span style="font-size:0.65rem;color:#e63946;font-weight:700;">$79–$97/mo</span></th>
+<th style="text-align:center;color:#fff;width:20%;border-left:2px solid #222;">Smartlead<br><span style="font-size:0.65rem;color:#e63946;font-weight:700;">$39–$94/mo</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="font-weight:700;color:#000;">Self-Hosted (your server, your data)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no">&#x274C;</td>
+<td class="no">&#x274C;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">One-Time Payment (no monthly fees)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no">&#x274C;</td>
+<td class="no">&#x274C;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Unlimited Mailboxes &amp; Senders</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no">&#x274C;</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Limits apply</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Unlimited Leads &amp; Contacts</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">1K–100K caps</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">2K–30K caps</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Smart Sender Rotation</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Email Warmup (built-in, $0 extra)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Add-on ($)</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Spintax + A/B Body Variants</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Unified Inbox (all replies, one place)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+<td class="yes" style="border-left:2px solid #f0f0f0;">&#x2705;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">AI Auto-Reply (BYO API Key)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">MCP Protocol (AI agents control outreach)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Webhook &amp; CRM Integrations</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Limited</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Limited</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Unlimited Client Workspaces</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Per-seat $</td>
+<td class="partial" style="border-left:2px solid #f0f0f0;">Per-seat $</td>
+</tr>
+<tr>
+<td style="font-weight:700;color:#000;">Data Privacy (no cloud, no telemetry)</td>
+<td class="cm-col yes">&#x2705;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+<td class="no" style="border-left:2px solid #f0f0f0;">&#x274C;</td>
+</tr>
+<tr style="background:#000;border-bottom:none;">
+<td style="padding:16px 20px;font-weight:900;color:#fff;font-size:0.9rem;border-bottom:none;">Total cost after 1 year</td>
+<td style="padding:16px 20px;text-align:center;font-weight:900;color:#2ecc71;font-size:1.15rem;border-left:2px solid #222;border-bottom:none;">$199</td>
+<td style="padding:16px 20px;text-align:center;font-weight:900;color:#e63946;font-size:1.15rem;border-left:2px solid #222;border-bottom:none;">$948–$1,164</td>
+<td style="padding:16px 20px;text-align:center;font-weight:900;color:#e63946;font-size:1.15rem;border-left:2px solid #222;border-bottom:none;">$468–$1,128</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p style="text-align:center;margin-top:20px;font-size:0.78rem;color:#888;font-weight:600;">* Based on publicly listed pricing as of 2025. Cleanmails is a one-time purchase with free lifetime updates.</p>
+</div>
+</section>
+
+
+
+
+
 
 
 
@@ -1463,82 +1769,7 @@
  </div>
 
  <!-- Subscriptions We Replace Table -->
- <div style="margin-top: 40px; background: #0a0a0a; border: 2px solid #222; border-radius: 20px; padding: 36px; overflow-x: auto;">
- <h3 style="color: #fff; font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; text-align: center;">Subscriptions Cleanmails Replaces</h3>
- <p style="color: #666; font-size: 0.85rem; text-align: center; margin-bottom: 28px;">One purchase. All of these tools — gone from your monthly bill. Forever.</p>
  
- <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
- <thead>
- <tr style="border-bottom: 2px solid #333;">
- <th style="text-align: left; padding: 10px 14px; color: #888; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Tool You're Paying For</th>
- <th style="text-align: left; padding: 10px 14px; color: #888; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">What It Does</th>
- <th style="text-align: right; padding: 10px 14px; color: #e63946; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Monthly Cost</th>
- <th style="text-align: center; padding: 10px 14px; color: #2ecc71; font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">In Cleanmails?</th>
- </tr>
- </thead>
- <tbody>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Instantly / Smartlead</td>
- <td style="padding: 12px 14px; color: #777;">Cold email sending & sequences</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$79–$97/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">MillionVerifier / ZeroBounce</td>
- <td style="padding: 12px 14px; color: #777;">Email validation & list cleaning</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$37–$60/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Warmbox / Mailreach</td>
- <td style="padding: 12px 14px; color: #777;">Email warmup (per inbox)</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$29/inbox × 10 = $290/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Google Workspace</td>
- <td style="padding: 12px 14px; color: #777;">Mailboxes for sending</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$7/inbox × 20 = $140/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Unlimited free</td>
- </tr>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Reply.io / Saleshandy</td>
- <td style="padding: 12px 14px; color: #777;">AI reply handling & CRM sync</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$49–$99/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- <tr style="border-bottom: 1px solid #1a1a1a;">
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Mailtoaster / InboxAlly</td>
- <td style="padding: 12px 14px; color: #777;">Deliverability monitoring</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$29–$49/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- <tr>
- <td style="padding: 12px 14px; color: #ddd; font-weight: 700;">Zapier / Make</td>
- <td style="padding: 12px 14px; color: #777;">Webhook & CRM integrations</td>
- <td style="padding: 12px 14px; color: #e63946; font-weight: 800; text-align: right;">$29–$79/mo</td>
- <td style="padding: 12px 14px; color: #2ecc71; font-weight: 900; text-align: center;">&#x2705; Built-in</td>
- </tr>
- </tbody>
- </table>
-
- <!-- Total Savings Row -->
- <div style="margin-top: 24px; border-top: 2px solid #333; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
- <div>
- <p style="color: #888; font-size: 0.82rem; font-weight: 700; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.08em;">Your current monthly tool stack</p>
- <p style="color: #e63946; font-size: 2rem; font-weight: 900; margin: 0; line-height: 1;">$653–$815<span style="font-size: 0.85rem; color: #777; font-weight: 600;">/month</span></p>
- </div>
- <div style="text-align: right;">
- <p style="color: #888; font-size: 0.82rem; font-weight: 700; margin: 0 0 4px; text-transform: uppercase; letter-spacing: 0.08em;">Cleanmails replaces all of it</p>
- <p style="color: #2ecc71; font-size: 2rem; font-weight: 900; margin: 0; line-height: 1;">$597<span style="font-size: 0.85rem; color: #777; font-weight: 600;"> once. Forever.</span></p>
- </div>
- </div>
-
- <div style="margin-top: 24px; text-align: center;">
- <a href="#pricing" style="display: inline-flex; align-items: center; gap: 8px; background: #2ecc71; color: #000; font-weight: 900; font-size: 0.9rem; padding: 12px 28px; border-radius: 12px; text-decoration: none; border: 2px solid #2ecc71; transition: all 0.2s;">Pay once, own everything →</a>
- <p style="color: #555; font-size: 0.78rem; margin-top: 10px;">+ Free lifetime updates &nbsp;·&nbsp; Free white-glove setup &nbsp;·&nbsp; 30-day money-back guarantee</p>
- </div>
- </div>
  </div>
  </section>
 
@@ -1572,7 +1803,7 @@
  <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 20px;">
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
  <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Cleanmails one-time cost</span>
- <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$597</span>
+ <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$199</span>
  </div>
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
  <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Your yearly spend (current)</span>
@@ -1633,7 +1864,7 @@
 
  function calculate() {
  const monthly = Math.max(1, parseInt(input.value) || 0);
- const cleanmailsCost = 597;
+ const cleanmailsCost = 199;
  const yearly = monthly * 12;
  const yearlySavings = yearly - cleanmailsCost;
 
@@ -1716,7 +1947,7 @@
  <div style="max-width: 680px; margin: 0 auto; text-align: center;">
  <span style="display: inline-block; font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em; padding: 5px 14px; border-radius: 100px; border: 2px solid #333; background: #1a1a1a; color: #FFD700; margin-bottom: 20px;">👀 See It In Action</span>
  <h2 style="font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; color: #fff; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;">Don't take our word for it.<br>Try the live demo.</h2>
- <p style="font-size: 1rem; color: #888; margin-bottom: 28px; line-height: 1.6;">Browse the full platform — campaigns, validation, AI replies, warmup, everything. No sign-up needed.</p>
+ <p style="font-size: 1rem; color: #888; margin-bottom: 28px; line-height: 1.6;">Browse the full platform — campaigns, validation, warmup, sender rotation, everything. No sign-up needed.</p>
  <a href="#" onclick="document.getElementById('demo-modal').style.display='flex'; return false;" style="display: inline-flex; align-items: center; gap: 10px; background: #FFD700; color: #000; font-weight: 900; font-size: 1rem; padding: 16px 32px; border-radius: 14px; border: 2px solid #000; box-shadow: 4px 4px 0 #000; text-decoration: none; transition: all 0.2s cubic-bezier(0.175,0.885,0.32,1.275);">🖥️ Open Live Demo →</a>
  <p style="font-size: 0.78rem; color: #555; margin-top: 14px;">Read-only mode · Full platform access · No credit card</p>
  </div>
@@ -1735,35 +1966,32 @@
  <div class="pricing-featured">
  <div class="pf-top">
  <div class="pf-left">
- <span class="pf-badge">Limited to 2,000 Agencies</span>
+ <span class="pf-badge">Limited to 100 Agencies</span>
  <div class="pf-name">Agency Professional</div>
  <div class="pf-price-row">
- <span class="pf-old">$897</span>
- <span class="pf-price">$597</span>
+ <span class="pf-old">$349</span>
+ <span class="pf-price">$199</span>
  </div>
  <div class="pf-period">one-time payment — yours forever</div>
- <span class="pf-hike">⚠️ Price increases to $997 after 2,000 sales. Then we stop selling.</span>
+ <span class="pf-hike">⚠️ Price increases to $499 after 100 sales. Then we stop selling.</span>
  </div>
  <div class="pf-cta-wrap">
  <a href="#" class="pf-btn waitlist-trigger">Join Waitlist →</a>
- <span class="pf-guarantee">1-month money-back guarantee</span>
+ <span class="pf-guarantee">14-day money-back guarantee</span>
  </div>
  </div>
 
  <hr class="pf-divider">
 
  <div class="pf-features">
- <div class="pf-feature">Inbuilt Mail Server (SMTP + IMAP)</div>
- <div class="pf-feature">Email Validation Engine</div>
- <div class="pf-feature">AI Auto-Reply Engine</div>
- <div class="pf-feature">AI Copilot Dashboard</div>
- <div class="pf-feature">30-Day Automated Warmup</div>
+ <div class="pf-feature">BYO SMTP (Any Provider)</div>
+ <div class="pf-feature">Email Validation (135K+ domains)</div>
+   <div class="pf-feature">30-Day Automated Warmup</div>
  <div class="pf-feature">Smart Sender Rotation</div>
  <div class="pf-feature">Unlimited Mailboxes & Domains</div>
  <div class="pf-feature">Unlimited Client Workspaces</div>
  <div class="pf-feature">CRM Integrations (HubSpot, etc.)</div>
- <div class="pf-feature">MCP Protocol Support</div>
- <div class="pf-feature">5-Min Self Install (or $9 done-for-you)</div>
+  <div class="pf-feature">5-Min Self Install (or $9 done-for-you)</div>
  <div class="pf-feature">Free Lifetime Updates</div>
  </div>
  </div>
@@ -1772,7 +2000,7 @@
  <div class="pricing-secondary">
  <div class="ps-left">
  <div class="ps-name">Enterprise / SaaS Rights</div>
- <div class="ps-price">$1997</div>
+ <div class="ps-price">$997</div>
  <div class="ps-period">one-time payment</div>
  </div>
  <div class="ps-features">
@@ -1788,7 +2016,7 @@
  </div>
 
  <div class="pricing-badges">
- <span class="pricing-badge">&#x1F6E1;&#xFE0F; 30-day money-back guarantee</span>
+ <span class="pricing-badge">&#x1F6E1;&#xFE0F; 14-day money-back guarantee</span>
  <span class="pricing-badge">&#x267B;&#xFE0F; Free lifetime updates</span>
  <span class="pricing-badge">&#x26A1; 5-min install ($9 done-for-you)</span>
  <span class="pricing-badge">&#x2705; Inbuilt email validator</span>
@@ -1801,8 +2029,8 @@
  <div class="section-inner">
  <div class="affiliate-card">
  <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
- <h2 class="section-headline">Join Affiliate. <br> $100 per sale.</h2>
- <p class="section-sub">Help other agency owners escape the monthly SaaS trap and earn $100 for every referral. Paid on the 10th and 20th of every month. No caps, zero friction.</p>
+ <h2 class="section-headline">Join Affiliate. <br> $40 per sale.</h2>
+ <p class="section-sub">Help other agency owners escape the monthly SaaS trap and earn $40 for every referral. Paid on the 10th and 20th of every month. No caps, zero friction.</p>
  <a href="https://affiliate.cleanmails.online/" target="_blank" rel="noopener" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
  </div>
  </div>
@@ -1832,129 +2060,93 @@
  <span class="faq-question-text">Do I need technical knowledge to set this up?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>No.</strong> Installation takes about 5 minutes — run one command on your VPS and you're live. If you'd rather not touch the terminal, we offer a done-for-you setup for a one-time $9 fee. We'll deploy, configure DKIM/SPF/DMARC, set up your domains, and hand you a working system.</div>
+ <div class="faq-answer"><strong>No.</strong> Installation takes about 5 minutes — run one command on your VPS and you’re live. If you’d rather not touch the terminal, we offer a done-for-you setup for a one-time $9 fee. We’ll deploy everything and hand you a working system.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Does Cleanmails have an inbuilt SMTP server?</span>
+ <span class="faq-question-text">What SMTP providers can I use?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>Yes.</strong> Cleanmails ships with a full mail server (Postfix + Dovecot + auto-DKIM signing). You can create unlimited mailboxes on your own domains without paying for Google Workspace or any third-party inbox provider. External relays like AWS SES or SendGrid are supported but entirely optional — not required.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">How do I connect Cleanmails with AI via MCP?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">Cleanmails ships with a built-in <strong>MCP (Model Context Protocol) server</strong>. Add a single config block to Claude Desktop, Cursor, ChatGPT, or any MCP-compatible client — then just talk to your AI. Say "create a campaign" or "validate my leads" and the AI calls Cleanmails tools directly. No API keys to manage, no webhook plumbing. It works out of the box with Claude, ChatGPT, Cursor, n8n, and any MCP-compatible tool.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Why only 2,000 agencies?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">We deliberately capped sales at <strong>2,000 agencies</strong>. After 2,000 sales, the price increases to $997 and we shift focus to updates and support. No bloated user base, no stretched-thin support. Just a tight community of serious agencies getting world-class tooling and rapid improvements.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">How fast is the setup?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">Self-install takes <strong>~5 minutes</strong>. Run the install script, point your domains, and you're sending. If you opt for our $9 done-for-you setup, we typically finish within 24 hours — you provide a VPS and we handle the rest.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">What server do I need?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">A Linux VPS with <strong>Port 25 open</strong> for the full experience (inbuilt SMTP + validation). Hetzner and Contabo are popular choices — $6-10/month handles thousands of emails daily. If you use external SMTP (AWS SES, SendGrid), Port 25 isn't needed — you can run Cleanmails anywhere, even locally.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer"><strong>Truly unlimited.</strong> No contact limits, no email limits, no domain limits, no sender limits, no workspace limits. The only limit is your server's capacity — which on a standard VPS is massive. Add 100 clients tomorrow and pay $0 extra.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Can I use my own SMTP providers alongside the inbuilt one?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer"><strong>Yes.</strong> You can mix and match. Use the inbuilt mail server for some domains and connect external providers (Gmail, Outlook, AWS SES, SendGrid, or any SMTP) for others. The smart rotation engine distributes sends across all connected mailboxes based on health, warmup status, and domain reputation.</div>
- </div>
- <div class="faq-item">
- <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Can I resell this to my clients or build a SaaS?</span>
- <span class="faq-icon">+</span>
- </button>
- <div class="faq-answer">The <strong>Agency license ($597)</strong> lets you run campaigns for unlimited clients under your brand. The <strong>Enterprise/SaaS license ($1997)</strong> gives you full source code access and commercial resell rights — build your own SaaS platform, charge monthly, keep 100% of revenue.</div>
+ <div class="faq-answer"><strong>Any SMTP provider.</strong> Gmail, Outlook, AWS SES, SendGrid, Zoho, Resend, or any custom SMTP. You buy your own sending infrastructure and plug it into Cleanmails. The platform handles rotation, scheduling, and throttling across all connected mailboxes. No vendor lock-in.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">How does the email warmup work?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">Cleanmails includes a built-in 30-day warmup engine. It gradually increases sending volume (2→30 emails/day) with auto-generated replies to build domain reputation. No third-party warmup tool needed. No per-inbox fees. Works with both the inbuilt mail server and external SMTP accounts.</div>
+ <div class="faq-answer"><strong>Coming soon.</strong> We’re building a built-in warmup engine that gradually increases sending volume with auto-generated replies to build domain reputation. No third-party warmup tool will be needed. This feature is actively in development and will ship as a free update to all license holders.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">What if I need support after setup?</span>
+ <span class="faq-question-text">What server do I need to run this?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">You get access to our <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" style="color: #5865F2; font-weight: 700;">Discord community</a> where the dev team and other agency owners help in real-time. We also provide documentation and priority support for Enterprise license holders. You're never left alone.</div>
+ <div class="faq-answer">A basic Linux VPS — Hetzner, Contabo, or DigitalOcean at <strong>$6–10/month</strong> handles thousands of emails daily. No special requirements, no Docker, no Node.js. Cleanmails is a single compiled binary. Connect your SMTP providers and you’re ready to send.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">Is this truly unlimited? No hidden caps?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer"><strong>Truly unlimited.</strong> No contact limits, no email limits, no domain limits, no sender limits, no workspace limits. The only limit is your server’s capacity and your SMTP provider’s daily allowances — which on a standard setup is massive. Add 100 clients tomorrow and pay $0 extra.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">How does the AI auto-reply work?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">When a prospect replies, the AI reads the message, classifies intent (interested, question, objection, not interested), and drafts a contextual reply using your knowledge base. You can approve each reply manually or enable autopilot mode to send automatically with a natural delay. Supports 10+ AI providers — BYO API key at ~$0.001/reply.</div>
+ <div class="faq-answer">When a prospect replies, the AI reads the message, classifies intent (interested, question, objection, not interested), and drafts a contextual reply using your campaign knowledge base. You can approve each reply manually or enable full autopilot. Supports 10+ AI providers — bring your own API key at ~$0.001/reply. No credits system, no markup.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Do I need to install Docker or any dependencies?</span>
+ <span class="faq-question-text">Can I use multiple SMTP providers at once?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>No.</strong> Cleanmails is a single compiled binary (written in Go). No Docker, no Node.js, no Python, no package managers. Download, run, done. It includes everything — the web dashboard, mail server, validation engine, and API — in one executable.</div>
+ <div class="faq-answer"><strong>Yes.</strong> Mix and match — Gmail for some domains, AWS SES for others, SendGrid for high-volume. The smart rotation engine distributes sends across all connected mailboxes based on health, daily limits, and domain reputation. Round-robin with auto-cooldown.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">What happens after I buy — how do updates work?</span>
+ <span class="faq-question-text">Can I resell this or build a SaaS on top?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">You get the software forever — plus <strong>all future updates free</strong>. Updates are one-click from the dashboard (cryptographically signed for security). No maintenance plans, no renewal fees. New features ship regularly and you get them all.</div>
+ <div class="faq-answer">The <strong>standard license ($199)</strong> lets you run campaigns for unlimited clients under your brand. The <strong>Enterprise/SaaS license ($997)</strong> gives you full source code access and commercial resell rights — build your own SaaS platform, charge monthly, keep 100% of revenue.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">Is my data safe? Can you access my leads?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>We cannot access your data. Period.</strong> Cleanmails runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES and never leave your machine.</div>
+ <div class="faq-answer"><strong>We cannot access your data. Period.</strong> Cleanmails runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES-256 and never leave your machine. You own everything.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">What's the refund policy?</span>
+ <span class="faq-question-text">What’s the refund policy?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>30-day money-back guarantee.</strong> If Cleanmails doesn't work for your use case, email us within 30 days and we'll refund you in full. No questions, no hoops.</div>
+ <div class="faq-answer"><strong>14-day money-back guarantee.</strong> If Cleanmails doesn’t work for your use case, email us within 14 days and we’ll refund you in full. No questions, no hoops.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
- <span class="faq-question-text">Can I use this for client campaigns?</span>
+ <span class="faq-question-text">How do updates work?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">Yes — the Agency license covers unlimited client campaigns. Each client gets their own isolated workspace with separate domains, senders, campaigns, and stats. You can even share a branded client portal with a single link so they can see their own performance.</div>
+ <div class="faq-answer">You get the software forever — plus <strong>all future updates free</strong>. Updates are one-click from the dashboard. No maintenance plans, no renewal fees. New features ship regularly and you get them all. The warmup engine, for example, will ship as a free update.</div>
+ </div>
+ <div class="faq-item">
+ <button class="faq-question" aria-expanded="false">
+ <span class="faq-question-text">What if I need help after purchase?</span>
+ <span class="faq-icon">+</span>
+ </button>
+ <div class="faq-answer">Join our <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" style="color: #5865F2; font-weight: 700;">Discord community</a> where the dev team and other agency owners help in real-time. We also provide documentation and priority support for Enterprise license holders. You’re never left alone.</div>
  </div>
  </div>
- </div>
- </section>
+</section>
 
  <!-- FINAL CTA -->
  <section class="final-cta-section">
- <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 2,000 Agencies</span>
+ <span class="section-label" style="background: #222; border-color: #FFD700; color: #FFD700;">Only 100 Agencies</span>
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
- <p class="section-sub">Price increases to $997 after 2,000 sales. Lock in $597 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
+ <p class="section-sub">Price increases to $499 after 100 sales. Lock in $199 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
  <div class="final-cta-btns">
  <a href="#" class="btn-primary waitlist-trigger" id="finalCta">Join the Waitlist →</a>
  <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #5865F2; color: #fff;">&#x1F4AC; Join Discord</a>
@@ -2316,15 +2508,15 @@
  startAutoScroll();
  </script>
 
-<!-- 2,000 Agencies Popup -->
+<!-- 100 Agencies Popup -->
 <div id="licence-popup" style="display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px);" onclick="if(event.target===this)this.style.display='none'">
  <div style="background:#fff; border:3px solid #000; border-radius:24px; padding:32px; max-width:420px; width:90%; box-shadow:8px 8px 0 #FFD700; text-align:center; animation: modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275);">
-  <h3 style="font-size:1.4rem; font-weight:900; margin-bottom:14px; letter-spacing:-0.02em;">Why Only 2,000 Agencies?</h3>
+  <h3 style="font-size:1.4rem; font-weight:900; margin-bottom:14px; letter-spacing:-0.02em;">Why Only 100 Agencies?</h3>
   <p style="font-size:0.9rem; color:#555; margin-bottom:20px; line-height:1.6;">We're building the best cold email tool for a tight community of serious agencies — not a bloated SaaS with stretched-thin support.</p>
   <div style="background:#f8f8f8; border:2px solid #eee; border-radius:12px; padding:16px; text-align:left; margin-bottom:20px; display:flex; flex-direction:column; gap:12px;">
    <div style="display:flex; align-items:center; gap:10px;">
     <span style="font-size:1.1rem;">📦</span>
-    <strong style="font-size:0.85rem;">2,000 sales at $597 — then price goes to $997.</strong>
+    <strong style="font-size:0.85rem;">100 sales at $199 — then price goes to $499.</strong>
    </div>
    <div style="display:flex; align-items:center; gap:10px;">
     <span style="font-size:1.1rem;">🚀</span>
@@ -2335,7 +2527,7 @@
     <strong style="font-size:0.85rem;">Tight-knit community. Direct dev access.</strong>
    </div>
   </div>
-  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $597 →</a>
+  <a href="#" class="btn-primary waitlist-trigger" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $199 →</a>
   <p style="font-size:0.72rem; color:#999; margin-top:10px;">One-time payment · Lifetime updates · 30-day refund</p>
  </div>
 </div>
