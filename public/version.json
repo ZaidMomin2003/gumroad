@@ -1,7 +1,8 @@
 {
-    "download_url":  "https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1",
-    "changelog":  "Demo mode, seed data, preview modal fix",
-    "signature":  "3deafd4f6a630f034fdcb88aadc6476ada94c7b8631b688900c7374f4a425d988dfcdc42ffaff34c59819ac321425d8395fc474e06f7ea30b0c311234afa9c0a",
-    "version":  "1.9.0",
-    "released_at":  "2026-05-22T19:01:23Z"
+  "version": "1.0.0",
+  "released_at": "2026-06-26T14:00:00Z",
+  "changelog": "CleanMails Cold Email Platform - Initial Release",
+  "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
+  "install_url": "https://cleanmails.online/install.sh",
+  "min_version": "1.0.0"
 }

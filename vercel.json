@@ -1,20 +1,35 @@
 {
-    "cleanUrls": true,
-    "headers": [
-        {
-            "source": "/version.json",
-            "headers": [
-                { "key": "Access-Control-Allow-Origin", "value": "*" },
-                { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
-            ]
-        }
-    ],
-    "rewrites": [
-        { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/blog" },
-        { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/blog/:path*" },
-        { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/tools" },
-        { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/tools/:path*" },
-        { "source": "/docs", "destination": "https://cleanmails-docs.vercel.app/docs" },
-        { "source": "/docs/:path*", "destination": "https://cleanmails-docs.vercel.app/docs/:path*" }
-    ]
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/version.json",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/install.sh",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Cache-Control", "value": "no-cache" }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/blog" },
+    { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/blog/:path*" },
+    { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/tools" },
+    { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/tools/:path*" },
+    { "source": "/docs", "destination": "https://cleanmails-docs.vercel.app/docs" },
+    { "source": "/docs/:path*", "destination": "https://cleanmails-docs.vercel.app/docs/:path*" }
+  ]
 }

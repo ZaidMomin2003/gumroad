@@ -1,221 +1,318 @@
 #!/bin/bash
-set -euo pipefail
+set -e
 
-# ========================================================
-# Cleanmails - Enterprise Installer
-# One-command deployment with automatic SSL
-# ========================================================
+# ============================================
+# CleanMails — One-Command Installer
+# ============================================
+# Usage: curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --key CK-XXXX --domain app.example.com
+# ============================================
 
-RED='\033[0;31m'
 GREEN='\033[0;32m'
+RED='\033[0;31m'
 YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-BOLD='\033[1m'
+BLUE='\033[0;34m'
 NC='\033[0m'
+BOLD='\033[1m'
 
-# --- Parse Arguments ---
+INSTALL_DIR="/opt/cleanmails"
+S3_BASE="https://cleanmails-sending.s3.amazonaws.com"
+RELEASE_URL="${S3_BASE}/latest.tar.gz"
+LICENSE_API="https://cleanmails.online/api/verify-license"
+
+print_banner() {
+  echo ""
+  echo -e "${BLUE}╔══════════════════════════════════════╗${NC}"
+  echo -e "${BLUE}║   ${BOLD}CleanMails Installer${NC}${BLUE}              ║${NC}"
+  echo -e "${BLUE}║   Self-hosted Cold Email Platform    ║${NC}"
+  echo -e "${BLUE}╚══════════════════════════════════════╝${NC}"
+  echo ""
+}
+
+log() { echo -e "  ${GREEN}✓${NC} $1"; }
+err() { echo -e "  ${RED}✗${NC} $1"; }
+warn() { echo -e "  ${YELLOW}⚠${NC} $1"; }
+info() { echo -e "  ${BLUE}ℹ${NC} $1"; }
+
+fail() {
+  err "$1"
+  echo ""
+  echo -e "  Need help? ${BOLD}hello@cleanmails.online${NC}"
+  echo ""
+  exit 1
+}
+
+# ---- Parse arguments ----
 LICENSE_KEY=""
-APP_DOMAIN=""
+DOMAIN=""
 
 while [[ "$#" -gt 0 ]]; do
-    case $1 in
-        --key) LICENSE_KEY="$2"; shift ;;
-        --domain) APP_DOMAIN="$2"; shift ;;
-        *) echo -e "${RED}Unknown parameter: $1${NC}"; exit 1 ;;
-    esac
-    shift
+  case $1 in
+    --key) LICENSE_KEY="$2"; shift ;;
+    --key=*) LICENSE_KEY="${1#*=}" ;;
+    --domain) DOMAIN="$2"; shift ;;
+    --domain=*) DOMAIN="${1#*=}" ;;
+    *) ;;
+  esac
+  shift
 done
 
-if [ -z "$LICENSE_KEY" ] || [ -z "$APP_DOMAIN" ]; then
-    echo -e "${RED}Usage: ./install.sh --key YOUR_KEY --domain app.yourdomain.com${NC}"
-    exit 1
+# ---- Validate inputs ----
+print_banner
+
+if [ -z "$LICENSE_KEY" ]; then
+  fail "License key required. Use: --key YOUR_LICENSE_KEY"
 fi
 
-echo ""
-echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
-echo -e "${BOLD}${GREEN}   Cleanmails — Installing on this server${NC}"
-echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
-echo ""
-
-# --- Root Check ---
-if [ "$EUID" -ne 0 ] && [ "$(id -u)" -ne 0 ]; then
-  echo -e "${RED}Error: This script must be run as root.${NC}"
-  echo -e "Run with: ${BOLD}sudo bash install.sh --key YOUR_KEY --domain YOUR_DOMAIN${NC}"
-  echo -e "Or:       ${BOLD}curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key YOUR_KEY --domain YOUR_DOMAIN${NC}"
-  exit 1
+if [ -z "$DOMAIN" ]; then
+  fail "Domain required. Use: --domain app.yourdomain.com"
 fi
 
-# --- Step 1: System Dependencies ---
-echo -e "${YELLOW}[1/7]${NC} Installing system dependencies..."
-export DEBIAN_FRONTEND=noninteractive
-apt-get update -qq
-apt-get install -y -qq jq curl unzip nginx certbot python3-certbot-nginx > /dev/null 2>&1
-echo -e "${GREEN}  ✓ Dependencies installed${NC}"
+echo -e "${BOLD}Configuration${NC}"
+log "License: ${LICENSE_KEY:0:8}..."
+log "Domain:  $DOMAIN"
+echo ""
 
-# --- Step 2: License Activation ---
-echo -e "${YELLOW}[2/7]${NC} Activating license..."
+# ---- Check prerequisites ----
+echo -e "${BOLD}[1/7] Checking system...${NC}"
 
-HW_ID="$(cat /etc/machine-id 2>/dev/null || hostname)"
-DODO_URL="https://test.dodopayments.com"
+if [ "$EUID" -ne 0 ]; then
+  fail "Please run as root: sudo bash or curl ... | sudo bash -s -- ..."
+fi
+log "Running as root"
 
-ACTIVATE_RESP=$(curl -s -X POST "${DODO_URL}/licenses/activate" \
+TOTAL_RAM=$(free -m | awk '/^Mem:/{print $2}')
+if [ "$TOTAL_RAM" -lt 900 ]; then
+  fail "Minimum 1GB RAM required. Found: ${TOTAL_RAM}MB"
+fi
+log "RAM: ${TOTAL_RAM}MB"
+
+FREE_DISK=$(df / | awk 'NR==2 {print int($4/1024)}')
+if [ "$FREE_DISK" -lt 5000 ]; then
+  fail "Minimum 5GB disk space required. Found: ${FREE_DISK}MB"
+fi
+log "Disk: ${FREE_DISK}MB free"
+
+if ss -tlnp 2>/dev/null | grep -q ':80 '; then
+  fail "Port 80 is in use. Free it before installing."
+fi
+if ss -tlnp 2>/dev/null | grep -q ':443 '; then
+  fail "Port 443 is in use. Free it before installing."
+fi
+log "Ports 80 & 443 available"
+echo ""
+
+# ---- License validation via DodoPayments ----
+echo -e "${BOLD}[2/7] Validating license...${NC}"
+
+HW_ID=$(cat /etc/machine-id 2>/dev/null || hostname)
+
+LICENSE_RESP=$(curl -s -w "\n%{http_code}" -X POST "$LICENSE_API" \
   -H "Content-Type: application/json" \
-  -d "{\"license_key\":\"$LICENSE_KEY\",\"name\":\"$HW_ID\"}" 2>/dev/null || echo '{}')
+  -d "{\"license_key\":\"$LICENSE_KEY\",\"instance_name\":\"$HW_ID\"}" 2>/dev/null || echo -e "\n000")
 
-LKI_ID=$(echo "$ACTIVATE_RESP" | jq -r '.id // empty')
+HTTP_CODE=$(echo "$LICENSE_RESP" | tail -1)
+RESP_BODY=$(echo "$LICENSE_RESP" | sed '$d')
 
-if [ -z "$LKI_ID" ]; then
-  ERROR_MSG=$(echo "$ACTIVATE_RESP" | jq -r '.message // empty')
-  echo -e "${RED}  ✗ License activation failed.${NC}"
+if [ "$HTTP_CODE" = "000" ]; then
+  fail "Cannot reach license server. Check your internet connection."
+fi
+
+IS_VALID=$(echo "$RESP_BODY" | grep -o '"valid":\s*true' || echo "")
+
+if [ -z "$IS_VALID" ]; then
+  ERROR_MSG=$(echo "$RESP_BODY" | grep -o '"message":"[^"]*"' | cut -d'"' -f4 || echo "")
   if [ -n "$ERROR_MSG" ]; then
-    echo -e "  ${YELLOW}Reason: ${ERROR_MSG}${NC}"
+    fail "License invalid: $ERROR_MSG"
   else
-    echo "  Response: $ACTIVATE_RESP"
+    fail "License key is not valid. Please check and try again."
   fi
-  exit 1
 fi
 
-# Validate
-VALIDATE_RESP=$(curl -s -X POST "${DODO_URL}/licenses/validate" \
-  -H "Content-Type: application/json" \
-  -d "{\"license_key\":\"$LICENSE_KEY\",\"license_key_instance_id\":\"$LKI_ID\"}" 2>/dev/null || echo '{}')
+log "License activated successfully"
+echo ""
 
-VALID=$(echo "$VALIDATE_RESP" | jq -r '.valid // "false"')
+# ---- Install Docker ----
+echo -e "${BOLD}[3/7] Setting up Docker...${NC}"
 
-if [ "$VALID" != "true" ]; then
-  echo -e "${RED}  ✗ License is not valid for this server.${NC}"
-  exit 1
-fi
-
-echo -e "${GREEN}  ✓ License activated (bound to ${HW_ID:0:8}...)${NC}"
-
-# --- Step 3: Download Binary ---
-echo -e "${YELLOW}[3/7]${NC} Downloading Cleanmails..."
-
-APP_DIR="/opt/cleanmails"
-mkdir -p ${APP_DIR}
-cd ${APP_DIR}
-
-BINARY_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/cleanmails-linux-v1"
-curl -sf -o cleanmails "$BINARY_URL"
-chmod +x cleanmails
-
-echo -e "${GREEN}  ✓ Binary downloaded${NC}"
-
-# --- Step 4: Download Frontend Assets ---
-echo -e "${YELLOW}[4/7]${NC} Downloading UI assets..."
-
-UI_URL="https://cleanmails-selfhost-script.s3.us-east-1.amazonaws.com/public.zip"
-if curl --output /dev/null --silent --head --fail "$UI_URL"; then
-    curl -sf -o public.zip "$UI_URL"
-    rm -rf ${APP_DIR}/public
-    unzip -qo public.zip -d ${APP_DIR}/ 2>/dev/null || true
-    rm -f public.zip
-    echo -e "${GREEN}  ✓ UI assets deployed${NC}"
+if command -v docker &> /dev/null; then
+  log "Docker already installed"
 else
-    echo -e "${YELLOW}  → Using embedded assets${NC}"
+  info "Installing Docker..."
+  curl -fsSL https://get.docker.com | sh > /dev/null 2>&1
+  systemctl enable docker > /dev/null 2>&1
+  systemctl start docker
+  log "Docker installed"
 fi
 
-# --- Step 5: Configure & Start Service ---
-echo -e "${YELLOW}[5/7]${NC} Configuring service..."
+if docker compose version &> /dev/null; then
+  log "Docker Compose available"
+else
+  fail "Docker Compose not found. Install docker-compose-plugin."
+fi
+echo ""
 
-# Generate a secure master key (32 chars for AES-256)
-MASTER_KEY=$(openssl rand -hex 16)
+# ---- Download release ----
+echo -e "${BOLD}[4/7] Downloading CleanMails...${NC}"
 
-# Create uploads directories
-mkdir -p ${APP_DIR}/uploads
-mkdir -p ${APP_DIR}/public/uploads
+mkdir -p "$INSTALL_DIR"
 
-cat > /etc/systemd/system/cleanmails.service << EOF
-[Unit]
-Description=Cleanmails Engine
-After=network.target
+if curl -fsSL "$RELEASE_URL" -o /tmp/cleanmails-release.tar.gz; then
+  log "Downloaded release package"
+else
+  fail "Download failed. Check internet connection."
+fi
 
-[Service]
-User=root
-WorkingDirectory=${APP_DIR}
-ExecStart=${APP_DIR}/cleanmails
-Restart=always
-RestartSec=3
-StartLimitBurst=20
-StartLimitIntervalSec=60
-Environment=APP_ENV=development
-Environment=MASTER_KEY=${MASTER_KEY}
-Environment=SITE_URL=https://${APP_DOMAIN}
-Environment=ADDR=:8080
-Environment=TRUST_PROXY=true
-Environment=SMTP_FROM_EMAIL=verify@${APP_DOMAIN}
-Environment=SMTP_HELO_NAME=${APP_DOMAIN}
+tar -xzf /tmp/cleanmails-release.tar.gz -C "$INSTALL_DIR/"
+rm -f /tmp/cleanmails-release.tar.gz
+log "Extracted to $INSTALL_DIR"
+echo ""
 
-[Install]
-WantedBy=multi-user.target
+# ---- Build Docker images from pre-compiled binaries ----
+echo -e "${BOLD}[5/7] Building Docker images...${NC}"
+
+cd "$INSTALL_DIR"
+
+if [ -f "Dockerfile.api" ]; then
+  docker build -t cleanmails-api:latest -f Dockerfile.api . > /dev/null 2>&1
+  log "Built: cleanmails-api"
+fi
+
+if [ -f "Dockerfile.worker" ]; then
+  docker build -t cleanmails-worker:latest -f Dockerfile.worker . > /dev/null 2>&1
+  log "Built: cleanmails-worker"
+fi
+
+if [ -f "Dockerfile.frontend" ]; then
+  docker build -t cleanmails-frontend:latest -f Dockerfile.frontend . > /dev/null 2>&1
+  log "Built: cleanmails-frontend"
+fi
+echo ""
+
+# ---- Configure ----
+echo -e "${BOLD}[6/7] Configuring...${NC}"
+
+SERVER_IP=$(curl -s ifconfig.me 2>/dev/null || curl -s api.ipify.org 2>/dev/null || echo "unknown")
+
+# Generate secrets
+DB_PASSWORD=$(openssl rand -hex 16)
+ENCRYPTION_KEY=$(openssl rand -hex 32)
+JWT_SECRET=$(openssl rand -hex 32)
+
+# Write .env
+cat > "$INSTALL_DIR/.env" <<EOF
+# CleanMails — Auto-generated $(date -u +"%Y-%m-%d %H:%M UTC")
+DOMAIN=$DOMAIN
+LICENSE_KEY=$LICENSE_KEY
+
+# Database
+DB_PASSWORD=$DB_PASSWORD
+DATABASE_URL=postgres://cleanmails:${DB_PASSWORD}@postgres:5432/cleanmails?sslmode=disable
+
+# Redis
+REDIS_URL=redis://redis:6379
+
+# Security
+ENCRYPTION_KEY=$ENCRYPTION_KEY
+JWT_SECRET=$JWT_SECRET
+
+# App
+BASE_URL=https://$DOMAIN
+API_PORT=8080
+GIN_MODE=release
+ALLOWED_ORIGINS=https://$DOMAIN
 EOF
 
-systemctl daemon-reload
-systemctl enable cleanmails --quiet
-systemctl restart cleanmails
+chmod 600 "$INSTALL_DIR/.env"
+log "Secrets generated & .env written"
 
-# Wait for the app to be ready
-echo -n "  Starting"
-for i in {1..15}; do
-    if curl -sf http://127.0.0.1:8080/health > /dev/null 2>&1; then
-        echo ""
-        echo -e "${GREEN}  ✓ Cleanmails running on port 8080${NC}"
-        break
-    fi
-    echo -n "."
-    sleep 2
-done
-
-# --- Step 6: Configure Nginx + SSL ---
-echo -e "${YELLOW}[6/7]${NC} Setting up Nginx reverse proxy..."
-
-cat > /etc/nginx/sites-available/cleanmails << EOF
-server {
-    listen 80;
-    server_name ${APP_DOMAIN};
-    client_max_body_size 50M;
-
-    location / {
-        proxy_pass http://127.0.0.1:8080;
-        proxy_http_version 1.1;
-        proxy_set_header Host \$host;
-        proxy_set_header X-Real-IP \$remote_addr;
-        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto \$scheme;
-        proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_read_timeout 300s;
+# Write Caddyfile
+cat > "$INSTALL_DIR/Caddyfile" <<EOF
+$DOMAIN {
+    handle /api/* {
+        reverse_proxy api:8080
+    }
+    handle /health {
+        reverse_proxy api:8080
+    }
+    handle /t/* {
+        reverse_proxy api:8080
+    }
+    handle /unsubscribe/* {
+        reverse_proxy api:8080
+    }
+    handle {
+        reverse_proxy frontend:3000
+    }
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        Strict-Transport-Security "max-age=31536000"
     }
 }
 EOF
 
-ln -sf /etc/nginx/sites-available/cleanmails /etc/nginx/sites-enabled/
-rm -f /etc/nginx/sites-enabled/default
-nginx -t -q && systemctl restart nginx
+log "Caddyfile written (auto-SSL for $DOMAIN)"
 
-echo -e "${GREEN}  ✓ Nginx configured${NC}"
+# DNS check
+DNS_IP=$(dig +short "$DOMAIN" 2>/dev/null | head -1 || echo "")
+if [ "$DNS_IP" = "$SERVER_IP" ]; then
+  log "DNS verified: $DOMAIN → $SERVER_IP"
+else
+  warn "DNS: $DOMAIN → '$DNS_IP' (server is $SERVER_IP)"
+  warn "SSL will auto-provision once DNS propagates"
+fi
+echo ""
 
-echo -e "${YELLOW}[7/7]${NC} Generating SSL certificate..."
-certbot --nginx -d ${APP_DOMAIN} --non-interactive --agree-tos -m admin@${APP_DOMAIN} --quiet 2>/dev/null \
-  && echo -e "${GREEN}  ✓ SSL certificate issued${NC}" \
-  || echo -e "${YELLOW}  → SSL failed (DNS may not have propagated yet). Run later: certbot --nginx -d ${APP_DOMAIN}${NC}"
+# ---- Start services ----
+echo -e "${BOLD}[7/7] Starting services...${NC}"
 
-# --- Done ---
+cd "$INSTALL_DIR"
+
+docker compose -f docker-compose.prod.yml up -d postgres redis > /dev/null 2>&1
+log "PostgreSQL + Redis started"
+
+# Wait for postgres
+for i in $(seq 1 20); do
+  if docker compose -f docker-compose.prod.yml exec -T postgres pg_isready -U cleanmails > /dev/null 2>&1; then
+    break
+  fi
+  sleep 2
+done
+log "Database ready"
+
+docker compose -f docker-compose.prod.yml up -d api worker frontend caddy > /dev/null 2>&1
+log "API + Worker + Frontend + Caddy started"
+
+# Wait for health
+info "Waiting for API..."
+for i in $(seq 1 30); do
+  if curl -s http://localhost:8080/health 2>/dev/null | grep -q "status"; then
+    break
+  fi
+  sleep 3
+done
+log "API is healthy"
+
 echo ""
-echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
-echo -e "${BOLD}${GREEN}   ✓ Cleanmails is LIVE!${NC}"
-echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "  ${GREEN}${BOLD}✅ CleanMails is live!${NC}"
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "  ${BOLD}Dashboard:${NC}  https://${APP_DOMAIN}"
-echo -e "  ${BOLD}Master Key:${NC} ${MASTER_KEY}"
-echo -e ""
-echo -e "  ${YELLOW}Save your master key somewhere safe.${NC}"
-echo -e "  ${YELLOW}It's used to encrypt all stored passwords and tokens.${NC}"
+echo -e "  ${BOLD}Dashboard:${NC}  https://$DOMAIN"
 echo ""
-echo -e "  ${BOLD}Next steps:${NC}"
-echo -e "  1. Open https://${APP_DOMAIN} and create your admin account"
-echo -e "  2. Add your sending domains"
-echo -e "  3. Set rDNS/PTR record on your VPS to: ${GREEN}${APP_DOMAIN}${NC}"
+echo -e "  First time? Register at https://$DOMAIN/login"
+echo -e "  The first account automatically becomes super admin."
 echo ""
-echo -e "${CYAN}═══════════════════════════════════════════════${NC}"
+echo -e "  ${BOLD}Commands:${NC}"
+echo -e "  Status:  cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml ps"
+echo -e "  Logs:    cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml logs -f"
+echo -e "  Update:  cd $INSTALL_DIR && bash scripts/update.sh"
+echo -e "  Backup:  cd $INSTALL_DIR && bash scripts/backup.sh"
+echo ""
+echo -e "  ${YELLOW}Note:${NC} SSL auto-provisions via Let's Encrypt."
+echo -e "  If DNS hasn't propagated, wait a few minutes."
+echo ""
+echo -e "  ${BOLD}rDNS:${NC} Set your VPS reverse DNS (PTR) to: ${GREEN}$DOMAIN${NC}"
+echo ""
+echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo ""
