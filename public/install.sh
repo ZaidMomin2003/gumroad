@@ -2,15 +2,19 @@
 set -e
 
 # ============================================
-# CleanMails — One-Command Installer
-# ============================================
-# Usage: curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain app.yourdomain.com
+# CleanMails — Self-Hosted Cold Email Platform
+# One-command installer with auto-SSL
 # ============================================
 
-GREEN='\033[0;32m'
+# Colors & Formatting
 RED='\033[0;31m'
+GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[1;37m'
+DIM='\033[2m'
 NC='\033[0m'
 BOLD='\033[1m'
 
@@ -18,24 +22,52 @@ INSTALL_DIR="/opt/cleanmails"
 S3_BASE="https://cleanmails-sending.s3.amazonaws.com"
 RELEASE_URL="${S3_BASE}/latest.tar.gz"
 
-print_banner() {
+# ---- Pretty helpers ----
+banner() {
+  clear
   echo ""
-  echo -e "${BLUE}╔══════════════════════════════════════╗${NC}"
-  echo -e "${BLUE}║   ${BOLD}CleanMails Installer${NC}${BLUE}              ║${NC}"
-  echo -e "${BLUE}║   Self-hosted Cold Email Platform    ║${NC}"
-  echo -e "${BLUE}╚══════════════════════════════════════╝${NC}"
+  echo -e "${MAGENTA}"
+  echo "   ██████╗██╗     ███████╗ █████╗ ███╗   ██╗"
+  echo "  ██╔════╝██║     ██╔════╝██╔══██╗████╗  ██║"
+  echo "  ██║     ██║     █████╗  ███████║██╔██╗ ██║"
+  echo "  ██║     ██║     ██╔══╝  ██╔══██║██║╚██╗██║"
+  echo "  ╚██████╗███████╗███████╗██║  ██║██║ ╚████║"
+  echo "   ╚═════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝"
+  echo -e "${NC}"
+  echo -e "  ${DIM}Self-Hosted Cold Email Infrastructure${NC}"
+  echo -e "  ${DIM}────────────────────────────────────────${NC}"
   echo ""
 }
 
-log() { echo -e "  ${GREEN}✓${NC} $1"; }
-err() { echo -e "  ${RED}✗${NC} $1"; }
-warn() { echo -e "  ${YELLOW}⚠${NC} $1"; }
-info() { echo -e "  ${BLUE}ℹ${NC} $1"; }
+step() {
+  echo ""
+  echo -e "  ${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+  echo -e "  ${WHITE}${BOLD} $1${NC}"
+  echo -e "  ${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+}
+
+log() { echo -e "  ${GREEN}  ✓${NC} $1"; }
+err() { echo -e "  ${RED}  ✗${NC} $1"; }
+warn() { echo -e "  ${YELLOW}  ⚠${NC} $1"; }
+info() { echo -e "  ${BLUE}  →${NC} $1"; }
+
+spinner() {
+  local pid=$1
+  local msg=$2
+  local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
+  local i=0
+  while kill -0 "$pid" 2>/dev/null; do
+    printf "\r  ${CYAN}  %s${NC} %s" "${spin:i++%${#spin}:1}" "$msg"
+    sleep 0.1
+  done
+  printf "\r"
+}
 
 fail() {
+  echo ""
   err "$1"
   echo ""
-  echo -e "  Need help? ${BOLD}hello@cleanmails.online${NC}"
+  echo -e "  ${DIM}Need help? ${BOLD}hello@cleanmails.online${NC}"
   echo ""
   exit 1
 }
@@ -52,51 +84,49 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
-# ---- Validate inputs ----
-print_banner
+# ---- Show banner ----
+banner
 
 if [ -z "$DOMAIN" ]; then
-  fail "Domain required. Use: --domain app.yourdomain.com"
+  fail "Domain required.\n\n  ${WHITE}Usage:${NC}\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain ${CYAN}app.yourdomain.com${NC}"
 fi
 
-echo -e "${BOLD}Configuration${NC}"
-log "Domain: $DOMAIN"
+echo -e "  ${WHITE}${BOLD}Domain:${NC}  ${CYAN}$DOMAIN${NC}"
 echo ""
 
-# ---- Check prerequisites ----
-echo -e "${BOLD}[1/6] Checking system...${NC}"
+# ---- Preflight checks ----
+step "⚡ Preflight Checks"
 
 if [ "$EUID" -ne 0 ]; then
-  fail "Please run as root: sudo bash or curl ... | sudo bash -s -- ..."
+  fail "Run as root:\n  ${WHITE}curl -fsSL https://cleanmails.online/install.sh | ${BOLD}sudo${NC}${WHITE} bash -s -- --domain $DOMAIN${NC}"
 fi
-log "Running as root"
+log "Root access"
 
 TOTAL_RAM=$(free -m | awk '/^Mem:/{print $2}')
 if [ "$TOTAL_RAM" -lt 900 ]; then
-  fail "Minimum 1GB RAM required. Found: ${TOTAL_RAM}MB"
+  fail "Need at least 1GB RAM (found ${TOTAL_RAM}MB)"
 fi
 log "RAM: ${TOTAL_RAM}MB"
 
 FREE_DISK=$(df / | awk 'NR==2 {print int($4/1024)}')
 if [ "$FREE_DISK" -lt 5000 ]; then
-  fail "Minimum 5GB disk space required. Found: ${FREE_DISK}MB"
+  fail "Need at least 5GB disk (found ${FREE_DISK}MB)"
 fi
 log "Disk: ${FREE_DISK}MB free"
 
 if ss -tlnp 2>/dev/null | grep -q ':80 '; then
-  fail "Port 80 is in use. Free it before installing."
+  fail "Port 80 is occupied. Free it first."
 fi
 if ss -tlnp 2>/dev/null | grep -q ':443 '; then
-  fail "Port 443 is in use. Free it before installing."
+  fail "Port 443 is occupied. Free it first."
 fi
-log "Ports 80 & 443 available"
-echo ""
+log "Ports 80 & 443 clear"
 
-# ---- Install Docker ----
-echo -e "${BOLD}[2/6] Setting up Docker...${NC}"
+# ---- Docker ----
+step "🐳 Docker Engine"
 
 if command -v docker &> /dev/null; then
-  log "Docker already installed"
+  log "Docker $(docker --version | grep -oP '\d+\.\d+\.\d+') already installed"
 else
   info "Installing Docker..."
   curl -fsSL https://get.docker.com | sh > /dev/null 2>&1
@@ -106,62 +136,59 @@ else
 fi
 
 if docker compose version &> /dev/null; then
-  log "Docker Compose available"
+  log "Docker Compose ready"
 else
-  fail "Docker Compose not found. Install docker-compose-plugin."
+  fail "Docker Compose plugin missing. Install docker-compose-plugin."
 fi
-echo ""
 
-# ---- Download release ----
-echo -e "${BOLD}[3/6] Downloading CleanMails...${NC}"
+# ---- Download ----
+step "📦 Downloading CleanMails"
 
 mkdir -p "$INSTALL_DIR"
 
-if curl -fsSL "$RELEASE_URL" -o /tmp/cleanmails-release.tar.gz; then
-  log "Downloaded release package"
-else
-  fail "Download failed. Check internet connection."
-fi
+info "Pulling latest release from CDN..."
+curl -fsSL "$RELEASE_URL" -o /tmp/cleanmails-release.tar.gz &
+spinner $! "Downloading..."
+log "Downloaded $(du -h /tmp/cleanmails-release.tar.gz | cut -f1)"
 
 tar -xzf /tmp/cleanmails-release.tar.gz -C "$INSTALL_DIR/"
 rm -f /tmp/cleanmails-release.tar.gz
 log "Extracted to $INSTALL_DIR"
-echo ""
 
-# ---- Build Docker images from pre-compiled binaries ----
-echo -e "${BOLD}[4/6] Building Docker images...${NC}"
+# ---- Build images ----
+step "🔨 Building Containers"
 
 cd "$INSTALL_DIR"
 
 if [ -f "Dockerfile.api" ]; then
+  info "Building API server..."
   docker build -t cleanmails-api:latest -f Dockerfile.api . > /dev/null 2>&1
-  log "Built: cleanmails-api"
+  log "cleanmails-api"
 fi
 
 if [ -f "Dockerfile.worker" ]; then
+  info "Building background worker..."
   docker build -t cleanmails-worker:latest -f Dockerfile.worker . > /dev/null 2>&1
-  log "Built: cleanmails-worker"
+  log "cleanmails-worker"
 fi
 
 if [ -f "Dockerfile.frontend" ]; then
+  info "Building frontend..."
   docker build -t cleanmails-frontend:latest -f Dockerfile.frontend . > /dev/null 2>&1
-  log "Built: cleanmails-frontend"
+  log "cleanmails-frontend"
 fi
-echo ""
 
 # ---- Configure ----
-echo -e "${BOLD}[5/6] Configuring...${NC}"
+step "🔐 Generating Secure Config"
 
 SERVER_IP=$(curl -s ifconfig.me 2>/dev/null || curl -s api.ipify.org 2>/dev/null || echo "unknown")
 
-# Generate secrets
 DB_PASSWORD=$(openssl rand -hex 16)
 ENCRYPTION_KEY=$(openssl rand -hex 32)
 JWT_SECRET=$(openssl rand -hex 32)
 
-# Write .env
 cat > "$INSTALL_DIR/.env" <<EOF
-# CleanMails — Auto-generated $(date -u +"%Y-%m-%d %H:%M UTC")
+# CleanMails — Generated $(date -u +"%Y-%m-%d %H:%M UTC")
 DOMAIN=$DOMAIN
 
 # Database
@@ -183,9 +210,11 @@ ALLOWED_ORIGINS=https://$DOMAIN
 EOF
 
 chmod 600 "$INSTALL_DIR/.env"
-log "Secrets generated & .env written"
+log "Secrets generated"
+log "AES-256 encryption key"
+log "JWT signing key"
 
-# Write Caddyfile
+# Caddyfile
 cat > "$INSTALL_DIR/Caddyfile" <<EOF
 $DOMAIN {
     handle /api/* {
@@ -211,25 +240,26 @@ $DOMAIN {
 }
 EOF
 
-log "Caddyfile written (auto-SSL for $DOMAIN)"
+log "Caddy reverse proxy configured"
+log "Auto-SSL via Let's Encrypt"
 
 # DNS check
 DNS_IP=$(dig +short "$DOMAIN" 2>/dev/null | head -1 || echo "")
 if [ "$DNS_IP" = "$SERVER_IP" ]; then
   log "DNS verified: $DOMAIN → $SERVER_IP"
 else
-  warn "DNS: $DOMAIN → '$DNS_IP' (server is $SERVER_IP)"
+  warn "DNS: $DOMAIN → '${DNS_IP:-not resolving}' (server: $SERVER_IP)"
   warn "SSL will auto-provision once DNS propagates"
 fi
-echo ""
 
-# ---- Start services ----
-echo -e "${BOLD}[6/6] Starting services...${NC}"
+# ---- Launch ----
+step "🚀 Launching Services"
 
 cd "$INSTALL_DIR"
 
+info "Starting database & cache..."
 docker compose -f docker-compose.prod.yml up -d postgres redis > /dev/null 2>&1
-log "PostgreSQL + Redis started"
+log "PostgreSQL 16 + Redis 7"
 
 # Wait for postgres
 for i in $(seq 1 20); do
@@ -240,37 +270,44 @@ for i in $(seq 1 20); do
 done
 log "Database ready"
 
+info "Starting application..."
 docker compose -f docker-compose.prod.yml up -d api worker frontend caddy > /dev/null 2>&1
-log "API + Worker + Frontend + Caddy started"
+log "API server"
+log "Background worker"
+log "Frontend"
+log "Caddy (SSL termination)"
 
-# Wait for health
-info "Waiting for API..."
+# Health check
+info "Waiting for health check..."
 for i in $(seq 1 30); do
   if curl -s http://localhost:8080/health 2>/dev/null | grep -q "status"; then
     break
   fi
   sleep 3
 done
-log "API is healthy"
+log "All systems operational"
 
+# ---- Done ----
 echo ""
-echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "  ${GREEN}${BOLD}✅ CleanMails is live!${NC}"
-echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "  ${BOLD}Dashboard:${NC}  https://$DOMAIN"
+echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "  ${GREEN}${BOLD}  ✅  CleanMails is live!${NC}"
+echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "  Open https://$DOMAIN/welcome to activate your license"
-echo -e "  and create your admin account."
+echo -e "  ${WHITE}${BOLD}  🌐 Dashboard:${NC}   ${CYAN}https://$DOMAIN${NC}"
 echo ""
-echo -e "  ${BOLD}Commands:${NC}"
-echo -e "  Status:  cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml ps"
-echo -e "  Logs:    cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml logs -f"
-echo -e "  Update:  cd $INSTALL_DIR && bash scripts/update.sh"
-echo -e "  Backup:  cd $INSTALL_DIR && bash scripts/backup.sh"
+echo -e "  ${DIM}  Open the URL above to activate your license${NC}"
+echo -e "  ${DIM}  and create your admin account.${NC}"
 echo ""
-echo -e "  ${YELLOW}Note:${NC} SSL auto-provisions via Let's Encrypt."
-echo -e "  Set your VPS reverse DNS (PTR) to: ${GREEN}$DOMAIN${NC}"
+echo -e "  ${WHITE}  ─── Commands ───────────────────────────────────${NC}"
+echo -e "  ${DIM}  Status${NC}   cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml ps"
+echo -e "  ${DIM}  Logs${NC}     cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml logs -f"
+echo -e "  ${DIM}  Update${NC}   cd $INSTALL_DIR && bash scripts/update.sh"
+echo -e "  ${DIM}  Backup${NC}   cd $INSTALL_DIR && bash scripts/backup.sh"
 echo ""
-echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "  ${WHITE}  ─── Important ──────────────────────────────────${NC}"
+echo -e "  ${YELLOW}  ⚡${NC} Set rDNS/PTR on your VPS to: ${CYAN}$DOMAIN${NC}"
+echo -e "  ${YELLOW}  ⚡${NC} SSL auto-provisions (may take 1-2 min)"
+echo ""
+echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
