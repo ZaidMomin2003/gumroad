@@ -248,18 +248,18 @@ step "Launching Services"
 cd "$INSTALL_DIR"
 
 info "Starting database & cache..."
-docker compose -f docker-compose.prod.yml up -d postgres redis 2>&1 || true
-sleep 8
+docker compose -f docker-compose.prod.yml up -d postgres redis 2>/dev/null </dev/null
+sleep 8 </dev/null
 
-# Wait for postgres (don't let set -e kill us here)
+# Wait for postgres
 info "Waiting for database..."
 DB_READY=false
 for i in $(seq 1 30); do
-  if docker compose -f docker-compose.prod.yml exec -T postgres pg_isready -U cleanmails > /dev/null 2>&1; then
+  if docker compose -f docker-compose.prod.yml exec -T postgres pg_isready -U cleanmails > /dev/null 2>&1 </dev/null; then
     DB_READY=true
     break
   fi
-  sleep 2
+  sleep 2 </dev/null
 done
 
 if [ "$DB_READY" = true ]; then
@@ -269,7 +269,7 @@ else
 fi
 
 info "Starting application..."
-docker compose -f docker-compose.prod.yml up -d api worker frontend caddy 2>&1 || true
+docker compose -f docker-compose.prod.yml up -d api worker frontend caddy 2>/dev/null </dev/null
 log "All containers started"
 
 # Health check
@@ -280,14 +280,14 @@ for i in $(seq 1 30); do
     API_READY=true
     break
   fi
-  sleep 3
+  sleep 3 </dev/null
 done
 
 if [ "$API_READY" = true ]; then
   log "System operational"
 else
   warn "API not responding yet. It may still be starting."
-  warn "Check: docker compose -f docker-compose.prod.yml logs api"
+  warn "Check: sudo docker compose -f docker-compose.prod.yml logs api"
 fi
 
 # ---- Done ----
