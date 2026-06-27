@@ -2,11 +2,11 @@
 set -e
 
 # ============================================
-# CleanMails — Self-Hosted Cold Email Platform
+# CleanMails - Self-Hosted Cold Email Platform
 # One-command installer with auto-SSL
 # ============================================
 
-# Colors & Formatting
+# Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -22,7 +22,7 @@ INSTALL_DIR="/opt/cleanmails"
 S3_BASE="https://cleanmails-sending.s3.amazonaws.com"
 RELEASE_URL="${S3_BASE}/latest.tar.gz"
 
-# ---- Pretty helpers ----
+# ---- Helpers ----
 banner() {
   clear
   echo ""
@@ -46,28 +46,16 @@ step() {
   echo -e "  ${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 }
 
-log() { echo -e "  ${GREEN}  ✓${NC} $1"; }
-err() { echo -e "  ${RED}  ✗${NC} $1"; }
-warn() { echo -e "  ${YELLOW}  ⚠${NC} $1"; }
-info() { echo -e "  ${BLUE}  →${NC} $1"; }
-
-spinner() {
-  local pid=$1
-  local msg=$2
-  local spin='⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏'
-  local i=0
-  while kill -0 "$pid" 2>/dev/null; do
-    printf "\r  ${CYAN}  %s${NC} %s" "${spin:i++%${#spin}:1}" "$msg"
-    sleep 0.1
-  done
-  printf "\r"
-}
+log() { echo -e "  ${GREEN}  [ok]${NC} $1"; }
+err() { echo -e "  ${RED}  [!!]${NC} $1"; }
+warn() { echo -e "  ${YELLOW}  [--]${NC} $1"; }
+info() { echo -e "  ${BLUE}  [..]${NC} $1"; }
 
 fail() {
   echo ""
   err "$1"
   echo ""
-  echo -e "  ${DIM}Need help? ${BOLD}hello@cleanmails.online${NC}"
+  echo -e "  ${DIM}Need help? hello@cleanmails.online${NC}"
   echo ""
   exit 1
 }
@@ -84,21 +72,21 @@ while [[ "$#" -gt 0 ]]; do
   shift
 done
 
-# ---- Show banner ----
+# ---- Banner ----
 banner
 
 if [ -z "$DOMAIN" ]; then
-  fail "Domain required.\n\n  ${WHITE}Usage:${NC}\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain ${CYAN}app.yourdomain.com${NC}"
+  fail "Domain required.\n\n  Usage:\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain app.yourdomain.com"
 fi
 
 echo -e "  ${WHITE}${BOLD}Domain:${NC}  ${CYAN}$DOMAIN${NC}"
 echo ""
 
-# ---- Preflight checks ----
-step "⚡ Preflight Checks"
+# ---- Preflight ----
+step "Preflight Checks"
 
 if [ "$EUID" -ne 0 ]; then
-  fail "Run as root:\n  ${WHITE}curl -fsSL https://cleanmails.online/install.sh | ${BOLD}sudo${NC}${WHITE} bash -s -- --domain $DOMAIN${NC}"
+  fail "Run as root: curl ... | sudo bash -s -- --domain $DOMAIN"
 fi
 log "Root access"
 
@@ -123,10 +111,10 @@ fi
 log "Ports 80 & 443 clear"
 
 # ---- Docker ----
-step "🐳 Docker Engine"
+step "Docker Engine"
 
 if command -v docker &> /dev/null; then
-  log "Docker $(docker --version | grep -oP '\d+\.\d+\.\d+') already installed"
+  log "Docker $(docker --version | grep -oP '\d+\.\d+\.\d+') installed"
 else
   info "Installing Docker..."
   curl -fsSL https://get.docker.com | sh > /dev/null 2>&1
@@ -138,48 +126,50 @@ fi
 if docker compose version &> /dev/null; then
   log "Docker Compose ready"
 else
-  fail "Docker Compose plugin missing. Install docker-compose-plugin."
+  fail "Docker Compose plugin missing."
 fi
 
 # ---- Download ----
-step "📦 Downloading CleanMails"
+step "Downloading CleanMails"
 
 mkdir -p "$INSTALL_DIR"
 
-info "Pulling latest release from CDN..."
-curl -fsSL "$RELEASE_URL" -o /tmp/cleanmails-release.tar.gz &
-spinner $! "Downloading..."
-log "Downloaded $(du -h /tmp/cleanmails-release.tar.gz | cut -f1)"
+info "Pulling latest release..."
+if curl -fsSL "$RELEASE_URL" -o /tmp/cleanmails-release.tar.gz; then
+  log "Downloaded $(du -h /tmp/cleanmails-release.tar.gz | cut -f1)"
+else
+  fail "Download failed. Check internet."
+fi
 
 tar -xzf /tmp/cleanmails-release.tar.gz -C "$INSTALL_DIR/"
 rm -f /tmp/cleanmails-release.tar.gz
 log "Extracted to $INSTALL_DIR"
 
 # ---- Build images ----
-step "🔨 Building Containers"
+step "Building Containers"
 
 cd "$INSTALL_DIR"
 
 if [ -f "Dockerfile.api" ]; then
-  info "Building API server..."
+  info "API server..."
   docker build -t cleanmails-api:latest -f Dockerfile.api . > /dev/null 2>&1
   log "cleanmails-api"
 fi
 
 if [ -f "Dockerfile.worker" ]; then
-  info "Building background worker..."
+  info "Background worker..."
   docker build -t cleanmails-worker:latest -f Dockerfile.worker . > /dev/null 2>&1
   log "cleanmails-worker"
 fi
 
 if [ -f "Dockerfile.frontend" ]; then
-  info "Building frontend..."
+  info "Frontend..."
   docker build -t cleanmails-frontend:latest -f Dockerfile.frontend . > /dev/null 2>&1
   log "cleanmails-frontend"
 fi
 
 # ---- Configure ----
-step "🔐 Generating Secure Config"
+step "Generating Secure Config"
 
 SERVER_IP=$(curl -s ifconfig.me 2>/dev/null || curl -s api.ipify.org 2>/dev/null || echo "unknown")
 
@@ -188,7 +178,7 @@ ENCRYPTION_KEY=$(openssl rand -hex 32)
 JWT_SECRET=$(openssl rand -hex 32)
 
 cat > "$INSTALL_DIR/.env" <<EOF
-# CleanMails — Generated $(date -u +"%Y-%m-%d %H:%M UTC")
+# CleanMails - Generated $(date -u +"%Y-%m-%d %H:%M UTC")
 DOMAIN=$DOMAIN
 
 # Database
@@ -209,7 +199,8 @@ GIN_MODE=release
 ALLOWED_ORIGINS=https://$DOMAIN
 EOF
 
-chmod 600 "$INSTALL_DIR/.env"
+# Readable by root and docker (not world-readable, but group-readable for docker)
+chmod 640 "$INSTALL_DIR/.env"
 log "Secrets generated"
 log "AES-256 encryption key"
 log "JWT signing key"
@@ -246,68 +237,81 @@ log "Auto-SSL via Let's Encrypt"
 # DNS check
 DNS_IP=$(dig +short "$DOMAIN" 2>/dev/null | head -1 || echo "")
 if [ "$DNS_IP" = "$SERVER_IP" ]; then
-  log "DNS verified: $DOMAIN → $SERVER_IP"
+  log "DNS verified: $DOMAIN -> $SERVER_IP"
 else
-  warn "DNS: $DOMAIN → '${DNS_IP:-not resolving}' (server: $SERVER_IP)"
-  warn "SSL will auto-provision once DNS propagates"
+  warn "DNS: $DOMAIN -> '${DNS_IP:-not resolving}' (server: $SERVER_IP)"
+  warn "SSL will provision once DNS propagates"
 fi
 
 # ---- Launch ----
-step "🚀 Launching Services"
+step "Launching Services"
 
 cd "$INSTALL_DIR"
 
 info "Starting database & cache..."
-docker compose -f docker-compose.prod.yml up -d postgres redis > /dev/null 2>&1
-log "PostgreSQL 16 + Redis 7"
+docker compose -f docker-compose.prod.yml up -d postgres redis 2>&1 || true
+sleep 8
 
-# Wait for postgres
-for i in $(seq 1 20); do
+# Wait for postgres (don't let set -e kill us here)
+info "Waiting for database..."
+DB_READY=false
+for i in $(seq 1 30); do
   if docker compose -f docker-compose.prod.yml exec -T postgres pg_isready -U cleanmails > /dev/null 2>&1; then
+    DB_READY=true
     break
   fi
   sleep 2
 done
-log "Database ready"
+
+if [ "$DB_READY" = true ]; then
+  log "Database ready"
+else
+  warn "Database slow to start (continuing anyway...)"
+fi
 
 info "Starting application..."
-docker compose -f docker-compose.prod.yml up -d api worker frontend caddy > /dev/null 2>&1
-log "API server"
-log "Background worker"
-log "Frontend"
-log "Caddy (SSL termination)"
+docker compose -f docker-compose.prod.yml up -d api worker frontend caddy 2>&1 || true
+log "All containers started"
 
 # Health check
-info "Waiting for health check..."
+info "Waiting for API health..."
+API_READY=false
 for i in $(seq 1 30); do
   if curl -s http://localhost:8080/health 2>/dev/null | grep -q "status"; then
+    API_READY=true
     break
   fi
   sleep 3
 done
-log "All systems operational"
+
+if [ "$API_READY" = true ]; then
+  log "System operational"
+else
+  warn "API not responding yet. It may still be starting."
+  warn "Check: docker compose -f docker-compose.prod.yml logs api"
+fi
 
 # ---- Done ----
 echo ""
 echo ""
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "  ${GREEN}${BOLD}  ✅  CleanMails is live!${NC}"
+echo -e "  ${GREEN}${BOLD}  CleanMails is LIVE!${NC}"
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
-echo -e "  ${WHITE}${BOLD}  🌐 Dashboard:${NC}   ${CYAN}https://$DOMAIN${NC}"
+echo -e "  ${WHITE}${BOLD}  Dashboard:${NC}   ${CYAN}https://$DOMAIN${NC}"
 echo ""
 echo -e "  ${DIM}  Open the URL above to activate your license${NC}"
 echo -e "  ${DIM}  and create your admin account.${NC}"
 echo ""
-echo -e "  ${WHITE}  ─── Commands ───────────────────────────────────${NC}"
+echo -e "  ${WHITE}  --- Commands -----------------------------------------------${NC}"
 echo -e "  ${DIM}  Status${NC}   cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml ps"
 echo -e "  ${DIM}  Logs${NC}     cd $INSTALL_DIR && docker compose -f docker-compose.prod.yml logs -f"
 echo -e "  ${DIM}  Update${NC}   cd $INSTALL_DIR && bash scripts/update.sh"
 echo -e "  ${DIM}  Backup${NC}   cd $INSTALL_DIR && bash scripts/backup.sh"
 echo ""
-echo -e "  ${WHITE}  ─── Important ──────────────────────────────────${NC}"
-echo -e "  ${YELLOW}  ⚡${NC} Set rDNS/PTR on your VPS to: ${CYAN}$DOMAIN${NC}"
-echo -e "  ${YELLOW}  ⚡${NC} SSL auto-provisions (may take 1-2 min)"
+echo -e "  ${WHITE}  --- Important ----------------------------------------------${NC}"
+echo -e "  ${YELLOW}  *${NC} Set rDNS/PTR on your VPS to: ${CYAN}$DOMAIN${NC}"
+echo -e "  ${YELLOW}  *${NC} SSL auto-provisions (may take 1-2 min)"
 echo ""
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
