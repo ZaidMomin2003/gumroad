@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "released_at": "2026-06-26T14:00:00Z",
-  "changelog": "CleanMails Cold Email Platform - Initial Release",
+  "version": "1.1.0",
+  "released_at": "2026-06-27T06:00:00Z",
+  "changelog": "Auth system enabled, license verification in onboarding, placeholder data removed",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
