@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 # ============================================
 # CleanMails - Self-Hosted Cold Email Platform
