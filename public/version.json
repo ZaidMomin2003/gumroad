@@ -1,7 +1,7 @@
 {
-  "version": "1.6.0",
-  "released_at": "2026-06-27T12:00:00Z",
-  "changelog": "UI update test - confirming one-click updates work",
+  "version": "1.7.0",
+  "released_at": "2026-06-27T13:00:00Z",
+  "changelog": "Fix API connectivity - remove localhost:8080 fallback, use relative URLs via Caddy",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
