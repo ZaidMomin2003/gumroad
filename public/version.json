@@ -1,7 +1,7 @@
 {
-  "version": "1.5.0",
-  "released_at": "2026-06-27T11:00:00Z",
-  "changelog": "Warmup feature, license verification middleware, setup handler, branding context, bug fixes",
+  "version": "1.6.0",
+  "released_at": "2026-06-27T12:00:00Z",
+  "changelog": "UI update test - confirming one-click updates work",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
