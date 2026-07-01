@@ -1,7 +1,7 @@
 {
-  "version": "1.3.0",
-  "released_at": "2026-06-27T09:00:00Z",
-  "changelog": "Fix frontend permissions, Dockerfile chmod fix for node_modules",
+  "version": "1.4.0",
+  "released_at": "2026-06-27T10:00:00Z",
+  "changelog": "UI updates now work: docker socket mounted, sh-compatible scripts, docker-cli in container",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
