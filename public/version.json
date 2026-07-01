@@ -1,7 +1,7 @@
 {
-  "version": "1.8.0",
-  "released_at": "2026-07-01T11:00:00Z",
-  "changelog": "Fix one-click updates: async update execution, self-restart handling, standalone frontend, polling UI",
+  "version": "1.8.1",
+  "released_at": "2026-07-01T12:30:00Z",
+  "changelog": "White check button on System Update card",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
