@@ -1,7 +1,7 @@
 {
-  "version": "1.8.1",
-  "released_at": "2026-07-01T12:30:00Z",
-  "changelog": "White check button on System Update card",
+  "version": "1.8.2",
+  "released_at": "2026-07-02T11:00:00Z",
+  "changelog": "License enforcement (1-day validation), Discord support button, full white-label branding (logo, name, favicon)",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
