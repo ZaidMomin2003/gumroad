@@ -1044,11 +1044,6 @@
  </div>
 
  <div style="margin-bottom: 24px; display: flex; justify-content: center;">
- <a href="https://www.producthunt.com/products/cleanmails?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cleanmails"
- target="_blank" rel="noopener noreferrer">
- <img alt="Cleanmails - Self-host bulk email validation | Product Hunt" width="200" height="44"
- src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1068175&theme=light&t=1769534073976">
- </a>
  </div>
 
  <h1 class="hero-headline">
@@ -1064,13 +1059,35 @@
  <a href="#" class="btn-secondary" onclick="document.getElementById('demo-modal').style.display='flex'; return false;">Live Demo</a>
  </div>
 
- <div class="hero-meta">
+ <!-- Install Command -->
+ <div style="margin-top:24px;max-width:620px;margin-left:auto;margin-right:auto;">
+ <p style="font-size:0.72rem;font-weight:700;color:#999;margin-bottom:8px;letter-spacing:0.05em;text-transform:uppercase;">Install in one command</p>
+ <div onclick="copyInstall()" style="display:flex;align-items:center;gap:12px;background:#0d0d0d;border:2px solid #222;border-radius:10px;padding:12px 18px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#FFD700'" onmouseout="this.style.borderColor='#222'">
+ <code style="flex:1;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:0.78rem;color:#ccc;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="install-cmd">curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain app.yourdomain.com</code>
+ <span id="copy-icon" style="font-size:0.72rem;font-weight:800;color:#555;background:#1a1a1a;border:1px solid #333;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all 0.2s;">Copy</span>
+ </div>
+ </div>
+
+ <div class="hero-meta" style="margin-top:20px;">
  <span style="background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 100px; font-weight: 800; border: 1.5px solid #ffc107;">⚡ 5-min Setup · $9 if you want us to do it</span>
  <span class="hero-meta-dot"></span>
  <span>14-day money-back guarantee</span>
  <span class="hero-meta-dot"></span>
  <span>Backed by AWS Startups</span>
  </div>
+
+ <script>
+ function copyInstall() {
+ var text = document.getElementById('install-cmd').textContent;
+ navigator.clipboard.writeText(text).then(function() {
+ var btn = document.getElementById('copy-icon');
+ btn.textContent = 'Copied!';
+ btn.style.color = '#2ecc71';
+ btn.style.borderColor = '#2ecc71';
+ setTimeout(function() { btn.textContent = 'Copy'; btn.style.color = '#555'; btn.style.borderColor = '#333'; }, 2000);
+ });
+ }
+ </script>
 
  </section>
 
