@@ -1,7 +1,7 @@
 {
-  "version": "1.8.2",
-  "released_at": "2026-07-02T11:00:00Z",
-  "changelog": "License enforcement (1-day validation), Discord support button, full white-label branding (logo, name, favicon)",
+  "version": "1.9.0",
+  "released_at": "2026-07-10T15:00:00Z",
+  "changelog": "Cadence conditions, send window + timezone config, column mapper for CSV uploads, registration security lockdown, OAuth token refresh, AI plain-text enforcement, audit logging, FNV-1a variant hashing, Unibox port 465 fix",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
