@@ -1,7 +1,7 @@
 {
-  "version": "1.9.0",
-  "released_at": "2026-07-10T15:00:00Z",
-  "changelog": "Cadence conditions, send window + timezone config, column mapper for CSV uploads, registration security lockdown, OAuth token refresh, AI plain-text enforcement, audit logging, FNV-1a variant hashing, Unibox port 465 fix",
+  "version": "1.9.1",
+  "released_at": "2026-07-18T20:00:00Z",
+  "changelog": "One-command interactive installer, license enforcement middleware (route-level gate for /welcome), server-side redirect for unauthenticated dashboard access, client (workspace) logo upload with reports showing both agency and client branding, admin dashboard version display fix, docker-compose healthcheck relaxed so Caddy starts reliably.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
