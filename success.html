@@ -17,201 +17,309 @@
  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="./style.css">
  <style>
- .input-group {
- display: flex;
- flex-direction: column;
- gap: 8px;
- flex: 1;
+ body {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   background-color: var(--bg-color, #fafafa);
+   padding: 40px 20px;
  }
- .input-group label {
- font-size: 0.75rem;
- font-weight: 900;
- text-transform: uppercase;
- letter-spacing: 1px;
- color: #FF90E8;
+ .step-card {
+   background: #fff;
+   border: 3px solid #000;
+   border-radius: 20px;
+   padding: 28px;
+   margin-bottom: 20px;
+   text-align: left;
+   box-shadow: 6px 6px 0 #000;
  }
- .form-input {
- width: 100%;
- padding: 14px 18px;
- border: 3px solid #FF90E8;
- background: rgba(255,144,232,0.05);
- color: #fff;
- border-radius: 12px;
- font-family: inherit;
- font-size: 1rem;
- outline: none;
- transition: all 0.3s;
- box-shadow: 4px 4px 0 #FF90E8;
+ .step-head {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   margin-bottom: 14px;
  }
- .form-input:focus {
- background: rgba(255,144,232,0.1);
- transform: translate(-1px, -1px);
- box-shadow: 6px 6px 0 #FF90E8;
+ .step-num {
+   background: #000;
+   color: #fff;
+   width: 30px;
+   height: 30px;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 900;
+   font-size: 0.95rem;
+   flex-shrink: 0;
  }
- #command-block {
- word-break: break-all;
- white-space: pre-wrap;
+ .step-title {
+   font-weight: 900;
+   text-transform: uppercase;
+   font-size: 1rem;
+   letter-spacing: 0.02em;
+ }
+ .step-body {
+   font-size: 0.95rem;
+   line-height: 1.6;
+   font-weight: 500;
+   color: #444;
+ }
+ .step-body strong { color: #000; }
+ .inline-code {
+   background: #f4f4f4;
+   border: 1px solid #ddd;
+   padding: 2px 8px;
+   border-radius: 6px;
+   font-family: 'SF Mono', Menlo, Consolas, monospace;
+   font-size: 0.85rem;
+   color: #000;
+ }
+ .terminal-block {
+   background: #0d0d0d;
+   border: 2px solid #222;
+   border-radius: 14px;
+   padding: 18px;
+   margin-top: 14px;
+   position: relative;
+ }
+ .terminal-head {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   margin-bottom: 12px;
+ }
+ .terminal-dot {
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+ }
+ .terminal-label {
+   font-size: 0.68rem;
+   font-weight: 900;
+   color: rgba(255,255,255,0.25);
+   margin-left: 8px;
+   text-transform: uppercase;
+   letter-spacing: 0.08em;
+ }
+ .terminal-body {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 16px;
+ }
+ .terminal-cmd {
+   font-family: 'SF Mono', Menlo, Consolas, monospace;
+   font-size: 0.85rem;
+   color: #fff;
+   line-height: 1.6;
+   flex: 1;
+   overflow-x: auto;
+   white-space: nowrap;
+ }
+ .copy-btn {
+   flex-shrink: 0;
+   background: #FF90E8;
+   border: 2px solid #000;
+   padding: 9px 18px;
+   border-radius: 8px;
+   font-weight: 900;
+   font-size: 0.78rem;
+   cursor: pointer;
+   box-shadow: 3px 3px 0 #000;
+   text-transform: uppercase;
+   font-family: inherit;
+   transition: all 0.15s;
+ }
+ .copy-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #000; }
+ .copy-btn:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #000; }
+ .license-box {
+   background: #FFF9E8;
+   border: 2px dashed #000;
+   border-radius: 12px;
+   padding: 14px 18px;
+   margin-top: 12px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 14px;
+   flex-wrap: wrap;
+ }
+ .license-value {
+   font-family: 'SF Mono', Menlo, Consolas, monospace;
+   font-size: 0.95rem;
+   font-weight: 700;
+   color: #000;
+   word-break: break-all;
+   flex: 1;
+   min-width: 200px;
+ }
+ .license-placeholder {
+   font-family: 'SF Mono', Menlo, Consolas, monospace;
+   font-size: 0.9rem;
+   color: #b45309;
+   font-weight: 700;
+ }
+ .warn-badge {
+   display: inline-block;
+   background: #FFE4E1;
+   color: #C0392B;
+   font-weight: 800;
+   font-size: 0.78rem;
+   padding: 3px 10px;
+   border-radius: 100px;
+   border: 1.5px solid #C0392B;
+   margin-right: 6px;
  }
  </style>
 </head>
 
-<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; background-color: var(--bg-color); padding: 40px 20px;">
- <div class="success-wrapper" style="text-align: center; max-width: 900px; width: 100%;">
- <div style="background: var(--card-bg); border: 4px solid #000; padding: 40px 30px; border-radius: 32px; box-shadow: 12px 12px 0 #000; margin-bottom: 40px;">
- <div style="font-size: 4rem; margin-bottom: 16px;"></div>
- <h1 style="font-size: 2.5rem; margin-bottom: 12px; font-weight: 900;">Welcome to the Agency!</h1>
- <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 32px; font-weight: 500;">
- Your payment was successful. Follow the steps below to deploy your private email infrastructure.
- </p>
+<body>
+ <div style="text-align: center; max-width: 780px; width: 100%;">
 
- <!-- Pre-Flight Step -->
- <div style="background: #FFF9E8; border: 4px solid #000; border-radius: 20px; padding: 24px; margin-bottom: 32px; text-align: left; box-shadow: 8px 8px 0 #000;">
- <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
- <div style="background: #000; color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9rem;">1</div>
- <h3 style="font-weight: 900; text-transform: uppercase; font-size: 1rem;">Connect Your Domain First</h3>
- </div>
- <p style="font-size: 0.95rem; line-height: 1.5; font-weight: 600; color: #444;">
- Go to your DNS provider (Cloudflare, etc.) and point an <strong style="color: #000;">A Record</strong> (e.g., <code style="background: #eee; padding: 2px 6px; border-radius: 4px;">app</code>) to your VPS IP. <br>
- <span style="color: #FF5F56; font-weight: 900;"> IMPORTANT: Wait 15 minutes</span> for DNS to update before running the command below.
- </p>
- </div>
+  <!-- Header -->
+  <div style="background: #fff; border: 4px solid #000; padding: 36px 28px; border-radius: 28px; box-shadow: 10px 10px 0 #000; margin-bottom: 32px;">
+   <div style="display:inline-block; background:#2ecc71; color:#fff; font-weight:900; font-size:0.75rem; padding:5px 14px; border-radius:100px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">Payment Successful</div>
+   <h1 style="font-size: 2.2rem; margin-bottom: 10px; font-weight: 900; letter-spacing: -0.02em;">Welcome to Cleanmails</h1>
+   <p style="font-size: 1rem; color: #666; margin: 0; font-weight: 500;">
+    Follow these three steps to get your infrastructure live.
+   </p>
+  </div>
 
- <div class="success-actions-grid" style="display: grid; grid-template-columns: 1fr; gap: 32px; text-align: left;">
- <!-- Express Installation Card -->
- <div id="installation-hub" style="padding: 32px; border: 4px solid #000; border-radius: 24px; background-color: #000; color: #fff; box-shadow: 12px 12px 0 #FF90E8; display: flex; flex-direction: column; gap: 24px; position: relative; overflow: hidden;">
- 
- <div style="position: absolute; top: 0; right: 0; padding: 12px 20px; background: #FF90E8; color: #000; font-size: 0.75rem; font-weight: 900; border-bottom-left-radius: 16px; border-left: 3px solid #000; border-bottom: 3px solid #000;">
- STEP 2: AUTO-DEPLOY
- </div>
+  <!-- STEP 1: Point Domain -->
+  <div class="step-card">
+   <div class="step-head">
+    <div class="step-num">1</div>
+    <div class="step-title">Point Your Domain to Your VPS</div>
+   </div>
+   <div class="step-body">
+    Log in to your DNS provider (Cloudflare, GoDaddy, Namecheap, etc.) and create an
+    <strong>A record</strong> that points a domain or subdomain at your VPS's public IP.
+    <br><br>
+    Example: <span class="inline-code">app</span> → <span class="inline-code">203.0.113.45</span>
+    (so <strong>app.yourdomain.com</strong> resolves to your server).
+    <br><br>
+    <span class="warn-badge">Wait ~5 min</span>
+    for DNS to propagate before running Step 2. If Cloudflare, set the record to <strong>DNS-only</strong> (grey cloud), not proxied.
+   </div>
+  </div>
 
- <div style="max-width: 600px;">
- <h3 style="margin-bottom: 8px; font-size: 1.8rem; font-weight: 900; color: #FF90E8; font-style: italic; text-transform: uppercase;">Turbo Installer </h3>
- <p style="font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.6); line-height: 1.5;">
- Fill in your details to generate your one-click installation command with automatic SSL.
- </p>
- </div>
+  <!-- STEP 2: Run Installer -->
+  <div class="step-card" style="background:#000; color:#fff; box-shadow: 10px 10px 0 #FF90E8;">
+   <div class="step-head">
+    <div class="step-num" style="background:#FF90E8; color:#000;">2</div>
+    <div class="step-title" style="color:#FF90E8;">SSH into Your VPS &amp; Run This</div>
+   </div>
+   <div class="step-body" style="color:#ccc;">
+    Connect to your server as root and paste the command below. The installer will ask for your domain, then handle everything (Docker, database, SSL, reverse proxy) automatically.
 
- <div style="display: flex; flex-wrap: wrap; gap: 20px;">
- <div class="input-group">
- <label>License Key</label>
- <input type="text" id="license-input" placeholder="CK-XXXX-XXXX" class="form-input" onInput="updateCommand()">
- </div>
- <div class="input-group">
- <label>Your App Domain</label>
- <input type="text" id="domain-input" placeholder="app.yourdomain.com" class="form-input" onInput="updateCommand()">
- </div>
- </div>
+    <div class="terminal-block">
+     <div class="terminal-head">
+      <div class="terminal-dot" style="background:#ff5f56;"></div>
+      <div class="terminal-dot" style="background:#ffbd2e;"></div>
+      <div class="terminal-dot" style="background:#27c93f;"></div>
+      <span class="terminal-label">Terminal — Paste &amp; Run</span>
+     </div>
+     <div class="terminal-body">
+      <code class="terminal-cmd" id="install-cmd">curl -fsSL https://cleanmails.online/install.sh | sudo bash</code>
+      <button class="copy-btn" id="copy-install-btn" onclick="copyInstall()">Copy</button>
+     </div>
+    </div>
 
- <div style="background: #111; border: 2px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px; position: relative;">
- <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
- <div style="width: 10px; height: 10px; background: #ff5f56; border-radius: 50%;"></div>
- <div style="width: 10px; height: 10px; background: #ffbd2e; border-radius: 50%;"></div>
- <div style="width: 10px; height: 10px; background: #27c93f; border-radius: 50%;"></div>
- <span style="font-size: 0.7rem; font-weight: 900; color: rgba(255,255,255,0.2); margin-left: 8px; text-transform: uppercase;">Terminal (Paste & Run)</span>
- </div>
- <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
- <code style="display: block; font-family: monospace; font-size: 0.9rem; color: #fff; line-height: 1.6; flex: 1;">
- curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key <span id="key-placeholder" style="color: #FF90E8; font-weight: 900;">{LICENSE_KEY}</span> --domain <span id="domain-placeholder" style="color: #FF90E8; font-weight: 900;">{YOUR_DOMAIN}</span>
- </code>
- <button onClick="copyCommand()" id="copy-btn" style="flex-shrink: 0; background: #FF90E8; border: 2px solid #000; padding: 10px 20px; border-radius: 8px; font-weight: 900; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; box-shadow: 4px 4px 0 #000; text-transform: uppercase;">
- Copy
- </button>
- </div>
- </div>
+    <div style="margin-top:14px; font-size:0.85rem; color:#888; line-height:1.6;">
+     Takes about 3–5 minutes. When it finishes, it prints your dashboard URL — open it in a browser and continue to Step 3.
+    </div>
+   </div>
+  </div>
 
- <div style="display: flex; align-items: center; gap: 12px;">
- <div style="font-size: 1.2rem;"></div>
- <p style="font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.4);">
- This command installs Cleanmails, sets up Nginx, and configures your SSL certificate automatically.
- </p>
- </div>
+  <!-- STEP 3: Activate License -->
+  <div class="step-card">
+   <div class="step-head">
+    <div class="step-num">3</div>
+    <div class="step-title">Paste Your License Key in the Dashboard</div>
+   </div>
+   <div class="step-body">
+    Open the dashboard URL from Step 2. On the Welcome screen, paste this license key to activate your installation:
 
- <div style="background: rgba(255,255,255,0.05); border: 2px dashed rgba(255,255,255,0.2); border-radius: 16px; padding: 20px;">
- <h4 style="color: #FF90E8; font-weight: 900; margin-bottom: 8px; text-transform: uppercase; font-size: 0.8rem;">rDNS Configuration</h4>
- <p style="font-size: 0.9rem; color: #ccc; margin-bottom: 12px; line-height: 1.5;">
- To ensure emails land in the Inbox, go to your VPS Provider (e.g., Contabo) and set your server's <b>Reverse DNS (PTR)</b> record to exactly:
- </p>
- <code style="display: inline-block; background: #000; color: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 900; border: 1px solid #333;">
- <span id="rdns-placeholder" style="color: #FF90E8;">{YOUR_DOMAIN}</span>
- </code>
- </div>
- </div>
+    <div class="license-box">
+     <span class="license-value" id="license-display"><span class="license-placeholder">Loading your key…</span></span>
+     <button class="copy-btn" id="copy-license-btn" onclick="copyLicense()" style="background:#FFD700;">Copy Key</button>
+    </div>
 
- <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
- <!-- Alternative Guide -->
- <div style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: #F8F8F8; box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
- <div>
- <h3 style="margin-bottom: 16px; font-size: 1.3rem; font-weight: 900;">Manual Guide </h3>
- <p style="margin: 0 0 24px 0; font-size: 0.95rem; font-weight: 600; color: #666; line-height: 1.6;">
- Need more control? Our documentation covers every manual configuration step.
- </p>
- </div>
- <a href="/docs" style="width: 100%; display: block; text-align: center; text-decoration: none; background: #fff; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1rem; padding: 14px; border-radius: 12px; font-weight: 800;">
- View Docs
- </a>
- </div>
+    <div style="margin-top:14px; font-size:0.85rem; color:#666; line-height:1.6;">
+     After activation, set your <strong>Reverse DNS (PTR)</strong> record at your VPS provider to the same domain you used in Step 2. This is essential for email deliverability.
+    </div>
+   </div>
+  </div>
 
- <!-- Managed Setup -->
- <div style="padding: 32px; border: 3px solid #000; border-radius: 24px; background-color: #fff; box-shadow: 8px 8px 0 #000; display: flex; flex-direction: column; justify-content: space-between;">
- <div>
- <h3 style="margin-bottom: 16px; font-size: 1.3rem; font-weight: 900;">White-Glove Setup </h3>
- <p style="font-size: 0.95rem; font-weight: 600; color: #666; margin-bottom: 24px; line-height: 1.6;">
- Want us to do it? We'll set up your private infrastructure for a one-time fee of <strong>$50</strong>.
- </p>
- </div>
- <a href="https://cal.com/zaid-momin-st0o8z/cleanmails-setup" target="_blank" style="display: block; text-align: center; text-decoration: none; background: #FF90E8; color: #000; border: 3px solid #000; box-shadow: 4px 4px 0 #000; font-size: 1rem; padding: 14px; border-radius: 12px; font-weight: 800;">
- Book Setup Call
- </a>
- </div>
- </div>
- </div>
- </div>
- <p style="font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; color: #000; opacity: 0.3; margin-top: 40px;">CLEANMAILS.ONLINE — SECURE INFRASTRUCTURE</p>
+  <!-- Help row -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 8px;">
+   <a href="/docs" style="display:block; text-decoration:none; background:#fff; color:#000; border:3px solid #000; box-shadow:5px 5px 0 #000; padding:16px 20px; border-radius:14px; font-weight:800; text-align:center;">
+    Full Documentation
+   </a>
+   <a href="https://cal.com/zaid-momin-st0o8z/cleanmails-setup" target="_blank" rel="noopener" style="display:block; text-decoration:none; background:#FF90E8; color:#000; border:3px solid #000; box-shadow:5px 5px 0 #000; padding:16px 20px; border-radius:14px; font-weight:800; text-align:center;">
+    White-Glove Setup ($50)
+   </a>
+  </div>
+
+  <p style="font-size:0.75rem; font-weight:800; letter-spacing:2px; color:#000; opacity:0.3; margin-top:36px;">
+   CLEANMAILS.ONLINE · SECURE INFRASTRUCTURE
+  </p>
  </div>
 
  <script>
- function updateCommand() {
- const licInput = document.getElementById('license-input');
- const domInput = document.getElementById('domain-input');
- const licPlaceholder = document.getElementById('key-placeholder');
- const domPlaceholder = document.getElementById('domain-placeholder');
- const rdnsPlaceholder = document.getElementById('rdns-placeholder');
- 
- if (licInput.value.trim()) {
- licPlaceholder.innerText = licInput.value.trim();
- licPlaceholder.style.color = '#fff';
- } else {
- licPlaceholder.innerText = '{LICENSE_KEY}';
- licPlaceholder.style.color = '#FF90E8';
- }
+  // Auto-fill license key from Dodo redirect URL param (?license_key=xxx)
+  (function () {
+   const params = new URLSearchParams(window.location.search);
+   const licenseKey = params.get('license_key');
+   const display = document.getElementById('license-display');
+   const copyBtn = document.getElementById('copy-license-btn');
 
- if (domInput.value.trim()) {
- domPlaceholder.innerText = domInput.value.trim();
- domPlaceholder.style.color = '#fff';
- rdnsPlaceholder.innerText = domInput.value.trim();
- rdnsPlaceholder.style.color = '#fff';
- } else {
- domPlaceholder.innerText = '{YOUR_DOMAIN}';
- domPlaceholder.style.color = '#FF90E8';
- rdnsPlaceholder.innerText = '{YOUR_DOMAIN}';
- rdnsPlaceholder.style.color = '#FF90E8';
- }
- }
+   if (licenseKey && /^[a-zA-Z0-9-]{8,}$/.test(licenseKey)) {
+    display.textContent = licenseKey;
+    display.setAttribute('data-key', licenseKey);
+   } else {
+    display.innerHTML = '<span class="license-placeholder">Check your email from Dodo Payments for your license key</span>';
+    copyBtn.disabled = true;
+    copyBtn.style.opacity = '0.5';
+    copyBtn.style.cursor = 'not-allowed';
+   }
+  })();
 
- function copyCommand() {
- const command = `curl -sSL https://cleanmails.online/install.sh | sudo bash -s -- --key ${document.getElementById('license-input').value.trim() || '{LICENSE_KEY}'} --domain ${document.getElementById('domain-input').value.trim() || '{YOUR_DOMAIN}'}`;
- const btn = document.getElementById('copy-btn');
- 
- navigator.clipboard.writeText(command).then(() => {
- const originalText = btn.innerText;
- btn.innerText = 'COPIED!';
- btn.style.background = '#27c93f';
- setTimeout(() => {
- btn.innerText = originalText;
- btn.style.background = '#FF90E8';
- }, 2000);
- });
- }
+  function copyInstall() {
+   const cmd = document.getElementById('install-cmd').textContent;
+   const btn = document.getElementById('copy-install-btn');
+   navigator.clipboard.writeText(cmd).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = '#27c93f';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+     btn.textContent = original;
+     btn.style.background = '#FF90E8';
+     btn.style.color = '#000';
+    }, 1800);
+   });
+  }
+
+  function copyLicense() {
+   const el = document.getElementById('license-display');
+   const key = el.getAttribute('data-key') || el.textContent.trim();
+   if (!key || key.startsWith('Loading') || key.startsWith('Check')) return;
+   const btn = document.getElementById('copy-license-btn');
+   navigator.clipboard.writeText(key).then(() => {
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = '#27c93f';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+     btn.textContent = original;
+     btn.style.background = '#FFD700';
+     btn.style.color = '#000';
+    }, 1800);
+   });
+  }
  </script>
 </body>
 

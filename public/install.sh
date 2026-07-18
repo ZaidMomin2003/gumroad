@@ -59,7 +59,7 @@ fail() {
   exit 1
 }
 
-# ---- Parse arguments ----
+# ---- Parse arguments (optional; interactive prompt if omitted) ----
 DOMAIN=""
 
 while [[ "$#" -gt 0 ]]; do
@@ -74,8 +74,54 @@ done
 # ---- Banner ----
 banner
 
+# ---- Root check (before prompt so we don't waste user's input) ----
+if [ "$EUID" -ne 0 ]; then
+  fail "Run as root:\n\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash"
+fi
+
+# ---- Interactive domain prompt (if not passed via --domain) ----
 if [ -z "$DOMAIN" ]; then
-  fail "Domain required.\n\n  Usage:\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash -s -- --domain app.yourdomain.com"
+  # Piped-via-curl safety: read from the terminal directly, not stdin
+  if [ ! -t 0 ] && [ ! -r /dev/tty ]; then
+    fail "Cannot prompt for domain (no terminal detected).\n\n  Try:\n  curl -fsSL https://cleanmails.online/install.sh -o cleanmails.sh\n  sudo bash cleanmails.sh"
+  fi
+
+  echo -e "  ${WHITE}${BOLD}Domain Setup${NC}"
+  echo -e "  ${DIM}────────────────────────────────────────${NC}"
+  echo ""
+  echo -e "  Enter the domain (or subdomain) you'll use for your dashboard."
+  echo -e "  ${DIM}Example: app.yourdomain.com${NC}"
+  echo -e "  ${DIM}Make sure its A record already points to this server's IP.${NC}"
+  echo ""
+
+  while true; do
+    printf "  ${CYAN}Domain: ${NC}"
+    read DOMAIN < /dev/tty
+    DOMAIN=$(echo "$DOMAIN" | tr -d '[:space:]' | tr '[:upper:]' '[:lower:]')
+
+    if [ -z "$DOMAIN" ]; then
+      err "Domain cannot be empty."
+      continue
+    fi
+
+    if ! [[ "$DOMAIN" =~ ^[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$ ]]; then
+      err "That doesn't look like a valid domain. Use something like app.yourdomain.com"
+      continue
+    fi
+
+    echo ""
+    printf "  ${YELLOW}Install CleanMails at ${WHITE}https://${DOMAIN}${YELLOW}? [Y/n] ${NC}"
+    read CONFIRM < /dev/tty
+    CONFIRM=$(echo "$CONFIRM" | tr '[:upper:]' '[:lower:]')
+
+    if [ "$CONFIRM" = "n" ] || [ "$CONFIRM" = "no" ]; then
+      DOMAIN=""
+      echo ""
+      continue
+    fi
+    echo ""
+    break
+  done
 fi
 
 echo -e "  ${WHITE}${BOLD}Domain:${NC}  ${CYAN}$DOMAIN${NC}"
@@ -84,9 +130,6 @@ echo ""
 # ---- Preflight ----
 step "Preflight Checks"
 
-if [ "$EUID" -ne 0 ]; then
-  fail "Run as root: curl ... | sudo bash -s -- --domain $DOMAIN"
-fi
 log "Root access"
 
 TOTAL_RAM=$(free -m | awk '/^Mem:/{print $2}')
