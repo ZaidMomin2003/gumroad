@@ -1,7 +1,7 @@
 {
-  "version": "1.9.1",
-  "released_at": "2026-07-18T20:00:00Z",
-  "changelog": "One-command interactive installer, license enforcement middleware (route-level gate for /welcome), server-side redirect for unauthenticated dashboard access, client (workspace) logo upload with reports showing both agency and client branding, admin dashboard version display fix, docker-compose healthcheck relaxed so Caddy starts reliably.",
+  "version": "1.9.2",
+  "released_at": "2026-07-19T10:20:00Z",
+  "changelog": "Integrations overhaul: removed unused OAuth flows (HubSpot/Salesforce/Pipedrive) — external tools now route via Zapier/Make/n8n. Fixed Telegram (accepts bot token + chat_id, no more constructing URLs). Added Slack/Discord webhook URL validation with error surfacing. Added Send Test button per integration. Discord messages now branded with your app name/logo. Slack now catches invalid_payload and other non-2xx errors.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
