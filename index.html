@@ -50,8 +50,8 @@
  "url": "https://cleanmails.online",
  "description": "Self-hosted cold email platform with BYO SMTP, built-in list hygiene, warmup, sender rotation, MCP integration, and cadence automation. One-time payment.",
  "offers": [
- { "@type": "Offer", "name": "Agency", "price": "597", "priceCurrency": "USD" },
- { "@type": "Offer", "name": "Sell as your SaaS", "price": "1997", "priceCurrency": "USD" }
+ { "@type": "Offer", "name": "Agency", "price": "199", "priceCurrency": "USD" },
+ { "@type": "Offer", "name": "Source Code / SaaS", "price": "997", "priceCurrency": "USD" }
  ],
  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "87" }
  }
@@ -66,7 +66,7 @@
  { "@type": "Question", "name": "How fast is the setup?", "acceptedAnswer": { "@type": "Answer", "text": "Self-install takes about 5 minutes. Run the install script, point your domains, and you're sending. If you opt for our $9 done-for-you setup, we finish within 24 hours." } },
  { "@type": "Question", "name": "What server do I need?", "acceptedAnswer": { "@type": "Answer", "text": "A Linux VPS with Port 25 open for the full experience (inbuilt SMTP + validation). Hetzner and Contabo are popular choices. If you use external SMTP (AWS SES, SendGrid), Port 25 is not needed." } },
  { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits, no workspace limits." } },
- { "@type": "Question", "name": "Can I resell this to my clients or build a SaaS?", "acceptedAnswer": { "@type": "Answer", "text": "The Agency license lets you run campaigns for unlimited clients. The Enterprise/SaaS license gives you full source code access and commercial resell rights to build your own SaaS platform." } },
+ { "@type": "Question", "name": "Can I resell this to my clients or build a SaaS?", "acceptedAnswer": { "@type": "Answer", "text": "The Agency license lets you run campaigns for unlimited clients under your brand. Reselling the software is not permitted. The Source Code license lets you build one SaaS product on top of it and charge your customers, but you cannot resell or redistribute the codebase itself." } },
  { "@type": "Question", "name": "What if I need support after setup?", "acceptedAnswer": { "@type": "Answer", "text": "You get access to our Discord community where the dev team and other agency owners help in real-time. We also provide documentation and priority support for Enterprise license holders." } },
  { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with a full mail server (Postfix + Dovecot + auto-DKIM). Create unlimited mailboxes on your own domains. External relays like AWS SES are optional, not required." } },
  { "@type": "Question", "name": "How does the AI auto-reply work?", "acceptedAnswer": { "@type": "Answer", "text": "When a prospect replies, the AI reads the message, classifies intent, and drafts a contextual reply using your knowledge base. You can approve manually or enable autopilot mode." } },
@@ -2014,20 +2014,21 @@
  </div>
 
  <!-- SaaS Rights — Secondary Strip -->
- <div class="pricing-secondary">
+ <!-- SaaS Rights — Premium Golden Strip -->
+ <div class="pricing-secondary" style="border:3px solid #FFD700;background:linear-gradient(135deg, #111 0%, #1a1400 100%);box-shadow:0 0 30px rgba(255,215,0,0.1);">
  <div class="ps-left">
- <div class="ps-name">Enterprise / SaaS Rights</div>
+ <div class="ps-name" style="color:#FFD700;">Source Code / SaaS License</div>
  <div class="ps-price">$997</div>
  <div class="ps-period">one-time payment</div>
  </div>
  <div class="ps-features">
- <span class="ps-feature">Full Commercial Resell Rights</span>
- <span class="ps-feature">Source Code Access (Go + React)</span>
- <span class="ps-feature">Build Your Own SaaS Platform</span>
+ <span class="ps-feature">Full Source Code (Go + React)</span>
+ <span class="ps-feature">Build One SaaS Product</span>
+ <span class="ps-feature">Charge Your Customers Monthly</span>
  <span class="ps-feature">Priority Developer Support</span>
- <span class="ps-feature">Cloud Infrastructure Consulting</span>
+ <span class="ps-feature">No Reselling the Codebase</span>
  </div>
- <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="ps-btn">Get Access →</a>
+ <a href="https://starter-kit.cleanmails.online/" target="_blank" class="ps-btn" style="background:#FFD700;color:#000;border-color:#FFD700;font-weight:900;">Get Source Access →</a>
  </div>
 
  </div>
@@ -2128,7 +2129,7 @@
  <span class="faq-question-text">Can I resell this or build a SaaS on top?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">The <strong>standard license ($199)</strong> lets you run campaigns for unlimited clients under your brand. The <strong>Enterprise/SaaS license ($997)</strong> gives you full source code access and commercial resell rights — build your own SaaS platform, charge monthly, keep 100% of revenue.</div>
+ <div class="faq-answer">The <strong>Agency license ($199)</strong> lets you run campaigns for unlimited clients under your brand. Reselling the software is not permitted. The <strong>Source Code license ($997)</strong> gives you full source code access to build one SaaS product on top of it — charge your customers monthly, keep 100% of revenue. You cannot resell or redistribute the codebase to other developers.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
