@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One-Click Updates from the Dashboard — Cleanmails News</title>
+  <meta name="description" content="Update your entire Cleanmails installation from the admin dashboard. No SSH required. One button, automatic rebuild, zero downtime.">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fafafa; color: #111; line-height: 1.7; }
+    .nav { border-bottom: 1px solid #e5e5e5; background: #fff; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 720px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #111; font-weight: 800; font-size: 0.95rem; }
+    .nav-brand img { height: 24px; width: 24px; border-radius: 6px; }
+    .nav-back { font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: #111; }
+    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+    .article-meta { margin-bottom: 32px; }
+    .article-date { font-size: 0.75rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .article-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; background: #DBEAFE; color: #1E40AF; margin-left: 10px; }
+    .article-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 12px; }
+    .article-subtitle { font-size: 1.05rem; color: #555; line-height: 1.6; }
+    .article-image { width: 100%; aspect-ratio: 16/9; background: #e8e8e8; border-radius: 14px; margin: 32px 0; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; overflow: hidden; }
+    .article-image img { width: 100%; height: 100%; object-fit: cover; }
+    .article-image-placeholder { font-size: 0.8rem; color: #aaa; font-weight: 600; }
+    .article-body { margin-top: 32px; }
+    .article-body h2 { font-size: 1.2rem; font-weight: 800; margin: 32px 0 12px; letter-spacing: -0.01em; }
+    .article-body p { font-size: 0.95rem; color: #333; margin-bottom: 16px; line-height: 1.75; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body li { font-size: 0.92rem; color: #333; margin-bottom: 8px; line-height: 1.6; }
+    .article-body strong { color: #111; }
+    .article-divider { border: none; border-top: 1px solid #e5e5e5; margin: 40px 0; }
+    .promo { padding: 32px; background: #111; border-radius: 16px; text-align: center; }
+    .promo h3 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .promo p { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+    .promo a { display: inline-block; background: #FFD700; color: #000; font-weight: 800; font-size: 0.85rem; padding: 10px 24px; border-radius: 8px; text-decoration: none; transition: transform 0.2s; }
+    .promo a:hover { transform: scale(1.03); }
+    .back-link-bottom { display: inline-block; margin-top: 32px; font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; }
+    .back-link-bottom:hover { color: #111; }
+    @media (max-width: 600px) { .container { padding: 40px 16px 60px; } .article-title { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><img src="/logo.svg" alt="Cleanmails">Cleanmails</a>
+      <a href="/news" class="nav-back">All News</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-meta">
+      <div class="article-date">July 1, 2026 <span class="article-tag">Update</span></div>
+      <h1 class="article-title">One-Click Updates from the Dashboard</h1>
+      <p class="article-subtitle">Your users never need to touch a terminal again. Updates happen from a single button in the admin panel.</p>
+    </div>
+
+    <div class="article-image">
+      <span class="article-image-placeholder">[ Screenshot: System Update Card ]</span>
+    </div>
+
+    <div class="article-body">
+      <p>We've shipped a complete over-the-air update system. When a new version is available, the admin dashboard shows a notification with the changelog. One click triggers the full update pipeline — download, rebuild, restart.</p>
+
+      <h2>How it works under the hood</h2>
+      <ul>
+        <li>The API checks our version server for new releases</li>
+        <li>Downloads the new release tarball from S3</li>
+        <li>Rebuilds Docker images locally (fast — pre-compiled binaries, no compilation on VPS)</li>
+        <li>Restarts all services with the new code</li>
+        <li>Frontend polls until the new version is confirmed running</li>
+      </ul>
+
+      <h2>What you see</h2>
+      <p>In the admin dashboard, scroll to the <strong>System Update</strong> card. If an update is available, you'll see the new version number, release date, and a brief changelog. Click "Update" and wait about 60 seconds.</p>
+
+      <p>The button shows real-time progress as it polls for the new version. Once confirmed, it displays a success message with the new version number.</p>
+
+      <h2>Automatic version checks</h2>
+      <p>The system checks for updates every time you load the admin dashboard. No cron jobs, no manual checks. If you're on the latest version, you'll see a green "Up to date" badge.</p>
+
+      <h2>Rollback safety</h2>
+      <p>Before any update, the current binaries are backed up. If the new version fails to start, the previous binaries are preserved for manual recovery. In practice, every update we ship is tested on our own production instance before release.</p>
+    </div>
+
+    <hr class="article-divider">
+
+    <a href="/news" class="back-link-bottom">← Back to all news</a>
+
+    <div class="promo" style="margin-top: 40px;">
+      <h3>Zero-maintenance cold email infrastructure.</h3>
+      <p>Self-hosted. One-click updates. No DevOps required.</p>
+      <a href="/#pricing">Get Cleanmails — $199</a>
+    </div>
+  </div>
+</body>
+</html>

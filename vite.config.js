@@ -33,6 +33,12 @@ export default defineConfig(({ mode }) => {
           coldEmailCadence: resolve(__dirname, 'cold-email-cadence.html'),
           vsInstantly: resolve(__dirname, 'cleanmails-vs-instantly.html'),
           vsSmartlead: resolve(__dirname, 'cleanmails-vs-smartlead.html'),
+          newsIndex: resolve(__dirname, 'news/index.html'),
+          newsWarmup: resolve(__dirname, 'news/warmup-engine-live.html'),
+          newsUpdates: resolve(__dirname, 'news/one-click-updates.html'),
+          newsBranding: resolve(__dirname, 'news/white-label-branding.html'),
+          newsDiscord: resolve(__dirname, 'news/discord-community.html'),
+          newsEngineering: resolve(__dirname, 'news/building-cleanmails-in-go.html'),
         },
       },
     },
@@ -130,7 +136,13 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/spintax-generator': '/spintax-generator.html',
                 '/cold-email-cadence': '/cold-email-cadence.html',
                 '/cleanmails-vs-instantly': '/cleanmails-vs-instantly.html',
-                '/cleanmails-vs-smartlead': '/cleanmails-vs-smartlead.html'
+                '/cleanmails-vs-smartlead': '/cleanmails-vs-smartlead.html',
+                '/news': '/news/index.html',
+                '/news/warmup-engine-live': '/news/warmup-engine-live.html',
+                '/news/one-click-updates': '/news/one-click-updates.html',
+                '/news/white-label-branding': '/news/white-label-branding.html',
+                '/news/discord-community': '/news/discord-community.html',
+                '/news/building-cleanmails-in-go': '/news/building-cleanmails-in-go.html'
               };
 
               if (routeMap[url]) {

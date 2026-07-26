@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News — Cleanmails</title>
+  <meta name="description" content="Latest announcements, feature releases, and updates from Cleanmails.">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fafafa; color: #111; line-height: 1.6; }
+
+    .nav { border-bottom: 1px solid #e5e5e5; background: #fff; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 720px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #111; font-weight: 800; font-size: 0.95rem; }
+    .nav-brand img { height: 24px; width: 24px; border-radius: 6px; }
+    .nav-back { font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: #111; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .page-header p { font-size: 0.95rem; color: #666; }
+
+    .news-list { display: flex; flex-direction: column; gap: 20px; }
+
+    .news-card {
+      background: #fff; border: 1px solid #e8e8e8; border-radius: 14px;
+      padding: 28px; transition: all 0.2s ease; text-decoration: none; color: inherit;
+      display: block;
+    }
+    .news-card:hover { border-color: #ccc; box-shadow: 0 4px 20px rgba(0,0,0,0.04); transform: translateY(-1px); }
+
+    .news-card-date { font-size: 0.72rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .news-card-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; margin-left: 10px; }
+    .tag-feature { background: #D1FAE5; color: #065F46; }
+    .tag-update { background: #DBEAFE; color: #1E40AF; }
+    .tag-announcement { background: #FEF3C7; color: #92400E; }
+
+    .news-card h2 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.3; }
+    .news-card p { font-size: 0.88rem; color: #555; line-height: 1.6; }
+    .news-card-read { font-size: 0.78rem; font-weight: 700; color: #111; margin-top: 12px; display: inline-block; }
+
+    .promo {
+      margin-top: 60px; padding: 32px; background: #111; border-radius: 16px; text-align: center;
+    }
+    .promo h3 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .promo p { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+    .promo a {
+      display: inline-block; background: #FFD700; color: #000; font-weight: 800; font-size: 0.85rem;
+      padding: 10px 24px; border-radius: 8px; text-decoration: none; transition: transform 0.2s;
+    }
+    .promo a:hover { transform: scale(1.03); }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 16px 60px; }
+      .page-header h1 { font-size: 1.6rem; }
+      .news-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><img src="/logo.svg" alt="Cleanmails">Cleanmails</a>
+      <a href="/" class="nav-back">Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="page-header">
+      <h1>News</h1>
+      <p>Feature releases, product updates, and announcements.</p>
+    </div>
+
+    <div class="news-list">
+
+      <a href="/news/building-cleanmails-in-go" class="news-card">
+        <div class="news-card-date">July 2, 2026 <span class="news-card-tag tag-announcement">Engineering</span></div>
+        <h2>An open, self-hosted cold email platform with MCP support</h2>
+        <p>Deep dive into building the entire system in Go. Covers the dispatcher pattern with FOR UPDATE SKIP LOCKED, the MCP protocol layer, parallel validation, deterministic spintax, and why we chose this stack.</p>
+        <span class="news-card-read">Read more →</span>
+      </a>
+
+      <a href="/news/warmup-engine-live" class="news-card">
+        <div class="news-card-date">July 2, 2026 <span class="news-card-tag tag-feature">Feature</span></div>
+        <h2>Warmup Engine is Live — 30-Day Automated Reputation Building</h2>
+        <p>Gradually ramp from 2 to 30 emails per day with realistic auto-generated conversations. No third-party tool needed. Built directly into the platform.</p>
+        <span class="news-card-read">Read more →</span>
+      </a>
+
+      <a href="/news/one-click-updates" class="news-card">
+        <div class="news-card-date">July 1, 2026 <span class="news-card-tag tag-update">Update</span></div>
+        <h2>One-Click Updates from the Dashboard</h2>
+        <p>No more SSH. Update your entire Cleanmails installation from the admin dashboard with a single button. Automatic rollback if something goes wrong.</p>
+        <span class="news-card-read">Read more →</span>
+      </a>
+
+      <a href="/news/white-label-branding" class="news-card">
+        <div class="news-card-date">July 1, 2026 <span class="news-card-tag tag-feature">Feature</span></div>
+        <h2>Full White-Label Branding</h2>
+        <p>Upload your logo, set your company name — it appears everywhere: sidebar, login page, browser tab, favicon. Your clients never see "Cleanmails".</p>
+        <span class="news-card-read">Read more →</span>
+      </a>
+
+      <a href="/news/discord-community" class="news-card">
+        <div class="news-card-date">June 28, 2026 <span class="news-card-tag tag-announcement">Announcement</span></div>
+        <h2>Discord Community is Open</h2>
+        <p>Join 200+ agency owners sharing templates, strategies, and getting real-time help from the dev team. Free for all license holders.</p>
+        <span class="news-card-read">Read more →</span>
+      </a>
+
+    </div>
+
+    <!-- Promo at bottom -->
+    <div class="promo">
+      <h3>Self-hosted cold email infrastructure for agencies.</h3>
+      <p>One-time payment. No monthly fees. Unlimited everything.</p>
+      <a href="/#pricing">Get Cleanmails — $199</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building an open cold email platform in Go with MCP support</title>
+  <meta name="description" content="Engineering deep-dive into building a self-hosted cold email system in Go. Covers the dispatcher pattern, MCP protocol integration, parallel validation, spintax engine, and the tradeoffs of shipping a commercial self-hosted product.">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fafafa; color: #111; line-height: 1.8; }
+    .nav { border-bottom: 1px solid #e5e5e5; background: #fff; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 760px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #111; font-weight: 800; font-size: 0.95rem; }
+    .nav-brand img { height: 24px; width: 24px; border-radius: 6px; }
+    .nav-back { font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; }
+    .nav-back:hover { color: #111; }
+    .container { max-width: 760px; margin: 0 auto; padding: 60px 24px 80px; }
+    .article-meta { margin-bottom: 40px; }
+    .article-date { font-size: 0.75rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+    .article-title { font-size: clamp(1.8rem, 4.5vw, 2.6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 16px; }
+    .article-subtitle { font-size: 1.1rem; color: #444; line-height: 1.7; }
+    .article-image { width: 100%; aspect-ratio: 16/9; background: #e8e8e8; border-radius: 14px; margin: 36px 0; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; overflow: hidden; }
+    .article-image-placeholder { font-size: 0.8rem; color: #aaa; font-weight: 600; }
+    .body { margin-top: 40px; }
+    .body h2 { font-size: 1.35rem; font-weight: 800; margin: 48px 0 16px; letter-spacing: -0.02em; }
+    .body h3 { font-size: 1.1rem; font-weight: 700; margin: 32px 0 12px; }
+    .body p { font-size: 0.96rem; color: #222; margin-bottom: 18px; line-height: 1.85; }
+    .body ul, .body ol { padding-left: 20px; margin-bottom: 18px; }
+    .body li { font-size: 0.94rem; color: #222; margin-bottom: 8px; line-height: 1.7; }
+    .body strong { color: #000; }
+    .body code { font-family: 'JetBrains Mono', monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.84rem; }
+    .body a { color: #111; text-decoration: underline; text-underline-offset: 3px; }
+    pre { background: #1a1a1a; border-radius: 12px; padding: 20px 24px; overflow-x: auto; margin: 20px 0 24px; border: 1px solid #333; }
+    pre code { background: none; padding: 0; color: #e4e4e7; font-size: 0.82rem; line-height: 1.7; font-family: 'JetBrains Mono', monospace; }
+    .comment { color: #6a9955; }
+    .keyword { color: #569cd6; }
+    .string { color: #ce9178; }
+    .func { color: #dcdcaa; }
+    .type { color: #4ec9b0; }
+    blockquote { border-left: 3px solid #ddd; padding: 12px 20px; margin: 24px 0; background: #f8f8f8; border-radius: 0 8px 8px 0; }
+    blockquote p { color: #555; font-style: italic; margin: 0; font-size: 0.92rem; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 48px 0; }
+    .promo { padding: 28px; background: #111; border-radius: 14px; text-align: center; margin-top: 48px; }
+    .promo h3 { color: #fff; font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
+    .promo p { color: #888; font-size: 0.82rem; margin-bottom: 16px; }
+    .promo a { display: inline-block; background: #FFD700; color: #000; font-weight: 800; font-size: 0.82rem; padding: 9px 20px; border-radius: 8px; text-decoration: none; }
+    @media (max-width: 600px) { .container { padding: 32px 16px 60px; } .article-title { font-size: 1.6rem; } pre { padding: 14px 16px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><img src="/logo.svg" alt="Cleanmails">Cleanmails</a>
+      <a href="/news" class="nav-back">All News</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-meta">
+      <div class="article-date">July 2, 2026</div>
+      <h1 class="article-title">An open, self-hosted cold email platform with MCP support</h1>
+      <p class="article-subtitle">How we built a full email sending infrastructure in Go using Gin, Asynq, and GORM. Covers the dispatcher, the MCP layer, parallel validation, the spintax engine, and why we chose this stack over Node/Python.</p>
+    </div>
+
+    <div class="article-image">
+      <span class="article-image-placeholder">[ Architecture diagram: API + Worker + Redis + Postgres + Next.js ]</span>
+    </div>
+
+    <div class="body">
+
+      <p>I've been running cold email campaigns for agency clients for about two years now. Instantly, Smartlead, Lemlist, all of them. They all work fine until you hit 20+ clients and your monthly bill is over $2k for software that's basically a CRUD app, a scheduler, and some SMTP connections.</p>
+
+      <p>So I built my own. It took about 4 months of actual coding, runs on a single $20 VPS, handles all my clients, and I recently open sourced most of the engineering behind it. This post is about the technical decisions, not the product. If you want to look at the architecture and tell me I'm wrong about something, that's what I'm here for.</p>
+
+      <h2>Stack overview</h2>
+
+      <p>The system is two Go binaries (API server + background worker) talking to Postgres and Redis. Frontend is Next.js but that's just a dashboard, the interesting stuff is all backend.</p>
+
+      <ul>
+        <li><strong>Go 1.25</strong> with Gin for HTTP routing</li>
+        <li><strong>GORM</strong> for database (I know, I know. But migrations work and it's fast enough for this workload)</li>
+        <li><strong>Asynq</strong> (Redis based task queue) for all background work</li>
+        <li><strong>Postgres 16</strong> for everything persistent</li>
+        <li><strong>Redis 7</strong> for task queue + caching</li>
+      </ul>
+
+      <p>The API binary handles HTTP requests, the worker binary processes background jobs (sending emails, validation, warmup cycles, IMAP sync, webhook dispatch). They share the same codebase under <code>internal/</code> but compile to separate binaries.</p>
+
+      <h2>The dispatcher: sending emails without looking like a bot</h2>
+
+      <p>This is probably the most interesting piece. The dispatcher runs every 60 seconds as a scheduled Asynq task. It finds leads that are "due" for their next email and sends them, but with a bunch of constraints that make it behave like a human typing emails one by one.</p>
+
+<pre><code><span class="keyword">func</span> (p *<span class="type">CampaignDispatcherProcessor</span>) <span class="func">ProcessTask</span>(ctx context.Context, t *asynq.Task) <span class="type">error</span> {
+    <span class="comment">// Use FOR UPDATE SKIP LOCKED to prevent race conditions</span>
+    <span class="comment">// between overlapping dispatch cycles</span>
+    <span class="keyword">var</span> leads []models.Lead
+    
+    err := p.DB.Raw(`
+        SELECT * FROM leads
+        WHERE next_send_at &lt;= ?
+          AND is_blocklisted = false
+          AND status NOT IN (?, ?, ?)
+        ORDER BY next_send_at ASC
+        LIMIT 50
+        FOR UPDATE SKIP LOCKED`,
+        now,
+        models.LeadStatusBounced, 
+        models.LeadStatusUnsubscribed, 
+        models.LeadStatusReplied,
+    ).Scan(&leads).Error
+    
+    <span class="keyword">for</span> _, lead := <span class="keyword">range</span> leads {
+        p.processLead(ctx, &lead, now)
+        
+        <span class="comment">// Human-mimicry delay: 30-90 seconds between sends</span>
+        delay := time.Duration(30+rand.Intn(60)) * time.Second
+        <span class="keyword">select</span> {
+        <span class="keyword">case</span> &lt;-ctx.Done():
+            <span class="keyword">return</span> nil
+        <span class="keyword">case</span> &lt;-time.After(delay):
+        }
+    }
+    <span class="keyword">return</span> nil
+}</code></pre>
+
+      <p>The <code>FOR UPDATE SKIP LOCKED</code> bit is important. If a previous dispatch cycle is still running when the next one fires (because sending 50 emails with 30-90s delays takes 25+ minutes), the new cycle doesn't get stuck waiting for a row lock. It just grabs whatever leads aren't already being processed. Postgres handles this natively and it's way more reliable than any application level locking I could build with Redis.</p>
+
+      <p>Each send goes through: mailbox selection (round robin weighted by health score), blocklist check, variant selection (A/B subjects and bodies), spintax resolution, variable replacement, tracking pixel injection, and finally the SMTP send. A single lead's processing touches maybe 6 database queries which isn't great, but at 50 leads per cycle with intentional delays between them, it's never the bottleneck.</p>
+
+      <h2>Spintax with deterministic output</h2>
+
+      <p>Most spintax implementations use <code>rand.Intn</code> to pick variants, which means the same template produces different output every time. That's fine for preview, but terrible for debugging. If a user says "the email I sent to john@acme.com looked wrong", I need to be able to reproduce exactly what was sent.</p>
+
+      <p>The solution: seed the RNG with an MD5 hash of the lead's email. Same lead always produces same spintax output.</p>
+
+<pre><code><span class="keyword">func</span> <span class="func">ParseSpintax</span>(template <span class="type">string</span>, seed <span class="type">string</span>) <span class="type">string</span> {
+    <span class="comment">// Deterministic random from lead email</span>
+    hash := md5.Sum([]<span class="keyword">byte</span>(seed))
+    seedInt := int64(binary.BigEndian.Uint64(hash[:8]))
+    rng := rand.New(rand.NewSource(seedInt))
+
+    result := template
+    pattern := regexp.MustCompile(`\{([^{}]+)\}`)
+
+    <span class="comment">// Resolve innermost braces first (handles nesting)</span>
+    <span class="keyword">for</span> pattern.MatchString(result) {
+        result = pattern.ReplaceAllStringFunc(result, <span class="keyword">func</span>(match <span class="type">string</span>) <span class="type">string</span> {
+            inner := match[1 : len(match)-1]
+            options := strings.Split(inner, <span class="string">"|"</span>)
+            <span class="keyword">return</span> options[rng.Intn(len(options))]
+        })
+    }
+    <span class="keyword">return</span> result
+}</code></pre>
+
+      <p>Nested spintax works because we loop until there are no more braces. <code>{Hi|{Hey|Hello}} {{firstName}}</code> resolves the inner <code>{Hey|Hello}</code> first, producing something like <code>{Hi|Hello} {{firstName}}</code>, then resolves the outer one on the next pass. Simple, fast, no recursion.</p>
+
+      <h2>MCP: letting AI agents control the platform</h2>
+
+      <p>This was the most fun to build and honestly the reason I'm posting here. We implemented the Model Context Protocol (the thing Anthropic put out for connecting AI agents to tools) as a first class endpoint.</p>
+
+      <p>The MCP server sits at <code>POST /api/v1/mcp</code> and accepts JSON-RPC 2.0 requests. You add the server config to Claude or ChatGPT and suddenly you can say things like "pause the Q2 campaign" or "show me today's reply rate" and it works.</p>
+
+<pre><code><span class="keyword">type</span> <span class="type">MCPServer</span> <span class="keyword">struct</span> {
+    DB            *gorm.DB
+    EncryptionKey <span class="type">string</span>
+}
+
+<span class="keyword">func</span> (s *<span class="type">MCPServer</span>) <span class="func">HandleMCP</span>(c *gin.Context) {
+    <span class="keyword">var</span> req JSONRPCRequest
+    c.ShouldBindJSON(&req)
+    
+    wsID, _ := c.Get(<span class="string">"workspace_id"</span>)
+
+    <span class="keyword">switch</span> req.Method {
+    <span class="keyword">case</span> <span class="string">"initialize"</span>:
+        result = s.handleInitialize()
+    <span class="keyword">case</span> <span class="string">"tools/list"</span>:
+        result = s.handleToolsList()
+    <span class="keyword">case</span> <span class="string">"tools/call"</span>:
+        result, rpcErr = s.handleToolCall(req.Params, wsID)
+    }
+    
+    c.JSON(200, JSONRPCResponse{JSONRPC: <span class="string">"2.0"</span>, ID: req.ID, Result: result})
+}</code></pre>
+
+      <p>We expose 8 tools: get_stats, list_campaigns, start/pause_campaign, list_leads, get_inbox, send_reply, get_mailboxes. The tool definitions include JSON Schema input specs so the AI knows what parameters to pass.</p>
+
+      <p>What makes this interesting vs a regular REST API: the AI can chain operations. "Check my inbox, find any positive replies from this week, and draft follow-ups" becomes three tool calls the model composes on its own. You'd need a pretty sophisticated frontend to replicate that workflow manually.</p>
+
+      <p>Auth works via the same JWT token used for the dashboard. You just add an Authorization header to the MCP config. Each request is scoped to a workspace, so multi-tenant isolation is maintained even when an AI is driving.</p>
+
+      <h2>Parallel email validation at 100 goroutines</h2>
+
+      <p>We embedded AfterShip's email-verifier library directly (forked it into our repo because we needed to disable some checks and avoid the dependency on their API). Validation runs as a background task when you upload a CSV.</p>
+
+<pre><code><span class="keyword">const</span> validationConcurrency = 100
+
+<span class="keyword">var</span> verifier = emailverifier.
+    NewVerifier().
+    DisableSMTPCheck().      <span class="comment">// Port 25 blocked on most VPS</span>
+    DisableGravatarCheck().  <span class="comment">// Too slow for bulk</span>
+    EnableDomainSuggest()
+
+<span class="keyword">func</span> (p *<span class="type">ValidateLeadsProcessor</span>) <span class="func">ProcessTask</span>(ctx context.Context, t *asynq.Task) <span class="type">error</span> {
+    <span class="comment">// ... load leads ...</span>
+    
+    sem := make(<span class="keyword">chan struct</span>{}, validationConcurrency)
+    <span class="keyword">var</span> wg sync.WaitGroup
+
+    <span class="keyword">for</span> i := <span class="keyword">range</span> leads {
+        lead := leads[i]
+        wg.Add(1)
+        sem &lt;- <span class="keyword">struct</span>{}{}  <span class="comment">// acquire slot</span>
+
+        <span class="keyword">go func</span>() {
+            <span class="keyword">defer</span> wg.Done()
+            <span class="keyword">defer func</span>() { &lt;-sem }()  <span class="comment">// release</span>
+
+            result, _ := verifier.Verify(lead.Email)
+            score, status := mapVerificationResult(result)
+            
+            p.DB.Model(&models.Lead{}).Where(<span class="string">"id = ?"</span>, lead.ID).
+                Updates(map[<span class="type">string</span>]<span class="keyword">interface</span>{}{
+                    <span class="string">"validation_status"</span>: status,
+                    <span class="string">"validation_score"</span>:  score,
+                })
+        }()
+    }
+    wg.Wait()
+    <span class="keyword">return</span> nil
+}</code></pre>
+
+      <p>100 goroutines might seem aggressive but each one just does a DNS lookup (MX record check) which takes maybe 50-100ms. We benchmarked 500 leads at 3-5 seconds total. The main bottleneck is DNS resolution latency, not CPU or memory.</p>
+
+      <p>I should note: we can't do SMTP handshake verification (the "does this mailbox actually exist" check) because basically every cloud VPS provider blocks port 25 outbound. So our validation is really "list hygiene": syntax, disposable domain detection (135K domains in our database), role account filtering, MX record verification, typo suggestion. Not a replacement for MillionVerifier, but catches the obvious junk before you waste sends on it.</p>
+
+      <h2>Tracking: a 68-byte PNG and some HMAC magic</h2>
+
+      <p>Open tracking works by embedding a 1x1 transparent PNG in every email. When the recipient's mail client loads it, our server logs the open.</p>
+
+<pre><code><span class="comment">// 68 bytes. Hardcoded because generating it at runtime is silly.</span>
+<span class="keyword">var</span> transparentPixel = []<span class="keyword">byte</span>{
+    0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,
+    0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52,
+    <span class="comment">// ... 68 bytes total for a valid PNG</span>
+}
+
+<span class="keyword">func</span> (h *<span class="type">TrackingHandler</span>) <span class="func">TrackOpen</span>(c *gin.Context) {
+    trackingID := c.Param(<span class="string">"trackingID"</span>)
+    <span class="comment">// Record open, always return the pixel</span>
+    c.Data(200, <span class="string">"image/png"</span>, transparentPixel)
+}</code></pre>
+
+      <p>Link tracking rewrites every <code>&lt;a href&gt;</code> in the email body to route through our server. We base64 encode the original URL into the path, so <code>/t/abc123/link/aHR0cHM6Ly...</code> redirects to the original after logging the click.</p>
+
+      <p>Unsubscribe links use HMAC-SHA256 tokens with a derived signing key (not the raw encryption key) containing <code>workspace_id:email</code>. When someone clicks unsubscribe, we verify the signature, update the lead status, add them to the workspace blocklist, and show a confirmation page. No database lookup needed to validate the token, it's all in the cryptographic signature.</p>
+
+      <div class="article-image">
+        <span class="article-image-placeholder">[ Screenshot: campaign stats showing open rate, click rate, reply rate ]</span>
+      </div>
+
+      <h2>The warmup system</h2>
+
+      <p>New domains and mailboxes need to "warm up" before sending at volume. The idea is simple: send a few emails a day, get replies, gradually increase volume over 30 days until the inbox providers trust you.</p>
+
+      <p>Our warmup works as a coordinated pool. Each instance registers its mailboxes with a central coordinator, which assigns send/receive pairs across the pool. Instance A sends to Instance B's mailbox, B auto-replies, both get engagement signals. Volume graduates from 2/day on day 1 to 30/day by day 30.</p>
+
+      <p>The coordinator is a separate service (running on our infra) because warmup needs a network effect. A single instance warming up against itself looks suspicious to inbox providers. Cross-instance warming with real variety in sending patterns is what makes it work.</p>
+
+      <h2>Why Go and not Node/Python</h2>
+
+      <p>Three reasons:</p>
+
+      <ol>
+        <li><strong>Single binary deployment.</strong> Cross compile from my Windows laptop to a Linux amd64 binary, copy it to the server, done. No <code>node_modules</code>, no virtualenvs, no runtime dependencies beyond libc. The API binary is 26MB. The worker is 23MB.</li>
+        <li><strong>Concurrency is native.</strong> The validation worker spawning 100 goroutines to parallelize DNS lookups is trivial. The dispatcher running with context-aware delays between sends is clean. In Node you'd need worker threads or a separate process. In Python, asyncio or multiprocessing, both with their own footguns.</li>
+        <li><strong>Memory.</strong> The API process runs at ~40MB RSS under normal load. The worker at ~60MB. On a 2GB VPS where you also need Postgres, Redis, and the frontend, every MB matters.</li>
+      </ol>
+
+      <p>GORM is the only part I'm slightly unhappy with. It generates fine SQL for simple queries but the dispatcher's <code>FOR UPDATE SKIP LOCKED</code> requires raw SQL anyway. If I were starting over I might use sqlx or sqlc for the hot paths and GORM only for migrations and simple CRUD.</p>
+
+      <h2>The middleware stack</h2>
+
+      <p>Every request goes through: Security Headers -> CORS -> License Guard -> (Auth + Rate Limit for protected routes). The license guard is interesting because it turns the entire API into a brick if the license is invalid:</p>
+
+<pre><code><span class="keyword">func</span> <span class="func">LicenseGuardMiddleware</span>(db *gorm.DB) gin.HandlerFunc {
+    <span class="keyword">return func</span>(c *gin.Context) {
+        path := c.Request.URL.Path
+        
+        <span class="comment">// Always allow: setup, auth, health, tracking</span>
+        <span class="keyword">if</span> strings.HasPrefix(path, <span class="string">"/api/v1/setup"</span>) ||
+           strings.HasPrefix(path, <span class="string">"/health"</span>) {
+            c.Next()
+            <span class="keyword">return</span>
+        }
+
+        status := getCachedLicenseStatus(db) <span class="comment">// 5-min cache</span>
+
+        <span class="keyword">switch</span> status {
+        <span class="keyword">case</span> <span class="string">"revoked"</span>, <span class="string">"expired"</span>, <span class="string">"pending"</span>:
+            c.AbortWithStatusJSON(403, gin.H{
+                <span class="string">"error"</span>: <span class="string">"License not active"</span>,
+            })
+            <span class="keyword">return</span>
+        }
+        c.Next()
+    }
+}</code></pre>
+
+      <p>Rate limiting is a sliding window implementation per IP (5/min for auth endpoints) and per user (60/min for authenticated API calls). Nothing fancy, just a map of timestamps behind a mutex with a background cleanup goroutine that prunes expired entries every 5 minutes.</p>
+
+      <h2>Deployment and updates</h2>
+
+      <p>The whole system ships as a tarball: pre-compiled binaries + a Next.js standalone build + Dockerfiles + docker-compose. The user runs <code>curl | bash</code> to install, which downloads the tarball, builds thin Docker images (just COPY binary into alpine), and starts everything with compose.</p>
+
+      <p>Updates happen from the admin dashboard. The API container has Docker socket access, so when you click "Update", it downloads the new tarball, rebuilds images, and runs <code>docker compose up -d --force-recreate</code>. The frontend polls <code>/api/v1/admin/system/version</code> until the new version responds. Yes, the update script restarts the container that's running it. Somehow this works reliably.</p>
+
+      <h2>What I'd do differently</h2>
+
+      <ul>
+        <li>The frontend build situation is annoying. Next.js with <code>output: standalone</code> works great in theory but <code>NEXT_PUBLIC_*</code> env vars baking into the webpack bundle at build time caused us weeks of debugging. If I started over I'd probably use a SPA with Vite and no SSR.</li>
+        <li>GORM for the dispatcher queries was a mistake. Raw SQL for anything touching <code>FOR UPDATE</code> or complex joins. GORM for simple CRUD models and migrations.</li>
+        <li>The warmup coordinator being a separate hosted service means there's a dependency on our infra. Would like to explore a fully P2P approach where instances discover each other, but the anonymity and scheduling complexity makes that non-trivial.</li>
+      </ul>
+
+      <h2>Source and demo</h2>
+
+      <p>Live demo at <a href="http://demo.cleanmails.online">demo.cleanmails.online</a> (read-only, credentials on the site). The architecture handles about 50k emails/day on a single 2GB VPS without breaking a sweat.</p>
+
+      <p>Happy to answer questions about any of the engineering decisions. The MCP integration in particular is something I think more self-hosted tools should adopt. Letting users control your software through natural language instead of forcing them to learn a new UI is a pretty compelling UX pattern.</p>
+
+    </div>
+
+    <hr>
+
+    <div class="promo">
+      <h3>Cleanmails is open for early access.</h3>
+      <p>Self-hosted cold email platform. One-time $199. No monthly fees.</p>
+      <a href="https://cleanmails.online/#pricing">Learn more</a>
+    </div>
+  </div>
+</body>
+</html>

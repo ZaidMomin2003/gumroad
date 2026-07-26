@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warmup Engine is Live — Cleanmails News</title>
+  <meta name="description" content="The built-in email warmup engine is now live. Gradually ramp sending volume from 2 to 30 emails per day over 30 days with auto-generated conversations.">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #fafafa; color: #111; line-height: 1.7; }
+
+    .nav { border-bottom: 1px solid #e5e5e5; background: #fff; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 720px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #111; font-weight: 800; font-size: 0.95rem; }
+    .nav-brand img { height: 24px; width: 24px; border-radius: 6px; }
+    .nav-back { font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: #111; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+
+    .article-meta { margin-bottom: 32px; }
+    .article-date { font-size: 0.75rem; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .article-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; background: #D1FAE5; color: #065F46; margin-left: 10px; }
+    .article-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 12px; }
+    .article-subtitle { font-size: 1.05rem; color: #555; line-height: 1.6; }
+
+    .article-image {
+      width: 100%; aspect-ratio: 16/9; background: #e8e8e8; border-radius: 14px;
+      margin: 32px 0; display: flex; align-items: center; justify-content: center;
+      border: 1px solid #ddd; overflow: hidden;
+    }
+    .article-image img { width: 100%; height: 100%; object-fit: cover; }
+    .article-image-placeholder { font-size: 0.8rem; color: #aaa; font-weight: 600; }
+
+    .article-body { margin-top: 32px; }
+    .article-body h2 { font-size: 1.2rem; font-weight: 800; margin: 32px 0 12px; letter-spacing: -0.01em; }
+    .article-body p { font-size: 0.95rem; color: #333; margin-bottom: 16px; line-height: 1.75; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body li { font-size: 0.92rem; color: #333; margin-bottom: 8px; line-height: 1.6; }
+    .article-body strong { color: #111; }
+    .article-body code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; }
+
+    .article-divider { border: none; border-top: 1px solid #e5e5e5; margin: 40px 0; }
+
+    .promo {
+      padding: 32px; background: #111; border-radius: 16px; text-align: center;
+    }
+    .promo h3 { color: #fff; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+    .promo p { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+    .promo a {
+      display: inline-block; background: #FFD700; color: #000; font-weight: 800; font-size: 0.85rem;
+      padding: 10px 24px; border-radius: 8px; text-decoration: none; transition: transform 0.2s;
+    }
+    .promo a:hover { transform: scale(1.03); }
+
+    .back-link-bottom { display: inline-block; margin-top: 32px; font-size: 0.82rem; font-weight: 600; color: #666; text-decoration: none; }
+    .back-link-bottom:hover { color: #111; }
+
+    @media (max-width: 600px) {
+      .container { padding: 40px 16px 60px; }
+      .article-title { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand"><img src="/logo.svg" alt="Cleanmails">Cleanmails</a>
+      <a href="/news" class="nav-back">All News</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="article-meta">
+      <div class="article-date">July 2, 2026 <span class="article-tag">Feature</span></div>
+      <h1 class="article-title">Warmup Engine is Live — 30-Day Automated Reputation Building</h1>
+      <p class="article-subtitle">No third-party warmup service needed. Built directly into the platform, free for all license holders.</p>
+    </div>
+
+    <!-- Image placeholder -->
+    <div class="article-image">
+      <span class="article-image-placeholder">[ Screenshot: Warmup Dashboard ]</span>
+    </div>
+
+    <div class="article-body">
+      <p>Starting today, every Cleanmails installation includes a fully automated email warmup engine. Enable it per mailbox, and it handles everything — from day 1 ramp-up through full reputation establishment at day 30.</p>
+
+      <h2>How it works</h2>
+      <p>The warmup engine sends a controlled number of emails daily, starting at 2/day and graduating to 30/day by the end of the cycle. Each email receives a realistic auto-reply, building genuine engagement signals that inbox providers use to assess sender reputation.</p>
+
+      <ul>
+        <li><strong>Days 1-7:</strong> 2-5 emails/day — establishing baseline activity</li>
+        <li><strong>Days 8-14:</strong> 8-15 emails/day — building consistent volume</li>
+        <li><strong>Days 15-21:</strong> 15-25 emails/day — approaching full capacity</li>
+        <li><strong>Days 22-30:</strong> 25-30 emails/day — full reputation established</li>
+      </ul>
+
+      <h2>What makes it different</h2>
+      <p>Unlike third-party warmup services that charge $30-50/month per mailbox, this is built into the platform. Zero extra cost. No external dependencies. No sending your credentials to a third party.</p>
+
+      <p>The conversations are generated to look natural — varying reply times, different thread lengths, realistic subject lines. Spam filters see genuine back-and-forth engagement, not automated patterns.</p>
+
+      <h2>How to enable it</h2>
+      <p>Navigate to <strong>Warmup</strong> in the sidebar. Select any mailbox. Toggle warmup on. That's it — the system handles scheduling, reply generation, and volume graduation automatically.</p>
+
+      <p>You can monitor warmup progress in real-time: emails sent today, replies received, current day in the 30-day cycle, and projected completion date.</p>
+
+      <h2>Available now</h2>
+      <p>This ships as a free update to all existing license holders. If you're on an older version, hit the "Update" button in your admin dashboard — the warmup engine will be available immediately after the update completes.</p>
+    </div>
+
+    <hr class="article-divider">
+
+    <a href="/news" class="back-link-bottom">← Back to all news</a>
+
+    <!-- Promo at bottom -->
+    <div class="promo" style="margin-top: 40px;">
+      <h3>Self-hosted cold email with built-in warmup.</h3>
+      <p>One-time payment. No monthly fees. No third-party warmup subscriptions.</p>
+      <a href="/#pricing">Get Cleanmails — $199</a>
+    </div>
+  </div>
+</body>
+</html>
