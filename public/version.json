@@ -1,7 +1,7 @@
 {
-  "version": "1.9.3",
-  "released_at": "2026-07-19T10:51:00Z",
-  "changelog": "License stickiness: activate once, never asked again. Removed the middleware auto-expire that was kicking users out after 36 hours. License worker now only downgrades on definitive Dodo revocation responses (parses multiple response shapes) — network hiccups and ambiguous replies preserve current status. Added silent recovery on /welcome: if a license key is already stored, the app re-verifies it in the background without prompting.",
+  "version": "1.9.4",
+  "released_at": "2026-07-30T10:59:00Z",
+  "changelog": "License lockout fix: verify-license proxy now calls /validate first (idempotent) before /activate. Recovery endpoint uses /validate directly. Leads page folder sidebar. Fixes permanent lockout after max_activations consumed.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
