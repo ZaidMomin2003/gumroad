@@ -1,7 +1,7 @@
 {
-  "version": "1.9.6",
-  "released_at": "2026-07-30T15:16:00Z",
-  "changelog": "Performance & reliability: sharded rate limiter, MX DNS cache, precompiled spintax regex with iteration cap, JWT algorithm validation, DB connection pooling with idle timeout, campaign dispatcher transaction fix (FOR UPDATE SKIP LOCKED now inside proper txn), circuit breaker for failed mailboxes, human-mimicry send delays, IMAP error resilience, webhook payload size limits, open-tracking dedup.",
+  "version": "1.9.7",
+  "released_at": "2026-07-30T15:34:00Z",
+  "changelog": "Login page: password eye toggle, auto-retry on 'Request failed' during server restart. No more confusing error when API is briefly down after update.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
