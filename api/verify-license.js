@@ -26,40 +26,69 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'Server misconfiguration: Dodo Key missing.' });
   }
 
+  const isTest = DODO_PRIVATE_KEY.startsWith('test_');
+
   try {
-    // Determine whether to use Live or Test environment based on the key prefix
-    const isTest = DODO_PRIVATE_KEY.startsWith('test_');
-    const apiUrl = isTest 
+    // Step 1: Try /licenses/validate first (idempotent, doesn't consume activations).
+    // This succeeds if the key has EVER been activated before.
+    const validateUrl = isTest
+      ? 'https://test.dodopayments.com/licenses/validate'
+      : 'https://live.dodopayments.com/licenses/validate';
+
+    const validateResp = await fetch(validateUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ license_key }),
+    });
+
+    if (validateResp.ok) {
+      const validateData = await validateResp.json();
+      // Dodo validate returns the license object with status field or {valid: true}
+      const isValid = validateData.valid === true ||
+        validateData.status === 'active' ||
+        (validateData.id && validateResp.status < 300);
+
+      if (isValid) {
+        return res.status(200).json({
+          valid: true,
+          message: 'License is valid.',
+          license_data: validateData,
+        });
+      }
+    }
+
+    // Step 2: If validate didn't confirm it, try /licenses/activate.
+    // This is for genuinely first-time activations where the key exists but
+    // has never been activated on any instance yet.
+    const activateUrl = isTest
       ? 'https://test.dodopayments.com/licenses/activate'
       : 'https://live.dodopayments.com/licenses/activate';
 
-    const dodoResponse = await fetch(apiUrl, {
+    const activateResp = await fetch(activateUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         license_key: license_key,
         name: instance_name || 'Cleanmails Instance',
-      })
+      }),
     });
 
-    const data = await dodoResponse.json();
+    const activateData = await activateResp.json();
 
-    if (dodoResponse.status === 201 || (dodoResponse.ok && data.id)) {
-      // The key is valid and successfully activated/verified!
+    if (activateResp.status === 201 || (activateResp.ok && activateData.id)) {
       return res.status(200).json({
         valid: true,
-        message: 'License is valid and securely activated.',
-        license_data: data
-      });
-    } else {
-      // Dodo indicates invalid, expired, or max activations reached
-      return res.status(dodoResponse.status === 404 ? 404 : 401).json({
-        valid: false,
-        message: data.detail || data.message || 'Invalid or revoked license key.'
+        message: 'License activated successfully.',
+        license_data: activateData,
       });
     }
+
+    // Both failed — key is genuinely invalid, revoked, or max activations hit
+    // on a key that validate also rejected (shouldn't normally happen).
+    return res.status(401).json({
+      valid: false,
+      message: activateData.detail || activateData.message || 'Invalid or revoked license key.',
+    });
 
   } catch (error) {
     console.error('License verification failed:', error);
