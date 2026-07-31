@@ -247,23 +247,39 @@ log "Secrets generated"
 log "AES-256 encryption key"
 log "JWT signing key"
 
-# Caddyfile
+# Caddyfile - lb_try_duration keeps clients waiting during upstream restarts
+# instead of returning 502s. Critical for graceful in-place updates.
 cat > "$INSTALL_DIR/Caddyfile" <<EOF
 $DOMAIN {
     handle /api/* {
-        reverse_proxy api:8080
+        reverse_proxy api:8080 {
+            lb_try_duration 30s
+            lb_try_interval 1s
+        }
     }
     handle /health {
-        reverse_proxy api:8080
+        reverse_proxy api:8080 {
+            lb_try_duration 30s
+            lb_try_interval 1s
+        }
     }
     handle /t/* {
-        reverse_proxy api:8080
+        reverse_proxy api:8080 {
+            lb_try_duration 30s
+            lb_try_interval 1s
+        }
     }
     handle /unsubscribe/* {
-        reverse_proxy api:8080
+        reverse_proxy api:8080 {
+            lb_try_duration 30s
+            lb_try_interval 1s
+        }
     }
     handle {
-        reverse_proxy frontend:3000
+        reverse_proxy frontend:3000 {
+            lb_try_duration 30s
+            lb_try_interval 1s
+        }
     }
     header {
         X-Content-Type-Options nosniff
