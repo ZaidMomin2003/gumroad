@@ -39,6 +39,7 @@ export default defineConfig(({ mode }) => {
           newsBranding: resolve(__dirname, 'news/white-label-branding.html'),
           newsDiscord: resolve(__dirname, 'news/discord-community.html'),
           newsEngineering: resolve(__dirname, 'news/building-cleanmails-in-go.html'),
+          home2: resolve(__dirname, 'home-2.html'),
         },
       },
     },
@@ -142,7 +143,8 @@ Always start with: "Welcome! Don't worry if you've never done this before. Let's
                 '/news/one-click-updates': '/news/one-click-updates.html',
                 '/news/white-label-branding': '/news/white-label-branding.html',
                 '/news/discord-community': '/news/discord-community.html',
-                '/news/building-cleanmails-in-go': '/news/building-cleanmails-in-go.html'
+                '/news/building-cleanmails-in-go': '/news/building-cleanmails-in-go.html',
+                '/home-2': '/home-2.html'
               };
 
               if (routeMap[url]) {
