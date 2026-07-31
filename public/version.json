@@ -1,7 +1,7 @@
 {
-  "version": "2.1.1",
-  "released_at": "2026-07-31T14:30:00Z",
-  "changelog": "Zero-config webhooks. The webhook secret is now auto-generated on first boot and stored in the database. Admin dashboard shows ready-to-paste SES + Resend URLs with copy buttons. No .env editing, no SSH. Includes a Regenerate button if a token leaks. Environment variable override still supported for infra-as-code setups.",
+  "version": "2.1.2",
+  "released_at": "2026-07-31T15:00:00Z",
+  "changelog": "Phase 1 polish. Dashboard, unibox, and warmup pages now auto-refresh every 20-30s so new replies and stats show up without hitting refresh. Login is timing-attack resistant and password minimum is now 8 chars. Warmup coordinator URL is now configurable (WARMUP_COORDINATOR_URL env var, set to 'disabled' to turn off phone-home entirely). DNSBL check is disabled by default because the previous implementation queried the wrong IPs and reported meaningless results — set ENABLE_DNSBL_CHECK=true to opt back in. Mailbox reply rate now only counts replies to actual outbound emails, not every inbound message.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
