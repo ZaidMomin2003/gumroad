@@ -1,7 +1,7 @@
 {
-  "version": "1.9.8",
-  "released_at": "2026-07-31T10:44:00Z",
-  "changelog": "Zero-downtime updates: rolling restart keeps Caddy/Postgres/Redis alive during updates. Users no longer get disconnected or logged out. API comes up first, then frontend + worker swap.",
+  "version": "1.9.9",
+  "released_at": "2026-07-31T11:19:00Z",
+  "changelog": "Guided update experience: pre-update warnings (schedule check, don't-refresh notice), live step-by-step progress bar, browser tab-close guard, bulletproof recovery (containers always come back up even if a step fails), auto-page-reload on success.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
