@@ -1,7 +1,7 @@
 {
-  "version": "2.0.2",
-  "released_at": "2026-07-31T12:15:00Z",
-  "changelog": "Fixes the update-logout cycle for good. Updates now run in a detached container so the update process survives the API container being recreated - no more mid-update crashes. Caddy now holds requests for up to 30s during upstream restarts instead of returning 502s, so users don't get bounced during updates. Existing Caddyfiles are auto-migrated on first update.",
+  "version": "2.0.3",
+  "released_at": "2026-07-31T12:25:00Z",
+  "changelog": "Adjusts update-duration copy to ~10 minutes so users know to give it time on smaller VPS instances. Includes the v2.0.2 detached-updater fix so the update process no longer crashes when the API container restarts.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
