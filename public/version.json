@@ -1,7 +1,7 @@
 {
-  "version": "2.3.0",
-  "released_at": "2026-07-31T16:30:00Z",
-  "changelog": "Phase 3 - the features that were listed but broken are now real. Encryption key rotation actually works: set PREVIOUS_ENCRYPTION_KEY, restart, click Rotate in admin dashboard. Every mailbox password, AI key, and integration credential is re-encrypted with the new key while the app stays live. DNSBL check now queries proper domain-based blocklists (Spamhaus DBL, SURBL, URIBL) instead of the meaningless IP lookup of the sending domain - the check now works uniformly for Gmail/Outlook OAuth users and self-hosted SMTP. New local warmup pool mode: set WARMUP_MODE=local to cycle warmup emails between your own mailboxes with no phone-home. Full-text trigram indexes added to lead search: 100k-row LIKE queries drop from full-scan to ~50ms.",
+  "version": "2.4.0",
+  "released_at": "2026-07-31T17:15:00Z",
+  "changelog": "Phase 4 - polish + delighters. New Getting Started checklist on the main dashboard walks new users from connecting a mailbox to their first send. Auto-hides when done and can be dismissed manually. New Audit Log page under Admin shows every admin action ever taken - who did what to whom, when, from which IP. Filterable by action type and paginated. Also fixed a redirect loop on the /welcome page that could bounce users between login and welcome, and impersonation now sets the session cookie so the impersonated view actually works with the new cookie-based auth.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
