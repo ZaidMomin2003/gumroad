@@ -1,7 +1,7 @@
 {
-  "version": "2.1.0",
-  "released_at": "2026-07-31T14:00:00Z",
-  "changelog": "Major stability + security release. Fixes duplicate email sends caused by a dispatcher race condition. MCP server now works (previously always returned 'no workspace selected'). API keys now authenticate real requests (were dead-ended). Webhook endpoints (SES/Resend) require a shared secret so anyone can no longer inject bounces. Impersonation JWTs record the actor for proper audit trails. Version comparison now uses real semver so 2.0.10 > 2.0.9. AI enhance daily token cap is now enforced. Default AI model fixed (was a non-existent one). Warmup double-increment race fixed. IMAP TLS now uses proper SNI. Click tracker only allows http/https redirects. Public report slugs increased from 16 to 64 bits of entropy. Setup endpoints gated after onboarding. STARTTLS required on SMTP tests (no more silent cleartext). Message-ID uses proper FQDN. Spam checker no longer flags 'class' because it contains 'as'. Rate limiter fixes, panic recovery in IMAP + warmup, and more. Full audit report: 25 features, 30+ issues resolved.",
+  "version": "2.1.1",
+  "released_at": "2026-07-31T14:30:00Z",
+  "changelog": "Zero-config webhooks. The webhook secret is now auto-generated on first boot and stored in the database. Admin dashboard shows ready-to-paste SES + Resend URLs with copy buttons. No .env editing, no SSH. Includes a Regenerate button if a token leaks. Environment variable override still supported for infra-as-code setups.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
