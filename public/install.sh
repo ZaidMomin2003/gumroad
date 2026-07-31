@@ -171,6 +171,11 @@ else
   fail "Docker Compose plugin missing."
 fi
 
+# Pre-pull alpine:3.19 so the first in-UI update doesn't have to fetch it
+info "Pre-caching updater base image..."
+docker pull alpine:3.19 > /dev/null 2>&1 &
+DOCKER_PULL_PID=$!
+
 # ---- Download ----
 step "Downloading CleanMails"
 
@@ -330,6 +335,9 @@ fi
 info "Starting application..."
 docker compose -f docker-compose.prod.yml up -d api worker frontend caddy 2>/dev/null </dev/null
 log "All containers started"
+
+# Reap the background alpine pull if it hasn't finished
+wait $DOCKER_PULL_PID 2>/dev/null || true
 
 # Health check
 info "Waiting for API health..."
