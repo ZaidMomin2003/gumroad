@@ -1071,13 +1071,12 @@ function App() {
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 </script>
 <style>
-/* LOCK FEATURE MOCKUPS - always render at fixed desktop size, scale as image */
+/* LOCK FEATURE MOCKUPS - fixed 900px design, use CSS zoom to scale AS image (affects layout) */
 .feature-mockup {
   width: 900px !important;
   max-width: 900px !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  transform-origin: top center;
   position: relative;
 }
 
@@ -1089,25 +1088,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 .dashboard-mockup .grid-cols-1.md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
 .dashboard-mockup .md\:col-span-2 { grid-column: span 2 !important; }
 
-/* Scale down as an image on smaller screens */
-@media (max-width: 940px) {
-  .feature-mockup {
-    margin-left: 50% !important;
-    margin-right: 0 !important;
-    transform: translateX(-50%) scale(0.9);
-    margin-bottom: -80px;
-  }
-}
-@media (max-width: 820px) { .feature-mockup { transform: translateX(-50%) scale(0.78); margin-bottom: -180px; } }
-@media (max-width: 700px) { .feature-mockup { transform: translateX(-50%) scale(0.68); margin-bottom: -240px; } }
+/* Use CSS zoom (deprecated but widely supported and affects layout box) */
+@media (max-width: 940px) { .feature-mockup { zoom: 0.88; } }
+@media (max-width: 820px) { .feature-mockup { zoom: 0.75; } }
+@media (max-width: 700px) { .feature-mockup { zoom: 0.65; } }
 @media (max-width: 600px) {
-  .feature-mockup { transform: translateX(-50%) scale(0.55); margin-bottom: -320px; }
-  /* Truncate mockup height on mobile - crop to sidebar height */
+  .feature-mockup { zoom: 0.55; }
   .feature-mockup .dashboard-mockup { max-height: 420px; overflow: hidden; }
 }
-@media (max-width: 500px) { .feature-mockup { transform: translateX(-50%) scale(0.45); margin-bottom: -380px; } }
-@media (max-width: 420px) { .feature-mockup { transform: translateX(-50%) scale(0.38); margin-bottom: -420px; } }
-@media (max-width: 360px) { .feature-mockup { transform: translateX(-50%) scale(0.32); margin-bottom: -450px; } }
+@media (max-width: 500px) { .feature-mockup { zoom: 0.45; } }
+@media (max-width: 420px) { .feature-mockup { zoom: 0.4; } }
+@media (max-width: 360px) { .feature-mockup { zoom: 0.34; } }
 body { overflow-x: hidden; }
 
 /* Install steps and pricing responsive */
