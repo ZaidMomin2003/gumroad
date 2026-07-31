@@ -1,7 +1,7 @@
 {
-  "version": "2.1.2",
-  "released_at": "2026-07-31T15:00:00Z",
-  "changelog": "Phase 1 polish. Dashboard, unibox, and warmup pages now auto-refresh every 20-30s so new replies and stats show up without hitting refresh. Login is timing-attack resistant and password minimum is now 8 chars. Warmup coordinator URL is now configurable (WARMUP_COORDINATOR_URL env var, set to 'disabled' to turn off phone-home entirely). DNSBL check is disabled by default because the previous implementation queried the wrong IPs and reported meaningless results — set ENABLE_DNSBL_CHECK=true to opt back in. Mailbox reply rate now only counts replies to actual outbound emails, not every inbound message.",
+  "version": "2.2.0",
+  "released_at": "2026-07-31T15:45:00Z",
+  "changelog": "Phase 2 - major security + polish release. Auth session moved from localStorage to httpOnly cookie (XSS payloads can no longer steal your token). IMAP now decodes quoted-printable and base64 email bodies so replies read cleanly instead of showing =3D gibberish. Outbound webhooks (campaign.started, campaign.paused) actually fire now - previously the code path was defined but never called. ListThreads N+1 fixed: 100-thread page went from 200+ SQL queries down to 3.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
