@@ -1,7 +1,7 @@
 {
-  "version": "2.2.0",
-  "released_at": "2026-07-31T15:45:00Z",
-  "changelog": "Phase 2 - major security + polish release. Auth session moved from localStorage to httpOnly cookie (XSS payloads can no longer steal your token). IMAP now decodes quoted-printable and base64 email bodies so replies read cleanly instead of showing =3D gibberish. Outbound webhooks (campaign.started, campaign.paused) actually fire now - previously the code path was defined but never called. ListThreads N+1 fixed: 100-thread page went from 200+ SQL queries down to 3.",
+  "version": "2.3.0",
+  "released_at": "2026-07-31T16:30:00Z",
+  "changelog": "Phase 3 - the features that were listed but broken are now real. Encryption key rotation actually works: set PREVIOUS_ENCRYPTION_KEY, restart, click Rotate in admin dashboard. Every mailbox password, AI key, and integration credential is re-encrypted with the new key while the app stays live. DNSBL check now queries proper domain-based blocklists (Spamhaus DBL, SURBL, URIBL) instead of the meaningless IP lookup of the sending domain - the check now works uniformly for Gmail/Outlook OAuth users and self-hosted SMTP. New local warmup pool mode: set WARMUP_MODE=local to cycle warmup emails between your own mailboxes with no phone-home. Full-text trigram indexes added to lead search: 100k-row LIKE queries drop from full-scan to ~50ms.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
