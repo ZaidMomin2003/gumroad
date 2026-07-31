@@ -1,7 +1,7 @@
 {
-  "version": "1.9.7",
-  "released_at": "2026-07-30T15:34:00Z",
-  "changelog": "Login page: password eye toggle, auto-retry on 'Request failed' during server restart. No more confusing error when API is briefly down after update.",
+  "version": "1.9.8",
+  "released_at": "2026-07-31T10:44:00Z",
+  "changelog": "Zero-downtime updates: rolling restart keeps Caddy/Postgres/Redis alive during updates. Users no longer get disconnected or logged out. API comes up first, then frontend + worker swap.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
