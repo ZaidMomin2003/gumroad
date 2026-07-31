@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
+          home2: resolve(__dirname, 'home-2.html'),
           terms: resolve(__dirname, 'terms.html'),
           privacy: resolve(__dirname, 'privacy.html'),
           support: resolve(__dirname, 'support.html'),
@@ -39,7 +40,6 @@ export default defineConfig(({ mode }) => {
           newsBranding: resolve(__dirname, 'news/white-label-branding.html'),
           newsDiscord: resolve(__dirname, 'news/discord-community.html'),
           newsEngineering: resolve(__dirname, 'news/building-cleanmails-in-go.html'),
-          home2: resolve(__dirname, 'home-2.html'),
         },
       },
     },
