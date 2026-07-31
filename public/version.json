@@ -1,7 +1,7 @@
 {
-  "version": "2.0.4",
-  "released_at": "2026-07-31T13:00:00Z",
-  "changelog": "Live update logs and streaming progress. The update panel now shows real-time terminal output as docker builds and containers restart, so you can actually see what's happening instead of watching a frozen progress bar. Faster builds via layer caching. Public update-status endpoint means the UI keeps polling even during the API restart. New stuck-detector shows recovery commands if the update hangs for 3 minutes.",
+  "version": "2.0.5",
+  "released_at": "2026-07-31T13:20:00Z",
+  "changelog": "Small UI polish - your current version now shows as a green pill next to the Admin Dashboard heading. Handy for confirming an update landed and for support conversations. Test release for the new streaming update logs shipped in 2.0.4.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
   "install_url": "https://cleanmails.online/install.sh",
   "min_version": "1.0.0"
