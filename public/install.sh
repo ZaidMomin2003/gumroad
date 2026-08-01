@@ -1,7 +1,7 @@
 ﻿#!/bin/bash
 
 # ============================================
-# cold mail - Self-Hosted Cold Email Platform
+# Cleanmails - Self-Hosted Cold Email Platform
 # One-command installer with auto-SSL
 # ============================================
 
@@ -110,7 +110,7 @@ if [ -z "$DOMAIN" ]; then
     fi
 
     echo ""
-    printf "  ${YELLOW}Install cold mail at ${WHITE}https://${DOMAIN}${YELLOW}? [Y/n] ${NC}"
+    printf "  ${YELLOW}Install Cleanmails at ${WHITE}https://${DOMAIN}${YELLOW}? [Y/n] ${NC}"
     read CONFIRM < /dev/tty
     CONFIRM=$(echo "$CONFIRM" | tr '[:upper:]' '[:lower:]')
 
@@ -177,7 +177,7 @@ docker pull alpine:3.19 > /dev/null 2>&1 &
 DOCKER_PULL_PID=$!
 
 # ---- Download ----
-step "Downloading cold mail"
+step "Downloading Cleanmails"
 
 mkdir -p "$INSTALL_DIR"
 
@@ -225,7 +225,7 @@ ENCRYPTION_KEY=$(openssl rand -hex 32)
 JWT_SECRET=$(openssl rand -hex 32)
 
 cat > "$INSTALL_DIR/.env" <<EOF
-# cold mail - Generated $(date -u +"%Y-%m-%d %H:%M UTC")
+# Cleanmails - Generated $(date -u +"%Y-%m-%d %H:%M UTC")
 DOMAIN=$DOMAIN
 
 # Database
@@ -361,7 +361,7 @@ fi
 echo ""
 echo ""
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "  ${GREEN}${BOLD}  cold mail is LIVE!${NC}"
+echo -e "  ${GREEN}${BOLD}  Cleanmails is LIVE!${NC}"
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo -e "  ${WHITE}${BOLD}  Dashboard:${NC}   ${CYAN}https://$DOMAIN${NC}"

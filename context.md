@@ -1,8 +1,8 @@
-﻿# cold mail — Project Context
+# Cleanmails — Project Context
 
-## What Is cold mail?
+## What Is Cleanmails?
 
-cold mail is a **self-hosted cold email infrastructure platform** sold as a one-time purchase. It positions itself as an alternative to subscription tools like Instantly.ai and Smartlead. Users deploy it on their own Linux VPS and get unlimited email validation, sender rotation, cadence automation, and spintax — with no monthly fees or usage caps.
+Cleanmails is a **self-hosted cold email infrastructure platform** sold as a one-time purchase. It positions itself as an alternative to subscription tools like Instantly.ai and Smartlead. Users deploy it on their own Linux VPS and get unlimited email validation, sender rotation, cadence automation, and spintax — with no monthly fees or usage caps.
 
 **Domain:** [https://coldmail.host](https://coldmail.host)
 
@@ -193,7 +193,7 @@ curl -sSL https://coldmail.host/install.sh | bash -s -- --key {LICENSE_KEY} --do
 
 ## Competitive Positioning
 
-| Competitor | Their Model | cold mail Advantage |
+| Competitor | Their Model | Cleanmails Advantage |
 |------------|-------------|---------------------|
 | Instantly.ai | $97/month subscription | $497 one-time, unlimited |
 | Smartlead.ai | Per-workspace fees | No workspace limits |
