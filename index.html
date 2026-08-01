@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cleanmails — Self-Hosted Cold Email Infrastructure</title>
+<title>cold mail — Self-Hosted Cold Email Infrastructure</title>
 <meta name="description" content="Send campaigns, clean lists, rotate senders, and run cadences. One-time payment. No monthly fees. No limits.">
 <link rel="icon" type="image/png" href="/icon.png">
 
@@ -42,7 +42,7 @@ tailwind.config = {
 <div id="root"></div>
 <script type="text/babel">
 const { useState } = React;
-const CHECKOUT = "https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D";
+const CHECKOUT = "https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D";
 
 const faqs = [
   { q: "Do I need technical knowledge?", a: "No. One command installs everything in 5 minutes. Or pay $9 and we do it for you." },
@@ -63,7 +63,7 @@ function App() {
   const [leads, setLeads] = useState(80);
 
   const copyCmd = () => {
-    navigator.clipboard.writeText("curl -fsSL https://cleanmails.online/install.sh | sudo bash");
+    navigator.clipboard.writeText("curl -fsSL https://coldmail.host/install.sh | sudo bash");
     setCopied(true); setTimeout(() => setCopied(false), 2000);
   };
 
@@ -99,8 +99,8 @@ function App() {
           <nav>
             <div class="nav-inner">
               <a href="/" class="nav-logo">
-                <img src="/icon.png" alt="Cleanmails">
-                Cleanmails
+                <img src="/icon.png" alt="cold mail">
+                cold mail
               </a>
               <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
@@ -109,7 +109,7 @@ function App() {
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="https://discord.gg/TYjNpSx8n" target="_blank" style="color:#5865F2;">Discord</a></li>
               </ul>
-              <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="nav-cta">
+              <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="nav-cta">
                 <span class="desktop-text" onclick="trackClick('cta_click','nav_buy_now')">Buy Now →</span>
                 <span class="mobile-text">Buy Now</span>
               </a>
@@ -143,7 +143,7 @@ function App() {
           <div style={{marginTop:"24px",maxWidth:"620px",marginLeft:"auto",marginRight:"auto"}}>
             <p style={{fontSize:"0.72rem",fontWeight:"700",color:"#999",marginBottom:"8px",letterSpacing:"0.05em",textTransform:"uppercase"}}>Install in one command</p>
             <div onClick={copyCmd} style={{display:"flex",alignItems:"center",gap:"12px",background:"#0d0d0d",border:"2px solid #222",borderRadius:"10px",padding:"12px 18px",cursor:"pointer"}}>
-              <code style={{flex:1,fontFamily:"'SF Mono',Menlo,Consolas,monospace",fontSize:"0.78rem",color:"#ccc",textAlign:"left",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>curl -fsSL https://cleanmails.online/install.sh | sudo bash</code>
+              <code style={{flex:1,fontFamily:"'SF Mono',Menlo,Consolas,monospace",fontSize:"0.78rem",color:"#ccc",textAlign:"left",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>curl -fsSL https://coldmail.host/install.sh | sudo bash</code>
               <span style={{fontSize:"0.72rem",fontWeight:"800",color:copied?"#2ecc71":"#555",background:"#1a1a1a",border:"1px solid "+(copied?"#2ecc71":"#333"),padding:"4px 10px",borderRadius:"6px",whiteSpace:"nowrap"}}>{copied ? "Copied!" : "Copy"}</span>
             </div>
           </div>
@@ -338,7 +338,7 @@ function App() {
                         </div>
                         <div className="max-w-[85%] ml-auto bg-neutral-50 border border-neutral-100 rounded-lg p-2.5">
                           <p className="text-[9px] font-semibold text-neutral-500 mb-1">You (sales@yourdomain.com)</p>
-                          <p className="text-[10px] text-neutral-600 leading-relaxed">Great question. Cleanmails supports any SMTP — Gmail, Outlook, AWS SES, custom relays...</p>
+                          <p className="text-[10px] text-neutral-600 leading-relaxed">Great question. cold mail supports any SMTP — Gmail, Outlook, AWS SES, custom relays...</p>
                         </div>
                       </div>
                       <div className="border-t border-neutral-100 p-2.5">
@@ -573,8 +573,8 @@ function App() {
                     {/* Sidebar - Light */}
                     <div className="col-span-4 md:col-span-3 bg-neutral-50 border-r border-neutral-100 p-3">
                       <div className="flex items-center gap-2 mb-4 px-2">
-                        <img src="/icon.png" alt="CleanMails" className="w-5 h-5 rounded-md" />
-                        <span className="text-[11px] font-bold text-neutral-900">CleanMails</span>
+                        <img src="/icon.png" alt="cold mail" className="w-5 h-5 rounded-md" />
+                        <span className="text-[11px] font-bold text-neutral-900">cold mail</span>
                       </div>
 
                       {/* Workspace switcher - open */}
@@ -776,7 +776,7 @@ function App() {
               <p className="text-lg font-black mb-1">See a live campaign report.</p>
               <p className="text-sm text-neutral-500">Real-time stats, read-only, no login. Share with your clients in one click.</p>
             </div>
-            <a href="https://test.cleanmails.online/report/demo-workspace-d3f9" target="_blank" onClick={() => trackClick("cta_click","view_live_report")} className="bg-neutral-900 text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-neutral-700 transition inline-flex items-center gap-2">
+            <a href="https://test.coldmail.host/report/demo-workspace-d3f9" target="_blank" onClick={() => trackClick("cta_click","view_live_report")} className="bg-neutral-900 text-white font-bold text-sm px-6 py-3 rounded-full hover:bg-neutral-700 transition inline-flex items-center gap-2">
               View Live Report
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
             </a>
@@ -797,7 +797,7 @@ function App() {
                 <tr className="bg-neutral-900 text-white">
                   <th className="text-left px-5 py-4 font-bold w-[40%]">Feature</th>
                   <th className="text-center px-5 py-4 font-bold border-l border-neutral-700 w-[20%]">
-                    <span className="text-brand-400">Cleanmails</span><br/>
+                    <span className="text-brand-400">cold mail</span><br/>
                     <span className="text-[10px] font-semibold text-emerald-400">$199 once</span>
                   </th>
                   <th className="text-center px-5 py-4 font-bold border-l border-neutral-700 w-[20%]">
@@ -848,7 +848,7 @@ function App() {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-neutral-400 mt-4">Based on publicly listed pricing. Cleanmails is a one-time purchase with free lifetime updates.</p>
+          <p className="text-xs text-neutral-400 mt-4">Based on publicly listed pricing. cold mail is a one-time purchase with free lifetime updates.</p>
         </div>
       </section>
 
@@ -877,7 +877,7 @@ function App() {
                 <span className="font-bold text-red-500">${(leads * 12).toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-neutral-500">Cleanmails (one-time)</span>
+                <span className="text-neutral-500">cold mail (one-time)</span>
                 <span className="font-bold">$199</span>
               </div>
               <div className="flex justify-between text-sm border-t border-neutral-100 pt-3">
@@ -922,9 +922,9 @@ function App() {
             <hr style={{border:"none",borderTop:"2px solid #f0f0f0",margin:"32px 0"}} />
             
             {/* Install command inside pricing card */}
-            <div onClick={() => {navigator.clipboard.writeText("curl -fsSL https://cleanmails.online/install.sh | sudo bash");setCopied(true);setTimeout(()=>setCopied(false),2000)}} style={{display:"flex",alignItems:"center",gap:"10px",background:"#fafafa",border:"2px solid #e5e5e5",borderRadius:"12px",padding:"12px 16px",cursor:"pointer",marginBottom:"24px"}}>
+            <div onClick={() => {navigator.clipboard.writeText("curl -fsSL https://coldmail.host/install.sh | sudo bash");setCopied(true);setTimeout(()=>setCopied(false),2000)}} style={{display:"flex",alignItems:"center",gap:"10px",background:"#fafafa",border:"2px solid #e5e5e5",borderRadius:"12px",padding:"12px 16px",cursor:"pointer",marginBottom:"24px"}}>
               <span style={{fontSize:"0.75rem",color:"#f59e0b",fontWeight:"900",flexShrink:0}}>$</span>
-              <code style={{flex:1,fontFamily:"'JetBrains Mono',monospace",fontSize:"0.78rem",color:"#333",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>curl -fsSL https://cleanmails.online/install.sh | sudo bash</code>
+              <code style={{flex:1,fontFamily:"'JetBrains Mono',monospace",fontSize:"0.78rem",color:"#333",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>curl -fsSL https://coldmail.host/install.sh | sudo bash</code>
               <span style={{fontSize:"0.68rem",fontWeight:"800",color:copied?"#16a34a":"#888",background:copied?"#dcfce7":"#f0f0f0",padding:"4px 12px",borderRadius:"6px",whiteSpace:"nowrap",transition:"all 0.2s",border:copied?"1px solid #86efac":"1px solid #e5e5e5"}}>{copied ? "Copied!" : "Copy"}</span>
             </div>
 
@@ -948,7 +948,7 @@ function App() {
                 <span key={i} style={{fontSize:"0.8rem",fontWeight:"600",color:"#888",display:"flex",alignItems:"center",gap:"6px"}}>— {f}</span>
               ))}
             </div>
-            <a href="https://starter-kit.cleanmails.online/" target="_blank" style={{display:"inline-block",background:"#FFD700",color:"#000",fontWeight:"900",fontSize:"0.88rem",padding:"12px 24px",borderRadius:"12px",border:"2px solid #FFD700",textDecoration:"none",whiteSpace:"nowrap"}} onClick={() => trackClick("cta_click","source_access")}>Get Source Access →</a>
+            <a href="https://starter-kit.coldmail.host/" target="_blank" style={{display:"inline-block",background:"#FFD700",color:"#000",fontWeight:"900",fontSize:"0.88rem",padding:"12px 24px",borderRadius:"12px",border:"2px solid #FFD700",textDecoration:"none",whiteSpace:"nowrap"}} onClick={() => trackClick("cta_click","source_access")}>Get Source Access →</a>
           </div>
 
           {/* Badges */}
@@ -1022,7 +1022,7 @@ function App() {
         </style>
         <footer class="cm-footer">
           <div class="cm-footer-inner">
-            <div class="cm-footer-brand">Cleanmails</div>
+            <div class="cm-footer-brand">cold mail</div>
             <div class="cm-footer-grid">
               <div>
                 <strong>Platform</strong>
@@ -1052,7 +1052,7 @@ function App() {
                 <a href="/terms">Terms of Service</a>
               </div>
             </div>
-            <p class="cm-footer-copy">© 2025 Cleanmails. All rights reserved. Engine built with <a href="https://go.dev" target="_blank" style="color:#000;font-weight:700;text-decoration:none;">Go</a></p>
+            <p class="cm-footer-copy">© 2025 cold mail. All rights reserved. Engine built with <a href="https://go.dev" target="_blank" style="color:#000;font-weight:700;text-decoration:none;">Go</a></p>
           </div>
         </footer>
       `}} />
@@ -1065,15 +1065,15 @@ function App() {
             <p className="text-xs text-neutral-500 mb-5">Explore the full dashboard with sample data.</p>
             <div className="bg-neutral-50 rounded-xl border border-neutral-200 p-4 mb-5 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs"><span className="text-neutral-400">email: </span><span className="font-semibold">Demo@cleanmails.online</span></span>
-                <button onClick={(e) => {navigator.clipboard.writeText('Demo@cleanmails.online');e.target.textContent='Copied!';setTimeout(()=>{e.target.textContent='Copy'},1500)}} className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-md hover:bg-amber-200 transition">Copy</button>
+                <span className="font-mono text-xs"><span className="text-neutral-400">email: </span><span className="font-semibold">Demo@coldmail.host</span></span>
+                <button onClick={(e) => {navigator.clipboard.writeText('Demo@coldmail.host');e.target.textContent='Copied!';setTimeout(()=>{e.target.textContent='Copy'},1500)}} className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-md hover:bg-amber-200 transition">Copy</button>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs"><span className="text-neutral-400">pass: </span><span className="font-semibold">Demo@123</span></span>
                 <button onClick={(e) => {navigator.clipboard.writeText('Demo@123');e.target.textContent='Copied!';setTimeout(()=>{e.target.textContent='Copy'},1500)}} className="text-[10px] font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-md hover:bg-amber-200 transition">Copy</button>
               </div>
             </div>
-            <a href="http://demo.cleanmails.online/" target="_blank" className="block text-center bg-neutral-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-neutral-700 transition">Open Dashboard</a>
+            <a href="http://demo.coldmail.host/" target="_blank" className="block text-center bg-neutral-900 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-neutral-700 transition">Open Dashboard</a>
           </div>
         </div>
       )}

@@ -9,4 +9,4 @@ Disallow: /cancel
 Disallow: /millionmails
 Disallow: /api/
 
-Sitemap: https://cleanmails.online/sitemap.xml
+Sitemap: https://coldmail.host/sitemap.xml

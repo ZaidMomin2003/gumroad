@@ -21,7 +21,7 @@
  var ref = params.get('ref');
  if (ref) {
  document.cookie = 'cm_ref=' + ref + ';path=/;max-age=' + (30*24*60*60) + ';SameSite=Lax';
- fetch('https://affiliate.cleanmails.online/api/track-click', {
+ fetch('https://affiliate.coldmail.host/api/track-click', {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({ code: ref })
@@ -35,19 +35,19 @@
  </script>
 
  <!-- SEO -->
- <title>Best Self-Hosted Cold Email Tool — BYO SMTP, List Hygiene & Warmup | Cleanmails</title>
- <meta name="description" content="Cleanmails is the #1 self-hosted cold email platform. BYO SMTP, built-in list hygiene (135K+ disposable domains, syntax, MX checks), unlimited sender rotation, warmup, MCP & cadences. One-time payment, no monthly fees.">
+ <title>Best Self-Hosted Cold Email Tool — BYO SMTP, List Hygiene & Warmup | cold mail</title>
+ <meta name="description" content="cold mail is the #1 self-hosted cold email platform. BYO SMTP, built-in list hygiene (135K+ disposable domains, syntax, MX checks), unlimited sender rotation, warmup, MCP & cadences. One-time payment, no monthly fees.">
  <meta name="keywords" content="self hosted cold email tool, cold email software, BYO SMTP, email list hygiene, email warmup tool, spintax, cadence automation, Instantly alternative, Smartlead alternative, no monthly cold email, MCP integration, bulk email sender, sender rotation">
- <link rel="canonical" href="https://cleanmails.online" />
+ <link rel="canonical" href="https://coldmail.host" />
  <!-- Schema.org Product -->
  <script type="application/ld+json">
  {
  "@context": "https://schema.org",
  "@type": "SoftwareApplication",
- "name": "Cleanmails",
+ "name": "cold mail",
  "applicationCategory": "BusinessApplication",
  "operatingSystem": "Linux",
- "url": "https://cleanmails.online",
+ "url": "https://coldmail.host",
  "description": "Self-hosted cold email platform with BYO SMTP, built-in list hygiene, warmup, sender rotation, MCP integration, and cadence automation. One-time payment.",
  "offers": [
  { "@type": "Offer", "name": "Agency", "price": "199", "priceCurrency": "USD" },
@@ -68,9 +68,9 @@
  { "@type": "Question", "name": "Is this truly unlimited?", "acceptedAnswer": { "@type": "Answer", "text": "Truly unlimited. No contact limits, no email limits, no domain limits, no sender limits, no workspace limits." } },
  { "@type": "Question", "name": "Can I resell this to my clients or build a SaaS?", "acceptedAnswer": { "@type": "Answer", "text": "The Agency license lets you run campaigns for unlimited clients under your brand. Reselling the software is not permitted. The Source Code license lets you build one SaaS product on top of it and charge your customers, but you cannot resell or redistribute the codebase itself." } },
  { "@type": "Question", "name": "What if I need support after setup?", "acceptedAnswer": { "@type": "Answer", "text": "You get access to our Discord community where the dev team and other agency owners help in real-time. We also provide documentation and priority support for Enterprise license holders." } },
- { "@type": "Question", "name": "Does Cleanmails have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleanmails ships with a full mail server (Postfix + Dovecot + auto-DKIM). Create unlimited mailboxes on your own domains. External relays like AWS SES are optional, not required." } },
+ { "@type": "Question", "name": "Does cold mail have inbuilt SMTP?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. cold mail ships with a full mail server (Postfix + Dovecot + auto-DKIM). Create unlimited mailboxes on your own domains. External relays like AWS SES are optional, not required." } },
  { "@type": "Question", "name": "How does the AI auto-reply work?", "acceptedAnswer": { "@type": "Answer", "text": "When a prospect replies, the AI reads the message, classifies intent, and drafts a contextual reply using your knowledge base. You can approve manually or enable autopilot mode." } },
- { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "Cleanmails runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES and never leave your machine." } }
+ { "@type": "Question", "name": "Is my data safe?", "acceptedAnswer": { "@type": "Answer", "text": "cold mail runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES and never leave your machine." } }
  ]
  }
  </script>
@@ -80,17 +80,17 @@
 
  <!-- Open Graph -->
  <meta property="og:type" content="website">
- <meta property="og:url" content="https://cleanmails.online">
- <meta property="og:title" content="Best Self-Hosted Cold Email Tool — BYO SMTP, List Hygiene & Warmup | Cleanmails">
+ <meta property="og:url" content="https://coldmail.host">
+ <meta property="og:title" content="Best Self-Hosted Cold Email Tool — BYO SMTP, List Hygiene & Warmup | cold mail">
  <meta property="og:description" content="Self-hosted cold email with BYO SMTP, list hygiene, unlimited sender rotation, warmup & cadences. One-time payment, no monthly fees.">
- <meta property="og:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
+ <meta property="og:image" content="https://coldmail.host/coldmail_dashboard_preview.png">
 
  <!-- Twitter -->
  <meta property="twitter:card" content="summary_large_image">
- <meta property="twitter:url" content="https://cleanmails.online">
- <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | Cleanmails">
+ <meta property="twitter:url" content="https://coldmail.host">
+ <meta property="twitter:title" content="Best Self-Hosted Cold Email Tool — No Monthly Fees | cold mail">
  <meta property="twitter:description" content="BYO SMTP. List hygiene. Unlimited senders. Warmup. Cadences. One-time payment.">
- <meta property="twitter:image" content="https://cleanmails.online/cleanmails_dashboard_preview.png">
+ <meta property="twitter:image" content="https://coldmail.host/coldmail_dashboard_preview.png">
 
  <!-- Fonts -->
  <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1008,8 +1008,8 @@
  <nav class="nav">
  <div class="nav-inner">
  <a href="/" class="nav-logo">
- <img src="/icon.png" alt="Cleanmails">
- Cleanmails
+ <img src="/icon.png" alt="cold mail">
+ cold mail
  </a>
  <ul class="nav-links">
  <li><a href="#integrations-section">Integrations</a></li>
@@ -1028,7 +1028,7 @@
   </div>
  </li>
  </ul>
- <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="nav-cta">
+ <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="nav-cta">
  <span class="desktop-text">Claim Deal →</span>
  <span class="mobile-text">Claim Deal</span>
  </a>
@@ -1056,7 +1056,7 @@
  </p>
 
  <div class="hero-ctas">
- <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" id="heroCta">Get Access · $199 →</a>
+ <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" id="heroCta">Get Access · $199 →</a>
  <a href="#" class="btn-secondary" onclick="document.getElementById('demo-modal').style.display='flex'; return false;">Live Demo</a>
  </div>
 
@@ -1064,7 +1064,7 @@
  <div style="margin-top:24px;max-width:620px;margin-left:auto;margin-right:auto;">
  <p style="font-size:0.72rem;font-weight:700;color:#999;margin-bottom:8px;letter-spacing:0.05em;text-transform:uppercase;">Install in one command</p>
  <div onclick="copyInstall()" style="display:flex;align-items:center;gap:12px;background:#0d0d0d;border:2px solid #222;border-radius:10px;padding:12px 18px;cursor:pointer;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#FFD700'" onmouseout="this.style.borderColor='#222'">
- <code style="flex:1;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:0.78rem;color:#ccc;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="install-cmd">curl -fsSL https://cleanmails.online/install.sh | sudo bash</code>
+ <code style="flex:1;font-family:'SF Mono',Menlo,Consolas,monospace;font-size:0.78rem;color:#ccc;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" id="install-cmd">curl -fsSL https://coldmail.host/install.sh | sudo bash</code>
  <span id="copy-icon" style="font-size:0.72rem;font-weight:800;color:#555;background:#1a1a1a;border:1px solid #333;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all 0.2s;">Copy</span>
  </div>
  </div>
@@ -1125,7 +1125,7 @@
  <span style="font-size:0.65rem;color:#666;margin-left:auto;font-family:monospace;">root@vps:~</span>
  </div>
  <div style="padding:16px;font-family:monospace;font-size:0.72rem;line-height:1.8;color:#ccc;word-break:break-all;">
- <div><span style="color:#888;">$</span> <span style="color:#2ecc71;">curl -sSL</span> cleanmails.online/install.sh | <span style="color:#2ecc71;">bash</span> -s -- \</div>
+ <div><span style="color:#888;">$</span> <span style="color:#2ecc71;">curl -sSL</span> coldmail.host/install.sh | <span style="color:#2ecc71;">bash</span> -s -- \</div>
  <div style="padding-left:16px;">--key <span style="color:#FFD700;">CM-AGENCY-7X9K2</span> \</div>
  <div style="padding-left:16px;">--domain <span style="color:#FFD700;">mail.yourdomain.com</span></div>
  <div style="margin-top:12px;color:#2ecc71;">✔ SMTP configured</div>
@@ -1374,7 +1374,7 @@
  <div class="feat-inner">
  <div style="text-align:center;margin-bottom:48px;">
  <span class="feat-tag" style="color:#7c3aed;">MCP Protocol</span>
- <h3 class="feat-h3" style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);">Control Cleanmails from any AI.</h3>
+ <h3 class="feat-h3" style="font-size:clamp(1.8rem, 3.5vw, 2.4rem);">Control cold mail from any AI.</h3>
  <p class="feat-p" style="max-width:520px;margin:0 auto;">One config block. Then use ChatGPT, Claude, Cursor, or any MCP client to create campaigns, validate leads, and manage outreach.</p>
  </div>
 
@@ -1387,8 +1387,8 @@
  </div>
  <pre style="background:#1a1a1a;border:2px solid #000;border-radius:14px;padding:18px;font-size:0.82rem;color:#e4e4e7;overflow-x:auto;margin:0 0 16px;line-height:1.7;font-family:monospace;"><code>{
  "mcpServers": {
-   "cleanmails": {
-     "command": "./cleanmails-mcp",
+   "coldmail": {
+     "command": "./coldmail-mcp",
      "args": ["--api-url", "https://your-vps"]
    }
  }
@@ -1626,7 +1626,7 @@
 <div class="section-inner" style="max-width:1000px;margin:0 auto;">
 <div style="text-align:center;margin-bottom:48px;">
 <span class="section-label">Compare</span>
-<h2 class="section-headline">Cleanmails vs. the subscription trap.</h2>
+<h2 class="section-headline">cold mail vs. the subscription trap.</h2>
 <p class="section-sub" style="margin:0 auto;">Feature-for-feature. No spin. See exactly what you get for a one-time payment vs. bleeding monthly.</p>
 </div>
 
@@ -1652,7 +1652,7 @@
 <thead>
 <tr>
 <th style="text-align:left;color:#fff;width:40%;">Feature</th>
-<th style="text-align:center;color:#FFD700;width:20%;border-left:2px solid #222;background:#111;">Cleanmails<br><span style="font-size:0.65rem;color:#2ecc71;font-weight:700;">$199 once</span></th>
+<th style="text-align:center;color:#FFD700;width:20%;border-left:2px solid #222;background:#111;">cold mail<br><span style="font-size:0.65rem;color:#2ecc71;font-weight:700;">$199 once</span></th>
 <th style="text-align:center;color:#fff;width:20%;border-left:2px solid #222;">Instantly<br><span style="font-size:0.65rem;color:#e63946;font-weight:700;">$79–$97/mo</span></th>
 <th style="text-align:center;color:#fff;width:20%;border-left:2px solid #222;">Smartlead<br><span style="font-size:0.65rem;color:#e63946;font-weight:700;">$39–$94/mo</span></th>
 </tr>
@@ -1746,7 +1746,7 @@
 </table>
 </div>
 
-<p style="text-align:center;margin-top:20px;font-size:0.78rem;color:#888;font-weight:600;">* Based on publicly listed pricing as of 2025. Cleanmails is a one-time purchase with free lifetime updates.</p>
+<p style="text-align:center;margin-top:20px;font-size:0.78rem;color:#888;font-weight:600;">* Based on publicly listed pricing as of 2025. cold mail is a one-time purchase with free lifetime updates.</p>
 </div>
 </section>
 
@@ -1802,7 +1802,7 @@
  <div style="text-align: center; margin-bottom: 48px;">
  <span class="section-label" style="background: #2ecc71; border-color: #2ecc71; color: #000;">Profit Calculator</span>
  <h2 class="section-headline" style="color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem);">When Do You Stop Bleeding<br>& Start Stacking?</h2>
- <p style="color: #888; font-size: 1rem; font-weight: 500; max-width: 520px; margin: 0 auto;">Enter what you currently spend on cold email tools. We'll show you exactly when Cleanmails pays for itself.</p>
+ <p style="color: #888; font-size: 1rem; font-weight: 500; max-width: 520px; margin: 0 auto;">Enter what you currently spend on cold email tools. We'll show you exactly when cold mail pays for itself.</p>
  </div>
 
  <div class="calculator-card">
@@ -1819,7 +1819,7 @@
 
  <div style="background: #1a1a1a; border: 1px solid #333; border-radius: 16px; padding: 20px;">
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
- <span style="color: #888; font-size: 0.8rem; font-weight: 700;">Cleanmails one-time cost</span>
+ <span style="color: #888; font-size: 0.8rem; font-weight: 700;">cold mail one-time cost</span>
  <span style="color: #fff; font-size: 1.1rem; font-weight: 900;">$199</span>
  </div>
  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
@@ -1881,15 +1881,15 @@
 
  function calculate() {
  const monthly = Math.max(1, parseInt(input.value) || 0);
- const cleanmailsCost = 199;
+ const coldmailCost = 199;
  const yearly = monthly * 12;
- const yearlySavings = yearly - cleanmailsCost;
+ const yearlySavings = yearly - coldmailCost;
 
  // Breakeven calculation
- const breakevenMonths = cleanmailsCost / monthly;
+ const breakevenMonths = coldmailCost / monthly;
  const fullMonths = Math.floor(breakevenMonths);
  const remainingDays = Math.round((breakevenMonths - fullMonths) * 30);
- const totalBreakevenDays = Math.round(cleanmailsCost / (monthly / 30));
+ const totalBreakevenDays = Math.round(coldmailCost / (monthly / 30));
 
  // Display yearly spend
  yearlySpendDisplay.textContent = '$' + yearly.toLocaleString();
@@ -1949,7 +1949,7 @@
  </div>
  </div>
  <div class="calc-results">
- <span class="calc-result-title">Your Yearly Savings with Cleanmails</span>
+ <span class="calc-result-title">Your Yearly Savings with cold mail</span>
  <div class="calc-saving-amount" id="calc-total">$5,503</div>
  <p class="calc-saving-period">ROI Achieved in <span id="calc-roi" style="color:var(--gold); font-weight:900;">4.2</span> weeks</p>
  <div style="margin-top: 24px; font-size: 0.8rem; color: #666; font-weight: 700;">*Compared to Smartlead/Instantly Pro plans</div>
@@ -1993,7 +1993,7 @@
  <span class="pf-hike">△️ Price increases to $349 after 100 sales. Lock in $199 today.</span>
  </div>
  <div class="pf-cta-wrap">
- <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="pf-btn">Get Access →</a>
+ <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="pf-btn">Get Access →</a>
  <span class="pf-guarantee">14-day money-back guarantee</span>
  </div>
  </div>
@@ -2028,7 +2028,7 @@
  <span class="ps-feature">Priority Developer Support</span>
  <span class="ps-feature">No Reselling the Codebase</span>
  </div>
- <a href="https://starter-kit.cleanmails.online/" target="_blank" class="ps-btn" style="background:#FFD700;color:#000;border-color:#FFD700;font-weight:900;">Get Source Access →</a>
+ <a href="https://starter-kit.coldmail.host/" target="_blank" class="ps-btn" style="background:#FFD700;color:#000;border-color:#FFD700;font-weight:900;">Get Source Access →</a>
  </div>
 
  </div>
@@ -2050,7 +2050,7 @@
  <span class="section-label" style="background: var(--gold); border-color: var(--black);">Earn With Us</span>
  <h2 class="section-headline">Join Affiliate. <br> $40 per sale.</h2>
  <p class="section-sub">Help other agency owners escape the monthly SaaS trap and earn $40 for every referral. Paid on the 10th and 20th of every month. No caps, zero friction.</p>
- <a href="https://affiliate.cleanmails.online/" target="_blank" rel="noopener" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
+ <a href="https://affiliate.coldmail.host/" target="_blank" rel="noopener" class="btn-primary" style="padding: 20px 48px;">Apply to Join Program →</a>
  </div>
  </div>
  </section>
@@ -2087,7 +2087,7 @@
  <span class="faq-question-text">What SMTP providers can I use?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>Any SMTP provider.</strong> Gmail, Outlook, AWS SES, SendGrid, Zoho, Resend, or any custom SMTP. You buy your own sending infrastructure and plug it into Cleanmails. The platform handles rotation, scheduling, and throttling across all connected mailboxes. No vendor lock-in.</div>
+ <div class="faq-answer"><strong>Any SMTP provider.</strong> Gmail, Outlook, AWS SES, SendGrid, Zoho, Resend, or any custom SMTP. You buy your own sending infrastructure and plug it into cold mail. The platform handles rotation, scheduling, and throttling across all connected mailboxes. No vendor lock-in.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -2101,7 +2101,7 @@
  <span class="faq-question-text">What server do I need to run this?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer">A basic Linux VPS — Hetzner, Contabo, or DigitalOcean at <strong>$6–10/month</strong> handles thousands of emails daily. No special requirements, no Docker, no Node.js. Cleanmails is a single compiled binary. Connect your SMTP providers and you’re ready to send.</div>
+ <div class="faq-answer">A basic Linux VPS — Hetzner, Contabo, or DigitalOcean at <strong>$6–10/month</strong> handles thousands of emails daily. No special requirements, no Docker, no Node.js. cold mail is a single compiled binary. Connect your SMTP providers and you’re ready to send.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -2136,14 +2136,14 @@
  <span class="faq-question-text">Is my data safe? Can you access my leads?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>We cannot access your data. Period.</strong> Cleanmails runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES-256 and never leave your machine. You own everything.</div>
+ <div class="faq-answer"><strong>We cannot access your data. Period.</strong> cold mail runs entirely on your server. No cloud dependency, no phone-home, no telemetry. Your leads, campaigns, and reply data are encrypted at rest with AES-256 and never leave your machine. You own everything.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
  <span class="faq-question-text">What’s the refund policy?</span>
  <span class="faq-icon">+</span>
  </button>
- <div class="faq-answer"><strong>14-day money-back guarantee.</strong> If Cleanmails doesn’t work for your use case, email us within 14 days and we’ll refund you in full. No questions, no hoops.</div>
+ <div class="faq-answer"><strong>14-day money-back guarantee.</strong> If cold mail doesn’t work for your use case, email us within 14 days and we’ll refund you in full. No questions, no hoops.</div>
  </div>
  <div class="faq-item">
  <button class="faq-question" aria-expanded="false">
@@ -2168,7 +2168,7 @@
  <h2 class="section-headline" style="margin-top: 24px;">Stop renting. Start owning.</h2>
  <p class="section-sub">Price increases to $349 after 100 sales. Lock in $199 today. 5-min install. No monthly fees. Free white-glove setup included.</p>
  <div class="final-cta-btns">
- <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" id="finalCta">Get Access →</a>
+ <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" id="finalCta">Get Access →</a>
  <a href="https://discord.gg/aH8NqcEenZ" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="border-color: #5865F2; color: #fff;"> Join Discord</a>
  </div>
  </section>
@@ -2210,13 +2210,13 @@
  <!-- FOOTER -->
  <footer class="footer">
  <div class="footer-inner">
- <div class="footer-brand">Cleanmails</div>
+ <div class="footer-brand">cold mail</div>
  <nav class="footer-links">
  <div class="footer-col">
  <strong>Platform</strong>
  <a href="/">Home</a>
  <a href="/verify">Free Validator</a>
- <!-- <a href="https://affiliate.cleanmails.online/">Affiliate Program</a> -->
+ <!-- <a href="https://affiliate.coldmail.host/">Affiliate Program</a> -->
  <a href="/docs">Documentation</a>
  <a href="/blog">Blog</a>
  <a href="https://mailhealth.dpdns.org/tools/spam-checker" target="_blank">Tools</a>
@@ -2248,7 +2248,7 @@
  <button type="submit" id="nSubmit" class="newsletter-btn">Join</button>
  </form>
  </div>
- <p class="footer-copy">© 2025 Cleanmails. All rights reserved.</p>
+ <p class="footer-copy">© 2025 cold mail. All rights reserved.</p>
  <p class="footer-built">Engine built with <a href="https://go.dev" target="_blank" rel="noopener noreferrer" class="footer-built-link">Go</a></p>
  </div>
  </footer>
@@ -2548,7 +2548,7 @@
     <strong style="font-size:0.85rem;">Tight-knit community. Direct dev access.</strong>
    </div>
   </div>
-  <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://cleanmails.online%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $199 →</a>
+  <a href="https://checkout.dodopayments.com/buy/pdt_0NjDtkmaYaeeHprWb02rS?quantity=1&redirect_url=https://coldmail.host%2Fsuccess%3Flicense_key%3D%7Blicense_key%7D" class="btn-primary" style="width:100%; justify-content:center;" onclick="document.getElementById('licence-popup').style.display='none';">Secure My Licence · $199 →</a>
   <p style="font-size:0.72rem; color:#999; margin-top:10px;">One-time payment · Lifetime updates · 30-day refund</p>
  </div>
 </div>
@@ -2564,9 +2564,9 @@
    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
     <div>
      <p style="font-size:0.7rem; font-weight:800; text-transform:uppercase; color:#888; letter-spacing:0.1em;">Email</p>
-     <p style="font-size:0.95rem; font-weight:700; font-family:monospace;">Demo@cleanmails.online</p>
+     <p style="font-size:0.95rem; font-weight:700; font-family:monospace;">Demo@coldmail.host</p>
     </div>
-    <button onclick="navigator.clipboard.writeText('Demo@cleanmails.online');this.textContent='✔'" style="background:#000; color:#fff; border:none; padding:6px 14px; border-radius:8px; font-size:0.75rem; font-weight:800; cursor:pointer;">Copy</button>
+    <button onclick="navigator.clipboard.writeText('Demo@coldmail.host');this.textContent='✔'" style="background:#000; color:#fff; border:none; padding:6px 14px; border-radius:8px; font-size:0.75rem; font-weight:800; cursor:pointer;">Copy</button>
    </div>
    <div style="display:flex; align-items:center; justify-content:space-between;">
     <div>
@@ -2577,7 +2577,7 @@
    </div>
   </div>
 
-  <a href="http://demo.cleanmails.online/" target="_blank" style="display:block; background:#000; color:#fff; font-weight:900; font-size:0.95rem; padding:14px 24px; border-radius:12px; text-decoration:none; border:2px solid #000; box-shadow:4px 4px 0 var(--gold); transition:all 0.2s;">Open Demo Dashboard →</a>
+  <a href="http://demo.coldmail.host/" target="_blank" style="display:block; background:#000; color:#fff; font-weight:900; font-size:0.95rem; padding:14px 24px; border-radius:12px; text-decoration:none; border:2px solid #000; box-shadow:4px 4px 0 var(--gold); transition:all 0.2s;">Open Demo Dashboard →</a>
   <p style="font-size:0.75rem; color:#999; margin-top:12px;">Read-only mode · No credit card needed</p>
  </div>
 </div>

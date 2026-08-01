@@ -2,107 +2,107 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Main Pages -->
   <url>
-    <loc>https://cleanmails.online</loc>
+    <loc>https://coldmail.host</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/docs</loc>
+    <loc>https://coldmail.host/docs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/verify</loc>
+    <loc>https://coldmail.host/verify</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/affiliate</loc>
+    <loc>https://coldmail.host/affiliate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Feature Pages -->
   <url>
-    <loc>https://cleanmails.online/email-validation</loc>
+    <loc>https://coldmail.host/email-validation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/sender-rotation</loc>
+    <loc>https://coldmail.host/sender-rotation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/spintax-generator</loc>
+    <loc>https://coldmail.host/spintax-generator</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/cold-email-cadence</loc>
+    <loc>https://coldmail.host/cold-email-cadence</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/infrastructure</loc>
+    <loc>https://coldmail.host/infrastructure</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/saas-starter</loc>
+    <loc>https://coldmail.host/saas-starter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Comparison Pages -->
   <url>
-    <loc>https://cleanmails.online/cleanmails-vs-instantly</loc>
+    <loc>https://coldmail.host/cleanmails-vs-instantly</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/cleanmails-vs-smartlead</loc>
+    <loc>https://coldmail.host/cleanmails-vs-smartlead</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Blog & Tools Index -->
   <url>
-    <loc>https://cleanmails.online/blog</loc>
+    <loc>https://coldmail.host/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/tools</loc>
+    <loc>https://coldmail.host/tools</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Other Pages -->
   <url>
-    <loc>https://cleanmails.online/CleanieAI</loc>
+    <loc>https://coldmail.host/CleanieAI</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/developer</loc>
+    <loc>https://coldmail.host/developer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/support</loc>
+    <loc>https://coldmail.host/support</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Legal -->
   <url>
-    <loc>https://cleanmails.online/terms</loc>
+    <loc>https://coldmail.host/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://cleanmails.online/privacy</loc>
+    <loc>https://coldmail.host/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

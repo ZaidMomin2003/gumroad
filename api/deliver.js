@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     console.log('[Webhook] Payment event received:', {
       type: event.type || 'unknown',
       customer_email: event.data?.customer?.email || 'unknown',
-      product: event.data?.product?.name || 'CleanMails',
+      product: event.data?.product?.name || 'cold mail',
       amount: event.data?.amount || 0,
       timestamp: new Date().toISOString()
     });

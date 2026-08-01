@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>SaaS Starter - Build Your Own Tool — Cleanmails</title>
+ <title>SaaS Starter - Build Your Own Tool — cold mail</title>
  <link rel="icon" type="image/svg+xml" href="/icon.png">
  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="/style.css">
@@ -143,7 +143,7 @@
  var ref = params.get('ref');
  if (ref) {
  document.cookie = 'cm_ref=' + ref + ';path=/;max-age=' + (30*24*60*60) + ';SameSite=Lax';
- fetch('https://affiliate.cleanmails.online/api/track-click', {
+ fetch('https://affiliate.coldmail.host/api/track-click', {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({ code: ref })
@@ -180,7 +180,7 @@
  </div>
  <div class="saas-item">
  <h3> White-Label Core</h3>
- <p>Get the full Cleanmails backend validation engine integrated seamlessly under your own logo and
+ <p>Get the full cold mail backend validation engine integrated seamlessly under your own logo and
  company name.</p>
  </div>
  <div class="saas-item">
@@ -244,7 +244,7 @@
  </div>
 
  <footer class="footer">
- <p class="footer-brand">Cleanmails</p>
+ <p class="footer-brand">cold mail</p>
  <nav class="footer-nav">
  <a href="/">Home</a>
  <a href="/support">Support</a>

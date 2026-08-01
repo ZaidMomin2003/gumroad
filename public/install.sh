@@ -1,7 +1,7 @@
-#!/bin/bash
+﻿#!/bin/bash
 
 # ============================================
-# CleanMails - Self-Hosted Cold Email Platform
+# cold mail - Self-Hosted Cold Email Platform
 # One-command installer with auto-SSL
 # ============================================
 
@@ -54,7 +54,7 @@ fail() {
   echo ""
   err "$1"
   echo ""
-  echo -e "  ${DIM}Need help? hello@cleanmails.online${NC}"
+  echo -e "  ${DIM}Need help? hello@coldmail.host${NC}"
   echo ""
   exit 1
 }
@@ -76,14 +76,14 @@ banner
 
 # ---- Root check (before prompt so we don't waste user's input) ----
 if [ "$EUID" -ne 0 ]; then
-  fail "Run as root:\n\n  curl -fsSL https://cleanmails.online/install.sh | sudo bash"
+  fail "Run as root:\n\n  curl -fsSL https://coldmail.host/install.sh | sudo bash"
 fi
 
 # ---- Interactive domain prompt (if not passed via --domain) ----
 if [ -z "$DOMAIN" ]; then
   # Piped-via-curl safety: read from the terminal directly, not stdin
   if [ ! -t 0 ] && [ ! -r /dev/tty ]; then
-    fail "Cannot prompt for domain (no terminal detected).\n\n  Try:\n  curl -fsSL https://cleanmails.online/install.sh -o cleanmails.sh\n  sudo bash cleanmails.sh"
+    fail "Cannot prompt for domain (no terminal detected).\n\n  Try:\n  curl -fsSL https://coldmail.host/install.sh -o coldmail.sh\n  sudo bash coldmail.sh"
   fi
 
   echo -e "  ${WHITE}${BOLD}Domain Setup${NC}"
@@ -110,7 +110,7 @@ if [ -z "$DOMAIN" ]; then
     fi
 
     echo ""
-    printf "  ${YELLOW}Install CleanMails at ${WHITE}https://${DOMAIN}${YELLOW}? [Y/n] ${NC}"
+    printf "  ${YELLOW}Install cold mail at ${WHITE}https://${DOMAIN}${YELLOW}? [Y/n] ${NC}"
     read CONFIRM < /dev/tty
     CONFIRM=$(echo "$CONFIRM" | tr '[:upper:]' '[:lower:]')
 
@@ -177,7 +177,7 @@ docker pull alpine:3.19 > /dev/null 2>&1 &
 DOCKER_PULL_PID=$!
 
 # ---- Download ----
-step "Downloading CleanMails"
+step "Downloading cold mail"
 
 mkdir -p "$INSTALL_DIR"
 
@@ -225,7 +225,7 @@ ENCRYPTION_KEY=$(openssl rand -hex 32)
 JWT_SECRET=$(openssl rand -hex 32)
 
 cat > "$INSTALL_DIR/.env" <<EOF
-# CleanMails - Generated $(date -u +"%Y-%m-%d %H:%M UTC")
+# cold mail - Generated $(date -u +"%Y-%m-%d %H:%M UTC")
 DOMAIN=$DOMAIN
 
 # Database
@@ -361,7 +361,7 @@ fi
 echo ""
 echo ""
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "  ${GREEN}${BOLD}  CleanMails is LIVE!${NC}"
+echo -e "  ${GREEN}${BOLD}  cold mail is LIVE!${NC}"
 echo -e "  ${GREEN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo ""
 echo -e "  ${WHITE}${BOLD}  Dashboard:${NC}   ${CYAN}https://$DOMAIN${NC}"

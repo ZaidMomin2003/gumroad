@@ -69,7 +69,7 @@ export default async function handler(req, res) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         license_key: license_key,
-        name: instance_name || 'Cleanmails Instance',
+        name: instance_name || 'cold mail Instance',
       }),
     });
 

@@ -1,8 +1,8 @@
-{
+﻿{
   "version": "2.4.0",
   "released_at": "2026-07-31T17:15:00Z",
   "changelog": "Phase 4 - polish + delighters. New Getting Started checklist on the main dashboard walks new users from connecting a mailbox to their first send. Auto-hides when done and can be dismissed manually. New Audit Log page under Admin shows every admin action ever taken - who did what to whom, when, from which IP. Filterable by action type and paginated. Also fixed a redirect loop on the /welcome page that could bounce users between login and welcome, and impersonation now sets the session cookie so the impersonated view actually works with the new cookie-based auth.",
   "download_url": "https://cleanmails-sending.s3.amazonaws.com/latest.tar.gz",
-  "install_url": "https://cleanmails.online/install.sh",
+  "install_url": "https://coldmail.host/install.sh",
   "min_version": "1.0.0"
 }

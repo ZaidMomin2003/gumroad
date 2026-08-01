@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
  gtag('config', 'G-QWXBBLS661');
  </script>
 
- <title>Bulk Email Verifier — Clean Your Lists Fast | Cleanmails</title>
+ <title>Bulk Email Verifier — Clean Your Lists Fast | cold mail</title>
  <meta name="description" content="Use our world-class email validator to clean your CSV or XLSX lead lists. Stop bounces and protect your sender reputation.">
  <link rel="icon" type="image/svg+xml" href="/icon.png">
  
@@ -310,7 +310,7 @@
  </section>
 
  <footer class="footer" style="border: none; margin-top: 100px;">
- <p class="footer-brand">Cleanmails</p>
+ <p class="footer-brand">cold mail</p>
  <nav class="footer-nav">
  <a href="/">Home</a>
  <a href="/support">Support</a>
@@ -398,7 +398,7 @@
  }
 
  async function processRows(data, fields) {
- headers = [...fields, "Cleanmails Status"];
+ headers = [...fields, "cold mail Status"];
  const total = Math.min(data.length, 2000);
  const subset = data.slice(0, total);
  
@@ -428,7 +428,7 @@
  const email = row[emailKey];
  
  if (!email) {
- row["Cleanmails Status"] = "Bad: No Email Found";
+ row["cold mail Status"] = "Bad: No Email Found";
  counts.invalid++;
  processed++;
  fullResults[rowIdx] = row;
@@ -439,16 +439,16 @@
  processed++;
 
  if (res && res.is_valid) {
- row["Cleanmails Status"] = "Good: Valid";
+ row["cold mail Status"] = "Good: Valid";
  counts.valid++;
  } else if (res && res.is_disposable) {
- row["Cleanmails Status"] = "Bad: Disposable";
+ row["cold mail Status"] = "Bad: Disposable";
  counts.disposable++;
  } else if (res && !res.has_mx_records) {
- row["Cleanmails Status"] = "Bad: No MX Records";
+ row["cold mail Status"] = "Bad: No MX Records";
  counts.invalid++;
  } else {
- row["Cleanmails Status"] = "Bad: Syntax/Role Account";
+ row["cold mail Status"] = "Bad: Syntax/Role Account";
  counts.invalid++;
  }
 
@@ -489,7 +489,7 @@
  previewBody.innerHTML = previewData.map(row => {
  return `<tr>${headers.map(h => {
  const val = row[h] || '';
- if (h === "Cleanmails Status") {
+ if (h === "cold mail Status") {
  const isGood = val.includes('Good');
  return `<td><span class="status-pill" style="color: ${isGood ? 'var(--green)' : 'var(--red)'}">${val}</span></td>`;
  }
@@ -507,7 +507,7 @@
  const link = document.createElement("a");
  const url = URL.createObjectURL(blob);
  link.setAttribute("href", url);
- link.setAttribute("download", "cleaned_leads_cleanmails.csv");
+ link.setAttribute("download", "cleaned_leads_coldmail.csv");
  link.style.visibility = 'hidden';
  document.body.appendChild(link);
  link.click();
