@@ -25,11 +25,11 @@
     }
   ],
   "rewrites": [
-    { "source": "/blog", "destination": "https://coldmail-blogs.vercel.app/blog" },
-    { "source": "/blog/:path*", "destination": "https://coldmail-blogs.vercel.app/blog/:path*" },
-    { "source": "/tools", "destination": "https://coldmail-tools.vercel.app/tools" },
-    { "source": "/tools/:path*", "destination": "https://coldmail-tools.vercel.app/tools/:path*" },
-    { "source": "/docs", "destination": "https://coldmail-docs.vercel.app/docs" },
-    { "source": "/docs/:path*", "destination": "https://coldmail-docs.vercel.app/docs/:path*" }
+    { "source": "/blog", "destination": "https://cleanmails-blogs.vercel.app/blog" },
+    { "source": "/blog/:path*", "destination": "https://cleanmails-blogs.vercel.app/blog/:path*" },
+    { "source": "/tools", "destination": "https://cleanmails-tools.vercel.app/tools" },
+    { "source": "/tools/:path*", "destination": "https://cleanmails-tools.vercel.app/tools/:path*" },
+    { "source": "/docs", "destination": "https://cleanmails-docs.vercel.app/docs" },
+    { "source": "/docs/:path*", "destination": "https://cleanmails-docs.vercel.app/docs/:path*" }
   ]
 }
